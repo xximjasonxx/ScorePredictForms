@@ -1,0 +1,6 @@
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\ScorePredict.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\ScorePredict.pdb
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Core.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Core.xml
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.pdb

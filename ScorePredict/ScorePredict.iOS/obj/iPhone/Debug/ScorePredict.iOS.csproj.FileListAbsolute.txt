@@ -1,0 +1,14 @@
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\obj\iPhone\Debug\
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\obj\iPhone\Debug\ScorePredict.iOS.csprojResolveAssemblyReference.cache
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\FormsTemplateiOS.exe
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\FormsTemplateiOS.pdb
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\ScorePredict.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\ScorePredict.pdb
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.xml
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.xml
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\obj\iPhone\Debug\FormsTemplateiOS.exe
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\obj\iPhone\Debug\FormsTemplateiOS.pdb
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.iOS\bin\iPhone\Debug\ScorePredict.dll.mdb
