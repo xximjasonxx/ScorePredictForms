@@ -1,5 +1,5 @@
-﻿<xapCache source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\PhoneApp1_Debug_x86.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="12/29/2014 4:11:03 PM">
-  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\obj\x86\Debug\ScorePredict.WinPhone.dll" archivePath="ScorePredict.WinPhone.dll" lastWriteTime="12/29/2014 4:11:02 PM" />
+﻿<xapCache source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\PhoneApp1_Debug_x86.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="12/29/2014 4:21:13 PM">
+  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\obj\x86\Debug\ScorePredict.WinPhone.dll" archivePath="ScorePredict.WinPhone.dll" lastWriteTime="12/29/2014 4:21:12 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="12/29/2014 4:06:45 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="12/29/2014 4:06:45 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="12/29/2014 4:06:45 PM" />
@@ -11,15 +11,15 @@
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="12/29/2014 4:06:48 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="12/29/2014 4:06:48 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="12/29/2014 4:06:48 PM" />
-  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="12/29/2014 4:09:41 PM" />
+  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="12/29/2014 4:21:00 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="12/29/2014 4:06:45 PM" />
   <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="12/29/2014 4:06:45 PM" />
-  <file source="c:\Projects\ScorePredictForms\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="12/29/2014 4:06:48 PM" />
-  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\ScorePredict.dll" archivePath="ScorePredict.dll" lastWriteTime="12/29/2014 4:10:45 PM" />
-  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Core.dll" archivePath="Xamarin.Forms.Core.dll" lastWriteTime="12/29/2014 4:06:40 PM" />
-  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Platform.WP8.dll" archivePath="Xamarin.Forms.Platform.WP8.dll" lastWriteTime="12/29/2014 4:06:40 PM" />
-  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Xaml.dll" archivePath="Xamarin.Forms.Xaml.dll" lastWriteTime="12/29/2014 4:06:40 PM" />
-  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Core.xml" archivePath="Xamarin.Forms.Core.xml" lastWriteTime="12/29/2014 4:06:40 PM" />
-  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Xaml.xml" archivePath="Xamarin.Forms.Xaml.xml" lastWriteTime="12/29/2014 4:06:40 PM" />
-  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="12/29/2014 4:09:41 PM" />
+  <file source="c:\Projects\ScorePredictForms\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="12/29/2014 4:20:58 PM" />
+  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\ScorePredict.dll" archivePath="ScorePredict.dll" lastWriteTime="12/29/2014 4:20:58 PM" />
+  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Core.dll" archivePath="Xamarin.Forms.Core.dll" lastWriteTime="12/29/2014 4:20:54 PM" />
+  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Platform.WP8.dll" archivePath="Xamarin.Forms.Platform.WP8.dll" lastWriteTime="12/29/2014 4:20:54 PM" />
+  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Xaml.dll" archivePath="Xamarin.Forms.Xaml.dll" lastWriteTime="12/29/2014 4:20:54 PM" />
+  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Core.xml" archivePath="Xamarin.Forms.Core.xml" lastWriteTime="12/29/2014 4:20:54 PM" />
+  <file source="c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\WP80\Xamarin.Forms.Xaml.xml" archivePath="Xamarin.Forms.Xaml.xml" lastWriteTime="12/29/2014 4:20:54 PM" />
+  <file source="c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="12/29/2014 4:21:00 PM" />
 </xapCache>
