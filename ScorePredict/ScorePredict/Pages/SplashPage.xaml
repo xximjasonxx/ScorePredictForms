@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ScorePredict.Pages.SplashPage"
              BackgroundColor="#77B739">
-	<ContentPage.Content>
-		<Label>Hello World</Label>
-	</ContentPage.Content>
+	<Image Source="logo_light_bg.png" Aspect="AspectFill" VerticalOptions="CenterAndExpand"
+         HorizontalOptions="CenterAndExpand" />
 </ContentPage>

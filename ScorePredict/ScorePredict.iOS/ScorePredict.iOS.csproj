@@ -86,6 +86,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\logo_light_bg.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

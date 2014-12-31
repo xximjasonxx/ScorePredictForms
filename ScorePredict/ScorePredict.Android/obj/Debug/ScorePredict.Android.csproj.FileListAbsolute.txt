@@ -20,3 +20,4 @@ c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.Android\obj\Debug\res\dr
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.Android\obj\Debug\R.cs.flag
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.Android\obj\Debug\uploadflags.txt
 C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.Android\bin\Debug\FormsViewGroup.dll
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.Android\obj\Debug\res\drawable\logo_light_bg.png

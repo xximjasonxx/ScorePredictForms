@@ -8,6 +8,10 @@ namespace ScorePredict.Pages
 		{
 			InitializeComponent ();
 		}
+
+	    protected override void OnAppearing()
+	    {
+	    }
 	}
 }
 
