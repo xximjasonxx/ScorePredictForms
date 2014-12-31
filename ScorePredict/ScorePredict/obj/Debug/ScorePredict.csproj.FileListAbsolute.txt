@@ -5,3 +5,6 @@ c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.dll
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.pdb
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.csprojResolveAssemblyReference.cache
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\SplashPage.xaml.g.cs

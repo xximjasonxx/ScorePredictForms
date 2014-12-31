@@ -12,6 +12,7 @@
 [Dd]ebug/
 **/Debug/*
 **/bin/
+**/obj/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/

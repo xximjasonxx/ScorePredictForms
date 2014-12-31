@@ -76,3 +76,14 @@ c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\z
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\obj\x86\Debug\ScorePredict.WinPhone.dll
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\obj\x86\Debug\ScorePredict.WinPhone.pdb
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\obj\x86\Debug\XapCacheFile.xml
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\System.Windows.Interactivity.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Projects\ScorePredictForms\ScorePredict\ScorePredict.WinPhone\Bin\x86\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
