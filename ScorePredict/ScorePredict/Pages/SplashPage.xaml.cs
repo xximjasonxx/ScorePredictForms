@@ -1,8 +1,6 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace ScorePredict
+namespace ScorePredict.Pages
 {	
 	public partial class SplashPage : ContentPage
 	{	
