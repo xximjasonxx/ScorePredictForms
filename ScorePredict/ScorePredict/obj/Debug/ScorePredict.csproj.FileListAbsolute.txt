@@ -8,3 +8,4 @@ c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\SplashPage.xam
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\LoginPage.xaml.g.cs
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.dll
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.pdb
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.csprojResolveAssemblyReference.cache
