@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   x:Class="ScorePredict.Pages.LoginPage"
+             BackgroundColor="#77B739">
+	<ContentPage.Content>
+    <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Padding="7">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="10" /> <!-- Blank -->
+        <RowDefinition /> <!-- Username -->
+        <RowDefinition /> <!-- Password -->
+        <RowDefinition Height="10" /> <!-- Blank -->
+        <RowDefinition Height="Auto" /> <!-- Buttons -->
+      </Grid.RowDefinitions>
+      
+      <Entry Grid.Row="1" Placeholder="Username" TextColor="White" />
+      <Entry Grid.Row="2" Placeholder="Password" TextColor="White" IsPassword="True" />
+      
+      <StackLayout Orientation="Vertical" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                   Padding="30,5,30,5">
+        <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Login"
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" />
+        
+        <Label TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+               Text="Or" FontSize="20" />
+        
+        <Button BackgroundColor="#1D2F58" BorderRadius="10" TextColor="White" Text="Login with Facebook"
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" />
+      </StackLayout>
+      
+      
+      
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

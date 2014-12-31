@@ -75,11 +75,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
+    <AndroidResource Include="Resources\Drawable\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Drawable\logo_light_bg.png" />
+    <AndroidResource Include="Resources\Drawable\fb_login.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ScorePredict\ScorePredict.csproj">
