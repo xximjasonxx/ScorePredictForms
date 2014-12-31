@@ -7,6 +7,7 @@ using MonoTouch.UIKit;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using ScorePredict.Pages;
 
 namespace ScorePredict.iOS
 {
@@ -30,9 +31,11 @@ namespace ScorePredict.iOS
         {
             Forms.Init();
 
-            window = new UIWindow(UIScreen.MainScreen.Bounds);
-			LoadApplication (new App ());
-            window.MakeKeyAndVisible();
+			window = new UIWindow(UIScreen.MainScreen.Bounds);
+
+			window.RootViewController = new SplashPage().CreateViewController();
+
+			window.MakeKeyAndVisible();
 
             return true;
         }

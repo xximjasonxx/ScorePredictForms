@@ -206,7 +206,7 @@ Global
 		{F52E66E1-E5AB-4001-9CD5-29D6B68EE2B3}.Release|x86.ActiveCfg = Release|iPhone
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = ScorePredict\ScorePredict.Android\ScorePredict.Android.csproj
+		StartupItem = ScorePredict\ScorePredict.iOS\ScorePredict.iOS.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
