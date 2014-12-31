@@ -1,55 +1,52 @@
-c:\Projects\ScorePredictForms\ScorePredict\ScorePredict.Android\bin\Debug\ScorePredict.Android.dll
-c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\ScorePredict.dll
-c:\Projects\ScorePredictForms\packages\Xamarin.Android.Support.v4.19.0.2\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll
-c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\MonoAndroid10\Xamarin.Forms.Core.dll
-c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll
-c:\Projects\ScorePredictForms\packages\Xamarin.Forms.1.0.6186\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Collections.Concurrent.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Collections.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ComponentModel.Annotations.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ComponentModel.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ComponentModel.EventBasedAsync.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Diagnostics.Contracts.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Diagnostics.Debug.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Diagnostics.Tools.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Diagnostics.Tracing.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Dynamic.Runtime.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Globalization.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.IO.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Linq.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Linq.Expressions.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Linq.Parallel.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Linq.Queryable.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Net.NetworkInformation.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Net.Primitives.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Net.Requests.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ObjectModel.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Reflection.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Reflection.Emit.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Reflection.Emit.ILGeneration.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Reflection.Emit.Lightweight.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Reflection.Extensions.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Reflection.Primitives.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Resources.ResourceManager.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.Extensions.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.InteropServices.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.InteropServices.WindowsRuntime.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.Numerics.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.Serialization.Json.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.Serialization.Primitives.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Runtime.Serialization.Xml.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Security.Principal.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ServiceModel.Http.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ServiceModel.Primitives.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.ServiceModel.Security.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Text.Encoding.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Text.Encoding.Extensions.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Text.RegularExpressions.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Threading.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Threading.Tasks.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Threading.Tasks.Parallel.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Threading.Timer.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Xml.ReaderWriter.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Xml.XDocument.dll
-C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Xml.XmlSerializer.dll
+/Users/xximjasonxx/Projects/ScorePredictForms/ScorePredict/ScorePredict.Android/bin/Debug/ScorePredict.Android.dll
+/Users/xximjasonxx/Projects/ScorePredictForms/packages/Xamarin.Android.Support.v4.19.0.2/lib/MonoAndroid10/Xamarin.Android.Support.v4.dll
+/Users/xximjasonxx/Projects/ScorePredictForms/packages/Xamarin.Forms.1.0.6186/lib/MonoAndroid10/Xamarin.Forms.Core.dll
+/Users/xximjasonxx/Projects/ScorePredictForms/packages/Xamarin.Forms.1.0.6186/lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll
+/Users/xximjasonxx/Projects/ScorePredictForms/packages/Xamarin.Forms.1.0.6186/lib/MonoAndroid10/Xamarin.Forms.Xaml.dll
+/Users/xximjasonxx/Projects/ScorePredictForms/ScorePredict/ScorePredict/bin/Debug/ScorePredict.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Collections.Concurrent.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Collections.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ComponentModel.Annotations.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ComponentModel.EventBasedAsync.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ComponentModel.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Diagnostics.Contracts.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Diagnostics.Debug.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Diagnostics.Tools.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Dynamic.Runtime.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Globalization.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.IO.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Linq.Expressions.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Linq.Parallel.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Linq.Queryable.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Linq.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Net.NetworkInformation.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Net.Primitives.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Net.Requests.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ObjectModel.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Reflection.Emit.ILGeneration.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Reflection.Emit.Lightweight.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Reflection.Emit.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Reflection.Extensions.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Reflection.Primitives.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Reflection.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Resources.ResourceManager.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.Extensions.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.InteropServices.WindowsRuntime.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.InteropServices.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.Numerics.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.Serialization.Json.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.Serialization.Primitives.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.Serialization.Xml.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Runtime.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Security.Principal.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ServiceModel.Http.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.ServiceModel.Primitives.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Text.Encoding.Extensions.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Text.Encoding.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Text.RegularExpressions.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Threading.Tasks.Parallel.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Threading.Tasks.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Threading.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Xml.ReaderWriter.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Xml.XDocument.dll
+/Library/Frameworks/Mono.framework/External/xbuild-frameworks/MonoAndroid/v1.0/Facades/System.Xml.XmlSerializer.dll

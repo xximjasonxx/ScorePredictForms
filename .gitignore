@@ -6,9 +6,12 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.userprefs
 
 # Build results
 [Dd]ebug/
+**/Debug/*
+**/bin/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
