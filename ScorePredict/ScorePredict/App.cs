@@ -7,19 +7,16 @@ using Xamarin.Forms;
 
 namespace ScorePredict
 {
-    public class App
+	public class App : Application
     {
-        public static Page GetMainPage()
-        {
-            return new ContentPage
-            {
-                Content = new Label
-                {
-                    Text = "Hello, Forms !",
-                    VerticalOptions = LayoutOptions.CenterAndExpand,
-                    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                },
-            };
-        }
+		public App()
+		{
+			MainPage = new SplashPage ();
+		}
+
+		protected override void OnStart ()
+		{
+			base.OnStart ();
+		}
     }
 }

@@ -69,8 +69,9 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		"ScorePredict.Android.dll",
 		"Xamarin.Android.Support.v4.dll",
-		"Xamarin.Forms.Core.dll",
 		"Xamarin.Forms.Platform.Android.dll",
+		"FormsViewGroup.dll",
+		"Xamarin.Forms.Core.dll",
 		"Xamarin.Forms.Xaml.dll",
 		"ScorePredict.dll",
 		"System.Collections.Concurrent.dll",

@@ -10,7 +10,7 @@ public class CellRenderer_RendererHolder
 	static {
 		__md_methods = 
 			"";
-		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.CellRenderer/RendererHolder, Xamarin.Forms.Platform.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", CellRenderer_RendererHolder.class, __md_methods);
+		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.CellRenderer/RendererHolder, Xamarin.Forms.Platform.Android, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null", CellRenderer_RendererHolder.class, __md_methods);
 	}
 
 
@@ -18,7 +18,7 @@ public class CellRenderer_RendererHolder
 	{
 		super ();
 		if (getClass () == CellRenderer_RendererHolder.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.CellRenderer/RendererHolder, Xamarin.Forms.Platform.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.CellRenderer/RendererHolder, Xamarin.Forms.Platform.Android, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 	java.util.ArrayList refList;

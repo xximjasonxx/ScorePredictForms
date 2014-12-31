@@ -6,6 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace ScorePredict.iOS
 {
@@ -13,7 +14,7 @@ namespace ScorePredict.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : UIApplicationDelegate
+    public partial class AppDelegate : FormsApplicationDelegate
     {
         // class-level declarations
         UIWindow window;
@@ -30,9 +31,7 @@ namespace ScorePredict.iOS
             Forms.Init();
 
             window = new UIWindow(UIScreen.MainScreen.Bounds);
-
-            window.RootViewController = App.GetMainPage().CreateViewController();
-
+			LoadApplication (new App ());
             window.MakeKeyAndVisible();
 
             return true;

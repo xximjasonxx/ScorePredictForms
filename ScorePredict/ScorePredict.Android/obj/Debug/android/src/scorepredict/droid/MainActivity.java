@@ -2,7 +2,7 @@ package scorepredict.droid;
 
 
 public class MainActivity
-	extends xamarin.forms.platform.android.AndroidActivity
+	extends xamarin.forms.platform.android.FormsApplicationActivity
 	implements
 		mono.android.IGCUserPeer
 {

@@ -16,7 +16,7 @@ public class ButtonDrawable
 			"n_getOpacity:()I:GetGetOpacityHandler\n" +
 			"n_setColorFilter:(Landroid/graphics/ColorFilter;)V:GetSetColorFilter_Landroid_graphics_ColorFilter_Handler\n" +
 			"";
-		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.ButtonDrawable, Xamarin.Forms.Platform.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", ButtonDrawable.class, __md_methods);
+		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.ButtonDrawable, Xamarin.Forms.Platform.Android, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null", ButtonDrawable.class, __md_methods);
 	}
 
 
@@ -24,7 +24,7 @@ public class ButtonDrawable
 	{
 		super ();
 		if (getClass () == ButtonDrawable.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.ButtonDrawable, Xamarin.Forms.Platform.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.ButtonDrawable, Xamarin.Forms.Platform.Android, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 
