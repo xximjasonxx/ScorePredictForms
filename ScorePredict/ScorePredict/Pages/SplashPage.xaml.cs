@@ -14,8 +14,7 @@ namespace ScorePredict.Pages
 	    {
 	        Navigation.PushModalAsync(new NavigationPage(new LoginPage())
 	        {
-                BarBackgroundColor = Color.FromHex("#3C8513"),
-                Title = "Login"
+                BarBackgroundColor = Color.FromHex("#3C8513")
 	        }, true);
 	    }
 	}
