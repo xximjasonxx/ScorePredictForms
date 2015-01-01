@@ -17,27 +17,16 @@ namespace ScorePredict.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : FormsApplicationDelegate
     {
-        // class-level declarations
-        UIWindow window;
-
-        //
-        // This method is invoked when the application has loaded and is ready to run. In this 
-        // method you should instantiate the window, load the UI into it and then make the window
-        // visible.
-        //
-        // You have 17 seconds to return from this method, or iOS will terminate your application.
-        //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
 
-			window = new UIWindow(UIScreen.MainScreen.Bounds);
+			//window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			window.RootViewController = new SplashPage().CreateViewController();
+			//window.RootViewController = new SplashPage().CreateViewController();
+			LoadApplication (new App ());
 
-			window.MakeKeyAndVisible();
-
-            return true;
+			return base.FinishedLaunching (app, options);
         }
     }
 }
