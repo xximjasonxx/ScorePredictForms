@@ -4,13 +4,14 @@
 					   x:Class="ScorePredict.Pages.LoginPage"
              BackgroundColor="#77B739" Title="Login">
 	<ContentPage.Content>
-    <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Padding="7">
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" /> <!-- Blank (except on Windows Phone) -->
-        <RowDefinition /> <!-- Username -->
-        <RowDefinition /> <!-- Password -->
+        <RowDefinition Height="Auto" /> <!-- Username -->
+        <RowDefinition Height="Auto" /> <!-- Password -->
         <RowDefinition Height="10" /> <!-- Blank -->
-        <RowDefinition Height="Auto" /> <!-- Buttons -->
+        <RowDefinition Height="*" /> <!-- Buttons -->
+        <RowDefinition Height="Auto" />  <!-- Create User -->
       </Grid.RowDefinitions>
       
       <Label Grid.Row="0">
@@ -37,8 +38,10 @@
         <Button BackgroundColor="#1D2F58" BorderRadius="10" TextColor="White" Text="Login with Facebook"
                 VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#1D2F58" />
       </StackLayout>
-      
-      
+
+      <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Create User"
+              VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
+              Grid.Row="5" />
       
     </Grid>
   </ContentPage.Content>

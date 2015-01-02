@@ -13,10 +13,5 @@ namespace ScorePredict
 		{
 			MainPage = new SplashPage ();
 		}
-
-		protected override void OnStart ()
-		{
-			base.OnStart ();
-		}
     }
 }

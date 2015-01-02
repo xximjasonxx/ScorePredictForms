@@ -14,7 +14,7 @@ using Xamarin.Forms.Platform.WinPhone;
 
 namespace ScorePredict.WinPhone
 {
-    public partial class MainPage : FormsApplicationPage
+    public partial class MainPage
     {
         public MainPage()
         {

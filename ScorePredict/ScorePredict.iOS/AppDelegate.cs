@@ -20,11 +20,7 @@ namespace ScorePredict.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
-
-			//window = new UIWindow(UIScreen.MainScreen.Bounds);
-
-			//window.RootViewController = new SplashPage().CreateViewController();
-			LoadApplication (new App ());
+            LoadApplication (new App ());
 
 			return base.FinishedLaunching (app, options);
         }
