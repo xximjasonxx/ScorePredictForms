@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace ScorePredict.Pages
 {
-    public partial class LoginPage
+    public partial class AboutPage
     {
-        public LoginPage()
+        public AboutPage()
         {
             InitializeComponent();
-        }
-
-        private void GoToCreateUser(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new CreateUserPage());
         }
     }
 }

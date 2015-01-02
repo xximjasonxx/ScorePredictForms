@@ -4,8 +4,14 @@ c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Xaml.dll
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Core.xml
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\bin\Debug\Xamarin.Forms.Xaml.xml
-c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\SplashPage.xaml.g.cs
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\LoginPage.xaml.g.cs
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.dll
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.pdb
 c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ScorePredict.csprojResolveAssemblyReference.cache
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\CreateUserPage.xaml.g.cs
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\MainPage.xaml.g.cs
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\ThisWeekPage.xaml.g.cs
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\PredictionsPage.xaml.g.cs
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\GroupsPage.xaml.g.cs
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\HistoryPage.xaml.g.cs
+c:\Projects\ScorePredictForms\ScorePredict\ScorePredict\obj\Debug\AboutPage.xaml.g.cs

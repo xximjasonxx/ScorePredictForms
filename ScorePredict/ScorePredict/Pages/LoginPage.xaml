@@ -41,7 +41,7 @@
 
       <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Create User"
               VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
-              Grid.Row="5" />
+              Grid.Row="5" Clicked="GoToCreateUser" />
       
     </Grid>
   </ContentPage.Content>

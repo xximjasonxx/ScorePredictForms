@@ -11,7 +11,7 @@ namespace ScorePredict
     {
 		public App()
 		{
-			MainPage = new SplashPage ();
+			MainPage = new MainPage();
 		}
     }
 }
