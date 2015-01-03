@@ -91,6 +91,8 @@ dlldata.c
 *.svclog
 *.scc
 
+!NuGet.exe
+
 # Chutzpah Test files
 _Chutzpah*
 
