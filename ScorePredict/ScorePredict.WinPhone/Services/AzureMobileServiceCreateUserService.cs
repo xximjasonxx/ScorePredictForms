@@ -1,6 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Data;
@@ -8,7 +10,7 @@ using ScorePredict.Data.Entity;
 using ScorePredict.Data.Ex;
 using ScorePredict.Data.Services;
 
-namespace ScorePredict.Droid.Services
+namespace ScorePredict.WinPhone.Services
 {
     public class AzureMobileServiceCreateUserService : ICreateUserService
     {

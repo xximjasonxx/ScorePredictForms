@@ -30,10 +30,8 @@ namespace ScorePredict.Injection
             // perform initialization
             foreach (var dependency in module.GetTypeDictionary())
             {
-                if (TypeDictionary.ContainsKey(dependency.Key))
-                    throw new InvalidOperationException("Duplicate Dependencies specified");
-
-                TypeDictionary.Add(dependency);
+                if (!TypeDictionary.ContainsKey(dependency.Key))
+                    TypeDictionary.Add(dependency);
             }
 
             // update is initialized

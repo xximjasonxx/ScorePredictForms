@@ -30,12 +30,11 @@ namespace ScorePredict.Pages
                     txtUsername.Text,
                     txtPassword.Text,
                     txtConfirm.Text);
-                if (!result)
+                if (result == null)
                     throw new CreateUserException("An error occured creating your user. Please try again");
             }
             catch (CreateUserException ex)
             {
-                // display the message
                 resultMessage = ex.Message;
             }
             catch

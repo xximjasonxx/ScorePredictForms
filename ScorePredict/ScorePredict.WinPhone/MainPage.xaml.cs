@@ -7,7 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-
+using ScorePredict.Injection;
+using ScorePredict.WinPhone.Module;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.WinPhone;
 
@@ -21,6 +22,7 @@ namespace ScorePredict.WinPhone
             InitializeComponent();
 
             Forms.Init();
+            Resolver.CurrentResolver.Initialize(new WindowsPhoneInjectionModule());
             LoadApplication(new ScorePredict.App());
         }
     }

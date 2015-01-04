@@ -8,11 +8,9 @@ namespace ScorePredict.Data.Ex
 {
     public class CreateUserException : Exception
     {
-        public string ErrorMessage { get; private set; }
 
-        public CreateUserException(string errorMessage)
+        public CreateUserException(string errorMessage) : base(errorMessage)
         {
-            ErrorMessage = errorMessage;
         }
     }
 }

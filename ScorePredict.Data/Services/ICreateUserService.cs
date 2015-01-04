@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using ScorePredict.Data.Entity;
 
 namespace ScorePredict.Data.Services
 {
     public interface ICreateUserService
     {
-        Task<bool> CreateUserAsync(string username, string password, string confirm);
+        Task<User> CreateUserAsync(string username, string password, string confirm);
     }
 }
