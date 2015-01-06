@@ -31,19 +31,21 @@
         </Label.Text>
       </Label>
 
-      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" />
-      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" />
+      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" x:Name="txtUsername" />
+      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" x:Name="txtPassword" />
 
       <StackLayout Orientation="Vertical" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                    Padding="30,5,30,5">
         <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Login"
-                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513" />
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
+                Clicked="Login" />
 
         <Label TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                Text="Or" FontSize="20" />
 
         <Button BackgroundColor="#1D2F58" BorderRadius="10" TextColor="White" Text="Login with Facebook"
-                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#1D2F58" />
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#1D2F58"
+                Clicked="FacebookLogin" />
       </StackLayout>
 
       <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Create User"

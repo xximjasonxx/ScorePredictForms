@@ -8,6 +8,7 @@ namespace ScorePredict.Services
         public ServiceInjectionModule()
         {
             AddDependency<ICreateUserService>(typeof(AzureMobileServiceCreateUserService));
+            AddDependency<ILoginUserService>(typeof(AzureMobileServiceLoginUserService));
         }
     }
 }
