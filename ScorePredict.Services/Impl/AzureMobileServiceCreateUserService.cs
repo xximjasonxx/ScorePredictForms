@@ -4,14 +4,22 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Data;
 using ScorePredict.Data.Ex;
+using ScorePredict.Common.Injection;
+using ScorePredict.Services.Client;
 
 namespace ScorePredict.Services.Impl
 {
     public class AzureMobileServiceCreateUserService : ICreateUserService
     {
+        private readonly IClient _client;
+
+        public AzureMobileServiceCreateUserService()
+        {
+            Resolver.CurrentResolver.Get<ICreateUserService>();
+        }
+
         public async Task<User> CreateUserAsync(string username, string password, string confirm)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -25,7 +33,7 @@ namespace ScorePredict.Services.Impl
 
         private async Task<User> CreateUserAsync(string username, string password)
         {
-            try
+            /*try
             {
                 MobileServiceClient client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
                 var parameters = new Dictionary<string, string>
@@ -44,7 +52,8 @@ namespace ScorePredict.Services.Impl
             catch (MobileServiceInvalidOperationException msInvalidOpEx)
             {
                 throw new CreateUserException(msInvalidOpEx.Message);
-            }
+            }*/
+            return null;
         }
     }
 }

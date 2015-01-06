@@ -42,7 +42,7 @@ namespace ScorePredict.Core.Pages
             {
                 errorMessage = lex.Message;
             }
-            catch
+            catch (Exception ex)
             {
                 errorMessage = "Login did not succeed. Please try again";
             }

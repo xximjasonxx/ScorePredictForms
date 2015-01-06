@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using ScorePredict.Core;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace ScorePredict.Touch
 {
@@ -18,7 +19,8 @@ namespace ScorePredict.Touch
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
-            Resolver.CurrentResolver.Initialize(new ServiceInjectionModule());
+            CurrentPlatform.Init();
+            Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(), new TouchInjectionModule());
             LoadApplication (new App ());
 
             return base.FinishedLaunching (app, options);

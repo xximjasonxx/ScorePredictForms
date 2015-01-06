@@ -23,7 +23,7 @@ namespace ScorePredict.Droid
             Xamarin.Forms.Forms.Init(this, bundle);
 
             // initialize dependency injection
-            Resolver.CurrentResolver.Initialize(new ServiceInjectionModule());
+            Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(), new DroidInjectionModule());
 
             LoadApplication(new App());
         }
