@@ -119,6 +119,10 @@
     <BundleResource Include="AppIcons\icon%402x.png" />
     <BundleResource Include="AppIcons\icon.png" />
     <BundleResource Include="AppIcons\icon114%402x.png" />
+    <BundleResource Include="LaunchImages\LaunchImage.png" />
+    <BundleResource Include="LaunchImages\LaunchImage%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -158,6 +162,7 @@
   </Target>
   <ItemGroup>
     <Folder Include="AppIcons\" />
+    <Folder Include="LaunchImages\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="azure-mobile-services">
