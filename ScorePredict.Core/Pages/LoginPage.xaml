@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+					   xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
 					   x:Class="ScorePredict.Core.Pages.LoginPage"
              BackgroundColor="#77B739" Title="Login">
   <ContentPage.Content>
@@ -30,8 +31,8 @@
         </Label.Text>
       </Label>
 
-      <Entry Grid.Row="1" Placeholder="Username" TextColor="White" />
-      <Entry Grid.Row="2" Placeholder="Password" TextColor="White" IsPassword="True" />
+      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" />
+      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" />
 
       <StackLayout Orientation="Vertical" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                    Padding="30,5,30,5">
