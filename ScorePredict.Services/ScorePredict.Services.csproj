@@ -74,7 +74,7 @@
       <Name>ScorePredict.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\ScorePredict.Data\ScorePredict.Data.csproj">
-      <Project>{9EC102BC-D0A7-406C-8B68-42F895658176}</Project>
+      <Project>{9ec102bc-d0a7-406c-8b68-42f895658176}</Project>
       <Name>ScorePredict.Data</Name>
     </ProjectReference>
   </ItemGroup>

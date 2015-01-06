@@ -13,7 +13,7 @@ using ScorePredict.Services;
 
 namespace ScorePredict.Droid
 {
-    [Activity(Label = "ScorePredict.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "ScorePredict.Droid", MainLauncher = true, Icon = "@drawable/app_icon")]
     public class MainActivity : FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
