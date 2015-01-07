@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>ScorePredict.Touch</string>
+	<string>Score Predict</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.ScorePredict.Touch</string>
+	<string>com.farrellsoft.ScorePredict</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
