@@ -10,7 +10,7 @@ namespace ScorePredict.Droid
     {
         public DroidInjectionModule()
         {
-            AddDependency<IClient>(typeof(AzureMobileServiceClient));
+            AddDependency<IClient>(new AzureMobileServiceClient());
             AddDependency<ISaveUserSecurityService>(typeof(DroidSaveUserSecurityService));
             AddDependency<IReadUserSecurityService>(typeof(DroidReadUserSecurityService));
             AddDependency<IEncryptionService>(typeof(DroidEncryptionService));

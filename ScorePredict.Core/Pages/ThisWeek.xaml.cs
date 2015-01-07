@@ -12,5 +12,10 @@ namespace ScorePredict.Core.Pages
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }

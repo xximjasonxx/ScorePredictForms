@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
-using ScorePredict.Common.Injection;
 using ScorePredict.Data;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
@@ -13,33 +12,28 @@ namespace ScorePredict.Droid.Client
 {
     public class AzureMobileServiceClient : IClient
     {
-        private readonly IReadUserSecurityService _readUserSecurityService;
-
-        public AzureMobileServiceClient()
-        {
-            _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
-        }
+        private MobileServiceClient _client;
 
         private MobileServiceClient Client
         {
             get
             {
-                var client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-                var currentUser = _readUserSecurityService.ReadUser();
+                if (_client == null)
+                    _client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
 
-                if (currentUser != null)
-                {
-                    client.CurrentUser = new MobileServiceUser(currentUser.UserId)
-                    {
-                        MobileServiceAuthenticationToken = currentUser.AuthToken
-                    };
-                }
-
-                return client;
+                return _client;
             }
         }
 
         #region IClient implementation
+
+        public void AutneticateUser(User user)
+        {
+            Client.CurrentUser = new MobileServiceUser(user.UserId)
+            {
+                MobileServiceAuthenticationToken = user.AuthToken
+            };
+        }
 
         public async Task<IDictionary<string, string>> PostApiAsync(string apiName, IDictionary<string, string> parameters = null)
         {

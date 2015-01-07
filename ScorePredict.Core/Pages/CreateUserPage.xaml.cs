@@ -2,6 +2,7 @@
 using ScorePredict.Common.Injection;
 using ScorePredict.Data.Ex;
 using ScorePredict.Services;
+using ScorePredict.Services.Client;
 
 namespace ScorePredict.Core.Pages
 {
@@ -32,6 +33,8 @@ namespace ScorePredict.Core.Pages
                     throw new CreateUserException("An error occured creating your user. Please try again");
 
                 _saveUserSecurityService.SaveUser(result);
+                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(result);
+
                 await Navigation.PopModalAsync(true);
             }
             catch (CreateUserException ex)

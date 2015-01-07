@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
-using Xamarin.Forms;
-using MonoTouch.UIKit;
 using ScorePredict.Data;
 using System;
 using ScorePredict.Common.Injection;
@@ -16,6 +14,19 @@ namespace ScorePredict.Touch.Client
     {
 		private readonly IWindowHelper _windowHelper;
 
+        private MobileServiceClient _client;
+
+        private MobileServiceClient Client
+        {
+            get
+            {
+                if (_client == null)
+                    _client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
+
+                return _client;
+            }
+        }
+
 		public AzureMobileServiceClient()
 		{
 			_windowHelper = Resolver.CurrentResolver.GetInstance<IWindowHelper>();
@@ -23,10 +34,17 @@ namespace ScorePredict.Touch.Client
 
         #region IClient implementation
 
+        public void AutneticateUser(User user)
+        {
+            Client.CurrentUser = new MobileServiceUser(user.UserId)
+            {
+                MobileServiceAuthenticationToken = user.AuthToken
+            };
+        }
+
         public async Task<IDictionary<string, string>> PostApiAsync(string apiName, IDictionary<string, string> parameters = null)
         {
-            var client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-            var result = await client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
+            var result = await Client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
             return result.AsDictionary();
         }
 
@@ -35,8 +53,7 @@ namespace ScorePredict.Touch.Client
 			try
 			{
                 var vc = _windowHelper.GetKeyWindow().RootViewController.PresentedViewController;
-				var client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-                var result = await client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
+				var result = await Client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
 
 				return new Dictionary<string, string>
 				{

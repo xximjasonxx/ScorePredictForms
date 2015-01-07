@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ScorePredict.Common.Injection;
 using ScorePredict.Phone.Client;
+using ScorePredict.Services;
 using ScorePredict.Services.Client;
 
 namespace ScorePredict.Phone
@@ -13,7 +14,7 @@ namespace ScorePredict.Phone
     {
         public PhoneInjectionModule()
         {
-            AddDependency<IClient>(typeof(AzureMobileServiceClient));
+            AddDependency<IClient>(new AzureMobileServiceClient());
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ScorePredict.Services;
 using ScorePredict.Common.Injection;
 using ScorePredict.Data;
+using ScorePredict.Services.Client;
 
 namespace ScorePredict.Core.Pages
 {
@@ -39,6 +40,8 @@ namespace ScorePredict.Core.Pages
                 }
 
                 _saveUserSecurityService.SaveUser(user);
+                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(user);
+
                 await Navigation.PopModalAsync(true);
             }
             catch (LoginException lex)
@@ -67,6 +70,8 @@ namespace ScorePredict.Core.Pages
                 }
 
                 _saveUserSecurityService.SaveUser(result);
+                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(result);
+
                 await Navigation.PopModalAsync(true);
             }
             catch (LoginException lex)

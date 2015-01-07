@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services;
+using ScorePredict.Services.Client;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
@@ -30,6 +31,10 @@ namespace ScorePredict.Core.Pages
                     BarBackgroundColor = Color.FromHex("#3C8513"),
                     BarTextColor = Color.FromHex("#FCD23C")
                 }, true);
+            }
+            else
+            {
+                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(user);
             }
         }
     }

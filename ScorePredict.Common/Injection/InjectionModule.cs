@@ -22,7 +22,7 @@ namespace ScorePredict.Common.Injection
             return _typeDictionary;
         }
 
-		internal IDictionary<Type, object> GetInstanceDictionary ()
+		internal IDictionary<Type, object> GetInstanceDictionary()
 		{
 			return _registeredInstances;
 		}
