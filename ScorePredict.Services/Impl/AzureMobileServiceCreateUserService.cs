@@ -17,7 +17,7 @@ namespace ScorePredict.Services.Impl
 
         public AzureMobileServiceCreateUserService()
         {
-            Resolver.CurrentResolver.Get<ICreateUserService>();
+            _client = Resolver.CurrentResolver.Get<IClient>();
         }
 
         public async Task<User> CreateUserAsync(string username, string password, string confirm)
@@ -33,27 +33,18 @@ namespace ScorePredict.Services.Impl
 
         private async Task<User> CreateUserAsync(string username, string password)
         {
-            /*try
+            var parameters = new Dictionary<string, string>
             {
-                MobileServiceClient client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-                var parameters = new Dictionary<string, string>
-                {
-                    {"username", username},
-                    {"password", password}
-                };
+                { "username", username },
+                { "password", password }
+            };
 
-                var result = await client.InvokeApiAsync("create_user", HttpMethod.Post, parameters);
-                return new User()
-                {
-                    AuthToken = result["token"].ToString(),
-                    UserId = result["id"].ToString()
-                };
-            }
-            catch (MobileServiceInvalidOperationException msInvalidOpEx)
+            var result = await _client.PostApiAsync("create_user", parameters);
+            return new User()
             {
-                throw new CreateUserException(msInvalidOpEx.Message);
-            }*/
-            return null;
+                AuthToken = result["token"].ToString(),
+                UserId = result["id"].ToString()
+            };
         }
     }
 }

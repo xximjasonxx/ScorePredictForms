@@ -20,11 +20,10 @@ namespace ScorePredict.Touch
         {
             Forms.Init();
             CurrentPlatform.Init();
-
-			var formsApp = new App();
             Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(),
 				new TouchInjectionModule(app));
-			LoadApplication(formsApp);
+			
+            LoadApplication(new App());
 
             return base.FinishedLaunching (app, options);
         }
