@@ -23,7 +23,7 @@ namespace ScorePredict.Touch
 
 			var formsApp = new App();
             Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(),
-				new TouchInjectionModule(formsApp));
+				new TouchInjectionModule(app));
 			LoadApplication(formsApp);
 
             return base.FinishedLaunching (app, options);

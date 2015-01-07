@@ -14,11 +14,11 @@ namespace ScorePredict.Touch.Client
 {
     public class AzureMobileServiceClient : IClient
     {
-		private readonly IApplicationHelper _applicationHelper;
+		private readonly IWindowHelper _windowHelper;
 
 		public AzureMobileServiceClient()
 		{
-			_applicationHelper = Resolver.CurrentResolver.GetInstance<IApplicationHelper>();
+			_windowHelper = Resolver.CurrentResolver.GetInstance<IWindowHelper>();
 		}
 
         #region IClient implementation
@@ -34,9 +34,9 @@ namespace ScorePredict.Touch.Client
 		{
 			try
 			{
-				var viewController = _applicationHelper.Application.MainPage.CreateViewController();
+                var vc = _windowHelper.GetKeyWindow().RootViewController.PresentedViewController;
 				var client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-				var result = await client.LoginAsync(viewController, MobileServiceAuthenticationProvider.Facebook);
+                var result = await client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
 
 				return new Dictionary<string, string>
 				{
@@ -44,10 +44,10 @@ namespace ScorePredict.Touch.Client
 					{"token", result.MobileServiceAuthenticationToken }
 				};
 			}
-			catch (Exception ex)
-			{
-				throw new LoginException("Login Failed");
-			}
+            catch(InvalidOperationException)
+            {
+                throw new LoginException("Login was cancelled");
+            }
 		}
 
         #endregion

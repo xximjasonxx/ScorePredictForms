@@ -135,8 +135,8 @@
     <Compile Include="Rendering\TouchScorePredictEntryRenderer.cs" />
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="TouchInjectionModule.cs" />
-    <Compile Include="Helper\IApplicationHelper.cs" />
-    <Compile Include="Helper\Impl\TouchApplicationHelper.cs" />
+    <Compile Include="Helper\IWindowHelper.cs" />
+    <Compile Include="Helper\Impl\TouchWindowHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.3.0.6292\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.0.6292\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
