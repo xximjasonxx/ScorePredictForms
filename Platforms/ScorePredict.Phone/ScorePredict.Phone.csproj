@@ -99,7 +99,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PhoneConstants.cs" />
+    <Compile Include="PhoneEncryptionService.cs" />
     <Compile Include="PhoneInjectionModule.cs" />
+    <Compile Include="PhoneReadUserSecurityService.cs" />
+    <Compile Include="PhoneSaveUserSecurityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\PhoneScorePredictRenderer.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">

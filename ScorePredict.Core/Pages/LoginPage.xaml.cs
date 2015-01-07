@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ScorePredict.Services;
 using ScorePredict.Common.Injection;
 using ScorePredict.Data;
+using ScorePredict.Services;
 using ScorePredict.Services.Client;
 
 namespace ScorePredict.Core.Pages

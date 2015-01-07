@@ -15,6 +15,9 @@ namespace ScorePredict.Phone
         public PhoneInjectionModule()
         {
             AddDependency<IClient>(new AzureMobileServiceClient());
+            AddDependency<IReadUserSecurityService>(typeof(PhoneReadUserSecurityService));
+            AddDependency<ISaveUserSecurityService>(typeof(PhoneSaveUserSecurityService));
+            AddDependency<IEncryptionService>(typeof(PhoneEncryptionService));
         }
     }
 }

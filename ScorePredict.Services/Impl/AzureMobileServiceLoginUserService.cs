@@ -14,7 +14,7 @@ namespace ScorePredict.Services
 
         public AzureMobileServiceLoginUserService()
         {
-            _client = Resolver.CurrentResolver.Get<IClient>();
+            _client = Resolver.CurrentResolver.GetInstance<IClient>();
         }
 
         #region ILoginUserService implementation
