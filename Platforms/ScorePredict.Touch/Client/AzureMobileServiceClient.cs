@@ -36,7 +36,7 @@ namespace ScorePredict.Touch.Client
 			{
 				var viewController = _applicationHelper.Application.MainPage.CreateViewController();
 				var client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-				var result = await client.LoginAsync(new UIViewController(), MobileServiceAuthenticationProvider.Facebook);
+				var result = await client.LoginAsync(viewController, MobileServiceAuthenticationProvider.Facebook);
 
 				return new Dictionary<string, string>
 				{

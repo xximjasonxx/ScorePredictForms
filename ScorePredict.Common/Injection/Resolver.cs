@@ -67,7 +67,7 @@ namespace ScorePredict.Common.Injection
 			if (!_isInitialized)
 				throw new InvalidOperationException("Container is not resolved");
 
-			if (!TypeDictionary.ContainsKey(typeof(T)))
+			if (!InstanceDictionary.ContainsKey(typeof(T)))
 				throw new InvalidOperationException("No Dependency Speceified for T");
 
 			object instance;

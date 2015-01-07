@@ -14,6 +14,7 @@ namespace ScorePredict.Common.Injection
         protected InjectionModule()
         {
             _typeDictionary = new Dictionary<Type, Type>();
+			_registeredInstances = new Dictionary<Type, object>();
         }
 
         internal IDictionary<Type, Type> GetTypeDictionary()
