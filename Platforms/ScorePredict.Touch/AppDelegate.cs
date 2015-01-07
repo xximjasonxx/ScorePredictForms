@@ -16,12 +16,15 @@ namespace ScorePredict.Touch
     [Register("AppDelegate")]
     public partial class AppDelegate : FormsApplicationDelegate
     {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
             CurrentPlatform.Init();
-            Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(), new TouchInjectionModule());
-            LoadApplication (new App ());
+
+			var formsApp = new App();
+            Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(),
+				new TouchInjectionModule(formsApp));
+			LoadApplication(formsApp);
 
             return base.FinishedLaunching (app, options);
         }

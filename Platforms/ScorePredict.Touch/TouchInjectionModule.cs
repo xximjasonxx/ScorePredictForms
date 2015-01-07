@@ -7,9 +7,10 @@ namespace ScorePredict.Touch
 {
     public class TouchInjectionModule : InjectionModule
     {
-        public TouchInjectionModule()
+		public TouchInjectionModule(Xamarin.Forms.Application app)
         {
             AddDependency<IClient>(typeof(AzureMobileServiceClient));
+			AddDependency<IApplicationHelper> (new TouchApplicationHelper(app));
         }
     }
 }

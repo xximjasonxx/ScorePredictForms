@@ -9,6 +9,7 @@ namespace ScorePredict.Common.Injection
     public class InjectionModule
     {
         private readonly IDictionary<Type, Type> _typeDictionary;
+		private readonly IDictionary<Type, object> _registeredInstances;
 
         protected InjectionModule()
         {
@@ -20,6 +21,11 @@ namespace ScorePredict.Common.Injection
             return _typeDictionary;
         }
 
+		internal IDictionary<Type, object> GetInstanceDictionary ()
+		{
+			return _registeredInstances;
+		}
+
         public void AddDependency<T>(Type concreteType)
         {
             if (_typeDictionary.ContainsKey(typeof(T)))
@@ -27,5 +33,13 @@ namespace ScorePredict.Common.Injection
 
             _typeDictionary.Add(typeof(T), concreteType);
         }
+
+		public void AddDependency<T>(object instance)
+		{
+			if (_typeDictionary.ContainsKey (typeof(T)))
+				throw new ArgumentException ("Dependency Exists for Type T");
+
+			_registeredInstances.Add (typeof(T), instance);
+		}
     }
 }
