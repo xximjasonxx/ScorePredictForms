@@ -130,6 +130,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppIcon.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
