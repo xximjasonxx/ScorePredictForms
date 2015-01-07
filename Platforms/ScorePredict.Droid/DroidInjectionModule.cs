@@ -1,5 +1,6 @@
 ﻿using System;
 using ScorePredict.Common.Injection;
+using ScorePredict.Droid.Client;
 using ScorePredict.Services.Client;
 
 namespace ScorePredict.Droid

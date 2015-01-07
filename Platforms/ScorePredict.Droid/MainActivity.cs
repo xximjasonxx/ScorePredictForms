@@ -1,15 +1,10 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.App;
 using Android.OS;
-using Xamarin.Forms.Platform.Android;
 using ScorePredict.Common.Injection;
 using ScorePredict.Core;
 using ScorePredict.Services;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace ScorePredict.Droid
 {
@@ -20,7 +15,7 @@ namespace ScorePredict.Droid
         {
             base.OnCreate(bundle);
 
-            Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, bundle);
 
             // initialize dependency injection
             Resolver.CurrentResolver.Initialize(new ServiceInjectionModule(), new DroidInjectionModule());

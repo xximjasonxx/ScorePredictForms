@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
-using Javax.Security.Auth.Login;
 using Microsoft.WindowsAzure.MobileServices;
+using ScorePredict.Data;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
-using Xamarin.Forms;
 
-namespace ScorePredict.Droid.Client
+namespace ScorePredict.Phone.Client
 {
     public class AzureMobileServiceClient : IClient
     {
@@ -26,7 +27,7 @@ namespace ScorePredict.Droid.Client
             try
             {
                 var client = new MobileServiceClient(Constants.ApplicationUrl, Constants.ApplicationKey);
-                var result = await client.LoginAsync(Forms.Context, MobileServiceAuthenticationProvider.Facebook);
+                var result = await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
 
                 return new Dictionary<string, string>
                 {
@@ -43,4 +44,3 @@ namespace ScorePredict.Droid.Client
         #endregion
     }
 }
-

@@ -45,7 +45,12 @@ namespace ScorePredict.Services
 
         public async Task<ScorePredict.Data.User> LoginWithFacebookAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.LoginFacebookAsync();
+            return new User()
+            {
+                AuthToken = result["token"],
+                UserId = result["id"]
+            };
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿using System;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services.Client;
+using ScorePredict.Touch.Client;
 
 namespace ScorePredict.Touch
 {

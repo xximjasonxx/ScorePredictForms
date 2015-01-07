@@ -53,6 +53,29 @@ namespace ScorePredict.Core.Pages
 
         private async void FacebookLogin(object sender, EventArgs ev)
         {
+            string errorMessage = string.Empty;
+
+            try
+            {
+                var result = await _loginUserService.LoginWithFacebookAsync();
+                if (result == null)
+                {
+                    throw new LoginException("Failed to Login in with Facebook");
+                }
+
+                await Navigation.PopModalAsync(true);
+            }
+            catch (LoginException lex)
+            {
+                errorMessage = lex.Message;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = "Login Failed. Please try again.";
+            }
+
+            if (!string.IsNullOrEmpty(errorMessage))
+                await DisplayAlert("Error", errorMessage, "Ok");
         }
     }
 }
