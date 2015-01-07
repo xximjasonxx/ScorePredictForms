@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IEncryptionService.cs" />
+    <Compile Include="IReadUserSecurityService.cs" />
+    <Compile Include="ISaveUserSecurityService.cs" />
     <Compile Include="ServiceInjectionModule.cs" />
     <Compile Include="ICreateUserService.cs" />
     <Compile Include="Impl\AzureMobileServiceCreateUserService.cs" />
@@ -91,7 +94,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

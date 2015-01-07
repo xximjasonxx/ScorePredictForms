@@ -1,6 +1,7 @@
 ﻿using System;
 using ScorePredict.Common.Injection;
 using ScorePredict.Droid.Client;
+using ScorePredict.Services;
 using ScorePredict.Services.Client;
 
 namespace ScorePredict.Droid
@@ -10,6 +11,9 @@ namespace ScorePredict.Droid
         public DroidInjectionModule()
         {
             AddDependency<IClient>(typeof(AzureMobileServiceClient));
+            AddDependency<ISaveUserSecurityService>(typeof(DroidSaveUserSecurityService));
+            AddDependency<IReadUserSecurityService>(typeof(DroidReadUserSecurityService));
+            AddDependency<IEncryptionService>(typeof(DroidEncryptionService));
         }
     }
 }

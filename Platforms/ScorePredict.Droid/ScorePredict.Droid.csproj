@@ -77,6 +77,10 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidConstants.cs" />
+    <Compile Include="DroidEncryptionService.cs" />
+    <Compile Include="DroidReadUserSecurityService.cs" />
+    <Compile Include="DroidSaveUserSecurityService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +109,10 @@
       <Project>{81A4AD0A-A484-4FF6-8378-0FB2D4E97097}</Project>
       <Name>ScorePredict.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ScorePredict.Data\ScorePredict.Data.csproj">
+      <Project>{9ec102bc-d0a7-406c-8b68-42f895658176}</Project>
+      <Name>ScorePredict.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ScorePredict.Services\ScorePredict.Services.csproj">
       <Project>{90288577-7D52-416B-A41C-CB6E47DA1313}</Project>
       <Name>ScorePredict.Services</Name>
@@ -127,7 +135,5 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
