@@ -3,6 +3,7 @@ using ScorePredict.Common.Injection;
 using ScorePredict.Services.Client;
 using ScorePredict.Touch.Client;
 using MonoTouch.UIKit;
+using ScorePredict.Services;
 
 namespace ScorePredict.Touch
 {
@@ -10,8 +11,10 @@ namespace ScorePredict.Touch
     {
 		public TouchInjectionModule(UIApplication app)
         {
-            AddDependency<IClient>(typeof(AzureMobileServiceClient));
-            AddDependency<IWindowHelper> (new TouchWindowHelper(app));
+			AddDependency<IClient>(new AzureMobileServiceClient(new TouchWindowHelper(app)));
+			AddDependency<IEncryptionService> (typeof(TouchEncryptionService));
+			AddDependency<IReadUserSecurityService> (typeof(TouchReadUserSecurityService));
+			AddDependency<ISaveUserSecurityService> (typeof(TouchSaveUserSecurityService));
         }
     }
 }

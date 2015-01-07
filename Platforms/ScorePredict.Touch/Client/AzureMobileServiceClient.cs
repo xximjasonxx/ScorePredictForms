@@ -27,9 +27,9 @@ namespace ScorePredict.Touch.Client
             }
         }
 
-		public AzureMobileServiceClient()
+		public AzureMobileServiceClient(IWindowHelper windowHelper)
 		{
-			_windowHelper = Resolver.CurrentResolver.GetInstance<IWindowHelper>();
+			_windowHelper = windowHelper;
 		}
 
         #region IClient implementation

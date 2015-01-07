@@ -137,6 +137,10 @@
     <Compile Include="TouchInjectionModule.cs" />
     <Compile Include="Helper\IWindowHelper.cs" />
     <Compile Include="Helper\Impl\TouchWindowHelper.cs" />
+    <Compile Include="TouchConstants.cs" />
+    <Compile Include="TouchEncryptionService.cs" />
+    <Compile Include="TouchReadUserSecurityService.cs" />
+    <Compile Include="TouchSaveUserSecurityService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.3.0.6292\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.0.6292\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
