@@ -13,6 +13,7 @@ namespace ScorePredict.Touch.Client
     public class AzureMobileServiceClient : IClient
     {
 		private readonly IWindowHelper _windowHelper;
+        private readonly IProgressIndicatorService _progressIndicatorHelperService;
 
         private MobileServiceClient _client;
 
@@ -27,9 +28,10 @@ namespace ScorePredict.Touch.Client
             }
         }
 
-		public AzureMobileServiceClient(IWindowHelper windowHelper)
+        public AzureMobileServiceClient(IWindowHelper windowHelper, IProgressIndicatorService progressIndicatorService)
 		{
 			_windowHelper = windowHelper;
+            _progressIndicatorHelperService = progressIndicatorService;
 		}
 
         #region IClient implementation
@@ -44,7 +46,11 @@ namespace ScorePredict.Touch.Client
 
         public async Task<IDictionary<string, string>> PostApiAsync(string apiName, IDictionary<string, string> parameters = null)
         {
+            _progressIndicatorHelperService.Show();
+
             var result = await Client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
+            _progressIndicatorHelperService.Hide();
+
             return result.AsDictionary();
         }
 
@@ -53,7 +59,10 @@ namespace ScorePredict.Touch.Client
 			try
 			{
                 var vc = _windowHelper.GetKeyWindow().RootViewController.PresentedViewController;
+                _progressIndicatorHelperService.Show();
+
 				var result = await Client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
+                _progressIndicatorHelperService.Hide();
 
 				return new Dictionary<string, string>
 				{

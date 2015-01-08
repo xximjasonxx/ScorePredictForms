@@ -13,12 +13,14 @@ namespace ScorePredict.Core.Pages
     public partial class MainPage
     {
         private readonly IReadUserSecurityService _readUserSecurityService;
+        private readonly IClearUserSecurityService _clearUserSecurityService;
 
         public MainPage()
         {
             InitializeComponent();
 
             _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
+            _clearUserSecurityService = Resolver.CurrentResolver.Get<IClearUserSecurityService>();
         }
 
         protected override void OnAppearing()
@@ -26,16 +28,27 @@ namespace ScorePredict.Core.Pages
             var user = _readUserSecurityService.ReadUser();
             if (user == null)
             {
-                Navigation.PushModalAsync(new NavigationPage(new LoginPage())
-                {
-                    BarBackgroundColor = Color.FromHex("#3C8513"),
-                    BarTextColor = Color.FromHex("#FCD23C")
-                }, true);
+                ShowLogin();
             }
             else
             {
                 Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(user);
             }
+        }
+
+        private void Logout(object sender, EventArgs ev)
+        {
+            _clearUserSecurityService.ClearUserSecurity();
+            ShowLogin();
+        }
+
+        private void ShowLogin()
+        {
+            Navigation.PushModalAsync(new NavigationPage(new LoginPage())
+                {
+                    BarBackgroundColor = Color.FromHex("#3C8513"),
+                    BarTextColor = Color.FromHex("#FCD23C")
+                }, true);
         }
     }
 }
