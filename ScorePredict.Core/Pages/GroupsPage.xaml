@@ -12,6 +12,13 @@
                     Android="ic_action_refresh.png" />
       </ToolbarItem.Icon>
     </ToolbarItem>
-    <ToolbarItem Name="Logout" Order="Secondary" />
+    <ToolbarItem Name="Logout">
+    	<ToolbarItem.Order>
+    		<OnPlatform x:TypeArguments="ToolbarItemOrder"
+    			WinPhone="Secondary"
+    			Android="Secondary"
+    			iOS="Primary" />
+    	</ToolbarItem.Order>
+    </ToolbarItem>
   </ContentPage.ToolbarItems>
 </ContentPage>

@@ -5,6 +5,13 @@
 			 BackgroundColor="#77B739">
 	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
   <ContentPage.ToolbarItems>
-    <ToolbarItem Name="Logout" Order="Secondary" />
+    <ToolbarItem Name="Logout">
+    	<ToolbarItem.Order>
+    		<OnPlatform x:TypeArguments="ToolbarItemOrder"
+    			WinPhone="Secondary"
+    			Android="Secondary"
+    			iOS="Primary" />
+    	</ToolbarItem.Order>
+    </ToolbarItem>
   </ContentPage.ToolbarItems>
 </ContentPage>
