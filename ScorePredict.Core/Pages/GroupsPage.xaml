@@ -4,4 +4,14 @@
 			 x:Class="ScorePredict.Core.Pages.GroupsPage"
 			 BackgroundColor="#77B739">
 	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Name="Refresh">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    WinPhone="Assets/appbar.refresh.png"
+                    Android="ic_action_refresh.png" />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+    <ToolbarItem Name="Logout" Order="Secondary" />
+  </ContentPage.ToolbarItems>
 </ContentPage>

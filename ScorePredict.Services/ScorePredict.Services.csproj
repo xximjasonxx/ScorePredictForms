@@ -37,8 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IEncryptionService.cs" />
+    <Compile Include="Impl\AzureMobileServiceThisWeekService.cs" />
     <Compile Include="IReadUserSecurityService.cs" />
     <Compile Include="ISaveUserSecurityService.cs" />
+    <Compile Include="IThisWeekService.cs" />
     <Compile Include="ServiceInjectionModule.cs" />
     <Compile Include="ICreateUserService.cs" />
     <Compile Include="Impl\AzureMobileServiceCreateUserService.cs" />

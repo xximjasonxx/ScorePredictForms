@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ScorePredict.Core.Pages;
+﻿using ScorePredict.Core.Pages;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core
@@ -12,7 +7,11 @@ namespace ScorePredict.Core
     {
         public App()
         {
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#3C8513"),
+                BarTextColor = Color.FromHex("#FCD23C")
+            };
         }
     }
 }
