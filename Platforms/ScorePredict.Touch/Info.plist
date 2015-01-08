@@ -23,16 +23,14 @@
 		<string>armv7</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<array/>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>AppIcons/icon</string>
 		<string>AppIcons/icon114@2x</string>
 		<string>AppIcons/icon@2x</string>
 	</array>
+	<key>XSLaunchImageAssets</key>
+	<string>Resources/Images.xcassets/LaunchImage.launchimage</string>
 </dict>
 </plist>
