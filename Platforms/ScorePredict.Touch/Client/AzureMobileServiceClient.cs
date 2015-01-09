@@ -46,12 +46,17 @@ namespace ScorePredict.Touch.Client
 
         public async Task<IDictionary<string, string>> PostApiAsync(string apiName, IDictionary<string, string> parameters = null)
         {
-            _progressIndicatorHelperService.Show();
+            try
+            {
+                _progressIndicatorHelperService.Show();
 
-            var result = await Client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
-            _progressIndicatorHelperService.Hide();
-
-            return result.AsDictionary();
+                var result = await Client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
+                return result.AsDictionary();
+            }
+            finally
+            {
+                _progressIndicatorHelperService.Hide();
+            }
         }
 
 		public async Task<IDictionary<string, string>> LoginFacebookAsync()
@@ -62,8 +67,6 @@ namespace ScorePredict.Touch.Client
                 _progressIndicatorHelperService.Show();
 
 				var result = await Client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
-                _progressIndicatorHelperService.Hide();
-
 				return new Dictionary<string, string>
 				{
 					{"id", result.UserId },
@@ -73,6 +76,10 @@ namespace ScorePredict.Touch.Client
             catch(InvalidOperationException)
             {
                 throw new LoginException("Login was cancelled");
+            }
+            finally
+            {
+                _progressIndicatorHelperService.Hide();
             }
 		}
 

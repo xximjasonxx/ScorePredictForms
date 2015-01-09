@@ -116,6 +116,15 @@
     <Reference Include="MBProgressHUD">
       <HintPath>..\..\Components\mbprogresshud-0.9.0\lib\ios\MBProgressHUD.dll</HintPath>
     </Reference>
+    <Reference Include="Acr.XamForms.UserDialogs">
+      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.2.1.2\lib\MonoTouch\Acr.XamForms.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.XamForms.UserDialogs.iOS">
+      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.2.1.2\lib\MonoTouch\Acr.XamForms.UserDialogs.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.2.1.2\lib\MonoTouch\BTProgressHUD.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="AppIcons\icon%402x.png" />
@@ -141,6 +150,7 @@
     <Compile Include="TouchSaveUserSecurityService.cs" />
     <Compile Include="ProgressHudProgressIndicatorService.cs" />
     <Compile Include="TouchClearUserSecurityService.cs" />
+    <Compile Include="Bootstrap\UserDialogsBootstrap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.3.0.6292\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.0.6292\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

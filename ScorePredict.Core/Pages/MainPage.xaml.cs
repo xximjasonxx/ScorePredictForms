@@ -7,6 +7,7 @@ using ScorePredict.Common.Injection;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
 using Xamarin.Forms;
+using Acr.XamForms.UserDialogs;
 
 namespace ScorePredict.Core.Pages
 {
@@ -14,6 +15,7 @@ namespace ScorePredict.Core.Pages
     {
         private readonly IReadUserSecurityService _readUserSecurityService;
         private readonly IClearUserSecurityService _clearUserSecurityService;
+        private readonly IUserDialogService _userDialogService;
 
         public MainPage()
         {
@@ -21,6 +23,7 @@ namespace ScorePredict.Core.Pages
 
             _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
             _clearUserSecurityService = Resolver.CurrentResolver.Get<IClearUserSecurityService>();
+            _userDialogService = Resolver.CurrentResolver.GetInstance<IUserDialogService>();
         }
 
         protected override void OnAppearing()
@@ -32,14 +35,25 @@ namespace ScorePredict.Core.Pages
             }
             else
             {
-                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(user);
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
             }
         }
 
-        private void Logout(object sender, EventArgs ev)
+        private async void Logout(object sender, EventArgs ev)
         {
-            _clearUserSecurityService.ClearUserSecurity();
-            ShowLogin();
+            var config = new ConfirmConfig()
+                {
+                    Message = "Are you sure you want to logout?",
+                    OkText = "Yes",
+                    CancelText = "No"
+                };
+
+            var result = await _userDialogService.ConfirmAsync(config);
+            if (result)
+            {
+                _clearUserSecurityService.ClearUserSecurity();
+                ShowLogin();
+            }
         }
 
         private void ShowLogin()

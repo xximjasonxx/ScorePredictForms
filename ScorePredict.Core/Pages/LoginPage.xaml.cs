@@ -36,7 +36,7 @@ namespace ScorePredict.Core.Pages
                 }
 
                 _saveUserSecurityService.SaveUser(user);
-                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(user);
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
 
                 await Navigation.PopModalAsync(true);
             }
@@ -66,7 +66,7 @@ namespace ScorePredict.Core.Pages
                 }
 
                 _saveUserSecurityService.SaveUser(result);
-                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(result);
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
 
                 await Navigation.PopModalAsync(true);
             }

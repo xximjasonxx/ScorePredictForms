@@ -33,7 +33,7 @@ namespace ScorePredict.Core.Pages
                     throw new CreateUserException("An error occured creating your user. Please try again");
 
                 _saveUserSecurityService.SaveUser(result);
-                Resolver.CurrentResolver.GetInstance<IClient>().AutneticateUser(result);
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
 
                 await Navigation.PopModalAsync(true);
             }

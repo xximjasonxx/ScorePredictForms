@@ -4,6 +4,8 @@ using ScorePredict.Services.Client;
 using ScorePredict.Touch.Client;
 using MonoTouch.UIKit;
 using ScorePredict.Services;
+using Acr.XamForms.UserDialogs;
+using Acr.XamForms.UserDialogs.iOS;
 
 namespace ScorePredict.Touch
 {
@@ -20,6 +22,7 @@ namespace ScorePredict.Touch
 			AddDependency<IReadUserSecurityService>(typeof(TouchReadUserSecurityService));
 			AddDependency<ISaveUserSecurityService>(typeof(TouchSaveUserSecurityService));
             AddDependency<IClearUserSecurityService>(typeof(TouchClearUserSecurityService));
+            AddDependency<IUserDialogService>(new UserDialogService());
         }
     }
 }
