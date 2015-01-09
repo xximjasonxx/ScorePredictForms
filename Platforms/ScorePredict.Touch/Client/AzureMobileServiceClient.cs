@@ -36,7 +36,7 @@ namespace ScorePredict.Touch.Client
 
         #region IClient implementation
 
-        public void AutneticateUser(User user)
+        public void AuthenticateUser(User user)
         {
             Client.CurrentUser = new MobileServiceUser(user.UserId)
             {
