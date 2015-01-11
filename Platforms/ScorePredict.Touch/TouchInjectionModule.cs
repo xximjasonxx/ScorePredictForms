@@ -14,15 +14,16 @@ namespace ScorePredict.Touch
 		public TouchInjectionModule(UIApplication app)
         {
             var windowHelper = new TouchWindowHelper(app);
+            var userDialogService = new UserDialogService();
 
 			AddDependency<IClient>(new AzureMobileServiceClient(
-                windowHelper, new ProgressHudProgressIndicatorService(windowHelper)));
+                windowHelper, userDialogService));
 
 			AddDependency<IEncryptionService> (typeof(TouchEncryptionService));
 			AddDependency<IReadUserSecurityService>(typeof(TouchReadUserSecurityService));
 			AddDependency<ISaveUserSecurityService>(typeof(TouchSaveUserSecurityService));
             AddDependency<IClearUserSecurityService>(typeof(TouchClearUserSecurityService));
-            AddDependency<IUserDialogService>(new UserDialogService());
+            AddDependency<IUserDialogService>(userDialogService);
         }
     }
 }

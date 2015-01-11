@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Acr.XamForms.UserDialogs;
 using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Data;
+using ScorePredict.Droid.Client;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
 using Xamarin.Forms;
-using ScorePredict.Common.Injection;
 
 namespace ScorePredict.Droid.Client
 {
     public class AzureMobileServiceClient : IClient
     {
-        private readonly IProgressIndicatorService _progressIndicatorService;
+        private readonly IUserDialogService _userDialogService;
 
-        public AzureMobileServiceClient(IProgressIndicatorService progressIndicatorService)
+        public AzureMobileServiceClient(IUserDialogService userDialogService)
         {
-            _progressIndicatorService = progressIndicatorService;
+            _userDialogService = userDialogService;
         }
 
         private MobileServiceClient _client;
@@ -47,14 +48,14 @@ namespace ScorePredict.Droid.Client
         {
             try
             {
-                _progressIndicatorService.Show();
+                _userDialogService.ShowLoading();
 
                 var result = await Client.InvokeApiAsync("login", HttpMethod.Post, parameters);
                 return result.AsDictionary();
             }
             finally
             {
-                _progressIndicatorService.Hide();
+                _userDialogService.HideLoading();
             }
         }
 
@@ -62,7 +63,7 @@ namespace ScorePredict.Droid.Client
         {
             try
             {
-                _progressIndicatorService.Show();
+                _userDialogService.ShowLoading();
                 var result = await Client.LoginAsync(Forms.Context, MobileServiceAuthenticationProvider.Facebook);
 
                 return new Dictionary<string, string>
@@ -74,10 +75,6 @@ namespace ScorePredict.Droid.Client
             catch
             {
                 throw new LoginException("Login Failed");
-            }
-            finally
-            {
-                _progressIndicatorService.Hide();
             }
         }
 

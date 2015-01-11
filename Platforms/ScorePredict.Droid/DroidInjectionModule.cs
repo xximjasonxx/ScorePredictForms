@@ -13,9 +13,8 @@ namespace ScorePredict.Droid
         public DroidInjectionModule()
         {
             var userDialogService = new UserDialogService();
-            var progressIndicatorService = new ProgressDialogProgressIndicatorService(userDialogService);
 
-            AddDependency<IClient>(new AzureMobileServiceClient(progressIndicatorService));
+            AddDependency<IClient>(new AzureMobileServiceClient(userDialogService));
 
             AddDependency<ISaveUserSecurityService>(typeof(DroidSaveUserSecurityService));
             AddDependency<IReadUserSecurityService>(typeof(DroidReadUserSecurityService));

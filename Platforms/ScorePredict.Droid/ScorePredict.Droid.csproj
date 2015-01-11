@@ -97,7 +97,6 @@
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="DroidInjectionModule.cs" />
     <Compile Include="DroidClearUserSecurityService.cs" />
-    <Compile Include="ProgressDialogProgressIndicatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

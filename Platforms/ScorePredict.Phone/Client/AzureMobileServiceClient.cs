@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.XamForms.UserDialogs;
 using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Data;
 using ScorePredict.Services;
@@ -14,6 +15,7 @@ namespace ScorePredict.Phone.Client
     public class AzureMobileServiceClient : IClient
     {
         private MobileServiceClient _client;
+        private readonly IUserDialogService _userDialogService;
 
         private MobileServiceClient Client
         {
@@ -26,9 +28,14 @@ namespace ScorePredict.Phone.Client
             }
         }
 
+        public AzureMobileServiceClient(IUserDialogService userDIalogService)
+        {
+            _userDialogService = userDIalogService;
+        }
+
         #region IClient implementation
 
-        public void AutneticateUser(User user)
+        public void AuthenticateUser(User user)
         {
             Client.CurrentUser = new MobileServiceUser(user.UserId)
             {
@@ -38,8 +45,16 @@ namespace ScorePredict.Phone.Client
 
         public async Task<IDictionary<string, string>> PostApiAsync(string apiName, IDictionary<string, string> parameters = null)
         {
-            var result = await Client.InvokeApiAsync("login", HttpMethod.Post, parameters);
-            return result.AsDictionary();
+            try
+            {
+                _userDialogService.ShowLoading();
+                var result = await Client.InvokeApiAsync("login", HttpMethod.Post, parameters);
+                return result.AsDictionary();
+            }
+            finally
+            {
+                _userDialogService.HideLoading();
+            }
         }
 
         public async Task<IDictionary<string, string>> LoginFacebookAsync()
@@ -47,11 +62,10 @@ namespace ScorePredict.Phone.Client
             try
             {
                 var result = await Client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-
                 return new Dictionary<string, string>
                 {
-                    {"id", result.UserId },
-                    {"token", result.MobileServiceAuthenticationToken }
+                    {"id", result.UserId},
+                    {"token", result.MobileServiceAuthenticationToken}
                 };
             }
             catch

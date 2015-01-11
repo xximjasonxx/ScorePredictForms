@@ -148,7 +148,6 @@
     <Compile Include="TouchEncryptionService.cs" />
     <Compile Include="TouchReadUserSecurityService.cs" />
     <Compile Include="TouchSaveUserSecurityService.cs" />
-    <Compile Include="ProgressHudProgressIndicatorService.cs" />
     <Compile Include="TouchClearUserSecurityService.cs" />
     <Compile Include="Bootstrap\UserDialogsBootstrap.cs" />
   </ItemGroup>
@@ -191,10 +190,7 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helper\" />
-    <Folder Include="Helper\Impl\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default.png" />

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using ScorePredict.Common.Injection;
 using ScorePredict.Data;
 using ScorePredict.Data.Ex;
-using ScorePredict.Common.Injection;
 using ScorePredict.Services.Client;
 
 namespace ScorePredict.Services.Impl

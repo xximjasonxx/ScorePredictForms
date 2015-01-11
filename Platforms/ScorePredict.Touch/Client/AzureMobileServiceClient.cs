@@ -6,6 +6,7 @@ using ScorePredict.Services;
 using ScorePredict.Services.Client;
 using ScorePredict.Data;
 using System;
+using Acr.XamForms.UserDialogs;
 using ScorePredict.Common.Injection;
 
 namespace ScorePredict.Touch.Client
@@ -13,7 +14,7 @@ namespace ScorePredict.Touch.Client
     public class AzureMobileServiceClient : IClient
     {
 		private readonly IWindowHelper _windowHelper;
-        private readonly IProgressIndicatorService _progressIndicatorHelperService;
+        private readonly IUserDialogService _userDialogService;
 
         private MobileServiceClient _client;
 
@@ -28,10 +29,10 @@ namespace ScorePredict.Touch.Client
             }
         }
 
-        public AzureMobileServiceClient(IWindowHelper windowHelper, IProgressIndicatorService progressIndicatorService)
+        public AzureMobileServiceClient(IWindowHelper windowHelper, IUserDialogService userDialogService)
 		{
 			_windowHelper = windowHelper;
-            _progressIndicatorHelperService = progressIndicatorService;
+            _userDialogService = userDialogService;
 		}
 
         #region IClient implementation
@@ -48,14 +49,14 @@ namespace ScorePredict.Touch.Client
         {
             try
             {
-                _progressIndicatorHelperService.Show();
+                _userDialogService.ShowLoading();
 
                 var result = await Client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
                 return result.AsDictionary();
             }
             finally
             {
-                _progressIndicatorHelperService.Hide();
+                _userDialogService.HideLoading();
             }
         }
 
@@ -64,9 +65,7 @@ namespace ScorePredict.Touch.Client
 			try
 			{
                 var vc = _windowHelper.GetKeyWindow().RootViewController.PresentedViewController;
-                _progressIndicatorHelperService.Show();
-
-				var result = await Client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
+                var result = await Client.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
 				return new Dictionary<string, string>
 				{
 					{"id", result.UserId },
@@ -76,10 +75,6 @@ namespace ScorePredict.Touch.Client
             catch(InvalidOperationException)
             {
                 throw new LoginException("Login was cancelled");
-            }
-            finally
-            {
-                _progressIndicatorHelperService.Hide();
             }
 		}
 

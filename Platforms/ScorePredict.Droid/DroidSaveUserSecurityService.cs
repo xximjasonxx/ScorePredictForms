@@ -1,8 +1,11 @@
 using Android.Preferences;
 using ScorePredict.Common.Injection;
 using ScorePredict.Data;
+using ScorePredict.Droid;
 using ScorePredict.Services;
 using Xamarin.Forms;
+
+[assembly: Dependency(typeof(DroidSaveUserSecurityService))]
 
 namespace ScorePredict.Droid
 {
