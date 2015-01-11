@@ -24,6 +24,8 @@ namespace ScorePredict.Droid
                 _encryptionService.Encrypt(user.UserId));
             editor.PutString(AndroidConstants.SharedPrefsTokenKey,
                 _encryptionService.Encrypt(user.AuthToken));
+            editor.PutString(AndroidConstants.SharedPrefsUsernameKey,
+                user.Username);
             editor.Commit();
         }
     }

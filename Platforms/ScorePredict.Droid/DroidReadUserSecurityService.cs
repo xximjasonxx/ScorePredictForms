@@ -23,13 +23,16 @@ namespace ScorePredict.Droid
             var prefs = PreferenceManager.GetDefaultSharedPreferences(Forms.Context);
             var token = prefs.GetString(AndroidConstants.SharedPrefsTokenKey, string.Empty);
             var userId = prefs.GetString(AndroidConstants.SharedPrefsUserIdKey, string.Empty);
+
             if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(userId))
                 return null;
 
+            var username = prefs.GetString(AndroidConstants.SharedPrefsUsernameKey, string.Empty);
             return new User()
             {
                 AuthToken = _encryptionService.Decrypt(token),
-                UserId = _encryptionService.Decrypt(userId)
+                UserId = _encryptionService.Decrypt(userId),
+                Username = username
             };
         }
     }

@@ -22,6 +22,11 @@ namespace ScorePredict.Droid
             if (!string.IsNullOrEmpty(token))
                 editor.Remove(AndroidConstants.SharedPrefsTokenKey);
 
+
+            var username = prefs.GetString(AndroidConstants.SharedPrefsUsernameKey, string.Empty);
+            if (!string.IsNullOrEmpty(username))
+                editor.Remove(AndroidConstants.SharedPrefsUsernameKey);
+
             editor.Commit();
         }
 

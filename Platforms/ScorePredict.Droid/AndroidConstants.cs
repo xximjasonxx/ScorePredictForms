@@ -7,5 +7,6 @@ namespace ScorePredict.Droid
     {
         internal const string SharedPrefsUserIdKey = "Id";
         internal const string SharedPrefsTokenKey = "Token";
+        internal const string SharedPrefsUsernameKey = "Username";
     }
 }
