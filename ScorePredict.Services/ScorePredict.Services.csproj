@@ -38,9 +38,11 @@
   <ItemGroup>
     <Compile Include="IEncryptionService.cs" />
     <Compile Include="Impl\AzureMobileServiceThisWeekService.cs" />
+    <Compile Include="Impl\AzureMobileServiceGetUsernameService.cs" />
     <Compile Include="IReadUserSecurityService.cs" />
     <Compile Include="ISaveUserSecurityService.cs" />
     <Compile Include="IThisWeekService.cs" />
+    <Compile Include="IUsernameService.cs" />
     <Compile Include="ServiceInjectionModule.cs" />
     <Compile Include="ICreateUserService.cs" />
     <Compile Include="Impl\AzureMobileServiceCreateUserService.cs" />
@@ -49,7 +51,6 @@
     <Compile Include="Impl\AzureMobileServiceLoginUserService.cs" />
     <Compile Include="Client\IClient.cs" />
     <Compile Include="Extensions\JtokenExtensionMethods.cs" />
-    <Compile Include="IProgressIndicatorService.cs" />
     <Compile Include="IClearUserSecurityService.cs" />
   </ItemGroup>
   <ItemGroup>

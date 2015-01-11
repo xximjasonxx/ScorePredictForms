@@ -69,12 +69,17 @@ namespace ScorePredict.Core.Pages
                 Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
 
                 await Navigation.PopModalAsync(true);
+                if (string.IsNullOrEmpty(result.Username))
+                {
+                    // go to username page
+                    await Navigation.PushModalAsync(new EnterUsernamePage(), true);
+                }
             }
             catch (LoginException lex)
             {
                 errorMessage = lex.Message;
             }
-            catch
+            catch (Exception ex)
             {
                 errorMessage = "Login Failed. Please try again.";
             }

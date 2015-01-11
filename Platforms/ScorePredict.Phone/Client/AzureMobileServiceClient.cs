@@ -48,7 +48,7 @@ namespace ScorePredict.Phone.Client
             try
             {
                 _userDialogService.ShowLoading();
-                var result = await Client.InvokeApiAsync("login", HttpMethod.Post, parameters);
+                var result = await Client.InvokeApiAsync(apiName, HttpMethod.Post, parameters);
                 return result.AsDictionary();
             }
             finally

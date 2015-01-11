@@ -14,7 +14,7 @@ namespace ScorePredict.Services.Impl
 
         public AzureMobileServiceCreateUserService()
         {
-            _client = Resolver.CurrentResolver.Get<IClient>();
+            _client = Resolver.CurrentResolver.GetInstance<IClient>();
         }
 
         public async Task<User> CreateUserAsync(string username, string password, string confirm)
