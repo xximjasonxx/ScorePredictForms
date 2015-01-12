@@ -7,7 +7,6 @@ namespace ScorePredict.Core.Pages
 {
     public partial class MainPage
     {
-        private readonly IReadUserSecurityService _readUserSecurityService;
         private readonly IClearUserSecurityService _clearUserSecurityService;
         private readonly IUserDialogService _userDialogService;
         private readonly IPageHelper _pageHelper;
@@ -18,18 +17,7 @@ namespace ScorePredict.Core.Pages
 
             _clearUserSecurityService = Resolver.CurrentResolver.Get<IClearUserSecurityService>();
             _userDialogService = Resolver.CurrentResolver.GetInstance<IUserDialogService>();
-            _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
             _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
-        }
-
-        protected override void OnAppearing()
-        {
-            var user = _readUserSecurityService.ReadUser();
-            if (user == null)
-            {
-                _pageHelper.ShowLogin();
-                return;     // stop execution
-            }
         }
 
         private async void Logout(object sender, EventArgs ev)

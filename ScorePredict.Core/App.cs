@@ -7,60 +7,34 @@ namespace ScorePredict.Core
 {
     public class App : Application
     {
-        public static Page LoginPage
-        {
-            get
-            {
-                return new NavigationPage(new LoginPage())
-                {
-                    BarBackgroundColor = Color.FromHex("#3C8513"),
-                    BarTextColor = Color.FromHex("#FCD23C")
-                };
-            }
-        }
-
-        public static Page HomePage
-        {
-            get
-            {
-                return new NavigationPage(new MainPage())
-                {
-                    BarBackgroundColor = Color.FromHex("#3C8513"),
-                    BarTextColor = Color.FromHex("#FCD23C")
-                };
-            }
-        }
-
         private readonly IReadUserSecurityService _readUserSecurityService;
 
-        public App(params InjectionModule[] modules)
+        public App(IStartupPageHelper getPageHelper, params InjectionModule[] modules)
         {
             Resolver.CurrentResolver.Initialize(modules);
 
             _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
-            SetMainPage();
+            SetMainPage(getPageHelper);
+
+            Resolver.CurrentResolver.AddModule(new CoreInjectionModule(MainPage.Navigation));
         }
 
-        private void SetMainPage()
+        private void SetMainPage(IStartupPageHelper getPageHelper)
         {
             var user = _readUserSecurityService.ReadUser();
             if (user == null)
             {
-                MainPage = LoginPage;
+                MainPage = getPageHelper.GetLoginPage();
                 return;
             }
 
             if (string.IsNullOrEmpty(user.Username))
             {
-                MainPage = new NavigationPage(new EnterUsernamePage(user))
-                {
-                    BarBackgroundColor = Color.FromHex("#3C8513"),
-                    BarTextColor = Color.FromHex("#FCD23C")
-                };
+                MainPage = getPageHelper.GetUsernamePage(user);
                 return;
             }
 
-            MainPage = HomePage;
+            MainPage = getPageHelper.GetMainPage();
         }
     }
 }

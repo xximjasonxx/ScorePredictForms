@@ -1,12 +1,13 @@
 ﻿using ScorePredict.Common.Injection;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core
 {
     public class CoreInjectionModule : InjectionModule
     {
-        public CoreInjectionModule(IPageHelper pageHelper)
+        public CoreInjectionModule(INavigation navigation)
         {
-            AddDependency<IPageHelper>(pageHelper);
+            AddDependency<INavigation>(navigation);
         }
     }
 }
