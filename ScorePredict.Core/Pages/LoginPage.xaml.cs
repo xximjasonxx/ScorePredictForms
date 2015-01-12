@@ -8,6 +8,7 @@ namespace ScorePredict.Core.Pages
 {
     public partial class LoginPage
     {
+        private readonly IPageHelper _pageHelper;
         private readonly ILoginUserService _loginUserService;
         private readonly ISaveUserSecurityService _saveUserSecurityService;
 
@@ -17,6 +18,7 @@ namespace ScorePredict.Core.Pages
 
             _loginUserService = Resolver.CurrentResolver.Get<ILoginUserService>();
             _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
+            _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
         }
 
         private void GoToCreateUser(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace ScorePredict.Core.Pages
                 _saveUserSecurityService.SaveUser(user);
                 Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
 
-                await Navigation.PopModalAsync(true);
+                _pageHelper.ShowMain();
             }
             catch (LoginException lex)
             {
