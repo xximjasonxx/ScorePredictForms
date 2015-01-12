@@ -3,6 +3,7 @@ using ScorePredict.Common.Injection;
 using ScorePredict.Data.Ex;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
@@ -41,7 +42,7 @@ namespace ScorePredict.Core.Pages
             {
                 resultMessage = ex.Message;
             }
-            catch (Exception ex)
+            catch
             {
                 resultMessage = "An unknown error occurred. Please try again";
             }

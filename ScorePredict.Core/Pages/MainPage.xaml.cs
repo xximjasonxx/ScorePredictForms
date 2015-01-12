@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Acr.XamForms.UserDialogs;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services;
-using ScorePredict.Services.Client;
 using Xamarin.Forms;
-using Acr.XamForms.UserDialogs;
 
 namespace ScorePredict.Core.Pages
 {
@@ -21,21 +18,18 @@ namespace ScorePredict.Core.Pages
         {
             InitializeComponent();
 
-            _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
             _clearUserSecurityService = Resolver.CurrentResolver.Get<IClearUserSecurityService>();
             _userDialogService = Resolver.CurrentResolver.GetInstance<IUserDialogService>();
+            _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             var user = _readUserSecurityService.ReadUser();
             if (user == null)
             {
-                ShowLogin();
-            }
-            else
-            {
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
+                await ShowLogin();
+                return;     // stop execution
             }
         }
 
@@ -52,13 +46,13 @@ namespace ScorePredict.Core.Pages
             if (result)
             {
                 _clearUserSecurityService.ClearUserSecurity();
-                ShowLogin();
+                await ShowLogin();
             }
         }
 
-        private void ShowLogin()
+        private async Task ShowLogin()
         {
-            Navigation.PushModalAsync(new NavigationPage(new LoginPage())
+            await Navigation.PushModalAsync(new NavigationPage(new LoginPage())
                 {
                     BarBackgroundColor = Color.FromHex("#3C8513"),
                     BarTextColor = Color.FromHex("#FCD23C")

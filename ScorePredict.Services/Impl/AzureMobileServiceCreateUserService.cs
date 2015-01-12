@@ -39,8 +39,9 @@ namespace ScorePredict.Services.Impl
             var result = await _client.PostApiAsync("create_user", parameters);
             return new User()
             {
-                AuthToken = result["token"].ToString(),
-                UserId = result["id"].ToString()
+                AuthToken = result["token"],
+                UserId = result["id"],
+                Username = result["username"]
             };
         }
     }
