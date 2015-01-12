@@ -13,6 +13,8 @@ namespace ScorePredict.Core
             get { return Resolver.CurrentResolver.GetInstance<INavigation>(); }
         }
 
+        /* dont use the PageFactory - no navigation controller concept in Windows Phone */
+
         public void ShowLogin()
         {
             NavigationProperty.PushAsync(new LoginPage());
@@ -31,6 +33,9 @@ namespace ScorePredict.Core
             if (stack.Count > 1)
             {
                 var page = stack.First();
+                if (page.GetType() == typeof (NavigationPage))
+                    page = ((NavigationPage) page).CurrentPage;
+
                 var typesMatch = page.GetType() == typeof(T);
 
                 while (!typesMatch)
@@ -40,6 +45,9 @@ namespace ScorePredict.Core
                     page = stack.FirstOrDefault();
                     if (page == null)
                         throw new InvalidOperationException("Could not find the requested page");
+
+                    if (page is NavigationPage)
+                        page = ((NavigationPage) page).CurrentPage;
 
                     typesMatch = page.GetType() == typeof(T);
                 }
