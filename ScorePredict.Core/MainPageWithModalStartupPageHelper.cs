@@ -3,7 +3,7 @@ using ScorePredict.Data;
 
 namespace ScorePredict.Core
 {
-    public class MainPageWithModalGetMainPage : IStartupPageHelper
+    public class MainPageWithModalStartupPageHelper : IStartupPageHelper
     {
         #region IGetMainPage implementation
 

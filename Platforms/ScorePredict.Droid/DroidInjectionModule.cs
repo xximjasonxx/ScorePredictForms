@@ -5,12 +5,13 @@ using ScorePredict.Services;
 using ScorePredict.Services.Client;
 using Acr.XamForms.UserDialogs.Droid;
 using Acr.XamForms.UserDialogs;
+using ScorePredict.Core;
 
 namespace ScorePredict.Droid
 {
     public class DroidInjectionModule : InjectionModule
     {
-        public DroidInjectionModule()
+        public DroidInjectionModule(IPageHelper pageHelper)
         {
             var userDialogService = new UserDialogService();
 
@@ -22,6 +23,7 @@ namespace ScorePredict.Droid
             AddDependency<IEncryptionService>(typeof(DroidEncryptionService));
 
             AddDependency<IUserDialogService>(userDialogService);
+            AddDependency<IPageHelper>(pageHelper);
         }
     }
 }

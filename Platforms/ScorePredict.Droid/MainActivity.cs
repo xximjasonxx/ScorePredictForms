@@ -16,18 +16,18 @@ namespace ScorePredict.Droid
 
             Forms.Init(this, bundle);
 
-            LoadApplication(new App(new CoreInjectionModule(this),
-                new ServiceInjectionModule(), new DroidInjectionModule()));
+            LoadApplication(new App(new StandardStartupPageHelper(),
+                new ServiceInjectionModule(), new DroidInjectionModule(this)));
         }
 
         public void ShowLogin()
         {
-            SetPage(App.LoginPage);
+            SetPage(PageFactory.GetLoginPage());
         }
 
         public void ShowMain()
         {
-            SetPage(App.HomePage);
+            SetPage(PageFactory.GetHomePage());
         }
     }
 }
