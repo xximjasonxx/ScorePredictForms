@@ -31,8 +31,12 @@ namespace ScorePredict.Core.Pages
             {
                 var user = await _loginUserService.LoginAsync(txtUsername.Text, txtPassword.Text);
                 if (user == null)
-                {
                     throw new LoginException("Invalid Username Password combination");
+
+                if (string.IsNullOrEmpty(user.Username))
+                {
+                    await Navigation.PushAsync(new EnterUsernamePage(user));
+                    return; // end execution
                 }
 
                 _saveUserSecurityService.SaveUser(user);
@@ -65,15 +69,15 @@ namespace ScorePredict.Core.Pages
                     throw new LoginException("Failed to Login in with Facebook");
                 }
 
-                _saveUserSecurityService.SaveUser(result);
+                //_saveUserSecurityService.SaveUser(result);
                 Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
 
-                await Navigation.PopModalAsync(true);
+                /*await Navigation.PopModalAsync(true);
                 if (string.IsNullOrEmpty(result.Username))
                 {
                     // go to username page
                     await Navigation.PushModalAsync(new EnterUsernamePage(), true);
-                }
+                }*/
             }
             catch (LoginException lex)
             {

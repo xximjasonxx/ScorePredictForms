@@ -1,6 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-					   x:Class="ScorePredict.Core.Pages.EnterUsernamePage">
-	<Label Text="You dont have a username" VerticalOptions="Center" HorizontalOptions="Center" />
+					   xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
+					   x:Class="ScorePredict.Core.Pages.EnterUsernamePage"
+             BackgroundColor="#77B739" Title="Enter Username">
+  <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="10" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Label Grid.Row="0">
+      <Label.Text>
+        <OnPlatform x:TypeArguments="x:String">
+          <OnPlatform.WinPhone>
+            Enter Username
+          </OnPlatform.WinPhone>
+        </OnPlatform>
+      </Label.Text>
+    </Label>
+
+    <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" x:Name="txtUsername" />
+
+    <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Submit"
+            VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
+            Clicked="SubmitUsername" Grid.Row="3" />
+    
+    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"
+           Text="As part of our upgrade we want each user to have a username. This username allows us to include you in rankings and groupings."
+           TextColor="White" FontSize="15" Grid.Row="4" />
+  </Grid>
 </ContentPage>
