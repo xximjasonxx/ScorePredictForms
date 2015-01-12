@@ -96,13 +96,14 @@
     </Compile>
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="MainPage.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PhoneClearUserSecurityService.cs" />
     <Compile Include="PhoneConstants.cs" />
     <Compile Include="PhoneEncryptionService.cs" />
     <Compile Include="PhoneInjectionModule.cs" />
+    <Compile Include="PhoneNavigationModule.cs" />
     <Compile Include="PhoneReadUserSecurityService.cs" />
     <Compile Include="PhoneSaveUserSecurityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

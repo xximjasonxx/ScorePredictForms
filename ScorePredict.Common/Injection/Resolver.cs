@@ -30,21 +30,26 @@ namespace ScorePredict.Common.Injection
             // perform initialization
             foreach (var module in modules)
             {
-                foreach (var dependency in module.GetTypeDictionary())
-                {
-                    if (!TypeDictionary.ContainsKey(dependency.Key))
-                        TypeDictionary.Add(dependency);
-                }
-
-				foreach (var dependency in module.GetInstanceDictionary())
-				{
-					if (!InstanceDictionary.ContainsKey(dependency.Key))
-						InstanceDictionary.Add(dependency);
-				}
+                AddModule(module);
             }
 
             // update is initialized
             _isInitialized = true;
+        }
+
+        public void AddModule(InjectionModule module)
+        {
+            foreach (var dependency in module.GetTypeDictionary())
+            {
+                if (!TypeDictionary.ContainsKey(dependency.Key))
+                    TypeDictionary.Add(dependency);
+            }
+
+            foreach (var dependency in module.GetInstanceDictionary())
+            {
+                if (!InstanceDictionary.ContainsKey(dependency.Key))
+                    InstanceDictionary.Add(dependency);
+            }
         }
 
         public T Get<T>()

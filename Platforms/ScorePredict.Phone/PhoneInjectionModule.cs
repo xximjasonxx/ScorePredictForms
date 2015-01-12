@@ -1,15 +1,17 @@
 ﻿using Acr.XamForms.UserDialogs;
 using Acr.XamForms.UserDialogs.WindowsPhone;
 using ScorePredict.Common.Injection;
+using ScorePredict.Core;
 using ScorePredict.Phone.Client;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
+using Xamarin.Forms;
 
 namespace ScorePredict.Phone
 {
     public class PhoneInjectionModule : InjectionModule
     {
-        public PhoneInjectionModule()
+        public PhoneInjectionModule(IPageHelper pageHelper)
         {
             var userDialogService = new UserDialogService();
 
@@ -18,6 +20,7 @@ namespace ScorePredict.Phone
             AddDependency<ISaveUserSecurityService>(typeof(PhoneSaveUserSecurityService));
             AddDependency<IClearUserSecurityService>(typeof(PhoneClearUserSecurityService));
             AddDependency<IEncryptionService>(typeof(PhoneEncryptionService));
+            AddDependency<IPageHelper>(pageHelper);
             AddDependency<IUserDialogService>(userDialogService);
         }
     }

@@ -38,12 +38,11 @@ namespace ScorePredict.Core
             Resolver.CurrentResolver.Initialize(modules);
 
             _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
+            SetMainPage();
         }
 
-        protected override void OnStart()
+        private void SetMainPage()
         {
-            base.OnStart();
-
             var user = _readUserSecurityService.ReadUser();
             if (user == null)
             {
