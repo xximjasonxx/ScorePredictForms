@@ -71,7 +71,7 @@
     <Compile Include="PhonePageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
-    <Compile Include="Pages\PageFactory.cs" />
+    <Compile Include="PageFactory.cs" />
     <Compile Include="IStartupPageHelper.cs" />
     <Compile Include="TouchPageHelper.cs" />
     <Compile Include="MainPageWithModalStartupPageHelper.cs" />
