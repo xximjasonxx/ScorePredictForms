@@ -9,6 +9,7 @@ using System;
 using Acr.XamForms.UserDialogs;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services.Extensions;
+using ScorePredict.Data.Ex;
 
 namespace ScorePredict.Touch.Client
 {
@@ -79,15 +80,51 @@ namespace ScorePredict.Touch.Client
             }
 		}
 
-        public Task<IDictionary<string, string>> GetFromTableByKey(string table, string key)
-        {
-            throw new NotImplementedException();
-        }
+		public async Task<IDictionary<string, string>> GetFromTableByKey(string tableName, string key)
+		{
+			try
+			{
+				_userDialogService.ShowLoading();
 
-        public Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
-        {
-            throw new NotImplementedException();
-        }
+				var table = Client.GetTable(tableName);
+				var result = await table.LookupAsync(key);
+
+				return result.AsDictionary();
+			}
+			catch (MobileServiceInvalidOperationException)
+			{
+				return new Dictionary<string, string>() { { "username", string.Empty } };
+			}
+			catch (Exception ex)
+			{
+				throw new TableOperationException("Read", ex);
+			}
+			finally
+			{
+				_userDialogService.HideLoading();
+			}
+		}
+
+		public async Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
+		{
+			try
+			{
+				_userDialogService.ShowLoading();
+
+				var table = Client.GetTable(tableName);
+				var result = await table.InsertAsync(parameters.AsJObject());
+
+				return result.AsDictionary();
+			}
+			catch (Exception ex)
+			{
+				throw new TableOperationException("Insert", ex);
+			}
+			finally
+			{
+				_userDialogService.HideLoading();
+			}
+		}
 
         #endregion
     }
