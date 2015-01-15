@@ -8,6 +8,7 @@ using ScorePredict.Data;
 using System;
 using Acr.XamForms.UserDialogs;
 using ScorePredict.Common.Injection;
+using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Touch.Client
 {
@@ -77,6 +78,16 @@ namespace ScorePredict.Touch.Client
                 throw new LoginException("Login was cancelled");
             }
 		}
+
+        public Task<IDictionary<string, string>> GetFromTableByKey(string table, string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

@@ -16,7 +16,8 @@ namespace ScorePredict.Services.Impl
 
         public async Task<string> GetUsernameAsync(string userId)
         {
-            return string.Empty;
+            var response = await _client.GetFromTableByKey("usernames", userId);
+            return response["username"];
         }
     }
 }

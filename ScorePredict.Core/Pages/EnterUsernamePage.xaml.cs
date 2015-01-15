@@ -10,6 +10,7 @@ namespace ScorePredict.Core.Pages
     {
         private readonly User _theUser;
         private readonly ISaveUserSecurityService _saveUserSecurityService;
+        private readonly ISetUsernameService _setUsernameService;
         private readonly IPageHelper _pageHelper;
 
         public EnterUsernamePage(User user)
@@ -18,6 +19,7 @@ namespace ScorePredict.Core.Pages
 
             _theUser = user;
             _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
+            _setUsernameService = Resolver.CurrentResolver.Get<ISetUsernameService>();
             _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
         }
 
@@ -29,7 +31,8 @@ namespace ScorePredict.Core.Pages
                 return;
             }
 
-            _theUser.Username = string.Empty; //txtUsername.Text;
+            var username = await _setUsernameService.SetUsernameForUserAsync(_theUser.UserId, txtUsername.Text);
+            _theUser.Username = username;
             _saveUserSecurityService.SaveUser(_theUser);
             Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(_theUser);
 

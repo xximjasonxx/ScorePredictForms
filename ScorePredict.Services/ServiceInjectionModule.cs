@@ -10,6 +10,7 @@ namespace ScorePredict.Services
             AddDependency<ICreateUserService>(typeof(AzureMobileServiceCreateUserService));
             AddDependency<ILoginUserService>(typeof(AzureMobileServiceLoginUserService));
             AddDependency<IGetUsernameService>(typeof(AzureMobileServiceGetUsernameService));
+            AddDependency<ISetUsernameService>(typeof(AzureMobileServiceSetUsernameService));
         }
     }
 }

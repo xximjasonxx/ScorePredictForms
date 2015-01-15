@@ -11,6 +11,7 @@ namespace ScorePredict.Core.Pages
         private readonly IPageHelper _pageHelper;
         private readonly ILoginUserService _loginUserService;
         private readonly ISaveUserSecurityService _saveUserSecurityService;
+        private readonly IGetUsernameService _getUsernameService;
 
         public LoginPage()
         {
@@ -19,6 +20,7 @@ namespace ScorePredict.Core.Pages
             _loginUserService = Resolver.CurrentResolver.Get<ILoginUserService>();
             _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
             _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
+            _getUsernameService = Resolver.CurrentResolver.Get<IGetUsernameService>();
         }
 
         private void GoToCreateUser(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace ScorePredict.Core.Pages
             {
                 errorMessage = lex.Message;
             }
-            catch (Exception ex)
+            catch
             {
                 errorMessage = "Login did not succeed. Please try again";
             }
@@ -71,21 +73,22 @@ namespace ScorePredict.Core.Pages
                     throw new LoginException("Failed to Login in with Facebook");
                 }
 
-                //_saveUserSecurityService.SaveUser(result);
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
-
-                /*await Navigation.PopModalAsync(true);
-                if (string.IsNullOrEmpty(result.Username))
+                string username = await _getUsernameService.GetUsernameAsync(result.UserId);
+                if (string.IsNullOrEmpty(username))
                 {
-                    // go to username page
-                    await Navigation.PushModalAsync(new EnterUsernamePage(), true);
-                }*/
+                    await Navigation.PushAsync(new EnterUsernamePage(result));
+                    return;
+                }
+
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
+                _saveUserSecurityService.SaveUser(result);
+                _pageHelper.ShowMain();
             }
             catch (LoginException lex)
             {
                 errorMessage = lex.Message;
             }
-            catch (Exception ex)
+            catch
             {
                 errorMessage = "Login Failed. Please try again.";
             }

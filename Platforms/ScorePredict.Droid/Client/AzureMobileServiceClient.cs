@@ -8,6 +8,7 @@ using ScorePredict.Data;
 using ScorePredict.Droid.Client;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
+using ScorePredict.Services.Extensions;
 using Xamarin.Forms;
 
 namespace ScorePredict.Droid.Client
@@ -76,6 +77,16 @@ namespace ScorePredict.Droid.Client
             {
                 throw new LoginException("Login Failed");
             }
+        }
+
+        public Task<IDictionary<string, string>> GetFromTableByKey(string table, string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

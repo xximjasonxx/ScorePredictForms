@@ -6,9 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.XamForms.UserDialogs;
 using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json.Linq;
 using ScorePredict.Data;
+using ScorePredict.Data.Ex;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
+using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Phone.Client
 {
@@ -71,6 +74,52 @@ namespace ScorePredict.Phone.Client
             catch
             {
                 throw new LoginException("Login Failed");
+            }
+        }
+
+        public async Task<IDictionary<string, string>> GetFromTableByKey(string tableName, string userId)
+        {
+            try
+            {
+                _userDialogService.ShowLoading();
+
+                var table = Client.GetTable(tableName);
+                var result = await table.LookupAsync(userId);
+
+                return result.AsDictionary();
+            }
+            catch (MobileServiceInvalidOperationException)
+            {
+                return new Dictionary<string, string>() {{"username", string.Empty}};
+            }
+            catch (Exception ex)
+            {
+                throw new TableOperationException("Read", ex);
+            }
+            finally
+            {
+                _userDialogService.HideLoading();
+            }
+        }
+
+        public async Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
+        {
+            try
+            {
+                _userDialogService.ShowLoading();
+
+                var table = Client.GetTable(tableName);
+                var result = await table.InsertAsync(parameters.AsJObject());
+
+                return result.AsDictionary();
+            }
+            catch (Exception ex)
+            {
+                throw new TableOperationException("Insert", ex);
+            }
+            finally
+            {
+                _userDialogService.HideLoading();
             }
         }
 

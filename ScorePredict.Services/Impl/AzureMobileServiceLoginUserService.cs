@@ -47,13 +47,12 @@ namespace ScorePredict.Services.Impl
         public async Task<User> LoginWithFacebookAsync()
         {
             var result = await _client.LoginFacebookAsync();
-            var username = await _getUsernameService.GetUsernameAsync(result["id"]);
 
             return new User()
             {
                 AuthToken = result["token"],
                 UserId = result["id"],
-                Username = username
+                Username = string.Empty
             };
         }
 
