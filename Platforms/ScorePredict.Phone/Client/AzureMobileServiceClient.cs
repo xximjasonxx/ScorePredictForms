@@ -113,6 +113,10 @@ namespace ScorePredict.Phone.Client
 
                 return result.AsDictionary();
             }
+            catch (MobileServiceConflictException msex)
+            {
+                throw new DuplicateDataException("username", msex);
+            }
             catch (Exception ex)
             {
                 throw new TableOperationException("Insert", ex);

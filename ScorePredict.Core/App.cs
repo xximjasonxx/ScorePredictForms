@@ -1,6 +1,7 @@
 ﻿using ScorePredict.Common.Injection;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
+using ScorePredict.Services.Client;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core
@@ -30,6 +31,7 @@ namespace ScorePredict.Core
 
             if (string.IsNullOrEmpty(user.Username))
             {
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
                 MainPage = getPageHelper.GetUsernamePage(user);
                 return;
             }

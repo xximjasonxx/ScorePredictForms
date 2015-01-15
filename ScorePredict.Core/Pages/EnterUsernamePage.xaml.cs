@@ -1,6 +1,7 @@
 ﻿using System;
 using ScorePredict.Common.Injection;
 using ScorePredict.Data;
+using ScorePredict.Data.Ex;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
 
@@ -25,18 +26,34 @@ namespace ScorePredict.Core.Pages
 
         private async void SubmitUsername(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUsername.Text))
+            var errorMessage = string.Empty;
+
+            try
             {
-                await DisplayAlert("Error", "You must provide a username", "Ok");
-                return;
+                if (string.IsNullOrEmpty(txtUsername.Text))
+                {
+                    errorMessage = "You must provide a username";
+                }
+                else
+                {
+                    var username = await _setUsernameService.SetUsernameForUserAsync(_theUser.UserId, txtUsername.Text);
+                    _theUser.Username = username;
+                    _saveUserSecurityService.SaveUser(_theUser);
+
+                    _pageHelper.ShowMain();
+                }
+            }
+            catch (DuplicateDataException)
+            {
+                errorMessage = "This username is already in use. Please try another";
+            }
+            catch
+            {
+                errorMessage = "An error occurred. Please try again";
             }
 
-            var username = await _setUsernameService.SetUsernameForUserAsync(_theUser.UserId, txtUsername.Text);
-            _theUser.Username = username;
-            _saveUserSecurityService.SaveUser(_theUser);
-            Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(_theUser);
-
-            _pageHelper.ShowMain();
+            if (!string.IsNullOrEmpty(errorMessage))
+                await DisplayAlert("Error", errorMessage, "Ok");
         }
     }
 }

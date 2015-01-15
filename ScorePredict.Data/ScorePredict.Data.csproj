@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ex\CreateUserException.cs" />
+    <Compile Include="Ex\DuplicateDataException.cs" />
     <Compile Include="Ex\TableOperationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

@@ -37,6 +37,8 @@ namespace ScorePredict.Core.Pages
                 if (user == null)
                     throw new LoginException("Invalid Username Password combination");
 
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
+
                 if (string.IsNullOrEmpty(user.Username))
                 {
                     await Navigation.PushAsync(new EnterUsernamePage(user));
@@ -44,8 +46,6 @@ namespace ScorePredict.Core.Pages
                 }
 
                 _saveUserSecurityService.SaveUser(user);
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
-
                 _pageHelper.ShowMain();
             }
             catch (LoginException lex)
@@ -73,6 +73,8 @@ namespace ScorePredict.Core.Pages
                     throw new LoginException("Failed to Login in with Facebook");
                 }
 
+                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
+
                 string username = await _getUsernameService.GetUsernameAsync(result.UserId);
                 if (string.IsNullOrEmpty(username))
                 {
@@ -80,7 +82,6 @@ namespace ScorePredict.Core.Pages
                     return;
                 }
 
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
                 _saveUserSecurityService.SaveUser(result);
                 _pageHelper.ShowMain();
             }
