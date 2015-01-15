@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Acr.XamForms.UserDialogs;
 using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Data;
+using ScorePredict.Data.Ex;
 using ScorePredict.Droid.Client;
 using ScorePredict.Services;
 using ScorePredict.Services.Client;
@@ -79,14 +80,50 @@ namespace ScorePredict.Droid.Client
             }
         }
 
-        public Task<IDictionary<string, string>> GetFromTableByKey(string table, string key)
+        public async Task<IDictionary<string, string>> GetFromTableByKey(string tableName, string key)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _userDialogService.ShowLoading();
+
+                var table = Client.GetTable(tableName);
+                var result = await table.LookupAsync(key);
+
+                return result.AsDictionary();
+            }
+            catch (MobileServiceInvalidOperationException)
+            {
+                return new Dictionary<string, string>() { { "username", string.Empty } };
+            }
+            catch (Exception ex)
+            {
+                throw new TableOperationException("Read", ex);
+            }
+            finally
+            {
+                _userDialogService.HideLoading();
+            }
         }
 
-        public Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
+        public async Task<IDictionary<string, string>> InsertIntoTableByKey(string tableName, IDictionary<string, string> parameters)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _userDialogService.ShowLoading();
+
+                var table = Client.GetTable(tableName);
+                var result = await table.InsertAsync(parameters.AsJObject());
+
+                return result.AsDictionary();
+            }
+            catch (Exception ex)
+            {
+                throw new TableOperationException("Insert", ex);
+            }
+            finally
+            {
+                _userDialogService.HideLoading();
+            }
         }
 
         #endregion
