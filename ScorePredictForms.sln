@@ -401,9 +401,6 @@ Global
 		{BBCFDC49-65C4-4EBC-A354-A2B7974ADA16} = {3ED0317B-1496-4BEB-8641-F1860D206477}
 		{F29E7BEC-629A-4178-BF1C-656B78EBD840} = {3ED0317B-1496-4BEB-8641-F1860D206477}
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Platforms\ScorePredict.Droid\ScorePredict.Droid.csproj
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
