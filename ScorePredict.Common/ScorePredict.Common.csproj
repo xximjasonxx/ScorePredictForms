@@ -44,6 +44,7 @@
     <Compile Include="Ex\DuplicateDataException.cs" />
     <Compile Include="Ex\LoginException.cs" />
     <Compile Include="Ex\LookupFailedException.cs" />
+    <Compile Include="Ex\SaveUsernameException.cs" />
     <Compile Include="Injection\InjectionModule.cs" />
     <Compile Include="Injection\Resolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

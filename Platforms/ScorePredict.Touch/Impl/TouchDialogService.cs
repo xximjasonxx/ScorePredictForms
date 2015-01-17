@@ -18,5 +18,10 @@ namespace ScorePredict.Touch.Impl
 
             return await ConfirmAsync(config);
         }
+        public void Alert(string message)
+        {
+            var config = new AlertConfig() { Message = message, Title = "Alert", OkText = "Ok" };
+            Alert(config);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ScorePredict.Core.Pages
         private readonly ILoginUserService _loginUserService;
         private readonly ISaveUserSecurityService _saveUserSecurityService;
         private readonly IGetUsernameService _getUsernameService;
+        private readonly IDialogService _dialogService;
 
         public LoginPage()
         {
@@ -22,6 +23,7 @@ namespace ScorePredict.Core.Pages
             _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
             _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
             _getUsernameService = Resolver.CurrentResolver.Get<IGetUsernameService>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         private void GoToCreateUser(object sender, EventArgs e)
@@ -31,7 +33,6 @@ namespace ScorePredict.Core.Pages
 
         private async void Login(object sender, EventArgs ev)
         {
-            var errorMessage = string.Empty;
             try
             {
                 var user = await _loginUserService.LoginAsync(txtUsername.Text, txtPassword.Text);
@@ -51,28 +52,21 @@ namespace ScorePredict.Core.Pages
             }
             catch (LoginException lex)
             {
-                errorMessage = lex.Message;
+                _dialogService.Alert(lex.Message);
             }
             catch
             {
-                errorMessage = "Login did not succeed. Please try again";
+                _dialogService.Alert("Login did not succeed. Please try again");
             }
-
-            if (!string.IsNullOrEmpty(errorMessage))
-                await DisplayAlert("Error", errorMessage, "Ok");
         }
 
         private async void FacebookLogin(object sender, EventArgs ev)
         {
-            string errorMessage = string.Empty;
-
             try
             {
                 var result = await _loginUserService.LoginWithFacebookAsync();
                 if (result == null)
-                {
                     throw new LoginException("Failed to Login in with Facebook");
-                }
 
                 Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
 
@@ -88,15 +82,12 @@ namespace ScorePredict.Core.Pages
             }
             catch (LoginException lex)
             {
-                errorMessage = lex.Message;
+                _dialogService.Alert(lex.Message);
             }
-            catch (Exception ex)
+            catch
             {
-                errorMessage = "Login Failed. Please try again.";
+                _dialogService.Alert("Login Failed. Please try again.");
             }
-
-            if (!string.IsNullOrEmpty(errorMessage))
-                await DisplayAlert("Error", errorMessage, "Ok");
         }
     }
 }

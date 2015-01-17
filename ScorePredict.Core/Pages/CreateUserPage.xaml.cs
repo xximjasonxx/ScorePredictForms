@@ -10,6 +10,7 @@ namespace ScorePredict.Core.Pages
     {
         private readonly ICreateUserService _createUserService;
         private readonly ISaveUserSecurityService _saveUserSecurityService;
+        private readonly IDialogService _dialogService;
 
         public CreateUserPage()
         {
@@ -17,12 +18,11 @@ namespace ScorePredict.Core.Pages
 
             _createUserService = Resolver.CurrentResolver.Get<ICreateUserService>();
             _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         private async void CreateUser(object sender, EventArgs e)
         {
-            var resultMessage = string.Empty;
-
             try
             {
                 var result = await _createUserService.CreateUserAsync(
@@ -39,15 +39,12 @@ namespace ScorePredict.Core.Pages
             }
             catch (CreateUserException ex)
             {
-                resultMessage = ex.Message;
+                _dialogService.Alert(ex.Message);
             }
-            catch 
+            catch
             {
-                resultMessage = "An unknown error occurred. Please try again";
+                _dialogService.Alert("An unknown error occurred. Please try again");
             }
-
-            if (!string.IsNullOrEmpty(resultMessage))
-                await DisplayAlert("Error", resultMessage, "Ok");
         }
     }
 }

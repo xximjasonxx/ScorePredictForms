@@ -13,6 +13,7 @@ namespace ScorePredict.Core.Pages
         private readonly ISaveUserSecurityService _saveUserSecurityService;
         private readonly ISetUsernameService _setUsernameService;
         private readonly IPageHelper _pageHelper;
+        private readonly IDialogService _dialogService;
 
         public EnterUsernamePage(User user)
         {
@@ -22,38 +23,26 @@ namespace ScorePredict.Core.Pages
             _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
             _setUsernameService = Resolver.CurrentResolver.Get<ISetUsernameService>();
             _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         private async void SubmitUsername(object sender, EventArgs e)
         {
-            var errorMessage = string.Empty;
-
             try
             {
-                if (string.IsNullOrEmpty(txtUsername.Text))
-                {
-                    errorMessage = "You must provide a username";
-                }
-                else
-                {
-                    var username = await _setUsernameService.SetUsernameForUserAsync(_theUser.UserId, txtUsername.Text);
-                    _theUser.Username = username;
-                    _saveUserSecurityService.SaveUser(_theUser);
-
-                    _pageHelper.ShowMain();
-                }
+                var username = await _setUsernameService.SetUsernameForUserAsync(_theUser.UserId, txtUsername.Text);
+                _theUser.Username = username;
+                _saveUserSecurityService.SaveUser(_theUser);
+                _pageHelper.ShowMain();
             }
-            catch (DuplicateDataException)
+            catch (SaveUsernameException ex)
             {
-                errorMessage = "Duplicate Username exists, please select another";
+                _dialogService.Alert(ex.Message);
             }
             catch
             {
-                errorMessage = "An error occurred. Please try again";
+                _dialogService.Alert("An error occurred. Please try again");
             }
-
-            if (!string.IsNullOrEmpty(errorMessage))
-                await DisplayAlert("Error", errorMessage, "Ok");
         }
     }
 }

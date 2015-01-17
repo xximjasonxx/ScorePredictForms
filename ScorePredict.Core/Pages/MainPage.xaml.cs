@@ -1,5 +1,4 @@
 ﻿using System;
-using Acr.XamForms.UserDialogs;
 using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;

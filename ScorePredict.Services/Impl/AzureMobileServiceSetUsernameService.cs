@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
@@ -20,6 +21,14 @@ namespace ScorePredict.Services.Impl
 
         public async Task<string> SetUsernameForUserAsync(string userId, string username)
         {
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(username))
+                throw new SaveUsernameException("Username cannot be blank");
+
+            return await SaveUsernameForUserAsync(userId, username);
+        }
+
+        private async Task<string> SaveUsernameForUserAsync(string userId, string username)
+        {
             try
             {
                 _dialogService.ShowLoading("Saving...");
@@ -31,6 +40,10 @@ namespace ScorePredict.Services.Impl
                     });
 
                 return result.AsDictionary()["username"];
+            }
+            catch (DuplicateDataException)
+            {
+                throw new SaveUsernameException("Duplicate Usernames exist. Please choose another");
             }
             finally
             {
