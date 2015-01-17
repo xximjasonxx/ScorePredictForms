@@ -37,8 +37,12 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Ex\CreateUserException.cs" />
+    <Compile Include="Ex\DuplicateDataException.cs" />
     <Compile Include="Ex\LoginException.cs" />
+    <Compile Include="Ex\TableOperationException.cs" />
     <Compile Include="Injection\InjectionModule.cs" />
     <Compile Include="Injection\Resolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
