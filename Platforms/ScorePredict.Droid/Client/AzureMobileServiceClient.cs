@@ -28,6 +28,11 @@ namespace ScorePredict.Droid.Client
             };
         }
 
+        public async Task<JToken> PostApiAsync(string apiName, IDictionary<string, string> parameters)
+        {
+            return await InvokeApiAsync(apiName, HttpMethod.Post, parameters);
+        }
+
         public async Task<User> LoginFacebookAsync()
         {
             var result = await this.LoginAsync(Forms.Context, MobileServiceAuthenticationProvider.Facebook);

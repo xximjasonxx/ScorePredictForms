@@ -1,19 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+using Acr.XamForms.UserDialogs;
 using Acr.XamForms.UserDialogs.Droid;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Droid.Impl
 {
     public class DroidDialogService : UserDialogService, IDialogService
     {
+        public async Task<bool> ConfirmLogoutAsync()
+        {
+            var config = new ConfirmConfig()
+            {
+                Message = "Are you sure you want to logout?",
+                OkText = "Yes",
+                CancelText = "No"
+            };
+
+            return await ConfirmAsync(config);
+        }
     }
 }

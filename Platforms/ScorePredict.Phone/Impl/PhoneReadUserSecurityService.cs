@@ -26,10 +26,14 @@ namespace ScorePredict.Phone.Impl
             if (!settings.TryGetValue(PhoneConstants.SettingsTokenKey, out tokenString))
                 return null;
 
+            string username = string.Empty;
+            settings.TryGetValue(PhoneConstants.SettingsUsernameKey, out username);
+
             return new User()
             {
                 AuthToken = _encryptionService.Decrypt(tokenString),
-                UserId = _encryptionService.Decrypt(userIdstring)
+                UserId = _encryptionService.Decrypt(userIdstring),
+                Username = username
             };
         }
     }

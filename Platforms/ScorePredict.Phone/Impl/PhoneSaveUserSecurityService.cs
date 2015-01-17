@@ -25,6 +25,10 @@ namespace ScorePredict.Phone.Impl
             if (!settings.Contains(PhoneConstants.SettingsTokenKey))
                 settings.Add(PhoneConstants.SettingsTokenKey, string.Empty);
             settings[PhoneConstants.SettingsTokenKey] = _encryptionService.Encrypt(user.AuthToken);
+
+            if (!settings.Contains(PhoneConstants.SettingsUsernameKey))
+                settings.Add(PhoneConstants.SettingsUsernameKey, string.Empty);
+            settings[PhoneConstants.SettingsUsernameKey] = user.Username;
             settings.Save();
         }
     }

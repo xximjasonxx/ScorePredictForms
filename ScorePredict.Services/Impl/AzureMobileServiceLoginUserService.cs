@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Injection;
@@ -41,7 +40,7 @@ namespace ScorePredict.Services.Impl
             try
             {
                 _dialogService.ShowLoading("Logging you In...");
-                var result = (await _client.InvokeApiAsync("login", HttpMethod.Post, parameters)).AsDictionary();
+                var result = (await _client.PostApiAsync("login", parameters)).AsDictionary();
                 return new User()
                 {
                     AuthToken = result["token"],

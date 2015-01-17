@@ -101,6 +101,7 @@
     <Compile Include="Rendering\TouchScorePredictEntryRenderer.cs" />
     <Compile Include="TouchConstants.cs" />
     <Compile Include="TouchInjectionModule.cs" />
+    <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />

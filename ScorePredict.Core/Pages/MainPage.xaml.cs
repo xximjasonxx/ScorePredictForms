@@ -9,7 +9,7 @@ namespace ScorePredict.Core.Pages
     public partial class MainPage
     {
         private readonly IClearUserSecurityService _clearUserSecurityService;
-        private readonly IUserDialogService _userDialogService;
+        private readonly IDialogService _dialogService;
         private readonly IPageHelper _pageHelper;
 
         public MainPage()
@@ -17,20 +17,13 @@ namespace ScorePredict.Core.Pages
             InitializeComponent();
 
             _clearUserSecurityService = Resolver.CurrentResolver.Get<IClearUserSecurityService>();
-            _userDialogService = Resolver.CurrentResolver.GetInstance<IUserDialogService>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
             _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
         }
 
         private async void Logout(object sender, EventArgs ev)
         {
-            var config = new ConfirmConfig()
-            {
-                Message = "Are you sure you want to logout?",
-                OkText = "Yes",
-                CancelText = "No"
-            };
-
-            var result = await _userDialogService.ConfirmAsync(config);
+            var result = await _dialogService.ConfirmLogoutAsync();
             if (result)
             {
                 _clearUserSecurityService.ClearUserSecurity();

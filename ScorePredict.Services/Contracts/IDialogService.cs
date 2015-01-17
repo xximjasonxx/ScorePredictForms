@@ -10,5 +10,6 @@ namespace ScorePredict.Services.Contracts
     {
         void ShowLoading(string message = "Loading");
         void HideLoading();
+        Task<bool> ConfirmLogoutAsync();
     }
 }

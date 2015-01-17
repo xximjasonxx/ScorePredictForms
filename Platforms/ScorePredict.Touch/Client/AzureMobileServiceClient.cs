@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
@@ -28,6 +29,11 @@ namespace ScorePredict.Touch.Client
             {
                 MobileServiceAuthenticationToken = user.AuthToken
             };
+        }
+
+        public async Task<JToken> PostApiAsync(string apiName, IDictionary<string, string> parameters)
+        {
+            return await InvokeApiAsync(apiName, HttpMethod.Post, parameters);
         }
 
         public async Task<User> LoginFacebookAsync()

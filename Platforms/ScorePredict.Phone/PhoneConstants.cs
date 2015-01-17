@@ -8,6 +8,7 @@ namespace ScorePredict.Phone
 {
     public static class PhoneConstants
     {
+        public const string SettingsUsernameKey = "Username";
         public const string SettingsUserIdKey = "UserId";
         public const string SettingsTokenKey = "Token";
     }
