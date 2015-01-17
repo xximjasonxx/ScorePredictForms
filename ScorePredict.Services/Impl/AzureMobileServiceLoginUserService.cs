@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
@@ -47,6 +48,10 @@ namespace ScorePredict.Services.Impl
                     UserId = result["id"],
                     Username = result["username"]
                 };
+            }
+            catch (ApiExecutionException)
+            {
+                throw new LoginException("Invalid Username or Password. Please try again");
             }
             finally
             {

@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Ex\ApiExecutionException.cs" />
     <Compile Include="Ex\CreateUserException.cs" />
     <Compile Include="Ex\DuplicateDataException.cs" />
     <Compile Include="Ex\LoginException.cs" />

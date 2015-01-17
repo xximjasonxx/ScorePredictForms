@@ -41,7 +41,7 @@ namespace ScorePredict.Core.Pages
             {
                 resultMessage = ex.Message;
             }
-            catch (Exception ex)
+            catch 
             {
                 resultMessage = "An unknown error occurred. Please try again";
             }

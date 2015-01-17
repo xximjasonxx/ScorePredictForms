@@ -42,6 +42,9 @@ namespace ScorePredict.Phone.Client
                 if (ex.Response.StatusCode == HttpStatusCode.Conflict)
                     throw new DuplicateDataException(apiName, ex);
 
+                if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
+                    throw new ApiExecutionException(apiName, ex);
+
                 throw ex;
             }
         }
