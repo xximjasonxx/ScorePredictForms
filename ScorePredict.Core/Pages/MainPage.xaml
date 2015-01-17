@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+            x:Class="ScorePredict.Core.Pages.MainPage"
+            BackgroundColor="#77B739">
+
+  <TabbedPage.Children>
+    <pages:ThisWeekPage Title="This Week">
+      <pages:ThisWeekPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Clicked="Logout">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+		    			WinPhone="Secondary"
+		    			Android="Secondary"
+		    			iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:ThisWeekPage.ToolbarItems>
+    </pages:ThisWeekPage>
+    <pages:PredictionsPage Title="Predictions">
+      <pages:PredictionsPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Clicked="Logout">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+		    			WinPhone="Secondary"
+		    			Android="Secondary"
+		    			iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:PredictionsPage.ToolbarItems>
+    </pages:PredictionsPage>
+    <pages:GroupsPage Title="Groups">
+      <pages:GroupsPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Clicked="Logout">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+		    			WinPhone="Secondary"
+		    			Android="Secondary"
+		    			iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:GroupsPage.ToolbarItems>
+    </pages:GroupsPage>
+    <pages:HistoryPage Title="History">
+      <pages:HistoryPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Clicked="Logout">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+		    			WinPhone="Secondary"
+		    			Android="Secondary"
+		    			iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:HistoryPage.ToolbarItems>
+    </pages:HistoryPage>
+    <pages:AboutPage Title="About">
+      <pages:AboutPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Clicked="Logout">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+		    			WinPhone="Secondary"
+		    			Android="Secondary"
+		    			iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:AboutPage.ToolbarItems>
+    </pages:AboutPage>
+  </TabbedPage.Children>
+
+</TabbedPage>

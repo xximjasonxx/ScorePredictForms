@@ -41,15 +41,6 @@
     <Compile Include="Contracts\IStartupPageHelper.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Modules\CoreInjectionModule.cs" />
-    <Compile Include="Pages\AboutPage.xaml.cs" />
-    <Compile Include="Pages\CreateUserPage.xaml.cs" />
-    <Compile Include="Pages\EnterUsernamePage.xaml.cs" />
-    <Compile Include="Pages\GroupsPage.xaml.cs" />
-    <Compile Include="Pages\HistoryPage.xaml.cs" />
-    <Compile Include="Pages\LoginPage.xaml.cs" />
-    <Compile Include="Pages\MainPage.xaml.cs" />
-    <Compile Include="Pages\PredictionsPage.xaml.cs" />
-    <Compile Include="Pages\ThisWeek.xaml.cs" />
     <Compile Include="ScorePredictApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,42 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\AboutPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\CreateUserPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\EnterUsernamePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\GroupsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\HistoryPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\LoginPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PredictionsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ThisWeek.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

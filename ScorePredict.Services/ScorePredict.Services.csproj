@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IClearUserSecurityService.cs" />
     <Compile Include="Contracts\IClient.cs" />
+    <Compile Include="ICreateUserService.cs" />
     <Compile Include="IGetUsernameService.cs" />
     <Compile Include="ILoginUserService.cs" />
     <Compile Include="Contracts\IReadUserSecurityService.cs" />
