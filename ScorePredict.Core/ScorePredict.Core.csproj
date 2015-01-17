@@ -41,6 +41,7 @@
     <Compile Include="Contracts\IPageHelper.cs" />
     <Compile Include="Contracts\IStartupPageHelper.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
+    <Compile Include="Impl\PhonePageHelper.cs" />
     <Compile Include="Impl\StandardStartupPageHelper.cs" />
     <Compile Include="Modules\CoreInjectionModule.cs" />
     <Compile Include="PageFactory.cs" />
