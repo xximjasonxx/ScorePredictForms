@@ -91,6 +91,7 @@
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="Contracts\IWindowHelper.cs" />
     <Compile Include="Impl\TouchClearUserSecurityService.cs" />
+    <Compile Include="Impl\TouchDialogService.cs" />
     <Compile Include="Impl\TouchEncryptionService.cs" />
     <Compile Include="Impl\TouchReadUserSecurityService.cs" />
     <Compile Include="Impl\TouchSaveUserSecurityService.cs" />

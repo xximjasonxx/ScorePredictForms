@@ -96,6 +96,7 @@
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="DroidInjectionModule.cs" />
     <Compile Include="Impl\DroidClearUserSecurityService.cs" />
+    <Compile Include="Impl\DroidDialogService.cs" />
     <Compile Include="Impl\DroidEncryptionService.cs" />
     <Compile Include="Impl\DroidReadUserSecurityService.cs" />
     <Compile Include="Impl\DroidSaveUserSecurityService.cs" />

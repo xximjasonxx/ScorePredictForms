@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="Impl\PhoneClearUserSecurityService.cs" />
+    <Compile Include="Impl\PhoneDialogService.cs" />
     <Compile Include="Impl\PhoneEncryptionService.cs" />
     <Compile Include="Impl\PhoneReadUserSecurityService.cs" />
     <Compile Include="Impl\PhoneSaveUserSecurityService.cs" />
