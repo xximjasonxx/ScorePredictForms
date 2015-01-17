@@ -1,6 +1,6 @@
-﻿using MonoTouch.UIKit;
-using ScorePredict.Core.Controls;
+﻿using ScorePredict.Core.Controls;
 using ScorePredict.Touch.Rendering;
+using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
@@ -10,7 +10,7 @@ namespace ScorePredict.Touch.Rendering
 {
     public class TouchScorePredictEntryRenderer : EntryRenderer
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
 

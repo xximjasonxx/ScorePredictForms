@@ -97,6 +97,7 @@
     <Compile Include="Impl\TouchWindowHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Rendering\TouchScorePredictEntryRenderer.cs" />
     <Compile Include="TouchConstants.cs" />
     <Compile Include="TouchInjectionModule.cs" />
     <None Include="Info.plist" />
@@ -163,9 +164,7 @@
       <Name>ScorePredict.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rendering\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="azure-mobile-services">
       <Visible>False</Visible>
