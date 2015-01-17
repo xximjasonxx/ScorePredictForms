@@ -51,12 +51,19 @@ namespace ScorePredict.Phone.Client
 
         public async Task<User> LoginFacebookAsync()
         {
-            var result = await this.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-            return new User
+            try
             {
-                UserId = result.UserId,
-                AuthToken = result.MobileServiceAuthenticationToken
-            };
+                var result = await this.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                return new User
+                {
+                    UserId = result.UserId,
+                    AuthToken = result.MobileServiceAuthenticationToken
+                };
+            }
+            catch (MobileServiceInvalidOperationException)
+            {
+                throw new LoginException("Login Cancelled");
+            }
         }
 
         public async Task<JToken> LookupById(string tableName, string key)
