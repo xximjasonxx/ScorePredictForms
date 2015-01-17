@@ -8,22 +8,32 @@ namespace ScorePredict.Services.Impl
     public class AzureMobileServiceSetUsernameService : ISetUsernameService
     {
         private readonly IClient _client;
+        private readonly IDialogService _dialogService;
 
         public AzureMobileServiceSetUsernameService()
         {
             _client = Resolver.CurrentResolver.GetInstance<IClient>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         public async Task<string> SetUsernameForUserAsync(string userId, string username)
         {
-            var result = await _client.InsertIntoTableByKey("usernames",
-                new Dictionary<string, string>()
-                {
-                    { "username", username },
-                    { "id", userId }
-                });
+            try
+            {
+                _dialogService.ShowLoading("Saving...");
+                var result = await _client.InsertIntoTableByKey("usernames",
+                    new Dictionary<string, string>()
+                    {
+                        {"username", username},
+                        {"id", userId}
+                    });
 
-            return result["username"];
+                return result["username"];
+            }
+            finally
+            {
+                _dialogService.HideLoading();
+            }
         }
     }
 }

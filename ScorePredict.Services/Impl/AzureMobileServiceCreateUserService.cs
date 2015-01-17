@@ -11,10 +11,12 @@ namespace ScorePredict.Services.Impl
     public class AzureMobileServiceCreateUserService : ICreateUserService
     {
         private readonly IClient _client;
+        private readonly IDialogService _dialogService;
 
         public AzureMobileServiceCreateUserService()
         {
             _client = Resolver.CurrentResolver.GetInstance<IClient>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         public async Task<User> CreateUserAsync(string username, string password, string confirm)
@@ -36,13 +38,21 @@ namespace ScorePredict.Services.Impl
                 { "password", password }
             };
 
-            var result = await _client.PostApiAsync("create_user", parameters);
-            return new User()
+            try
             {
-                AuthToken = result["token"],
-                UserId = result["id"],
-                Username = result["username"]
-            };
+                _dialogService.ShowLoading("Creating User...");
+                var result = await _client.PostApiAsync("create_user", parameters);
+                return new User()
+                {
+                    AuthToken = result["token"],
+                    UserId = result["id"],
+                    Username = result["username"]
+                };
+            }
+            finally
+            {
+                _dialogService.HideLoading();
+            }
         }
     }
 }

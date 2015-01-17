@@ -10,12 +10,12 @@ namespace ScorePredict.Services.Impl
     public class AzureMobileServiceLoginUserService : ILoginUserService
     {
         private readonly IClient _client;
-        private readonly IGetUsernameService _getUsernameService;
+        private readonly IDialogService _dialogService;
 
         public AzureMobileServiceLoginUserService()
         {
             _client = Resolver.CurrentResolver.GetInstance<IClient>();
-            _getUsernameService = Resolver.CurrentResolver.Get<IGetUsernameService>();
+            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         #region ILoginUserService implementation
@@ -36,19 +36,26 @@ namespace ScorePredict.Services.Impl
                 {"password", password}
             };
 
-            var result = await _client.PostApiAsync("login", parameters);
-            return new User()
+            try
             {
-                AuthToken = result["token"],
-                UserId = result["id"],
-                Username = result["username"]
-            };
+                _dialogService.ShowLoading("Logging you In...");
+                var result = await _client.PostApiAsync("login", parameters);
+                return new User()
+                {
+                    AuthToken = result["token"],
+                    UserId = result["id"],
+                    Username = result["username"]
+                };
+            }
+            finally
+            {
+                _dialogService.HideLoading();
+            }
         }
 
         public async Task<User> LoginWithFacebookAsync()
         {
             var result = await _client.LoginFacebookAsync();
-
             return new User()
             {
                 AuthToken = result["token"],
