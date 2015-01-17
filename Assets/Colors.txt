@@ -1,5 +1,0 @@
-Colors
-Main text - Black
-Header - #3C8513
-Background - #77B739
-Yellow - #FCD23C
