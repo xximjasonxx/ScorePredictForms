@@ -29,9 +29,8 @@ namespace ScorePredict.Phone.Client
             }
         }
 
-        public AzureMobileServiceClient(IUserDialogService userDIalogService)
+        public AzureMobileServiceClient()
         {
-            _userDialogService = userDIalogService;
         }
 
         #region IClient implementation

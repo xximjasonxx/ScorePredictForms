@@ -32,10 +32,9 @@ namespace ScorePredict.Touch.Client
             }
         }
 
-        public AzureMobileServiceClient(IWindowHelper windowHelper, IUserDialogService userDialogService)
+        public AzureMobileServiceClient(IWindowHelper windowHelper)
 		{
 			_windowHelper = windowHelper;
-            _userDialogService = userDialogService;
 		}
 
         #region IClient implementation

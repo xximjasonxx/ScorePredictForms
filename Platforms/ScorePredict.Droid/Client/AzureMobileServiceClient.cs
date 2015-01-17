@@ -16,12 +16,7 @@ namespace ScorePredict.Droid.Client
 {
     public class AzureMobileServiceClient : IClient
     {
-        private readonly IUserDialogService _userDialogService;
-
-        public AzureMobileServiceClient(IUserDialogService userDialogService)
-        {
-            _userDialogService = userDialogService;
-        }
+        private readonly IDialogService _userDialogService;
 
         private MobileServiceClient _client;
 
