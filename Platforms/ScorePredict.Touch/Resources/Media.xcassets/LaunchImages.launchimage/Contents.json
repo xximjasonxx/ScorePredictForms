@@ -1,0 +1,27 @@
+{
+  "images": [
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "idiom": "iphone",
+      "scale": "2x",
+      "filename": "launch_640x960.png",
+      "size": "640x960"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "subtype": "retina4",
+      "idiom": "iphone",
+      "scale": "2x",
+      "filename": "launch_640x1136.png",
+      "size": "640x1136"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}
