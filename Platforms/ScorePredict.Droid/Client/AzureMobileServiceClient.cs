@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -59,7 +60,7 @@ namespace ScorePredict.Droid.Client
                     AuthToken = result.MobileServiceAuthenticationToken
                 };
             }
-            catch (MobileServiceInvalidOperationException)
+            catch (InvalidOperationException)
             {
                 throw new LoginException("Login Cancelled");
             }

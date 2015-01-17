@@ -60,7 +60,7 @@ namespace ScorePredict.Phone.Client
                     AuthToken = result.MobileServiceAuthenticationToken
                 };
             }
-            catch (MobileServiceInvalidOperationException)
+            catch (InvalidOperationException)
             {
                 throw new LoginException("Login Cancelled");
             }
