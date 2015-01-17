@@ -14,5 +14,11 @@ namespace ScorePredict.Common.Ex
             TableName = tableName;
             Parameters = parameters;
         }
+
+        public DuplicateDataException(string apiName, Exception ex)
+            : base(string.Format("Api call to {0} created duplicate data", apiName), ex)
+        {
+            TableName = apiName;
+        }
     }
 }

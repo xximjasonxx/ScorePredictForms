@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
@@ -36,9 +37,12 @@ namespace ScorePredict.Phone.Client
             {
                 return await InvokeApiAsync(apiName, HttpMethod.Post, parameters);
             }
-            catch (Exception ex)
+            catch (MobileServiceInvalidOperationException ex)
             {
-                throw;
+                if (ex.Response.StatusCode == HttpStatusCode.Conflict)
+                    throw new DuplicateDataException(apiName, ex);
+
+                throw ex;
             }
         }
 

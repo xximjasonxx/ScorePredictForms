@@ -50,6 +50,10 @@ namespace ScorePredict.Services.Impl
                     Username = result["username"]
                 };
             }
+            catch (DuplicateDataException)
+            {
+                throw new CreateUserException("Duplicate User exists. Please try a different username");
+            }
             finally
             {
                 _dialogService.HideLoading();
