@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MonoTouch.Foundation;
+﻿using Foundation;
+using ScorePredict.Common.Data;
 using ScorePredict.Common.Injection;
-using ScorePredict.Data;
-using ScorePredict.Services;
+using ScorePredict.Core.Contracts;
+using ScorePredict.Services.Contracts;
 
-namespace ScorePredict.Touch
+namespace ScorePredict.Touch.Impl
 {
     public class TouchReadUserSecurityService : IReadUserSecurityService
     {

@@ -1,7 +1,6 @@
-﻿using System;
-using MonoTouch.UIKit;
+﻿using UIKit;
 
-namespace ScorePredict.Touch
+namespace ScorePredict.Touch.Contracts
 {
 	public interface IWindowHelper
 	{

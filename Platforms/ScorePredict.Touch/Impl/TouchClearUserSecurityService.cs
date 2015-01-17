@@ -1,8 +1,7 @@
-﻿using System;
-using ScorePredict.Services;
-using MonoTouch.Foundation;
+﻿using Foundation;
+using ScorePredict.Services.Contracts;
 
-namespace ScorePredict.Touch
+namespace ScorePredict.Touch.Impl
 {
     public class TouchClearUserSecurityService : IClearUserSecurityService
     {

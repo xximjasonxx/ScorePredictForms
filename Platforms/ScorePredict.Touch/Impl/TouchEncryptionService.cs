@@ -2,9 +2,9 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using ScorePredict.Services;
+using ScorePredict.Core.Contracts;
 
-namespace ScorePredict.Touch
+namespace ScorePredict.Touch.Impl
 {
     public class TouchEncryptionService : IEncryptionService
     {

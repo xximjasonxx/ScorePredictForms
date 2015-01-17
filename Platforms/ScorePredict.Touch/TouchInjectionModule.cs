@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Acr.XamForms.UserDialogs;
 using ScorePredict.Common.Injection;
-using ScorePredict.Services.Client;
+using ScorePredict.Core.Contracts;
+using ScorePredict.Services.Contracts;
 using ScorePredict.Touch.Client;
-using MonoTouch.UIKit;
-using ScorePredict.Services;
-using Acr.XamForms.UserDialogs;
-using Acr.XamForms.UserDialogs.iOS;
-using ScorePredict.Core;
+using ScorePredict.Touch.Impl;
+using UIKit;
 
 namespace ScorePredict.Touch
 {

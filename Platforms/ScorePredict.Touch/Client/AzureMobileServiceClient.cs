@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.MobileServices;
-using ScorePredict.Services;
-using ScorePredict.Services.Client;
-using ScorePredict.Data;
-using System;
 using Acr.XamForms.UserDialogs;
-using ScorePredict.Common.Injection;
-using ScorePredict.Services.Extensions;
+using Microsoft.WindowsAzure.MobileServices;
+using ScorePredict.Common.Data;
+using ScorePredict.Data;
 using ScorePredict.Data.Ex;
+using ScorePredict.Services;
+using ScorePredict.Services.Contracts;
+using ScorePredict.Services.Extensions;
+using ScorePredict.Touch.Contracts;
 
 namespace ScorePredict.Touch.Client
 {

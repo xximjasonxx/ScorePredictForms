@@ -1,10 +1,10 @@
-﻿using System;
-using MonoTouch.Foundation;
+﻿using Foundation;
+using ScorePredict.Common.Data;
 using ScorePredict.Common.Injection;
-using ScorePredict.Data;
-using ScorePredict.Services;
+using ScorePredict.Core.Contracts;
+using ScorePredict.Services.Contracts;
 
-namespace ScorePredict.Touch
+namespace ScorePredict.Touch.Impl
 {
     public class TouchSaveUserSecurityService : ISaveUserSecurityService
     {
