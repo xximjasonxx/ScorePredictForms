@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using ScorePredict.Common.Data;
+using ScorePredict.Common.Injection;
+using ScorePredict.Core.Contracts;
+using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core
@@ -22,7 +23,7 @@ namespace ScorePredict.Core
 
         private void SetMainPage(IStartupPageHelper getPageHelper)
         {
-            var user = _readUserSecurityService.ReadUser();
+            User user = _readUserSecurityService.ReadUser();
             if (user == null)
             {
                 MainPage = getPageHelper.GetLoginPage();
