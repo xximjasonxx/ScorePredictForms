@@ -1,4 +1,5 @@
 ﻿using Acr.XamForms.UserDialogs;
+using Acr.XamForms.UserDialogs.iOS;
 using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;

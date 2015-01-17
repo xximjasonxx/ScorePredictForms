@@ -11,7 +11,7 @@
     <AssemblyName>ScorePredictTouch</AssemblyName>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <NuGetPackageImportStamp>3e69fdc6</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>8e376c6a</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -87,7 +87,7 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bootstrap\MobileBootstrap.cs" />
+    <Compile Include="Bootstrap\UserDialogsBootstrap.cs" />
     <Compile Include="Client\AzureMobileServiceClient.cs" />
     <Compile Include="Contracts\IWindowHelper.cs" />
     <Compile Include="Impl\TouchClearUserSecurityService.cs" />
@@ -107,24 +107,20 @@
     <BundleResource Include="Resources\Default-568h@2x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Acr.XamForms.Mobile">
-      <HintPath>..\..\packages\Acr.XamForms.Mobile.2.0.0\lib\Xamarin.iOS10\Acr.XamForms.Mobile.dll</HintPath>
-    </Reference>
-    <Reference Include="Acr.XamForms.Mobile.iOS">
-      <HintPath>..\..\packages\Acr.XamForms.Mobile.2.0.0\lib\Xamarin.iOS10\Acr.XamForms.Mobile.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="Acr.XamForms.UserDialogs">
-      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.3.0.0\lib\portable-win+net45+MonoAndroid10+Xamarin.iOS10+wp8\Acr.XamForms.UserDialogs.dll</HintPath>
+      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.3.0.0\lib\Xamarin.iOS10\Acr.XamForms.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.XamForms.UserDialogs.iOS">
+      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.3.0.0\lib\Xamarin.iOS10\Acr.XamForms.UserDialogs.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\..\packages\Acr.XamForms.UserDialogs.3.0.0\lib\Xamarin.iOS10\BTProgressHUD.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\..\Components\azure-mobile-services-1.3.1\lib\ios-unified\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
       <HintPath>..\..\Components\azure-mobile-services-1.3.1\lib\ios-unified\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Net.Http" />
@@ -140,9 +136,6 @@
       <HintPath>..\..\packages\Xamarin.Forms.1.3.1.6296\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Xamarin.Mobile">
-      <HintPath>..\..\packages\Acr.XamForms.Mobile.2.0.0\lib\Xamarin.iOS10\Xamarin.Mobile.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
