@@ -16,6 +16,9 @@ namespace ScorePredict.Touch.Impl
             if (defaults.ValueForKey(new NSString(TouchConstants.TokenKey)) != null)
                 defaults.RemoveObject(TouchConstants.TokenKey);
 
+            if (defaults.ValueForKey(new NSString(TouchConstants.UsernameKey)) != null)
+                defaults.RemoveObject(TouchConstants.UsernameKey);
+
             defaults.Synchronize();
         }
 

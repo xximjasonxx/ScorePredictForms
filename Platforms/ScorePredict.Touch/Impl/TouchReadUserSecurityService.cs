@@ -24,10 +24,12 @@ namespace ScorePredict.Touch.Impl
             if (string.IsNullOrEmpty(userIdString) || string.IsNullOrEmpty(tokenString))
                 return null;
 
+            var username = defaults.StringForKey(TouchConstants.UsernameKey);
             return new User()
             {
                 AuthToken = _encryptionService.Decrypt(tokenString),
-                UserId = _encryptionService.Decrypt(userIdString)
+                UserId = _encryptionService.Decrypt(userIdString),
+                Username = username
             };
         }
     }

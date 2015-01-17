@@ -14,6 +14,9 @@ namespace ScorePredict.Phone.Impl
             if (settings.Contains(PhoneConstants.SettingsTokenKey))
                 settings.Remove(PhoneConstants.SettingsTokenKey);
 
+            if (settings.Contains(PhoneConstants.SettingsUsernameKey))
+                settings.Remove(PhoneConstants.SettingsUsernameKey);
+
             settings.Save();
         }
     }

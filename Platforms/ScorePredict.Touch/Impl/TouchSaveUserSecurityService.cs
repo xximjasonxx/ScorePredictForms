@@ -19,6 +19,7 @@ namespace ScorePredict.Touch.Impl
             var defaults = NSUserDefaults.StandardUserDefaults;
             defaults[TouchConstants.UserIdKey] = new NSString(_encryptionService.Encrypt(user.UserId));
             defaults[TouchConstants.TokenKey] = new NSString(_encryptionService.Encrypt(user.AuthToken));
+            defaults[TouchConstants.UsernameKey] = new NSString(user.Username);
 
             defaults.Synchronize();
         }

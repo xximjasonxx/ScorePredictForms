@@ -5,5 +5,6 @@ namespace ScorePredict.Touch
     {
         public const string UserIdKey = "UserId";
         public const string TokenKey = "Token";
+        public const string UsernameKey = "Username";
     }
 }
