@@ -1,9 +1,8 @@
 ﻿using System;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Injection;
-using ScorePredict.Data.Ex;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
-using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {

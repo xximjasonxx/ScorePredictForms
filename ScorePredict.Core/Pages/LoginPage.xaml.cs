@@ -1,7 +1,7 @@
 ﻿using System;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
-using ScorePredict.Data;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 
@@ -90,7 +90,7 @@ namespace ScorePredict.Core.Pages
             {
                 errorMessage = lex.Message;
             }
-            catch
+            catch (Exception ex)
             {
                 errorMessage = "Login Failed. Please try again.";
             }

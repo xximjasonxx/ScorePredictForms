@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Ex;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
@@ -30,7 +32,14 @@ namespace ScorePredict.Phone.Client
 
         public async Task<JToken> PostApiAsync(string apiName, IDictionary<string, string> parameters)
         {
-            return await InvokeApiAsync(apiName, HttpMethod.Post, parameters);
+            try
+            {
+                return await InvokeApiAsync(apiName, HttpMethod.Post, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<User> LoginFacebookAsync()
@@ -45,14 +54,28 @@ namespace ScorePredict.Phone.Client
 
         public async Task<JToken> LookupById(string tableName, string key)
         {
-            var table = GetTable(tableName);
-            return await table.LookupAsync(key);
+            try
+            {
+                var table = GetTable(tableName);
+                return await table.LookupAsync(key);
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                throw new LookupFailedException(tableName, key, ex);
+            }
         }
 
         public async Task<JToken> InsertIntoTable(string tableName, IDictionary<string, string> parameters)
         {
-            var table = GetTable(tableName);
-            return await table.InsertAsync(parameters.AsJObject());
+            try
+            {
+                var table = GetTable(tableName);
+                return await table.InsertAsync(parameters.AsJObject());
+            }
+            catch (MobileServiceConflictException ex)
+            {
+                throw new DuplicateDataException(tableName, parameters, ex);
+            }
         }
 
         #endregion

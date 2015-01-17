@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Injection;
-using ScorePredict.Data.Ex;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
 

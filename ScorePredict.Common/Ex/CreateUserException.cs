@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ScorePredict.Data.Ex
+namespace ScorePredict.Common.Ex
 {
     public class CreateUserException : Exception
     {
-        public CreateUserException(string errorMessage)
-            : base(errorMessage)
+        public CreateUserException(string message) : base(message)
         {
+            
         }
     }
 }

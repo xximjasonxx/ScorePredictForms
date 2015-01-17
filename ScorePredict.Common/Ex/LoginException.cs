@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace ScorePredict.Data
+namespace ScorePredict.Common.Ex
 {
     public class LoginException : Exception
     {
-        public LoginException(string errorMessage)
-            : base(errorMessage)
+        public LoginException(string message) : base(message)
         {
+            
         }
     }
 }
-

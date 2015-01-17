@@ -1,8 +1,8 @@
 ﻿using System;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
-using ScorePredict.Data.Ex;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.Pages
@@ -45,7 +45,7 @@ namespace ScorePredict.Core.Pages
             }
             catch (DuplicateDataException)
             {
-                errorMessage = "This username is already in use. Please try another";
+                errorMessage = "Duplicate Username exists, please select another";
             }
             catch
             {

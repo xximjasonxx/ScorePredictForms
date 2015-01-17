@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
@@ -22,6 +23,10 @@ namespace ScorePredict.Services.Impl
             {
                 _dialogService.ShowLoading("Getting Username...");
                 return (await _client.LookupById("usernames", userId)).AsDictionary()["username"];
+            }
+            catch (LookupFailedException)
+            {
+                return string.Empty;
             }
             finally
             {
