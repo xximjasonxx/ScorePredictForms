@@ -19,7 +19,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>7.0</string>
+	<string>7.1</string>
 	<key>XSAppIconAssets</key>
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleIconFiles</key>
@@ -31,5 +31,9 @@
 	</array>
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array/>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 </dict>
 </plist>
