@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4257b47f-895d-4154-88dd-430a084b2353}</ProjectGuid>
+    <ProjectGuid>{4257B47F-895D-4154-88DD-430A084B2353}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ScorePredict.Services</RootNamespace>
@@ -35,9 +35,19 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\ScorePredict.Common\ScorePredict.Common.csproj">
+      <Project>{38e485e1-a5f9-43d7-8f31-896e0ce890bc}</Project>
+      <Name>ScorePredict.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Contracts\IClearUserSecurityService.cs" />
+    <Compile Include="Contracts\IClient.cs" />
+    <Compile Include="IGetUsernameService.cs" />
+    <Compile Include="ILoginUserService.cs" />
+    <Compile Include="Contracts\IReadUserSecurityService.cs" />
+    <Compile Include="Contracts\ISaveUserSecurityService.cs" />
+    <Compile Include="Contracts\ISetUsernameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -48,5 +58,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
 </Project>
