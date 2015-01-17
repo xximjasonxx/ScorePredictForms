@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services.Contracts;
+using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
@@ -20,8 +21,7 @@ namespace ScorePredict.Services.Impl
             try
             {
                 _dialogService.ShowLoading("Getting Username...");
-                var response = await _client.GetFromTableByKey("usernames", userId);
-                return response["username"];
+                return (await _client.LookupById("usernames", userId)).AsDictionary()["username"];
             }
             finally
             {

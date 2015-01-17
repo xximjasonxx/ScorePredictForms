@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using ScorePredict.Common.Injection;
 using ScorePredict.Services.Contracts;
+using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
@@ -21,14 +22,14 @@ namespace ScorePredict.Services.Impl
             try
             {
                 _dialogService.ShowLoading("Saving...");
-                var result = await _client.InsertIntoTableByKey("usernames",
+                var result = await _client.InsertIntoTable("usernames",
                     new Dictionary<string, string>()
                     {
                         {"username", username},
                         {"id", userId}
                     });
 
-                return result["username"];
+                return result.AsDictionary()["username"];
             }
             finally
             {

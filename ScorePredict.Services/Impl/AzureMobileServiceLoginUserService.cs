@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Injection;
 using ScorePredict.Data;
 using ScorePredict.Services.Contracts;
+using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
@@ -39,7 +41,7 @@ namespace ScorePredict.Services.Impl
             try
             {
                 _dialogService.ShowLoading("Logging you In...");
-                var result = await _client.PostApiAsync("login", parameters);
+                var result = (await _client.InvokeApiAsync("login", HttpMethod.Post, parameters)).AsDictionary();
                 return new User()
                 {
                     AuthToken = result["token"],
@@ -55,13 +57,7 @@ namespace ScorePredict.Services.Impl
 
         public async Task<User> LoginWithFacebookAsync()
         {
-            var result = await _client.LoginFacebookAsync();
-            return new User()
-            {
-                AuthToken = result["token"],
-                UserId = result["id"],
-                Username = string.Empty
-            };
+            return await _client.LoginFacebookAsync();
         }
 
         #endregion

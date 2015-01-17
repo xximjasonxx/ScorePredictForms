@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Injection;
 using ScorePredict.Data.Ex;
 using ScorePredict.Services.Contracts;
+using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
@@ -41,7 +43,7 @@ namespace ScorePredict.Services.Impl
             try
             {
                 _dialogService.ShowLoading("Creating User...");
-                var result = await _client.PostApiAsync("create_user", parameters);
+                var result = (await _client.InvokeApiAsync("create_user", HttpMethod.Post, parameters)).AsDictionary();
                 return new User()
                 {
                     AuthToken = result["token"],
