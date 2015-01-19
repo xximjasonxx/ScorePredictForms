@@ -1,6 +1,5 @@
 ﻿using Foundation;
 using ScorePredict.Common.Data;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 
@@ -8,17 +7,13 @@ namespace ScorePredict.Touch.Impl
 {
     public class TouchSaveUserSecurityService : ISaveUserSecurityService
     {
-        private readonly IEncryptionService _encryptionService;
+        public IEncryptionService EncryptionService { get; set; }
 
-        public TouchSaveUserSecurityService()
-        {
-            _encryptionService = Resolver.CurrentResolver.Get<IEncryptionService>();
-        }
         public void SaveUser(User user)
         {
             var defaults = NSUserDefaults.StandardUserDefaults;
-            defaults[TouchConstants.UserIdKey] = new NSString(_encryptionService.Encrypt(user.UserId));
-            defaults[TouchConstants.TokenKey] = new NSString(_encryptionService.Encrypt(user.AuthToken));
+            defaults[TouchConstants.UserIdKey] = new NSString(EncryptionService.Encrypt(user.UserId));
+            defaults[TouchConstants.TokenKey] = new NSString(EncryptionService.Encrypt(user.AuthToken));
             defaults[TouchConstants.UsernameKey] = new NSString(user.Username);
 
             defaults.Synchronize();
