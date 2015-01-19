@@ -1,10 +1,10 @@
-﻿using ScorePredict.Common.Injection;
+﻿
 using ScorePredict.Core.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.Impl
 {
-    public class TouchPageHelper : IPageHelper
+    /*public class TouchPageHelper : IPageHelper
     {
         private INavigation Navigation
         {
@@ -24,6 +24,6 @@ namespace ScorePredict.Core.Impl
         }
 
         #endregion
-    }
+    }*/
 }
 

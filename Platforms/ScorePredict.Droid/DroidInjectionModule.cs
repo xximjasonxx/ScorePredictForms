@@ -1,5 +1,4 @@
-﻿using Acr.XamForms.UserDialogs;
-using ScorePredict.Common.Injection;
+﻿using Autofac;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Droid.Client;
 using ScorePredict.Droid.Impl;
@@ -7,18 +6,16 @@ using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Droid
 {
-    public class DroidInjectionModule : InjectionModule
+    public class DroidInjectionModule : Module
     {
-        public DroidInjectionModule(IPageHelper pageHelper)
+        protected override void Load(ContainerBuilder builder)
         {
-            AddDependency<IClient>(new AzureMobileServiceClient());
-            AddDependency<ISaveUserSecurityService>(typeof(DroidSaveUserSecurityService));
-            AddDependency<IReadUserSecurityService>(typeof(DroidReadUserSecurityService));
-            AddDependency<IClearUserSecurityService>(typeof(DroidClearUserSecurityService));
-            AddDependency<IEncryptionService>(typeof(DroidEncryptionService));
-
-            AddDependency<IDialogService>(typeof(DroidDialogService));
-            AddDependency<IPageHelper>(pageHelper);
+            builder.RegisterType<AzureMobileServiceClient>().As<IClient>().SingleInstance();
+            builder.RegisterType<DroidSaveUserSecurityService>().As<ISaveUserSecurityService>();
+            builder.RegisterType<DroidReadUserSecurityService>().As<IReadUserSecurityService>();
+            builder.RegisterType<DroidClearUserSecurityService>().As<IClearUserSecurityService>();
+            builder.RegisterType<DroidEncryptionService>().As<IEncryptionService>();
+            builder.RegisterType<DroidDialogService>().As<IDialogService>();
         }
     }
 }

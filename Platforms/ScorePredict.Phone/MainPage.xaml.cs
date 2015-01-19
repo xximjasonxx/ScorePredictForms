@@ -1,5 +1,4 @@
-﻿using ScorePredict.Common.Injection;
-using ScorePredict.Core;
+﻿using ScorePredict.Core;
 using ScorePredict.Core.Impl;
 using ScorePredict.Phone.Modules;
 using ScorePredict.Services.Modules;
@@ -16,11 +15,11 @@ namespace ScorePredict.Phone
             Forms.Init();
 
             var app = new ScorePredictApplication(new StandardStartupPageHelper(),
-                new ServiceInjectionModule(), new PhoneInjectionModule(new PhonePageHelper()));
+                new ServiceInjectionModule(), new PhoneInjectionModule());
             LoadApplication(app);
 
             // add in the special injection module for windows phone navigation
-            Resolver.CurrentResolver.AddModule(new PhoneNavigationModule(app.MainPage.Navigation));
+            //Resolver.CurrentResolver.AddModule(new PhoneNavigationModule(app.MainPage.Navigation));
         }
     }
 }

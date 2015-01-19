@@ -1,6 +1,5 @@
 ﻿using System;
 using ScorePredict.Common.Ex;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -9,21 +8,14 @@ namespace ScorePredict.Core.Pages
 {
     public partial class LoginPage
     {
-        private readonly IPageHelper _pageHelper;
-        private readonly ILoginUserService _loginUserService;
-        private readonly ISaveUserSecurityService _saveUserSecurityService;
-        private readonly IGetUsernameService _getUsernameService;
-        private readonly IDialogService _dialogService;
+        public ILoginUserService LoginUserService { get; set; }
+        public ISaveUserSecurityService SaveUserSecurityService { get; set; }
+        public IGetUsernameService GetUsernameService { get; set; }
+        public IDialogService DialogService { get; set; }
 
         public LoginPage()
         {
             InitializeComponent();
-
-            _loginUserService = Resolver.CurrentResolver.Get<ILoginUserService>();
-            _saveUserSecurityService = Resolver.CurrentResolver.Get<ISaveUserSecurityService>();
-            _pageHelper = Resolver.CurrentResolver.GetInstance<IPageHelper>();
-            _getUsernameService = Resolver.CurrentResolver.Get<IGetUsernameService>();
-            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
         }
 
         private void GoToCreateUser(object sender, EventArgs e)
@@ -35,11 +27,11 @@ namespace ScorePredict.Core.Pages
         {
             try
             {
-                var user = await _loginUserService.LoginAsync(txtUsername.Text, txtPassword.Text);
+                var user = await LoginUserService.LoginAsync(txtUsername.Text, txtPassword.Text);
                 if (user == null)
                     throw new LoginException("Invalid Username Password combination");
 
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
+                //Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
 
                 if (string.IsNullOrEmpty(user.Username))
                 {
@@ -47,16 +39,16 @@ namespace ScorePredict.Core.Pages
                     return; // end execution
                 }
 
-                _saveUserSecurityService.SaveUser(user);
-                _pageHelper.ShowMain();
+                SaveUserSecurityService.SaveUser(user);
+                //_pageHelper.ShowMain();
             }
             catch (LoginException lex)
             {
-                _dialogService.Alert(lex.Message);
+                DialogService.Alert(lex.Message);
             }
             catch
             {
-                _dialogService.Alert("Login did not succeed. Please try again");
+                DialogService.Alert("Login did not succeed. Please try again");
             }
         }
 
@@ -64,29 +56,29 @@ namespace ScorePredict.Core.Pages
         {
             try
             {
-                var result = await _loginUserService.LoginWithFacebookAsync();
+                var result = await LoginUserService.LoginWithFacebookAsync();
                 if (result == null)
                     throw new LoginException("Failed to Login in with Facebook");
 
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
+                //Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
 
-                string username = await _getUsernameService.GetUsernameAsync(result.UserId);
+                string username = await GetUsernameService.GetUsernameAsync(result.UserId);
                 if (string.IsNullOrEmpty(username))
                 {
                     await Navigation.PushAsync(new EnterUsernamePage(result));
                     return;
                 }
 
-                _saveUserSecurityService.SaveUser(result);
-                _pageHelper.ShowMain();
+                SaveUserSecurityService.SaveUser(result);
+                //_pageHelper.ShowMain();
             }
             catch (LoginException lex)
             {
-                _dialogService.Alert(lex.Message);
+                DialogService.Alert(lex.Message);
             }
             catch
             {
-                _dialogService.Alert("Login Failed. Please try again.");
+                DialogService.Alert("Login Failed. Please try again.");
             }
         }
     }

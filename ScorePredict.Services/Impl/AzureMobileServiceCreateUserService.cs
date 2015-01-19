@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
-using ScorePredict.Common.Injection;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
 
@@ -11,14 +10,8 @@ namespace ScorePredict.Services.Impl
 {
     public class AzureMobileServiceCreateUserService : ICreateUserService
     {
-        private readonly IClient _client;
-        private readonly IDialogService _dialogService;
-
-        public AzureMobileServiceCreateUserService()
-        {
-            _client = Resolver.CurrentResolver.GetInstance<IClient>();
-            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
-        }
+        public IClient Client { get; set; }
+        public IDialogService DialogService { get; set; }
 
         public async Task<User> CreateUserAsync(string username, string password, string confirm)
         {
@@ -41,8 +34,8 @@ namespace ScorePredict.Services.Impl
 
             try
             {
-                _dialogService.ShowLoading("Creating User...");
-                var result = (await _client.PostApiAsync("create_user", parameters)).AsDictionary();
+                DialogService.ShowLoading("Creating User...");
+                var result = (await Client.PostApiAsync("create_user", parameters)).AsDictionary();
                 return new User()
                 {
                     AuthToken = result["token"],
@@ -56,7 +49,7 @@ namespace ScorePredict.Services.Impl
             }
             finally
             {
-                _dialogService.HideLoading();
+                DialogService.HideLoading();
             }
         }
     }

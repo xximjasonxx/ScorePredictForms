@@ -1,6 +1,5 @@
 ﻿using System.IO.IsolatedStorage;
 using ScorePredict.Common.Data;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 
@@ -8,12 +7,7 @@ namespace ScorePredict.Phone.Impl
 {
     public class PhoneReadUserSecurityService : IReadUserSecurityService
     {
-        private readonly IEncryptionService _encryptionService;
-
-        public PhoneReadUserSecurityService()
-        {
-            _encryptionService = Resolver.CurrentResolver.Get<IEncryptionService>();
-        }
+        public IEncryptionService EncryptionService { get; set; }
 
         public User ReadUser()
         {
@@ -31,8 +25,8 @@ namespace ScorePredict.Phone.Impl
 
             return new User()
             {
-                AuthToken = _encryptionService.Decrypt(tokenString),
-                UserId = _encryptionService.Decrypt(userIdstring),
+                AuthToken = EncryptionService.Decrypt(tokenString),
+                UserId = EncryptionService.Decrypt(userIdstring),
                 Username = username
             };
         }

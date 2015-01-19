@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Linq;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.Impl
 {
-    public class PhonePageHelper : IPageHelper
+    /*public class PhonePageHelper : IPageHelper
     {
         private INavigation NavigationProperty
         {
-            get { return Resolver.CurrentResolver.GetInstance<INavigation>(); }
+            get { return nullResolver.CurrentResolver.GetInstance<INavigation>(); }
         }
-
-        /* dont use the PageFactory - no navigation controller concept in Windows Phone */
 
         public void ShowLogin()
         {
@@ -54,5 +51,5 @@ namespace ScorePredict.Core.Impl
                 }
             }
         }
-    }
+    }*/
 }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
-using ScorePredict.Common.Injection;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
 
@@ -11,14 +9,8 @@ namespace ScorePredict.Services.Impl
 {
     public class AzureMobileServiceLoginUserService : ILoginUserService
     {
-        private readonly IClient _client;
-        private readonly IDialogService _dialogService;
-
-        public AzureMobileServiceLoginUserService()
-        {
-            _client = Resolver.CurrentResolver.GetInstance<IClient>();
-            _dialogService = Resolver.CurrentResolver.Get<IDialogService>();
-        }
+        public IClient Client { get; set; }
+        public IDialogService DialogService { get; set; }
 
         #region ILoginUserService implementation
 
@@ -40,8 +32,8 @@ namespace ScorePredict.Services.Impl
 
             try
             {
-                _dialogService.ShowLoading("Logging you In...");
-                var result = (await _client.PostApiAsync("login", parameters)).AsDictionary();
+                DialogService.ShowLoading("Logging you In...");
+                var result = (await Client.PostApiAsync("login", parameters)).AsDictionary();
                 return new User()
                 {
                     AuthToken = result["token"],
@@ -55,13 +47,13 @@ namespace ScorePredict.Services.Impl
             }
             finally
             {
-                _dialogService.HideLoading();
+                DialogService.HideLoading();
             }
         }
 
         public async Task<User> LoginWithFacebookAsync()
         {
-            return await _client.LoginFacebookAsync();
+            return await Client.LoginFacebookAsync();
         }
 
         #endregion

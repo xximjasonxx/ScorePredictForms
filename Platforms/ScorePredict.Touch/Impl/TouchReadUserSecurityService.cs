@@ -1,6 +1,5 @@
 ﻿using Foundation;
 using ScorePredict.Common.Data;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 
@@ -8,12 +7,7 @@ namespace ScorePredict.Touch.Impl
 {
     public class TouchReadUserSecurityService : IReadUserSecurityService
     {
-        private readonly IEncryptionService _encryptionService;
-
-        public TouchReadUserSecurityService()
-        {
-            _encryptionService = Resolver.CurrentResolver.Get<IEncryptionService>();
-        }
+        public IEncryptionService EncryptionService { get; set; }
 
         public User ReadUser()
         {
@@ -27,8 +21,8 @@ namespace ScorePredict.Touch.Impl
             var username = defaults.StringForKey(TouchConstants.UsernameKey);
             return new User()
             {
-                AuthToken = _encryptionService.Decrypt(tokenString),
-                UserId = _encryptionService.Decrypt(userIdString),
+                AuthToken = EncryptionService.Decrypt(tokenString),
+                UserId = EncryptionService.Decrypt(userIdString),
                 Username = username
             };
         }

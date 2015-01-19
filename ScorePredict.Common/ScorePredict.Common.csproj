@@ -45,8 +45,6 @@
     <Compile Include="Ex\LoginException.cs" />
     <Compile Include="Ex\LookupFailedException.cs" />
     <Compile Include="Ex\SaveUsernameException.cs" />
-    <Compile Include="Injection\InjectionModule.cs" />
-    <Compile Include="Injection\Resolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

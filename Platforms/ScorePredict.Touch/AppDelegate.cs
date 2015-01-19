@@ -23,7 +23,7 @@ namespace ScorePredict.Touch
 
             LoadApplication(new ScorePredictApplication(new MainPageWithModalStartupPageHelper(),
                 new ServiceInjectionModule(),
-                new TouchInjectionModule(app, new TouchPageHelper())));
+                new TouchInjectionModule(app)));
 
             return base.FinishedLaunching(app, options);
         }

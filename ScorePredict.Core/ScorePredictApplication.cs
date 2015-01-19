@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Autofac;
 using ScorePredict.Common.Data;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
@@ -11,14 +10,14 @@ namespace ScorePredict.Core
     {
         private readonly IReadUserSecurityService _readUserSecurityService;
 
-        public ScorePredictApplication(IStartupPageHelper getPageHelper, params InjectionModule[] modules)
+        public ScorePredictApplication(IStartupPageHelper getPageHelper, params Module[] modules)
         {
-            Resolver.CurrentResolver.Initialize(modules);
+            //Resolver.CurrentResolver.Initialize(modules);
 
-            _readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
+            //_readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
             SetMainPage(getPageHelper);
 
-            Resolver.CurrentResolver.AddModule(new CoreInjectionModule(MainPage.Navigation));
+            //Resolver.CurrentResolver.AddModule(new CoreInjectionModule(MainPage.Navigation));
         }
 
         private void SetMainPage(IStartupPageHelper getPageHelper)
@@ -32,7 +31,7 @@ namespace ScorePredict.Core
 
             if (string.IsNullOrEmpty(user.Username))
             {
-                Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
+                //Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
                 MainPage = getPageHelper.GetUsernamePage(user);
                 return;
             }

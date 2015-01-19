@@ -1,17 +1,17 @@
-﻿using ScorePredict.Common.Injection;
+﻿using Autofac;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Impl;
 
 namespace ScorePredict.Services.Modules
 {
-    public class ServiceInjectionModule : InjectionModule
+    public class ServiceInjectionModule : Module
     {
-        public ServiceInjectionModule()
+        protected override void Load(ContainerBuilder builder)
         {
-            AddDependency<ICreateUserService>(typeof(AzureMobileServiceCreateUserService));
-            AddDependency<ILoginUserService>(typeof(AzureMobileServiceLoginUserService));
-            AddDependency<IGetUsernameService>(typeof(AzureMobileServiceGetUsernameService));
-            AddDependency<ISetUsernameService>(typeof(AzureMobileServiceSetUsernameService));
+            builder.RegisterType<AzureMobileServiceCreateUserService>().As<ICreateUserService>();
+            builder.RegisterType<AzureMobileServiceLoginUserService>().As<ILoginUserService>();
+            builder.RegisterType<AzureMobileServiceGetUsernameService>().As<IGetUsernameService>();
+            builder.RegisterType<AzureMobileServiceSetUsernameService>().As<ISetUsernameService>();
         }
     }
 }

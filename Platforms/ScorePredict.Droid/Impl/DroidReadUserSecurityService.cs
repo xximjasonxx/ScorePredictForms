@@ -1,6 +1,5 @@
 using Android.Preferences;
 using ScorePredict.Common.Data;
-using ScorePredict.Common.Injection;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Droid.Impl;
 using ScorePredict.Services.Contracts;
@@ -12,12 +11,7 @@ namespace ScorePredict.Droid.Impl
 {
     public class DroidReadUserSecurityService : IReadUserSecurityService
     {
-        private readonly IEncryptionService _encryptionService;
-
-        public DroidReadUserSecurityService()
-        {
-            _encryptionService = Resolver.CurrentResolver.Get<IEncryptionService>();
-        }
+        public IEncryptionService EncryptionService { get; set; }
 
         public User ReadUser()
         {
@@ -31,8 +25,8 @@ namespace ScorePredict.Droid.Impl
             var username = prefs.GetString(AndroidConstants.SharedPrefsUsernameKey, string.Empty);
             return new User()
             {
-                AuthToken = _encryptionService.Decrypt(token),
-                UserId = _encryptionService.Decrypt(userId),
+                AuthToken = EncryptionService.Decrypt(token),
+                UserId = EncryptionService.Decrypt(userId),
                 Username = username
             };
         }

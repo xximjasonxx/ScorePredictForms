@@ -1,4 +1,4 @@
-﻿using ScorePredict.Common.Injection;
+﻿using Autofac;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Phone.Client;
 using ScorePredict.Phone.Impl;
@@ -6,17 +6,16 @@ using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Phone.Modules
 {
-    public class PhoneInjectionModule : InjectionModule
+    public class PhoneInjectionModule : Module
     {
-        public PhoneInjectionModule(IPageHelper pageHelper)
+        protected override void Load(ContainerBuilder builder)
         {
-            AddDependency<IClient>(new AzureMobileServiceClient());
-            AddDependency<IReadUserSecurityService>(typeof(PhoneReadUserSecurityService));
-            AddDependency<ISaveUserSecurityService>(typeof(PhoneSaveUserSecurityService));
-            AddDependency<IClearUserSecurityService>(typeof(PhoneClearUserSecurityService));
-            AddDependency<IEncryptionService>(typeof(PhoneEncryptionService));
-            AddDependency<IPageHelper>(pageHelper);
-            AddDependency<IDialogService>(typeof(PhoneDialogService));
+            builder.RegisterType<AzureMobileServiceClient>().As<IClient>().SingleInstance();
+            builder.RegisterType<PhoneReadUserSecurityService>().As<IReadUserSecurityService>();
+            builder.RegisterType<PhoneSaveUserSecurityService>().As<ISaveUserSecurityService>();
+            builder.RegisterType<PhoneClearUserSecurityService>().As<IClearUserSecurityService>();
+            builder.RegisterType<PhoneEncryptionService>().As<IEncryptionService>();
+            builder.RegisterType<PhoneDialogService>().As<IDialogService>();
         }
     }
 }

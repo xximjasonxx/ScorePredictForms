@@ -24,7 +24,7 @@ namespace ScorePredict.Droid
             Forms.Init(this, bundle);
 
             LoadApplication(new ScorePredictApplication(new StandardStartupPageHelper(),
-                new ServiceInjectionModule(), new DroidInjectionModule(this)));
+                new ServiceInjectionModule(), new DroidInjectionModule()));
         }
 
         public void ShowLogin()
