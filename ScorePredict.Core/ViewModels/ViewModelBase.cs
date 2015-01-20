@@ -21,14 +21,12 @@ namespace ScorePredict.Core.ViewModels
 
         protected async Task ShowPage(Page page)
         {
-            try
-            {
-                await ScorePredictApplication.Navigation.PushAsync(page, true);
-            }
-            catch (Exception ex)
-            {
-                return;
-            }
+            await ScorePredictApplication.Navigation.PushAsync(page, true);
+        }
+
+        protected async Task PopModal()
+        {
+            await ScorePredictApplication.Navigation.PopModalAsync(true);
         }
     }
 }

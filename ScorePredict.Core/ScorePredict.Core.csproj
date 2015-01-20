@@ -79,6 +79,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ScorePredictApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CreateUserPageViewModel.cs" />
     <Compile Include="ViewModels\EnterUsernamePageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />

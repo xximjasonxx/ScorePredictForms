@@ -26,13 +26,13 @@
         </Label.Text>
       </Label>
 
-      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" x:Name="txtUsername" />
-      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" x:Name="txtPassword" />
-      <controls:ScorePredictEntry Grid.Row="3" Placeholder="Confirm" IsPassword="True" x:Name="txtConfirm" />
+      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" Text="{Binding Username, Mode=TwoWay}" />
+      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" Text="{Binding Password, Mode=TwoWay}" />
+      <controls:ScorePredictEntry Grid.Row="3" Placeholder="Confirm" IsPassword="True" Text="{Binding ConfirmPassword, Mode=TwoWay}" />
 
       <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Create User"
               VerticalOptions="StartAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
-              Grid.Row="5" Clicked="CreateUser" />
+              Grid.Row="5" Command="{Binding CreateUserCommand}" />
 
     </Grid>
   </ContentPage.Content>
