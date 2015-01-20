@@ -11,7 +11,12 @@ namespace ScorePredict.Droid.Impl
 {
     public class DroidReadUserSecurityService : IReadUserSecurityService
     {
-        public IEncryptionService EncryptionService { get; set; }
+        public IEncryptionService EncryptionService { get; private set; }
+
+        public DroidReadUserSecurityService(IEncryptionService encryptionService)
+        {
+            EncryptionService = encryptionService;
+        }
 
         public User ReadUser()
         {

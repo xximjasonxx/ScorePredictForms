@@ -1,5 +1,4 @@
 ﻿using System;
-using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.Pages

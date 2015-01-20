@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using ScorePredict.Common.Ex;
+using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
@@ -9,15 +12,24 @@ namespace ScorePredict.Core.ViewModels
 {
     public class CreateUserPageViewModel : ViewModelBase
     {
-        public ICreateUserService CreateUserService { get; set; }
-        public ISaveUserSecurityService SaveUserSecurityService { get; set; }
-        public IDialogService DialogService { get; set; }
+        public ICreateUserService CreateUserService { get; private set; }
+        public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
+        public IDialogService DialogService { get; private set; }
 
         public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
 
         public ICommand CreateUserCommand { get {  return new Command(CreateUser);} }
+
+        public CreateUserPageViewModel(ICreateUserService createUserService,
+            ISaveUserSecurityService saveUserSecurityService,
+            IDialogService dialogService)
+        {
+            CreateUserService = createUserService;
+            SaveUserSecurityService = saveUserSecurityService;
+            DialogService = dialogService;
+        }
 
         private async void CreateUser()
         {
@@ -31,9 +43,7 @@ namespace ScorePredict.Core.ViewModels
                     throw new CreateUserException("An error occured creating your user. Please try again");
 
                 SaveUserSecurityService.SaveUser(result);
-                //Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
-
-                await PopModal();
+                await ShowMainAsRoot();
             }
             catch (CreateUserException ex)
             {
@@ -43,6 +53,13 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.Alert("An unknown error occurred. Please try again");
             }
+        }
+
+        private async Task ShowMainAsRoot()
+        {
+            var page = new MainPage();
+            Navigation.InsertPageBefore(page, Navigation.NavigationStack.First());
+            await Navigation.PopToRootAsync(true);
         }
     }
 }

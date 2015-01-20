@@ -7,7 +7,12 @@ namespace ScorePredict.Phone.Impl
 {
     public class PhoneReadUserSecurityService : IReadUserSecurityService
     {
-        public IEncryptionService EncryptionService { get; set; }
+        public IEncryptionService EncryptionService { get; private set; }
+
+        public PhoneReadUserSecurityService(IEncryptionService encryptionService)
+        {
+            EncryptionService = encryptionService;
+        }
 
         public User ReadUser()
         {

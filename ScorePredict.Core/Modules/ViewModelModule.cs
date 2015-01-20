@@ -10,6 +10,7 @@ namespace ScorePredict.Core.Modules
             builder.RegisterType<MainPageViewModel>();
             builder.RegisterType<LoginPageViewModel>();
             builder.RegisterType<EnterUsernamePageViewModel>();
+            builder.RegisterType<CreateUserPageViewModel>();
         }
     }
 }

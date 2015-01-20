@@ -7,7 +7,12 @@ namespace ScorePredict.Phone.Impl
 {
     public class PhoneSaveUserSecurityService : ISaveUserSecurityService
     {
-        public IEncryptionService EncryptionService { get; set; }
+        public IEncryptionService EncryptionService { get; private set; }
+
+        public PhoneSaveUserSecurityService(IEncryptionService encryptionService)
+        {
+            EncryptionService = encryptionService;
+        }
 
         public void SaveUser(User user)
         {

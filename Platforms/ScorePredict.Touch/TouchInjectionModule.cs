@@ -2,6 +2,7 @@
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Touch.Client;
+using ScorePredict.Touch.Contracts;
 using ScorePredict.Touch.Impl;
 using UIKit;
 
@@ -20,9 +21,9 @@ namespace ScorePredict.Touch
         protected override void Load(ContainerBuilder builder)
         {
             var windowHelper = new TouchWindowHelper(_app);
-            builder.RegisterInstance(new AzureMobileServiceClient(windowHelper))
-                .As<IClient>().SingleInstance();
+            builder.RegisterInstance(windowHelper).As<IWindowHelper>();
 
+            builder.RegisterType<AzureMobileServiceClient>().As<IClient>().SingleInstance();
             builder.RegisterType<IEncryptionService>().As<TouchEncryptionService>();
             builder.RegisterType<TouchReadUserSecurityService>().As<IReadUserSecurityService>();
             builder.RegisterType<TouchSaveUserSecurityService>().As<ISaveUserSecurityService>();

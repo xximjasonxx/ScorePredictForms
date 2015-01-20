@@ -8,10 +8,10 @@ namespace ScorePredict.Services.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<AzureMobileServiceCreateUserService>().As<ICreateUserService>();
-            builder.RegisterType<AzureMobileServiceLoginUserService>().As<ILoginUserService>();
-            builder.RegisterType<AzureMobileServiceGetUsernameService>().As<IGetUsernameService>();
-            builder.RegisterType<AzureMobileServiceSetUsernameService>().As<ISetUsernameService>();
+            builder.RegisterType<ScorePredictCreateUserService>().As<ICreateUserService>();
+            builder.RegisterType<ScorePredictLoginUserService>().As<ILoginUserService>();
+            builder.RegisterType<ScorePredictGetUsernameService>().As<IGetUsernameService>();
+            builder.RegisterType<ScorePredictSetUsernameService>().As<ISetUsernameService>();
         }
     }
 }

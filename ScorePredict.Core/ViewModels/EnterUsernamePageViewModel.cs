@@ -11,11 +11,20 @@ namespace ScorePredict.Core.ViewModels
         public User User { get; set; }
         public string Username { get; set; }
 
-        public ISaveUserSecurityService SaveUserSecurityService { get; set; }
-        public ISetUsernameService SetUsernameService { get; set; }
-        public IDialogService DialogService { get; set; }
+        public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
+        public ISetUsernameService SetUsernameService { get; private set; }
+        public IDialogService DialogService { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save);}}
+
+        public EnterUsernamePageViewModel(ISaveUserSecurityService saveUserSecurityService,
+            ISetUsernameService setUsernameService,
+            IDialogService dialogService)
+        {
+            SaveUserSecurityService = saveUserSecurityService;
+            SetUsernameService = setUsernameService;
+            DialogService = dialogService;
+        }
 
         private async void Save()
         {

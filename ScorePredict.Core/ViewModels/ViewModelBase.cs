@@ -19,14 +19,6 @@ namespace ScorePredict.Core.ViewModels
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected async Task ShowPage(Page page)
-        {
-            await ScorePredictApplication.Navigation.PushAsync(page, true);
-        }
-
-        protected async Task PopModal()
-        {
-            await ScorePredictApplication.Navigation.PopModalAsync(true);
-        }
+        protected INavigation Navigation { get { return ScorePredictApplication.Navigation; } }
     }
 }

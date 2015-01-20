@@ -6,10 +6,16 @@ using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
-    public class AzureMobileServiceSetUsernameService : ISetUsernameService
+    public class ScorePredictSetUsernameService : ISetUsernameService
     {
-        public IClient Client { get; set; }
-        public IDialogService DialogService { get; set; }
+        public IClient Client { get; private set; }
+        public IDialogService DialogService { get; private set; }
+
+        public ScorePredictSetUsernameService(IClient client, IDialogService dialogService)
+        {
+            Client = client;
+            DialogService = dialogService;
+        }
 
         public async Task<string> SetUsernameForUserAsync(string userId, string username)
         {

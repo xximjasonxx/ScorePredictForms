@@ -54,11 +54,10 @@
     <Compile Include="Contracts\IReadUserSecurityService.cs" />
     <Compile Include="Contracts\ISaveUserSecurityService.cs" />
     <Compile Include="Contracts\ISetUsernameService.cs" />
-    <Compile Include="Impl\AzureMobileServiceCreateUserService.cs" />
-    <Compile Include="Impl\AzureMobileServiceGetUsernameService.cs" />
-    <Compile Include="Impl\AzureMobileServiceLoginUserService.cs" />
-    <Compile Include="Impl\AzureMobileServiceSetUsernameService.cs" />
-    <Compile Include="Impl\AzureMobileServiceThisWeekService.cs" />
+    <Compile Include="Impl\ScorePredictCreateUserService.cs" />
+    <Compile Include="Impl\ScorePredictGetUsernameService.cs" />
+    <Compile Include="Impl\ScorePredictLoginUserService.cs" />
+    <Compile Include="Impl\ScorePredictSetUsernameService.cs" />
     <Compile Include="Modules\ServiceInjectionModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

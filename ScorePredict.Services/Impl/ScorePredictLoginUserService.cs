@@ -7,10 +7,16 @@ using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
-    public class AzureMobileServiceLoginUserService : ILoginUserService
+    public class ScorePredictLoginUserService : ILoginUserService
     {
-        public IClient Client { get; set; }
-        public IDialogService DialogService { get; set; }
+        public IClient Client { get; private set; }
+        public IDialogService DialogService { get; private set; }
+
+        public ScorePredictLoginUserService(IClient client, IDialogService dialogService)
+        {
+            Client = client;
+            DialogService = dialogService;
+        }
 
         #region ILoginUserService implementation
 
@@ -34,12 +40,15 @@ namespace ScorePredict.Services.Impl
             {
                 DialogService.ShowLoading("Logging you In...");
                 var result = (await Client.PostApiAsync("login", parameters)).AsDictionary();
-                return new User()
+                var user = new User()
                 {
                     AuthToken = result["token"],
                     UserId = result["id"],
                     Username = result["username"]
                 };
+
+                Client.AuthenticateUser(user);
+                return user;
             }
             catch (ApiExecutionException)
             {

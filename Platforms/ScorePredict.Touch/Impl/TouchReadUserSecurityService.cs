@@ -7,7 +7,12 @@ namespace ScorePredict.Touch.Impl
 {
     public class TouchReadUserSecurityService : IReadUserSecurityService
     {
-        public IEncryptionService EncryptionService { get; set; }
+        public IEncryptionService EncryptionService { get; private set; }
+
+        public TouchReadUserSecurityService(IEncryptionService encryptionService)
+        {
+            EncryptionService = encryptionService;
+        }
 
         public User ReadUser()
         {

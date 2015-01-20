@@ -8,10 +8,16 @@ using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
-    public class AzureMobileServiceCreateUserService : ICreateUserService
+    public class ScorePredictCreateUserService : ICreateUserService
     {
-        public IClient Client { get; set; }
-        public IDialogService DialogService { get; set; }
+        public IClient Client { get; private set; }
+        public IDialogService DialogService { get; private set; }
+
+        public ScorePredictCreateUserService(IClient client, IDialogService dialogService)
+        {
+            Client = client;
+            DialogService = dialogService;
+        }
 
         public async Task<User> CreateUserAsync(string username, string password, string confirm)
         {
@@ -36,12 +42,15 @@ namespace ScorePredict.Services.Impl
             {
                 DialogService.ShowLoading("Creating User...");
                 var result = (await Client.PostApiAsync("create_user", parameters)).AsDictionary();
-                return new User()
+                var user = new User()
                 {
                     AuthToken = result["token"],
                     UserId = result["id"],
                     Username = result["username"]
                 };
+
+                Client.AuthenticateUser(user);
+                return user;
             }
             catch (DuplicateDataException)
             {
