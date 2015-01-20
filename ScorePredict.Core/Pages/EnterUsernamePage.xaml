@@ -23,11 +23,11 @@
       </Label.Text>
     </Label>
 
-    <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" x:Name="txtUsername" />
+    <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" Text="{Binding Username}" />
 
     <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Submit"
             VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
-            Clicked="SubmitUsername" Grid.Row="3" />
+            Command="{Binding SaveCommand}" Grid.Row="3" />
 
     <Label HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"
            Text="As part of our upgrade we want each user to have a username. This username allows us to include you in rankings and groupings."

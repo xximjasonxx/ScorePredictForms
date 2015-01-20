@@ -7,8 +7,8 @@ namespace ScorePredict.Core.Pages
     {
         public LoginPage()
         {
-            BindingContext = ContainerHolder.Current.Resolve<LoginPageViewModel>();
             InitializeComponent();
+            BindingContext = ContainerHolder.Current.Resolve<LoginPageViewModel>();
         }
     }
 }
