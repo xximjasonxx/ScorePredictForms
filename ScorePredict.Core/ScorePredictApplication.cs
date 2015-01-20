@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using ScorePredict.Common.Data;
 using ScorePredict.Core.Contracts;
+using ScorePredict.Core.Extensions;
+using ScorePredict.Core.Modules;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
@@ -8,35 +10,32 @@ namespace ScorePredict.Core
 {
     public class ScorePredictApplication : Application
     {
-        private readonly IReadUserSecurityService _readUserSecurityService;
+        public static INavigation Navigation;
 
-        public ScorePredictApplication(IStartupPageHelper getPageHelper, params Module[] modules)
+        public ScorePredictApplication(IStartupHelper startupHelper, params Module[] modules)
         {
-            //Resolver.CurrentResolver.Initialize(modules);
+            var builder = new ContainerBuilder();
+            builder.RegisterModules(modules);
+            builder.RegisterModule(new ViewModelModule());
 
-            //_readUserSecurityService = Resolver.CurrentResolver.Get<IReadUserSecurityService>();
-            SetMainPage(getPageHelper);
+            ContainerHolder.Initialize(builder.Build());
 
-            //Resolver.CurrentResolver.AddModule(new CoreInjectionModule(MainPage.Navigation));
+            var startPage = GetMainPage(startupHelper, ContainerHolder.Current.Resolve<IReadUserSecurityService>());
+            builder.RegisterInstance(startPage.Navigation).As<INavigation>().SingleInstance();
+            MainPage = startPage;
+            Navigation = startPage.Navigation;
         }
 
-        private void SetMainPage(IStartupPageHelper getPageHelper)
+        private Page GetMainPage(IStartupHelper startupHelper, IReadUserSecurityService readUserSecurityService)
         {
-            User user = _readUserSecurityService.ReadUser();
+            User user = readUserSecurityService.ReadUser();
             if (user == null)
-            {
-                MainPage = getPageHelper.GetLoginPage();
-                return;
-            }
+                return startupHelper.GetLoginPage();
 
             if (string.IsNullOrEmpty(user.Username))
-            {
-                //Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(user);
-                MainPage = getPageHelper.GetUsernamePage(user);
-                return;
-            }
+                return startupHelper.GetUsernamePage(user);
 
-            MainPage = getPageHelper.GetMainPage();
+            return startupHelper.GetMainPage();
         }
     }
 }

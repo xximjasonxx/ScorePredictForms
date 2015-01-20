@@ -3,7 +3,7 @@ using ScorePredict.Core.Contracts;
 
 namespace ScorePredict.Core.Impl
 {
-    public class MainPageWithModalStartupPageHelper : IStartupPageHelper
+    public class MainWithModalStartupHelper : IStartupHelper
     {
         #region IGetMainPage implementation
 

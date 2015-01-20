@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.Contracts
 {
-    public interface IStartupPageHelper
+    public interface IStartupHelper
     {
         Page GetMainPage();
         Page GetLoginPage();
