@@ -21,9 +21,7 @@ namespace ScorePredict.Core
             builder.RegisterInstance(navigator).As<INavigator>().SingleInstance();
 
             ContainerHolder.Initialize(builder.Build());
-
             var startPage = GetMainPage(ContainerHolder.Current.Resolve<IReadUserSecurityService>());
-            builder.RegisterInstance(startPage.Navigation).As<INavigation>().SingleInstance();
             MainPage = startPage;
             Navigation = startPage.Navigation;
         }
@@ -32,12 +30,28 @@ namespace ScorePredict.Core
         {
             User user = readUserSecurityService.ReadUser();
             if (user == null)
-                return new NavigationPage(new LoginPage());
+            {
+                var navPage = new NavigationPage(new LoginPage())
+                {
+                    BarBackgroundColor = Color.FromHex("#3C8513"),
+                    BarTextColor = Color.FromHex("#FCD23C")
+                };
+
+                return navPage;
+            }
 
             if (string.IsNullOrEmpty(user.Username))
-                return new NavigationPage(new EnterUsernamePage(user));
+                return new NavigationPage(new EnterUsernamePage(user))
+                {
+                    BarBackgroundColor = Color.FromHex("#3C8513"),
+                    BarTextColor = Color.FromHex("#FCD23C")
+                };
 
-            return new NavigationPage(new MainPage());
+            return new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#3C8513"),
+                BarTextColor = Color.FromHex("#FCD23C")
+            };
         }
     }
 }

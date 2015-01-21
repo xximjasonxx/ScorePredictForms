@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using ScorePredict.Core.Contracts;
 using Xamarin.Forms;
@@ -7,14 +8,15 @@ namespace ScorePredict.Core.Impl
 {
     public class TouchNavigator : INavigator
     {
-        public Task ShowPageAsRootAsync(INavigation navigation, Page rootPage)
+        public async Task ShowPageAsRootAsync(INavigation navigation, Page rootPage)
         {
-            throw new NotImplementedException();
+            navigation.InsertPageBefore(rootPage, navigation.NavigationStack.First());
+            await navigation.PopToRootAsync(true);
         }
 
-        public Task ShowPageAsync(INavigation navigation, Page newPage)
+        public async Task ShowPageAsync(INavigation navigation, Page newPage)
         {
-            throw new NotImplementedException();
+            await navigation.PushAsync(newPage);
         }
     }
 }

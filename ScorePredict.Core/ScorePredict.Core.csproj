@@ -45,7 +45,6 @@
     <Compile Include="Impl\PhoneNavigator.cs" />
     <Compile Include="Impl\TouchNavigator.cs" />
     <Compile Include="Modules\ViewModelModule.cs" />
-    <Compile Include="PageFactory.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>

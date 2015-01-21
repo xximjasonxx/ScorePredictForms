@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Touch.Client;
 using ScorePredict.Touch.Contracts;
@@ -23,7 +22,7 @@ namespace ScorePredict.Touch
             builder.RegisterInstance(windowHelper).As<IWindowHelper>();
 
             builder.RegisterType<AzureMobileServiceClient>().As<IClient>().SingleInstance();
-            builder.RegisterType<IEncryptionService>().As<TouchEncryptionService>();
+            builder.RegisterType<TouchEncryptionService>().As<IEncryptionService>();
             builder.RegisterType<TouchReadUserSecurityService>().As<IReadUserSecurityService>();
             builder.RegisterType<TouchSaveUserSecurityService>().As<ISaveUserSecurityService>();
             builder.RegisterType<TouchClearUserSecurityService>().As<IClearUserSecurityService>();

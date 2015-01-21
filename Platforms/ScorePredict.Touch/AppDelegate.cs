@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Core;
 using ScorePredict.Core.Impl;
