@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using ScorePredict.Core.Contracts;
 using ScorePredict.Droid.Impl;
+using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(DroidEncryptionService))]

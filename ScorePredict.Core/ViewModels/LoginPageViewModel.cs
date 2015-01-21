@@ -1,5 +1,8 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Linq;
+using System.Windows.Input;
 using ScorePredict.Common.Ex;
+using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -13,6 +16,7 @@ namespace ScorePredict.Core.ViewModels
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public IGetUsernameService GetUsernameService { get; private set; }
         public IDialogService DialogService { get; private set; }
+        public INavigator Navigator { get; private set; }
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -24,17 +28,18 @@ namespace ScorePredict.Core.ViewModels
         public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook);} }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
-            IGetUsernameService getUsernameService, IDialogService dialogService)
+            IGetUsernameService getUsernameService, IDialogService dialogService, INavigator navigator)
         {
             LoginUserService = loginUserService;
             SaveUserSecurityService = saveUserSecurityService;
             GetUsernameService = getUsernameService;
             DialogService = dialogService;
+            Navigator = navigator;
         }
 
         private async void GoToCreateUser()
         {
-            await Navigation.PushAsync(new CreateUserPage(), true);
+            await Navigator.ShowPageAsync(Navigation, new CreateUserPage());
         }
 
         private async void Login()
@@ -52,7 +57,7 @@ namespace ScorePredict.Core.ViewModels
                 }
 
                 SaveUserSecurityService.SaveUser(user);
-                //_pageHelper.ShowMain();
+                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
             }
             catch (LoginException lex)
             {
@@ -72,8 +77,6 @@ namespace ScorePredict.Core.ViewModels
                 if (result == null)
                     throw new LoginException("Failed to Login in with Facebook");
 
-                //Resolver.CurrentResolver.GetInstance<IClient>().AuthenticateUser(result);
-
                 string username = await GetUsernameService.GetUsernameAsync(result.UserId);
                 if (string.IsNullOrEmpty(username))
                 {
@@ -82,7 +85,7 @@ namespace ScorePredict.Core.ViewModels
                 }
 
                 SaveUserSecurityService.SaveUser(result);
-                //_pageHelper.ShowMain();
+                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
             }
             catch (LoginException lex)
             {

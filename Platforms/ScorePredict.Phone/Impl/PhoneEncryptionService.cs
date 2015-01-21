@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using ScorePredict.Core.Contracts;
+using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Phone.Impl
 {

@@ -1,6 +1,8 @@
 ﻿using System.Windows.Input;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
+using ScorePredict.Core.Contracts;
+using ScorePredict.Core.Pages;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
@@ -14,16 +16,18 @@ namespace ScorePredict.Core.ViewModels
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public ISetUsernameService SetUsernameService { get; private set; }
         public IDialogService DialogService { get; private set; }
+        public INavigator Navigator { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save);}}
 
         public EnterUsernamePageViewModel(ISaveUserSecurityService saveUserSecurityService,
             ISetUsernameService setUsernameService,
-            IDialogService dialogService)
+            IDialogService dialogService, INavigator navigator)
         {
             SaveUserSecurityService = saveUserSecurityService;
             SetUsernameService = setUsernameService;
             DialogService = dialogService;
+            Navigator = navigator;
         }
 
         private async void Save()
@@ -33,7 +37,7 @@ namespace ScorePredict.Core.ViewModels
                 var username = await SetUsernameService.SetUsernameForUserAsync(User.UserId, Username);
                 User.Username = username;
                 SaveUserSecurityService.SaveUser(User);
-                //_pageHelper.ShowMain();
+                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
             }
             catch (SaveUsernameException ex)
             {

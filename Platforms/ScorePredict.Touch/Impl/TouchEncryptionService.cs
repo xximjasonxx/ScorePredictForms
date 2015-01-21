@@ -2,7 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using ScorePredict.Core.Contracts;
+using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Touch.Impl
 {

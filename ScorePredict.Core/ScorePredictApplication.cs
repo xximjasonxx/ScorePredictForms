@@ -3,6 +3,7 @@ using ScorePredict.Common.Data;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Extensions;
 using ScorePredict.Core.Modules;
+using ScorePredict.Core.Pages;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
@@ -12,30 +13,31 @@ namespace ScorePredict.Core
     {
         public static INavigation Navigation;
 
-        public ScorePredictApplication(IStartupHelper startupHelper, params Module[] modules)
+        public ScorePredictApplication(INavigator navigator, params Module[] modules)
         {
             var builder = new ContainerBuilder();
             builder.RegisterModules(modules);
             builder.RegisterModule(new ViewModelModule());
+            builder.RegisterInstance(navigator).As<INavigator>().SingleInstance();
 
             ContainerHolder.Initialize(builder.Build());
 
-            var startPage = GetMainPage(startupHelper, ContainerHolder.Current.Resolve<IReadUserSecurityService>());
+            var startPage = GetMainPage(ContainerHolder.Current.Resolve<IReadUserSecurityService>());
             builder.RegisterInstance(startPage.Navigation).As<INavigation>().SingleInstance();
             MainPage = startPage;
             Navigation = startPage.Navigation;
         }
 
-        private Page GetMainPage(IStartupHelper startupHelper, IReadUserSecurityService readUserSecurityService)
+        private Page GetMainPage(IReadUserSecurityService readUserSecurityService)
         {
             User user = readUserSecurityService.ReadUser();
             if (user == null)
-                return startupHelper.GetLoginPage();
+                return new NavigationPage(new LoginPage());
 
             if (string.IsNullOrEmpty(user.Username))
-                return startupHelper.GetUsernamePage(user);
+                return new NavigationPage(new EnterUsernamePage(user));
 
-            return startupHelper.GetMainPage();
+            return new NavigationPage(new MainPage());
         }
     }
 }

@@ -38,15 +38,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContainerHolder.cs" />
-    <Compile Include="Contracts\IEncryptionService.cs" />
-    <Compile Include="Contracts\IPageHelper.cs" />
-    <Compile Include="Contracts\IStartupHelper.cs" />
+    <Compile Include="Contracts\INavigator.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
-    <Compile Include="Impl\MainWithModalStartupHelper.cs" />
-    <Compile Include="Impl\PhonePageHelper.cs" />
-    <Compile Include="Impl\StandardStartupHelper.cs" />
-    <Compile Include="Impl\TouchPageHelper.cs" />
+    <Compile Include="Impl\DroidNavigator.cs" />
+    <Compile Include="Impl\PhoneNavigator.cs" />
+    <Compile Include="Impl\TouchNavigator.cs" />
     <Compile Include="Modules\ViewModelModule.cs" />
     <Compile Include="PageFactory.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">

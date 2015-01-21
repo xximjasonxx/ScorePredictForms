@@ -14,7 +14,7 @@ namespace ScorePredict.Phone
 
             Forms.Init();
 
-            var app = new ScorePredictApplication(new StandardStartupHelper(),
+            var app = new ScorePredictApplication(new PhoneNavigator(),
                 new ServiceInjectionModule(), new PhoneInjectionModule());
             LoadApplication(app);
 

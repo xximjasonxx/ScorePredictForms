@@ -11,7 +11,6 @@ namespace ScorePredict.Touch
     public class TouchInjectionModule : Module
     {
         private readonly UIApplication _app;
-        private readonly IPageHelper _pageHelper;
 
         public TouchInjectionModule(UIApplication app)
         {

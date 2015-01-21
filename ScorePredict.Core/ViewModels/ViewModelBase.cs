@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ScorePredict.Core.Annotations;
+using ScorePredict.Core.Pages;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels

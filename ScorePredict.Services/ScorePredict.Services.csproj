@@ -47,6 +47,7 @@
     <Compile Include="Contracts\IClearUserSecurityService.cs" />
     <Compile Include="Contracts\IClient.cs" />
     <Compile Include="Contracts\IDialogService.cs" />
+    <Compile Include="Contracts\IEncryptionService.cs" />
     <Compile Include="Extensions\JtokenExtensionMethods.cs" />
     <Compile Include="ICreateUserService.cs" />
     <Compile Include="IGetUsernameService.cs" />

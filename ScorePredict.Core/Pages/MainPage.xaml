@@ -8,7 +8,7 @@
   <TabbedPage.Children>
     <pages:ThisWeekPage Title="This Week">
       <pages:ThisWeekPage.ToolbarItems>
-        <ToolbarItem Name="Logout" Clicked="Logout">
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
           <ToolbarItem.Order>
             <OnPlatform x:TypeArguments="ToolbarItemOrder"
 		    			WinPhone="Secondary"
@@ -20,7 +20,7 @@
     </pages:ThisWeekPage>
     <pages:PredictionsPage Title="Predictions">
       <pages:PredictionsPage.ToolbarItems>
-        <ToolbarItem Name="Logout" Clicked="Logout">
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
           <ToolbarItem.Order>
             <OnPlatform x:TypeArguments="ToolbarItemOrder"
 		    			WinPhone="Secondary"
@@ -32,7 +32,7 @@
     </pages:PredictionsPage>
     <pages:GroupsPage Title="Groups">
       <pages:GroupsPage.ToolbarItems>
-        <ToolbarItem Name="Logout" Clicked="Logout">
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
           <ToolbarItem.Order>
             <OnPlatform x:TypeArguments="ToolbarItemOrder"
 		    			WinPhone="Secondary"
@@ -44,7 +44,7 @@
     </pages:GroupsPage>
     <pages:HistoryPage Title="History">
       <pages:HistoryPage.ToolbarItems>
-        <ToolbarItem Name="Logout" Clicked="Logout">
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
           <ToolbarItem.Order>
             <OnPlatform x:TypeArguments="ToolbarItemOrder"
 		    			WinPhone="Secondary"
@@ -56,7 +56,7 @@
     </pages:HistoryPage>
     <pages:AboutPage Title="About">
       <pages:AboutPage.ToolbarItems>
-        <ToolbarItem Name="Logout" Clicked="Logout">
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
           <ToolbarItem.Order>
             <OnPlatform x:TypeArguments="ToolbarItemOrder"
 		    			WinPhone="Secondary"

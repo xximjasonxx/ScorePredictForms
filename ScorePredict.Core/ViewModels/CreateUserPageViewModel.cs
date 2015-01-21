@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using ScorePredict.Common.Ex;
+using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -15,6 +13,7 @@ namespace ScorePredict.Core.ViewModels
         public ICreateUserService CreateUserService { get; private set; }
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public IDialogService DialogService { get; private set; }
+        public INavigator Navigator { get; private set; }
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -24,11 +23,12 @@ namespace ScorePredict.Core.ViewModels
 
         public CreateUserPageViewModel(ICreateUserService createUserService,
             ISaveUserSecurityService saveUserSecurityService,
-            IDialogService dialogService)
+            IDialogService dialogService, INavigator navigator)
         {
             CreateUserService = createUserService;
             SaveUserSecurityService = saveUserSecurityService;
             DialogService = dialogService;
+            Navigator = navigator;
         }
 
         private async void CreateUser()
@@ -43,7 +43,7 @@ namespace ScorePredict.Core.ViewModels
                     throw new CreateUserException("An error occured creating your user. Please try again");
 
                 SaveUserSecurityService.SaveUser(result);
-                await ShowMainAsRoot();
+                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
             }
             catch (CreateUserException ex)
             {
@@ -53,13 +53,6 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.Alert("An unknown error occurred. Please try again");
             }
-        }
-
-        private async Task ShowMainAsRoot()
-        {
-            var page = new MainPage();
-            Navigation.InsertPageBefore(page, Navigation.NavigationStack.First());
-            await Navigation.PopToRootAsync(true);
         }
     }
 }

@@ -15,7 +15,7 @@ using Xamarin.Forms.Platform.Android;
 namespace ScorePredict.Droid
 {
     [Activity(Label = "Score Predict", MainLauncher = true, Icon = "@drawable/app_icon", Theme = "@style/Theme.Maintheme")]
-    public class MainActivity : FormsApplicationActivity, IPageHelper
+    public class MainActivity : FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -23,18 +23,8 @@ namespace ScorePredict.Droid
 
             Forms.Init(this, bundle);
 
-            LoadApplication(new ScorePredictApplication(new StandardStartupHelper(),
+            LoadApplication(new ScorePredictApplication(new DroidNavigator(),
                 new ServiceInjectionModule(), new DroidInjectionModule()));
-        }
-
-        public void ShowLogin()
-        {
-            SetPage(PageFactory.GetLoginPage());
-        }
-
-        public void ShowMain()
-        {
-            SetPage(PageFactory.GetHomePage());
         }
     }
 }
