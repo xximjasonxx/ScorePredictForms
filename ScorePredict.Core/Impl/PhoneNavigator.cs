@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.Impl
 {
-    public class PhoneNavigator : INavigator
+    public class PhoneNavigator : NavigatorBase
     {
-        public async Task ShowPageAsRootAsync(INavigation navigation, Page rootPage)
+        public override async Task ShowPageAsRootAsync(INavigation navigation, Page rootPage)
         {
             await navigation.PushAsync(rootPage, true);
             Page firstPage = navigation.NavigationStack.FirstOrDefault(p => p.GetType() != rootPage.GetType());
@@ -17,11 +17,6 @@ namespace ScorePredict.Core.Impl
                 navigation.RemovePage(firstPage);
                 firstPage = navigation.NavigationStack.FirstOrDefault(p => p.GetType() != rootPage.GetType());
             } 
-        }
-
-        public async Task ShowPageAsync(INavigation navigation, Page newPage)
-        {
-            await navigation.PushAsync(newPage, true);
         }
     }
 }

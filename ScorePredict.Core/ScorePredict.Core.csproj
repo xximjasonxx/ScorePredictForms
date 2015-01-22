@@ -42,6 +42,7 @@
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\DroidNavigator.cs" />
+    <Compile Include="Impl\NavigatorBase.cs" />
     <Compile Include="Impl\PhoneNavigator.cs" />
     <Compile Include="Impl\TouchNavigator.cs" />
     <Compile Include="Modules\ViewModelModule.cs" />

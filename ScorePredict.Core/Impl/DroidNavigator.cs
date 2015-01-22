@@ -6,17 +6,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.Impl
 {
-    public class DroidNavigator : INavigator
+    public class DroidNavigator : NavigatorBase
     {
-        public async Task ShowPageAsRootAsync(INavigation navigation, Page rootPage)
-        {
-            navigation.InsertPageBefore(rootPage, navigation.NavigationStack.First());
-            await navigation.PopToRootAsync();
-        }
-
-        public async Task ShowPageAsync(INavigation navigation, Page newPage)
-        {
-            await navigation.PushAsync(newPage, true);
-        }
     }
 }
