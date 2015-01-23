@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
-    public partial class PredictionsPage : ContentPage
+    public partial class PredictionsPage
     {
         public PredictionsPage()
         {

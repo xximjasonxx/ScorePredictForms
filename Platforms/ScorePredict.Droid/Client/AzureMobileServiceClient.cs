@@ -31,6 +31,11 @@ namespace ScorePredict.Droid.Client
             };
         }
 
+        public async Task<JToken> GetApiAsync(string apiName, IDictionary<string, string> parameters)
+        {
+            return await InvokeApiAsync(apiName, HttpMethod.Get, parameters);
+        }
+
         public async Task<JToken> PostApiAsync(string apiName, IDictionary<string, string> parameters)
         {
             try

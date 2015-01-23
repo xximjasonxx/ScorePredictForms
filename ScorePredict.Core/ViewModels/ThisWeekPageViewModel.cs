@@ -1,12 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ScorePredict.Services;
+using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.ViewModels
 {
     public class ThisWeekPageViewModel : ViewModelBase
     {
+        public IThisWeekService ThisWeekService { get; private set; }
+        public IDialogService DialogService { get; private set; }
+
+        private int _pointsAwarded;
+        public int PointsAwarded
+        {
+            get { return _pointsAwarded; }
+            set
+            {
+                if (value != _pointsAwarded)
+                {
+                    _pointsAwarded = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService)
+        {
+            ThisWeekService = thisWeekService;
+            DialogService = dialogService;
+        }
+
+        public override async void OnShow()
+        {
+            try
+            {
+                var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
+                PointsAwarded = result.Points;
+            }
+            catch
+            {
+                DialogService.Alert("An error occured getting Current week data");
+            }
+        }
     }
 }

@@ -59,6 +59,10 @@
     <Compile Include="Impl\ScorePredictGetUsernameService.cs" />
     <Compile Include="Impl\ScorePredictLoginUserService.cs" />
     <Compile Include="Impl\ScorePredictSetUsernameService.cs" />
+    <Compile Include="Impl\ScorePredictStartupService.cs" />
+    <Compile Include="Impl\ScorePreductThisWeekService.cs" />
+    <Compile Include="IStartupService.cs" />
+    <Compile Include="IThisWeekService.cs" />
     <Compile Include="Modules\ServiceInjectionModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

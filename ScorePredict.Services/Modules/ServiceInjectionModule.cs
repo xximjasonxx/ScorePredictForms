@@ -12,6 +12,9 @@ namespace ScorePredict.Services.Modules
             builder.RegisterType<ScorePredictLoginUserService>().As<ILoginUserService>();
             builder.RegisterType<ScorePredictGetUsernameService>().As<IGetUsernameService>();
             builder.RegisterType<ScorePredictSetUsernameService>().As<ISetUsernameService>();
+            builder.RegisterType<ScorePredictThisWeekService>().As<IThisWeekService>();
+
+            builder.RegisterType<ScorePredictStartupService>().As<IStartupService>();
         }
     }
 }

@@ -4,6 +4,7 @@ using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Extensions;
 using ScorePredict.Core.Modules;
 using ScorePredict.Core.Pages;
+using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
@@ -21,12 +22,13 @@ namespace ScorePredict.Core
             builder.RegisterInstance(navigator).As<INavigator>().SingleInstance();
 
             ContainerHolder.Initialize(builder.Build());
-            var startPage = GetMainPage(ContainerHolder.Current.Resolve<IReadUserSecurityService>());
+            var startPage = GetMainPage(ContainerHolder.Current.Resolve<IReadUserSecurityService>(),
+                ContainerHolder.Current.Resolve<IStartupService>());
             MainPage = startPage;
             Navigation = startPage.Navigation;
         }
 
-        private Page GetMainPage(IReadUserSecurityService readUserSecurityService)
+        private Page GetMainPage(IReadUserSecurityService readUserSecurityService, IStartupService startupService)
         {
             User user = readUserSecurityService.ReadUser();
             if (user == null)
@@ -40,6 +42,7 @@ namespace ScorePredict.Core
                 return navPage;
             }
 
+            startupService.SetUser(user);
             if (string.IsNullOrEmpty(user.Username))
                 return new NavigationPage(new EnterUsernamePage(user))
                 {

@@ -49,6 +49,7 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ContentPageBase.cs" />
     <Compile Include="Pages\CreateUserPage.xaml.cs">
       <DependentUpon>CreateUserPage.xaml</DependentUpon>
     </Compile>
@@ -76,10 +77,15 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ScorePredictApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AboutPageViewModel.cs" />
     <Compile Include="ViewModels\CreateUserPageViewModel.cs" />
     <Compile Include="ViewModels\EnterUsernamePageViewModel.cs" />
+    <Compile Include="ViewModels\GroupsPageViewModel.cs" />
+    <Compile Include="ViewModels\HistoryPageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\PredictionsPageViewModel.cs" />
+    <Compile Include="ViewModels\ThisWeekPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
