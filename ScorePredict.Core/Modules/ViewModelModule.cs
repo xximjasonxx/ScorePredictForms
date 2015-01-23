@@ -11,6 +11,11 @@ namespace ScorePredict.Core.Modules
             builder.RegisterType<LoginPageViewModel>();
             builder.RegisterType<EnterUsernamePageViewModel>();
             builder.RegisterType<CreateUserPageViewModel>();
+            builder.RegisterType<ThisWeekPageViewModel>();
+            builder.RegisterType<GroupsPageViewModel>();
+            builder.RegisterType<HistoryPageViewModel>();
+            builder.RegisterType<PredictionsPageViewModel>();
+            builder.RegisterType<AboutPageViewModel>();
         }
     }
 }

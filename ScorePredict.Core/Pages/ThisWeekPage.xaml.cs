@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Autofac;
+using ScorePredict.Core.ViewModels;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
@@ -13,6 +9,7 @@ namespace ScorePredict.Core.Pages
         public ThisWeekPage()
         {
             InitializeComponent();
+            BindingContext = ContainerHolder.Current.Resolve<ThisWeekPageViewModel>();
         }
     }
 }

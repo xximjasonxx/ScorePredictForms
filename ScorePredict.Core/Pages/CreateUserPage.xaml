@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-		     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<pages:ContentPageBase x:TypeArguments="viewModels:CreateUserPageViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+		   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
+			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+			 xmlns:viewModels="clr-namespace:ScorePredict.Core.ViewModels;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.CreateUserPage"
-             BackgroundColor="#77B739" Title="Create User">
+       BackgroundColor="#77B739" Title="Create User">
   <ContentPage.Content>
     <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7">
       <Grid.RowDefinitions>
@@ -36,4 +38,4 @@
 
     </Grid>
   </ContentPage.Content>
-</ContentPage>
+</pages:ContentPageBase>

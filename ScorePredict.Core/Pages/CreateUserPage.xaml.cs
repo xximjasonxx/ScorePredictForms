@@ -8,7 +8,6 @@ namespace ScorePredict.Core.Pages
         public CreateUserPage()
         {
             InitializeComponent();
-            BindingContext = ContainerHolder.Current.Resolve<CreateUserPageViewModel>();
         }
     }
 }

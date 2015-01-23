@@ -1,11 +1,6 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using ScorePredict.Core.Annotations;
-using ScorePredict.Core.Pages;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
@@ -22,5 +17,10 @@ namespace ScorePredict.Core.ViewModels
         }
 
         protected INavigation Navigation { get { return ScorePredictApplication.Navigation; } }
+
+        public virtual void OnShow()
+        {
+            // do nothing
+        }
     }
 }

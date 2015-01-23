@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ContentPageBase x:TypeArguments="viewModels:EnterUsernamePageViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 					   xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
+					   xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+					   xmlns:viewModels="clr-namespace:ScorePredict.Core.ViewModels;assembly=ScorePredict.Core"
 					   x:Class="ScorePredict.Core.Pages.EnterUsernamePage"
              BackgroundColor="#77B739" Title="Enter Username">
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7">
@@ -33,4 +35,4 @@
            Text="As part of our upgrade we want each user to have a username. This username allows us to include you in rankings and groupings."
            TextColor="White" FontSize="15" Grid.Row="4" />
   </Grid>
-</ContentPage>
+</pages:ContentPageBase>

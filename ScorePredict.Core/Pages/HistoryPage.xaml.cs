@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
-    public partial class HistoryPage : ContentPage
+    public partial class HistoryPage
     {
         public HistoryPage()
         {
