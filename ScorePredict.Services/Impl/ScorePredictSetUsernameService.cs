@@ -37,7 +37,7 @@ namespace ScorePredict.Services.Impl
                         {"id", userId}
                     });
 
-                return result.AsDictionary()["username"];
+                return result.AsDictionary()[0]["username"];
             }
             catch (DuplicateDataException)
             {

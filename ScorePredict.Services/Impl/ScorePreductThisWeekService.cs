@@ -28,12 +28,12 @@ namespace ScorePredict.Services.Impl
             var result = (await Client.GetApiAsync("weekdatafor", parameters)).AsDictionary();
             return new WeekSummary()
             {
-                Points = result["Points"].AsInt(),
-                Ranking = result["Ranking"].AsInt(),
-                UserCount = result["UserCount"].AsInt(),
-                TotalPredictions = result["TotalPredictions"].AsInt(),
-                UserId = result["UserId"],
-                WeekId = result["WeekId"]
+                Points = result[0]["Points"].AsInt(),
+                Ranking = result[0]["Ranking"].AsInt(),
+                UserCount = result[0]["UserCount"].AsInt(),
+                TotalPredictions = result[0]["TotalPredictions"].AsInt(),
+                UserId = result[0]["UserId"],
+                WeekId = result[0]["WeekId"]
             };
         }
     }

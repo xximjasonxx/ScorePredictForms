@@ -33,6 +33,7 @@ namespace ScorePredict.Core.ViewModels
         public override async void OnShow()
         {
             var result = await PredictionsService.GetCurrentWeekPredictions();
+            Predictions = new ObservableCollection<Prediction>(result);
         }
     }
 }

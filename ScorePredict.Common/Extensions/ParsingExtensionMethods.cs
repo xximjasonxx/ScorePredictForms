@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ScorePredict.Common.Extensions
 {
     public static class ParsingExtensionMethods
@@ -15,7 +10,16 @@ namespace ScorePredict.Common.Extensions
                 return defaultValue;
 
             return intVal;
-            ;
+        }
+
+        public static GameState AsGameStateEnumeration(this string str)
+        {
+            switch (str.ToLower())
+            {
+                case "p": return GameState.Pregame;
+                case "f": return GameState.Final;
+                default: return GameState.InProgress;
+            }
         }
     }
 }

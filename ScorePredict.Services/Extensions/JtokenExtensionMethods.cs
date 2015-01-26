@@ -6,10 +6,11 @@ namespace ScorePredict.Services.Extensions
 {
     public static class JtokenExtensionMethods
     {
-        public static IDictionary<string, string> AsDictionary(this JToken token)
+        public static IList<IDictionary<string, string>> AsDictionary(this JToken token)
         {
-            return token.Children<JProperty>()
-                .ToDictionary(x => x.Name, x => x.Value.ToString());
+            return token.AsJEnumerable().Select(je => je.Children<JProperty>()
+                .ToDictionary(x => x.Name, x => x.Value.ToString()))
+                .Cast<IDictionary<string, string>>().ToList();
         }
 
         public static JObject AsJObject(this IDictionary<string, string> dictionary)

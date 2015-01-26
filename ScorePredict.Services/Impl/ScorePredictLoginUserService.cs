@@ -42,9 +42,9 @@ namespace ScorePredict.Services.Impl
                 var result = (await Client.PostApiAsync("login", parameters)).AsDictionary();
                 var user = new User()
                 {
-                    AuthToken = result["token"],
-                    UserId = result["id"],
-                    Username = result["username"]
+                    AuthToken = result[0]["token"],
+                    UserId = result[0]["id"],
+                    Username = result[0]["username"]
                 };
 
                 Client.AuthenticateUser(user);
