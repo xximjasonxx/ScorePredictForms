@@ -5,7 +5,15 @@
 			 xmlns:viewModels="clr-namespace:ScorePredict.Core.ViewModels;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage"
 			 BackgroundColor="#77B739">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    
+    <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="60"
+           HorizontalOptions="StartAndExpand" />
+  </Grid>
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">
       <ToolbarItem.Icon>

@@ -84,6 +84,7 @@ namespace ScorePredict.Core.ViewModels
                     return;
                 }
 
+                result.Username = username;
                 SaveUserSecurityService.SaveUser(result);
                 await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
             }

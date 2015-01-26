@@ -18,8 +18,16 @@ namespace ScorePredict.Core.ViewModels
                 if (value != _pointsAwarded)
                 {
                     _pointsAwarded = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged("PointsAwardedDisplay");
                 }
+            }
+        }
+
+        public string PointsAwardedDisplay
+        {
+            get
+            {
+                return PointsAwarded == 1 ? "1pt" : string.Format("{0}pts", PointsAwarded);
             }
         }
 
