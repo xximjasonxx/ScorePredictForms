@@ -40,6 +40,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\WeekSummary.cs" />
+    <Compile Include="Extensions\DisplayExtensionMethods.cs" />
     <Compile Include="Extensions\ParsingExtensionMethods.cs" />
     <Compile Include="Ex\ApiExecutionException.cs" />
     <Compile Include="Ex\CreateUserException.cs" />

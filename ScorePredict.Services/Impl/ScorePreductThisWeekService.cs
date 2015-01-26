@@ -31,6 +31,7 @@ namespace ScorePredict.Services.Impl
                 Points = result["Points"].AsInt(),
                 Ranking = result["Ranking"].AsInt(),
                 UserCount = result["UserCount"].AsInt(),
+                TotalPredictions = result["TotalPredictions"].AsInt(),
                 UserId = result["UserId"],
                 WeekId = result["WeekId"]
             };

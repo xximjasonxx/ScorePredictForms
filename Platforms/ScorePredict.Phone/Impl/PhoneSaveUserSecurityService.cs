@@ -1,6 +1,5 @@
 ﻿using System.IO.IsolatedStorage;
 using ScorePredict.Common.Data;
-using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Phone.Impl

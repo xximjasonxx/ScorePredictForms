@@ -8,11 +8,19 @@
   <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     
     <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="60"
            HorizontalOptions="StartAndExpand" />
+    
+    <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" FontSize="40"
+           HorizontalOptions="StartAndExpand" Grid.Row="1" />
+    
+    <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" FontSize="40"
+           HorizontalOptions="StartAndExpand" Grid.Row="2" />
   </Grid>
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">

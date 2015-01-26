@@ -13,5 +13,6 @@ namespace ScorePredict.Common.Data
         public string WeekId { get; set; }
         public int Points { get; set; }
         public int UserCount { get; set; }
+        public int TotalPredictions { get; set; }
     }
 }
