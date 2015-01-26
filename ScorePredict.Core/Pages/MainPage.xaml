@@ -42,6 +42,18 @@
         </ToolbarItem>
       </pages:GroupsPage.ToolbarItems>
     </pages:GroupsPage>
+    <pages:RankingsPage Title="Rankings">
+      <pages:RankingsPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+		    			WinPhone="Secondary"
+		    			Android="Secondary"
+		    			iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:RankingsPage.ToolbarItems>
+    </pages:RankingsPage>
     <pages:HistoryPage Title="History">
       <pages:HistoryPage.ToolbarItems>
         <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">

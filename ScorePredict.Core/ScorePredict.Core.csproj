@@ -71,6 +71,9 @@
     <Compile Include="Pages\PredictionsPage.xaml.cs">
       <DependentUpon>PredictionsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RankingsPage.xaml.cs">
+      <DependentUpon>RankingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ThisWeekPage.xaml.cs">
       <DependentUpon>ThisWeekPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,7 @@
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PredictionsPageViewModel.cs" />
+    <Compile Include="ViewModels\RankingsViewModel.cs" />
     <Compile Include="ViewModels\ThisWeekPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
@@ -115,7 +119,12 @@
       <Name>ScorePredict.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RankingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
