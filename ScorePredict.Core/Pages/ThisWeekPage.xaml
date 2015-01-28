@@ -6,21 +6,31 @@
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage"
 			 BackgroundColor="#77B739">
   <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    
     <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="10" />
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     
-    <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="60"
+    <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" FontSize="40"
            HorizontalOptions="StartAndExpand" />
     
+    <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="60"
+           HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.ColumnSpan="2" />
+    
     <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" FontSize="40"
-           HorizontalOptions="StartAndExpand" Grid.Row="1" />
+           HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.ColumnSpan="2" />
     
     <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" FontSize="40"
-           HorizontalOptions="StartAndExpand" Grid.Row="2" />
+           HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.ColumnSpan="3" />
   </Grid>
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">

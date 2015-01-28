@@ -52,6 +52,20 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        private string _weekYearDisplay;
+        public string WeekYearDisplay
+        {
+            get { return _weekYearDisplay; }
+            set
+            {
+                if (value != _weekYearDisplay)
+                {
+                    _weekYearDisplay = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public string PointsAwardedDisplay
         {
             get
@@ -64,6 +78,7 @@ namespace ScorePredict.Core.ViewModels
         {
             get { return PredictionCount == 1 ? "1 prediction" : string.Format("{0} predictions", PredictionCount); }
         }
+
 
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService)
         {
@@ -80,8 +95,8 @@ namespace ScorePredict.Core.ViewModels
                 PredictionCount = result.TotalPredictions;
                 RankDisplay = string.Format("{0} out of {1} user{2}",
                     result.Ranking.WithOrdinalSuffix(), result.UserCount,
-                    result.UserCount == 1 ? string.Empty : "s")
-                ;
+                    result.UserCount == 1 ? string.Empty : "s");
+                WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
             }
             catch
             {

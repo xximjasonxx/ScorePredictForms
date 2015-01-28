@@ -55,6 +55,9 @@
     <Compile Include="Contracts\IReadUserSecurityService.cs" />
     <Compile Include="Contracts\ISaveUserSecurityService.cs" />
     <Compile Include="Contracts\ISetUsernameService.cs" />
+    <Compile Include="Impl\Mock\MockLoginUserService.cs" />
+    <Compile Include="Impl\Mock\MockPredictionsService.cs" />
+    <Compile Include="Impl\Mock\MockThisWeekService.cs" />
     <Compile Include="Impl\ScorePredictCreateUserService.cs" />
     <Compile Include="Impl\ScorePredictGetUsernameService.cs" />
     <Compile Include="Impl\ScorePredictLoginUserService.cs" />

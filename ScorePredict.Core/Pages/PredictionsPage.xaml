@@ -5,7 +5,25 @@
 			 xmlns:viewModels="clr-namespace:ScorePredict.Core.ViewModels;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.PredictionsPage"
 			 BackgroundColor="#77B739">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  
+  <ListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <Grid HorizontalOptions="Start" VerticalOptions="StartAndExpand">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" FontSize="20" />
+            <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" FontSize="20" Grid.Row="1" />
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+  
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">
       <ToolbarItem.Icon>
