@@ -6,26 +6,44 @@
 			 x:Class="ScorePredict.Core.Pages.PredictionsPage"
 			 BackgroundColor="#77B739">
 
-  <ListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}">
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout HorizontalOptions="Start" VerticalOptions="StartAndExpand"
-                       Padding="10,5,5,5">
-            <Grid HorizontalOptions="Start" VerticalOptions="StartAndExpand">
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-              </Grid.RowDefinitions>
+  <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+    <ListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}" RowHeight="100">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout HorizontalOptions="Start" VerticalOptions="Fill" Padding="10,5,5,5">
+                <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
 
-              <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" FontSize="40" />
-              <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" FontSize="40" Grid.Row="1" />
-            </Grid>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>
+                  <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" FontSize="30" />
+                  <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1" FontSize="30" />
+                  <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2" FontSize="30" />
+
+                  <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" FontSize="30" />
+                  <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="30" />
+                  <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2" FontSize="30" />
+                
+                  <Label Text="In Progress" FontSize="20" Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
+                         HorizontalOptions="Center" />
+                </Grid>
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
 
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">
