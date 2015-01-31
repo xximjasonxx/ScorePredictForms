@@ -8,6 +8,15 @@ namespace ScorePredict.Services.Extensions
     {
         public static IList<IDictionary<string, string>> AsDictionary(this JToken token)
         {
+            var asJObject = token as JObject;
+            if (asJObject != null)
+            {
+                return new List<IDictionary<string, string>>()
+                {
+                    asJObject.Children<JProperty>().ToDictionary(x => x.Name, x => x.Value.ToString())
+                };
+            }
+
             return token.AsJEnumerable().Select(je => je.Children<JProperty>()
                 .ToDictionary(x => x.Name, x => x.Value.ToString()))
                 .Cast<IDictionary<string, string>>().ToList();

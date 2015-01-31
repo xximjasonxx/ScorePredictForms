@@ -21,7 +21,9 @@ namespace ScorePredict.Services.Impl
             try
             {
                 DialogService.ShowLoading("Getting Username...");
-                return (await Client.LookupById("usernames", userId)).AsDictionary()[0]["username"];
+                var dictionary = (await Client.LookupById("usernames", userId)).AsDictionary();
+
+                return dictionary[0]["username"];
             }
             catch (LookupFailedException)
             {

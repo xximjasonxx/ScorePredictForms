@@ -92,7 +92,7 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.Alert(lex.Message);
             }
-            catch
+            catch (Exception ex)
             {
                 DialogService.Alert("Login Failed. Please try again.");
             }
