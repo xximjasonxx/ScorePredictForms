@@ -40,6 +40,7 @@
     <Compile Include="ContainerHolder.cs" />
     <Compile Include="Contracts\INavigator.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
+    <Compile Include="Converters\GameStateValueConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\DroidNavigator.cs" />
     <Compile Include="Impl\NavigatorBase.cs" />
@@ -179,6 +180,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
