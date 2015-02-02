@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+using ScorePredict.Core.ViewModels;
 
 namespace ScorePredict.Core.Pages
 {
@@ -13,6 +8,11 @@ namespace ScorePredict.Core.Pages
         public PredictionsPage()
         {
             InitializeComponent();
+        }
+
+        public override Type ViewModelType
+        {
+            get { return typeof (PredictionsPageViewModel); }
         }
     }
 }

@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<pages:ContentPageBase x:TypeArguments="viewModels:AboutPageViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 	  	     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	  	     xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
-	  	     xmlns:viewModels="clr-namespace:ScorePredict.Core.ViewModels;assembly=ScorePredict.Core"
 	  	     x:Class="ScorePredict.Core.Pages.AboutPage"
-			 BackgroundColor="#77B739">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-</pages:ContentPageBase>
+			     BackgroundColor="#77B739">
+  
+  <pages:ScorePredictContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="MyStyle" TargetType="Label">
+        <Setter Property="Label.TextColor" Value="Blue" />
+      </Style>
+    </ResourceDictionary>
+  </pages:ScorePredictContentPage.Resources>
+  
+  <Label Text="This is a Test" VerticalOptions="Center" HorizontalOptions="Center" 
+         Style="{StaticResource MyStyle}"/>
+</pages:ScorePredictContentPage>

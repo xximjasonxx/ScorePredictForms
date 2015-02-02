@@ -10,12 +10,13 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core
 {
-    public class ScorePredictApplication : Application
+    public partial class ScorePredictApplication
     {
         public static INavigation Navigation;
 
         public ScorePredictApplication(INavigator navigator, params Module[] modules)
         {
+            InitializeComponent();
             var builder = new ContainerBuilder();
             builder.RegisterModules(modules);
             builder.RegisterModule(new ViewModelModule());

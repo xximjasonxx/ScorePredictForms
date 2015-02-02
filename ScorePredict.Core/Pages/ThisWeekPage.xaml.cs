@@ -1,6 +1,5 @@
-﻿using Autofac;
+﻿using System;
 using ScorePredict.Core.ViewModels;
-using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
@@ -9,6 +8,11 @@ namespace ScorePredict.Core.Pages
         public ThisWeekPage()
         {
             InitializeComponent();
+        }
+
+        public override Type ViewModelType
+        {
+            get { return typeof (ThisWeekPageViewModel); }
         }
     }
 }

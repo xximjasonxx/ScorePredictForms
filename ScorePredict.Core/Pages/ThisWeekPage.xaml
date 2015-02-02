@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<pages:ContentPageBase x:TypeArguments="viewModels:ThisWeekPageViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
-			 xmlns:viewModels="clr-namespace:ScorePredict.Core.ViewModels;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage"
 			 BackgroundColor="#77B739">
+  
   <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto" />
@@ -21,7 +21,7 @@
     </Grid.RowDefinitions>
     
     <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" FontSize="40"
-           HorizontalOptions="StartAndExpand" />
+           HorizontalOptions="StartAndExpand" Style="{StaticResource HeaderLabel}" />
     
     <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="60"
            HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.ColumnSpan="2" />
@@ -41,4 +41,4 @@
       </ToolbarItem.Icon>
     </ToolbarItem>
   </ContentPage.ToolbarItems>
-</pages:ContentPageBase>
+</pages:ScorePredictContentPage>

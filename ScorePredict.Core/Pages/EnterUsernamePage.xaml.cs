@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using ScorePredict.Common.Data;
 using ScorePredict.Core.ViewModels;
 
@@ -13,10 +14,15 @@ namespace ScorePredict.Core.Pages
             InitializeComponent();
         }
 
+        public override Type ViewModelType
+        {
+            get { return typeof (EnterUsernamePageViewModel); }
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            ViewModel.User = _theUser;
+            ((EnterUsernamePageViewModel) BindingContext).User = _theUser;
         }
     }
 }

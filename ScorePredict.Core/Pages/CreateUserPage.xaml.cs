@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using ScorePredict.Core.ViewModels;
 
 namespace ScorePredict.Core.Pages
@@ -8,6 +9,11 @@ namespace ScorePredict.Core.Pages
         public CreateUserPage()
         {
             InitializeComponent();
+        }
+
+        public override Type ViewModelType
+        {
+            get { return typeof (CreateUserPageViewModel); }
         }
     }
 }

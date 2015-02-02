@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
-    public abstract class ContentPageBase<T> : ContentPage where T : ViewModelBase
+    public class ContentPageBase<T> : ContentPage where T : ViewModelBase
     {
         public T ViewModel
         {
