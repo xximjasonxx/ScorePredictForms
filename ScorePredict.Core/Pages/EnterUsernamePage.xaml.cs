@@ -12,6 +12,7 @@ namespace ScorePredict.Core.Pages
         public EnterUsernamePage(User user)
         {
             InitializeComponent();
+            _theUser = user;
         }
 
         public override Type ViewModelType

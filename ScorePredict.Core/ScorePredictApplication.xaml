@@ -5,8 +5,18 @@
   
   <Application.Resources>
     <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" x:Key="HeaderFont" />
+      <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="PrimaryTextColor" />
+      <OnPlatform x:TypeArguments="Font" Android="10" iOS="60" WinPhone="60" x:Key="LargeFontSize" />
+      
       <Style x:Key="HeaderLabel" TargetType="Label">
         <Setter Property="TextColor" Value="#FCD23C" />
+        <Setter Property="Font" Value="{StaticResource HeaderFont}" />
+      </Style>
+      
+      <Style x:Key="ThisWeekLargeLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        <Setter Property="Font" Value="{StaticResource LargeFontSize}" />
       </Style>
     </ResourceDictionary>
   </Application.Resources>

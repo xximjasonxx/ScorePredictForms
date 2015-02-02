@@ -4,34 +4,36 @@
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage"
 			 BackgroundColor="#77B739">
-  
-  <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-    
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="10" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
-    
-    <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" FontSize="40"
-           HorizontalOptions="StartAndExpand" Style="{StaticResource HeaderLabel}" />
-    
-    <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="60"
-           HorizontalOptions="StartAndExpand" Grid.Row="2" Grid.ColumnSpan="2" />
-    
-    <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" FontSize="40"
-           HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.ColumnSpan="2" />
-    
-    <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" FontSize="40"
-           HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.ColumnSpan="3" />
-  </Grid>
+
+  <StackLayout Padding="10">
+    <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="10" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
+             Style="{StaticResource HeaderLabel}" />
+
+      <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
+             Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ThisWeekLargeLabel}" />
+
+      <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" FontSize="40"
+             HorizontalOptions="StartAndExpand" Grid.Row="3" Grid.ColumnSpan="2" />
+
+      <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" FontSize="40"
+             HorizontalOptions="StartAndExpand" Grid.Row="4" Grid.ColumnSpan="3" />
+    </Grid>
+  </StackLayout>
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">
       <ToolbarItem.Icon>
