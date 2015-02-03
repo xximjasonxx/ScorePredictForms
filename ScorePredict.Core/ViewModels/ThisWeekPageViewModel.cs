@@ -93,8 +93,8 @@ namespace ScorePredict.Core.ViewModels
                 var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
                 PointsAwarded = result.Points;
                 PredictionCount = result.TotalPredictions;
-                RankDisplay = string.Format("{0} out of {1} user{2}",
-                    result.Ranking.WithOrdinalSuffix(), result.UserCount,
+                RankDisplay = string.Format("#{0} out of {1} user{2}",
+                    result.Ranking, result.UserCount,
                     result.UserCount == 1 ? string.Empty : "s");
                 WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
             }
