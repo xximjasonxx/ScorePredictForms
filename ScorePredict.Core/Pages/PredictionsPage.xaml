@@ -7,7 +7,7 @@
 			 BackgroundColor="#77B739">
 
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
-    <ListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}" RowHeight="100" BackgroundColor="Transparent">
+    <ListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}" RowHeight="70" BackgroundColor="Transparent">
       <ListView.Resources>
         <ResourceDictionary>
           <converters:GameStateValueConverter x:Key="GameStateConverter" />
@@ -24,24 +24,29 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="20" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="70" />
                   </Grid.ColumnDefinitions>
                   <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                   </Grid.RowDefinitions>
 
-                  <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" FontSize="30" />
-                  <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1" FontSize="30" />
-                  <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2" FontSize="30" />
+                  <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" FontSize="20" TextColor="{StaticResource PrimaryTextColor}" />
+                  <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1" FontSize="20"
+                         TextColor="{StaticResource PrimaryTextColor}" />
+                  <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2" FontSize="20"
+                         TextColor="{StaticResource PrimaryTextColor}" />
 
-                  <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" FontSize="30" />
-                  <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="30" />
-                  <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2" FontSize="30" />
+                  <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" FontSize="20"
+                         TextColor="{StaticResource PrimaryTextColor}" />
+                  <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="20"
+                         TextColor="{StaticResource PrimaryTextColor}" />
+                  <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2" FontSize="20"
+                         TextColor="{StaticResource PrimaryTextColor}" />
                 
                   <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
-                         FontSize="20" Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
-                         HorizontalOptions="Center" />
+                         FontSize="15" Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
+                         HorizontalOptions="Center" TextColor="{StaticResource PrimaryTextColor}" />
                 </Grid>
               </StackLayout>
             </ViewCell.View>
