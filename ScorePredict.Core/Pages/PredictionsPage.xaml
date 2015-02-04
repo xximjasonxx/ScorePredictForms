@@ -8,8 +8,9 @@
 			 BackgroundColor="#77B739">
 
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
-    <controls:ScorePredictListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}" RowHeight="90"
-              BackgroundColor="Transparent" ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}">
+    <controls:ScorePredictListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}"
+                                   RowHeight="{StaticResource PredictionsRowHeight}" BackgroundColor="#77B739"
+                                   ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}">
       <controls:ScorePredictListView.Resources>
         <ResourceDictionary>
           <converters:GameStateValueConverter x:Key="GameStateConverter" />
@@ -47,12 +48,12 @@
                          Style="{StaticResource PrimaryListItemLabel}" />
                 
                   <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
-                         FontSize="18" Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
-                         HorizontalOptions="Center" TextColor="{StaticResource PrimaryTextColor}" />
+                         Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
+                         HorizontalOptions="Center" Style="{StaticResource SecondaryListItemLabel}" />
                   
-                  <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" FontSize="18"
-                         Grid.Column="4" Grid.Row="1" VerticalOptions="EndAndExpand" HorizontalOptions="Center"
-                         TextColor="{StaticResource SpecialTextColor}" IsVisible="{Binding Path=IsConcluded, Mode=OneWay}" />
+                  <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" Grid.Column="4" Grid.Row="1" 
+                         VerticalOptions="EndAndExpand" HorizontalOptions="Center" IsVisible="{Binding Path=IsConcluded, Mode=OneWay}"
+                         Style="{StaticResource SecondarySpecialListItemLabel}" />
                 </Grid>
               </StackLayout>
             </ViewCell.View>

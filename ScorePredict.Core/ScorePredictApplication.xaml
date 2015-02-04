@@ -5,6 +5,8 @@
   
   <Application.Resources>
     <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Int32" Android="90" iOS="65" WinPhone="90" x:Key="PredictionsRowHeight" />
+      
       <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="PrimaryTextColor" />
       <Color x:Key="SpecialTextColor">#FCD23C</Color>
       
@@ -12,7 +14,8 @@
       <OnPlatform x:TypeArguments="Font" Android="40" iOS="40" WinPhone="40" x:Key="LargeFontSize" />
       <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="25" x:Key="MediumFontSize" />
       
-      <OnPlatform x:TypeArguments="Font" Android="25" iOS="30" WinPhone="30" x:Key="ListPrimaryFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="25" iOS="18" WinPhone="30" x:Key="ListPrimaryFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="18" iOS="14" WinPhone="18" x:Key="ListSecondaryFontSize" />
       
       <Style x:Key="HeaderLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
@@ -31,6 +34,15 @@
       <Style x:Key="PrimaryListItemLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
         <Setter Property="Font" Value="{StaticResource ListPrimaryFontSize}" />
+      </Style>
+      
+      <Style x:Key="SecondaryListItemLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        <Setter Property="Font" Value="{StaticResource ListSecondaryFontSize}" />
+      </Style>
+      
+      <Style x:Key="SecondarySpecialListItemLabel" TargetType="Label" BaseResourceKey="SecondaryListItemLabel">
+        <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
       </Style>
     </ResourceDictionary>
   </Application.Resources>
