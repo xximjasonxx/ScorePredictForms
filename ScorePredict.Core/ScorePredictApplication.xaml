@@ -12,6 +12,8 @@
       <OnPlatform x:TypeArguments="Font" Android="40" iOS="40" WinPhone="40" x:Key="LargeFontSize" />
       <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="25" x:Key="MediumFontSize" />
       
+      <OnPlatform x:TypeArguments="Font" Android="25" iOS="30" WinPhone="30" x:Key="ListPrimaryFontSize" />
+      
       <Style x:Key="HeaderLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
         <Setter Property="Font" Value="{StaticResource HeaderFont}" />
@@ -24,6 +26,11 @@
     
       <Style x:Key="MediumLabel" TargetType="Label" BaseResourceKey="LargeLabel">
         <Setter Property="Font" Value="{StaticResource MediumFontSize}" />
+      </Style>
+      
+      <Style x:Key="PrimaryListItemLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        <Setter Property="Font" Value="{StaticResource ListPrimaryFontSize}" />
       </Style>
     </ResourceDictionary>
   </Application.Resources>

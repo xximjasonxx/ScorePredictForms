@@ -41,11 +41,6 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        private void SelectPrediction(Prediction obj)
-        {
-            throw new NotImplementedException();
-        }
-
         public PredictionsPageViewModel(IPredictionsService predictionsService, INavigator navigator)
         {
             PredictionsService = predictionsService;

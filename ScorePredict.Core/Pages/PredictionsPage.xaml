@@ -34,17 +34,17 @@
                     <RowDefinition Height="*" />
                   </Grid.RowDefinitions>
 
-                  <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" Style="{StaticResource MediumLabel}" />
-                  <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1" FontSize="20"
-                         Style="{StaticResource MediumLabel}" />
+                  <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" Style="{StaticResource PrimaryListItemLabel}" />
+                  <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1"
+                         Style="{StaticResource PrimaryListItemLabel}"/>
                   <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2"
-                         Style="{StaticResource MediumLabel}" />
+                         Style="{StaticResource PrimaryListItemLabel}" />
 
-                  <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" Style="{StaticResource MediumLabel}" />
+                  <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
                   <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1" 
-                         Style="{StaticResource MediumLabel}"/>
+                         Style="{StaticResource PrimaryListItemLabel}"/>
                   <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2"
-                         Style="{StaticResource MediumLabel}" />
+                         Style="{StaticResource PrimaryListItemLabel}" />
                 
                   <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
                          FontSize="18" Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
