@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using ScorePredict.Core.Contracts;
 using Xamarin.Forms;
@@ -19,6 +16,11 @@ namespace ScorePredict.Core.Impl
         public virtual async Task ShowPageAsync(INavigation navigation, Page newPage)
         {
             await navigation.PushAsync(newPage);
+        }
+
+        public async Task ShowModalAsync(INavigation navigation, Page newPage)
+        {
+            await navigation.PushModalAsync(newPage, true);
         }
     }
 }

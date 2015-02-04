@@ -25,13 +25,13 @@
              Style="{StaticResource HeaderLabel}" />
 
       <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ThisWeekLargeLabel}" />
+             Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource LargeLabel}" />
 
       <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource ThisWeekMediumLabel}" />
+             Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource MediumLabel}" />
 
       <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource ThisWeekMediumLabel}" />
+             Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource MediumLabel}" />
     </Grid>
   </StackLayout>
   <ContentPage.ToolbarItems>

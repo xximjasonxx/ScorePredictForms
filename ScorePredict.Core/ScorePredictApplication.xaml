@@ -5,22 +5,24 @@
   
   <Application.Resources>
     <ResourceDictionary>
-      <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" x:Key="HeaderFont" />
       <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="PrimaryTextColor" />
+      <Color x:Key="SpecialTextColor">#FCD23C</Color>
+      
+      <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" x:Key="HeaderFont" />
       <OnPlatform x:TypeArguments="Font" Android="40" iOS="40" WinPhone="40" x:Key="LargeFontSize" />
-      <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="30" x:Key="MediumFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="25" x:Key="MediumFontSize" />
       
       <Style x:Key="HeaderLabel" TargetType="Label">
-        <Setter Property="TextColor" Value="#FCD23C" />
+        <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
         <Setter Property="Font" Value="{StaticResource HeaderFont}" />
       </Style>
       
-      <Style x:Key="ThisWeekLargeLabel" TargetType="Label">
+      <Style x:Key="LargeLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
         <Setter Property="Font" Value="{StaticResource LargeFontSize}" />
       </Style>
     
-      <Style x:Key="ThisWeekMediumLabel" TargetType="Label" BaseResourceKey="ThisWeekLargeLabel">
+      <Style x:Key="MediumLabel" TargetType="Label" BaseResourceKey="LargeLabel">
         <Setter Property="Font" Value="{StaticResource MediumFontSize}" />
       </Style>
     </ResourceDictionary>

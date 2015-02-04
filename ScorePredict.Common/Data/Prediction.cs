@@ -13,5 +13,26 @@ namespace ScorePredict.Common.Data
         public int AwayPredictedScore { get; set; }
         public int HomePredictedScore { get; set; }
         public int PointsAwarded { get; set; }
+
+        public string PointsAwardedDisplay
+        {
+            get
+            {
+                if (PointsAwarded == 1)
+                    return "1 Point";
+
+                return string.Format("{0} Points", PointsAwarded);
+            }
+        }
+
+        public bool IsConcluded
+        {
+            get { return GameState == GameState.Final; }
+        }
+
+        public bool InPregame
+        {
+            get { return GameState == GameState.Pregame; }
+        }
     }
 }

@@ -40,6 +40,7 @@
     <Compile Include="ContainerHolder.cs" />
     <Compile Include="Contracts\INavigator.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
+    <Compile Include="Controls\ScorePredictListView.cs" />
     <Compile Include="Converters\GameStateValueConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\DroidNavigator.cs" />
@@ -50,7 +51,6 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ContentPageBase.cs" />
     <Compile Include="Pages\CreateUserPage.xaml.cs">
       <DependentUpon>CreateUserPage.xaml</DependentUpon>
     </Compile>
@@ -68,6 +68,9 @@
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PredictionEditPage.xaml.cs">
+      <DependentUpon>PredictionEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PredictionsPage.xaml.cs">
       <DependentUpon>PredictionsPage.xaml</DependentUpon>
@@ -185,6 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ScorePredictApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PredictionEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
