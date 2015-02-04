@@ -19,8 +19,9 @@ namespace ScorePredict.Core.Controls
             if (item != null && ItemSelectedCommand != null && ItemSelectedCommand.CanExecute(item))
             {
                 ItemSelectedCommand.Execute(e.SelectedItem);
-                SelectedItem = null;
             }
+
+            SelectedItem = null;
         }
 
         public ICommand ItemSelectedCommand
