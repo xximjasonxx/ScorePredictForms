@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ScorePredict.Common.Data;
 using ScorePredict.Core.Contracts;
-using ScorePredict.Core.Impl;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using Xamarin.Forms;
@@ -36,7 +30,7 @@ namespace ScorePredict.Core.ViewModels
             get
             {
                 return new Command<Prediction>(
-                    x => Navigator.ShowModalAsync(Navigation, new PredictionEditPage(x)),
+                    x => Navigator.ShowPageAsync(Navigation, new PredictionEditPage(x)),
                     x => x.InPregame);
             }
         }

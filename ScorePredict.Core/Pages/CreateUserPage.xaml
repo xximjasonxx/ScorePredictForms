@@ -17,7 +17,7 @@
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
 
-      <Label Grid.Row="0">
+      <Label Grid.Row="0" Style="{StaticResource HeaderLabel}">
         <Label.Text>
           <OnPlatform x:TypeArguments="x:String">
             <OnPlatform.WinPhone>

@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
              x:Class="ScorePredict.Core.Pages.PredictionEditPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource BackgroundColor}" Title="Make a Prediction">
 	
-  <StackLayout Padding="10">
-    <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+  <StackLayout Padding="10" VerticalOptions="Fill" HorizontalOptions="Fill">
+    <Grid VerticalOptions="Start" HorizontalOptions="FillAndExpand">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="*" />
@@ -17,21 +17,36 @@
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
+        <RowDefinition Height="20" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
-      
-      <Label Text="Make a Prediction" Style="{StaticResource HeaderLabel}"
-             Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+
+      <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Grid.Column="0" Grid.ColumnSpan="2">
+        <Label.Text>
+          <OnPlatform x:TypeArguments="x:String">
+            <OnPlatform.WinPhone>
+              Make a Prediction
+            </OnPlatform.WinPhone>
+          </OnPlatform>
+        </Label.Text>
+      </Label>
       
       <Label Text="{Binding Path=Prediction.AwayTeam, Mode=OneWay}" Style="{StaticResource MediumLabel}"
              Grid.Row="1" Grid.Column="0" />
       <Entry Text="{Binding Path=AwayPredictedScore, Mode=TwoWay}"
-             Grid.Row="1" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
+             Grid.Row="1" Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill" />
       
       <Label Text="{Binding Path=Prediction.HomeTeam, Mode=OneWay}" Style="{StaticResource MediumLabel}"
              Grid.Row="2" Grid.Column="0" />
       <Entry Text="{Binding Path=HomePredictedScore, Mode=TwoWay}"
-             Grid.Row="2" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
+             Grid.Row="2" Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill" />
+
+      <StackLayout Orientation="Vertical" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                   Padding="30,5,30,5" Grid.Column="0" Grid.ColumnSpan="3">
+        <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="{StaticResource SpecialTextColor}" Text="Save"
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
+                Command="{Binding SaveCommand}" />
+      </StackLayout>
       
     </Grid>
   </StackLayout>

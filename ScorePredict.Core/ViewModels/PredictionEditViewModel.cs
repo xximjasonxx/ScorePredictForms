@@ -1,4 +1,7 @@
-﻿using ScorePredict.Common.Data;
+﻿using System.Windows.Input;
+using ScorePredict.Common.Data;
+using ScorePredict.Services.Contracts;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -43,6 +46,27 @@ namespace ScorePredict.Core.ViewModels
                     _homeScorePrediction = value;
                     OnPropertyChanged();
                 }
+            }
+        }
+
+        public IDialogService DialogService { get; private set; }
+
+        public ICommand SaveCommand { get { return new Command(Save); } }
+
+        public PredictionEditViewModel(IDialogService dialogService)
+        {
+            DialogService = dialogService;
+        }
+
+        private void Save()
+        {
+            try
+            {
+                DialogService.ShowLoading("Saving...");
+            }
+            finally
+            {
+                //DialogService.HideLoading();
             }
         }
     }
