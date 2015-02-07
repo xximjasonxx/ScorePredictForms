@@ -8,54 +8,68 @@
 			 BackgroundColor="{StaticResource BackgroundColor}">
 
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
-    <controls:ScorePredictListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}"
-                                   RowHeight="{StaticResource PredictionsRowHeight}" BackgroundColor="#77B739"
-                                   ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}">
+    <controls:ScorePredictListView ItemsSource="{Binding Path=PredictionGroups, Mode=OneWay}"
+                                   HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
+                                   ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}"
+                                   IsGroupingEnabled="True">
       <controls:ScorePredictListView.Resources>
         <ResourceDictionary>
           <converters:GameStateValueConverter x:Key="GameStateConverter" />
         </ResourceDictionary>
       </controls:ScorePredictListView.Resources>
+      <ListView.GroupHeaderTemplate>
+        <DataTemplate>
+          <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
+            <Grid BackgroundColor="{StaticResource DarkGreenColor}" HorizontalOptions="Fill" VerticalOptions="Fill">
+              <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7,0,0,0">
+                <Label Style="{StaticResource HeaderLabel}" Text="{Binding Path=Key, Mode=OneWay}"
+                       HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" />
+              </StackLayout>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.GroupHeaderTemplate>
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ViewCell>
+          <ViewCell Height="{StaticResource PredictionsRowHeight}">
             <ViewCell.View>
-              <StackLayout HorizontalOptions="Start" VerticalOptions="Fill" Padding="10,5,5,5"
-                           BackgroundColor="#77B739">
-                <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand" BackgroundColor="#77B739">
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="20" />
-                    <ColumnDefinition Width="100" />
-                  </Grid.ColumnDefinitions>
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                  </Grid.RowDefinitions>
+              <Grid BackgroundColor="{StaticResource BackgroundColor}" VerticalOptions="Fill" HorizontalOptions="Fill">
+                <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10,5,5,5">
+                  <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="20" />
+                      <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto" />
+                      <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                  <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" Style="{StaticResource PrimaryListItemLabel}" />
-                  <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1"
-                         Style="{StaticResource PrimaryListItemLabel}"/>
-                  <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2"
-                         Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1"
+                           Style="{StaticResource PrimaryListItemLabel}"/>
+                    <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2"
+                           Style="{StaticResource PrimaryListItemLabel}" />
 
-                  <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
-                  <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1" 
-                         Style="{StaticResource PrimaryListItemLabel}"/>
-                  <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2"
-                         Style="{StaticResource PrimaryListItemLabel}" />
-                
-                  <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
-                         Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
-                         HorizontalOptions="Center" Style="{StaticResource SecondaryListItemLabel}" />
-                  
-                  <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" Grid.Column="4" Grid.Row="1" 
-                         VerticalOptions="EndAndExpand" HorizontalOptions="Center" IsVisible="{Binding Path=IsConcluded, Mode=OneWay}"
-                         Style="{StaticResource SecondarySpecialListItemLabel}" />
-                </Grid>
-              </StackLayout>
+                    <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1"
+                           Style="{StaticResource PrimaryListItemLabel}"/>
+                    <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2"
+                           Style="{StaticResource PrimaryListItemLabel}" />
+
+                    <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
+                           Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
+                           HorizontalOptions="Center" Style="{StaticResource SecondaryListItemLabel}" />
+
+                    <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" Grid.Column="4" Grid.Row="1"
+                           VerticalOptions="EndAndExpand" HorizontalOptions="Center" IsVisible="{Binding Path=IsConcluded, Mode=OneWay}"
+                           Style="{StaticResource SecondarySpecialListItemLabel}" />
+                  </Grid>
+                </StackLayout>
+              </Grid>
             </ViewCell.View>
           </ViewCell>
         </DataTemplate>

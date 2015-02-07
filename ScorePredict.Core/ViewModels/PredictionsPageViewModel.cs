@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Utility;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
@@ -13,14 +16,14 @@ namespace ScorePredict.Core.ViewModels
         public IPredictionsService PredictionsService { get; private set; }
         public INavigator Navigator { get; private set; }
 
-        private ObservableCollection<Prediction> _predictions;
+        private ObservableCollection<PredictionGroup> _predictionGroups;
 
-        public ObservableCollection<Prediction> Predictions
+        public ObservableCollection<PredictionGroup> PredictionGroups
         {
-            get { return _predictions; }
+            get { return _predictionGroups; }
             set
             {
-                _predictions = value;
+                _predictionGroups = value;
                 OnPropertyChanged();
             }
         }
@@ -44,7 +47,12 @@ namespace ScorePredict.Core.ViewModels
         public override async void OnShow()
         {
             var result = await PredictionsService.GetCurrentWeekPredictions();
-            Predictions = new ObservableCollection<Prediction>(result);
+            PredictionGroups = new ObservableCollection<PredictionGroup>(new List<PredictionGroup>
+            {
+                new PredictionGroup("Pregame", result.Where(x => x.InPregame).ToList()),
+                new PredictionGroup("Final", result.Where(x => x.IsConcluded).ToList()),
+                new PredictionGroup("In Progress", result.Where(x => !x.IsConcluded && !x.InPregame).ToList())
+            });
         }
     }
 }
