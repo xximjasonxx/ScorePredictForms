@@ -9,6 +9,7 @@
       
       <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="PrimaryTextColor" />
       <Color x:Key="SpecialTextColor">#FCD23C</Color>
+      <Color x:Key="BackgroundColor">#77B739</Color>
       
       <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" x:Key="HeaderFont" />
       <OnPlatform x:TypeArguments="Font" Android="40" iOS="40" WinPhone="40" x:Key="LargeFontSize" />
@@ -27,7 +28,8 @@
         <Setter Property="Font" Value="{StaticResource LargeFontSize}" />
       </Style>
     
-      <Style x:Key="MediumLabel" TargetType="Label" BaseResourceKey="LargeLabel">
+      <Style x:Key="MediumLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
         <Setter Property="Font" Value="{StaticResource MediumFontSize}" />
       </Style>
       

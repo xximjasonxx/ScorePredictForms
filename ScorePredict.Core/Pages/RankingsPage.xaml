@@ -2,7 +2,8 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
-             x:Class="ScorePredict.Core.Pages.RankingsPage">
+             x:Class="ScorePredict.Core.Pages.RankingsPage"
+             BackgroundColor="{StaticResource BackgroundColor}">
 	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
   <ContentPage.ToolbarItems>

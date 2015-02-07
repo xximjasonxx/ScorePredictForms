@@ -1,6 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ScorePredict.Core.Pages.PredictionEditPage">
-	<Label Text="Edit a Prediction" VerticalOptions="Center" HorizontalOptions="Center" />
-</ContentPage>
+             xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+             x:Class="ScorePredict.Core.Pages.PredictionEditPage"
+             BackgroundColor="{StaticResource BackgroundColor}">
+	
+  <StackLayout Padding="10">
+    <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="100" />
+      </Grid.ColumnDefinitions>
+      
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      
+      <Label Text="Make a Prediction" Style="{StaticResource HeaderLabel}"
+             Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+      
+      <Label Text="{Binding Path=Prediction.AwayTeam, Mode=OneWay}" Style="{StaticResource MediumLabel}"
+             Grid.Row="1" Grid.Column="0" />
+      <Entry Text="{Binding Path=AwayPredictedScore, Mode=TwoWay}"
+             Grid.Row="1" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
+      
+      <Label Text="{Binding Path=Prediction.HomeTeam, Mode=OneWay}" Style="{StaticResource MediumLabel}"
+             Grid.Row="2" Grid.Column="0" />
+      <Entry Text="{Binding Path=HomePredictedScore, Mode=TwoWay}"
+             Grid.Row="2" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
+      
+    </Grid>
+  </StackLayout>
+  
+</pages:ScorePredictContentPage>

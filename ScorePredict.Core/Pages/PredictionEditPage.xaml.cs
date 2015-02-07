@@ -1,18 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ScorePredict.Common.Data;
-using Xamarin.Forms;
+using ScorePredict.Core.ViewModels;
 
 namespace ScorePredict.Core.Pages
 {
-    public partial class PredictionEditPage : ContentPage
+    public partial class PredictionEditPage
     {
+        private readonly Prediction _prediction;
+
         public PredictionEditPage(Prediction prediction)
         {
             InitializeComponent();
+
+            _prediction = prediction;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((PredictionEditViewModel) BindingContext).Prediction = _prediction;
+        }
+
+        public override Type ViewModelType
+        {
+            get { return typeof (PredictionEditViewModel); }
         }
     }
 }

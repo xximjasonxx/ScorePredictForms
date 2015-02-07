@@ -94,6 +94,7 @@
     <Compile Include="ViewModels\HistoryPageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\PredictionEditViewModel.cs" />
     <Compile Include="ViewModels\PredictionsPageViewModel.cs" />
     <Compile Include="ViewModels\RankingsViewModel.cs" />
     <Compile Include="ViewModels\ThisWeekPageViewModel.cs" />

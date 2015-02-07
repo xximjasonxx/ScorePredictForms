@@ -5,7 +5,7 @@
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
 			 xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.PredictionsPage"
-			 BackgroundColor="#77B739">
+			 BackgroundColor="{StaticResource BackgroundColor}">
 
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
     <controls:ScorePredictListView ItemsSource="{Binding Path=Predictions, Mode=OneWay}"
