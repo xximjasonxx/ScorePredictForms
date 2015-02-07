@@ -101,6 +101,11 @@ namespace ScorePredict.Touch.Client
             }
         }
 
+        public Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

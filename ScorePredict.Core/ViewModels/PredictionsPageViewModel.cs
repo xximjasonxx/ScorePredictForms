@@ -13,7 +13,7 @@ namespace ScorePredict.Core.ViewModels
 {
     public class PredictionsPageViewModel : ViewModelBase
     {
-        public IPredictionsService PredictionsService { get; private set; }
+        public IPredictionService PredictionService { get; private set; }
         public INavigator Navigator { get; private set; }
 
         private ObservableCollection<PredictionGroup> _predictionGroups;
@@ -38,15 +38,15 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        public PredictionsPageViewModel(IPredictionsService predictionsService, INavigator navigator)
+        public PredictionsPageViewModel(IPredictionService predictionService, INavigator navigator)
         {
-            PredictionsService = predictionsService;
+            PredictionService = predictionService;
             Navigator = navigator;
         }
 
         public override async void OnShow()
         {
-            var result = await PredictionsService.GetCurrentWeekPredictions();
+            var result = await PredictionService.GetCurrentWeekPredictions();
             PredictionGroups = new ObservableCollection<PredictionGroup>(new List<PredictionGroup>
             {
                 new PredictionGroup("Pregame", result.Where(x => x.InPregame).ToList()),

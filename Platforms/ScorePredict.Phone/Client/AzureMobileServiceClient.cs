@@ -97,6 +97,12 @@ namespace ScorePredict.Phone.Client
             }
         }
 
+        public async Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters)
+        {
+            var table = GetTable(tableName);
+            return await table.UpdateAsync(parameters.AsJObject());
+        }
+
         #endregion
     }
 }

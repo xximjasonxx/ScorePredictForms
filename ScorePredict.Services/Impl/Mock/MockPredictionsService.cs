@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ScorePredict.Common;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Models;
 
 namespace ScorePredict.Services.Impl.Mock
 {
-    public class MockPredictionsService : IPredictionsService
+    public class MockPredictionService : IPredictionService
     {
         public async Task<IList<Prediction>> GetCurrentWeekPredictions()
         {
@@ -55,6 +56,11 @@ namespace ScorePredict.Services.Impl.Mock
                     HomePredictedScore = 10, HomeTeam = "Dolphins", HomeTeamScore = 7, PointsAwarded = 10
                 },
             };
+        }
+
+        public async Task<Prediction> SavePredictionAsync(SavePredictionModel savePredictionModel)
+        {
+            return new Prediction();
         }
     }
 }

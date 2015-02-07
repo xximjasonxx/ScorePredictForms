@@ -14,6 +14,7 @@ namespace ScorePredict.Services.Contracts
         Task<User> LoginFacebookAsync();
         Task<JToken> LookupById(string tableName, string key);
         Task<JToken> InsertIntoTable(string tableName, IDictionary<string, string> parameters);
+        Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters);
     }
 }
 

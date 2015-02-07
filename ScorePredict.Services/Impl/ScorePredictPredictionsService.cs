@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Extensions;
+using ScorePredict.Common.Models;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
 
 namespace ScorePredict.Services.Impl
 {
-    public class ScorePredictPredictionsService : IPredictionsService
+    public class ScorePredictPredictionService : IPredictionService
     {
         public IClient Client { get; private set; }
 
-        public ScorePredictPredictionsService(IClient client)
+        public ScorePredictPredictionService(IClient client)
         {
             Client = client;
         }
@@ -41,6 +42,12 @@ namespace ScorePredict.Services.Impl
                HomePredictedScore = x["homePredictedScore"].AsInt(),
                PointsAwarded = x["pointsAwarded"].AsInt()
             }).ToList();
+        }
+
+        public async Task<Prediction> SavePredictionAsync(SavePredictionModel savePredictionModel)
+        {
+            var result = (await Client.UpdateTable("predictions", new Dictionary<string, string>())).AsDictionary();
+            return result[0].AsPrediction();
         }
     }
 }

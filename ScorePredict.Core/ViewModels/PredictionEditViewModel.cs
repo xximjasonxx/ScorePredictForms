@@ -1,5 +1,8 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Models;
+using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
@@ -50,23 +53,39 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public IDialogService DialogService { get; private set; }
+        public IPredictionService PredictionService { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save); } }
 
-        public PredictionEditViewModel(IDialogService dialogService)
+        public PredictionEditViewModel(IDialogService dialogService, IPredictionService predictionService)
         {
             DialogService = dialogService;
+            PredictionService = predictionService;
         }
 
-        private void Save()
+        private async void Save()
         {
             try
             {
                 DialogService.ShowLoading("Saving...");
+                var result = await PredictionService.SavePredictionAsync(new SavePredictionModel()
+                {
+                    AwayTeam = Prediction.AwayTeam,
+                    AwayPrediction = AwayPredictedScore,
+                    HomeTeam = Prediction.HomeTeam,
+                    HomePrediction = HomePredictedScore
+
+                });
+
+                await Navigation.PopAsync(true);
+            }
+            catch (Exception ex)
+            {
+                DialogService.Alert("Failed to save Prediction");
             }
             finally
             {
-                //DialogService.HideLoading();
+                DialogService.HideLoading();
             }
         }
     }

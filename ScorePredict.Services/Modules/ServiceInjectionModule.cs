@@ -20,7 +20,7 @@ namespace ScorePredict.Services.Modules
             // mocks
             builder.RegisterType<MockLoginUserService>().As<ILoginUserService>();
             builder.RegisterType<MockThisWeekService>().As<IThisWeekService>();
-            builder.RegisterType<MockPredictionsService>().As<IPredictionsService>();
+            builder.RegisterType<MockPredictionService>().As<IPredictionService>();
             builder.RegisterType<MockGetUsernameService>().As<IGetUsernameService>();
         }
     }
