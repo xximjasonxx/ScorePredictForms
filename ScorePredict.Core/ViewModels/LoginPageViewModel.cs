@@ -52,7 +52,7 @@ namespace ScorePredict.Core.ViewModels
 
                 if (string.IsNullOrEmpty(user.Username))
                 {
-                    await Navigation.PushAsync(new EnterUsernamePage(user), true);
+                    await Navigator.ShowPageAsync(Navigation, new EnterUsernamePage(user));
                     return; // end execution
                 }
 
@@ -80,7 +80,7 @@ namespace ScorePredict.Core.ViewModels
                 string username = await GetUsernameService.GetUsernameAsync(result.UserId);
                 if (string.IsNullOrEmpty(username))
                 {
-                    await Navigation.PushAsync(new EnterUsernamePage(result));
+                    await Navigator.ShowPageAsync(Navigation, new EnterUsernamePage(result));
                     return;
                 }
 

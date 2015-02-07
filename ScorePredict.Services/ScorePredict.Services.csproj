@@ -65,7 +65,7 @@
     <Compile Include="Impl\ScorePredictPredictionsService.cs" />
     <Compile Include="Impl\ScorePredictSetUsernameService.cs" />
     <Compile Include="Impl\ScorePredictStartupService.cs" />
-    <Compile Include="Impl\ScorePreductThisWeekService.cs" />
+    <Compile Include="Impl\ScorePredictThisWeekService.cs" />
     <Compile Include="IPredictionsService.cs" />
     <Compile Include="IStartupService.cs" />
     <Compile Include="IThisWeekService.cs" />

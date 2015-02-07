@@ -17,9 +17,6 @@ namespace ScorePredict.Phone
             var app = new ScorePredictApplication(new PhoneNavigator(),
                 new ServiceInjectionModule(), new PhoneInjectionModule());
             LoadApplication(app);
-
-            // add in the special injection module for windows phone navigation
-            //Resolver.CurrentResolver.AddModule(new PhoneNavigationModule(app.MainPage.Navigation));
         }
     }
 }
