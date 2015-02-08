@@ -3,6 +3,8 @@ namespace ScorePredict.Common.Data
 {
     public class Prediction
     {
+        public int GameId { get; set; }
+        public string WeekId { get; set; }
         public string GameDay { get; set; }
         public string GameTime { get; set; }
         public GameState GameState { get; set; }

@@ -46,7 +46,15 @@ namespace ScorePredict.Services.Impl
 
         public async Task<Prediction> SavePredictionAsync(SavePredictionModel savePredictionModel)
         {
-            var result = (await Client.UpdateTable("predictions", new Dictionary<string, string>())).AsDictionary();
+            var parameters = new Dictionary<string, string>
+            {
+                { "gameId", savePredictionModel.GameId.ToString() },
+                { "weekId", savePredictionModel.WeekId },
+                { "awayPredictedScore", savePredictionModel.AwayPrediction.ToString() },
+                { "homePredictedScore", savePredictionModel.HomePrediction.ToString() }
+            };
+
+            var result = (await Client.UpdateTable("predictions", parameters)).AsDictionary();
             return result[0].AsPrediction();
         }
     }

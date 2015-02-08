@@ -18,42 +18,42 @@ namespace ScorePredict.Services.Impl.Mock
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Lions", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.InProgress, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Cardinals", HomeTeamScore = 7, PointsAwarded = 45
+                    HomePredictedScore = 10, HomeTeam = "Cardinals", HomeTeamScore = 7, PointsAwarded = 45, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Patriots", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.Final, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Seahawks", HomeTeamScore = 7, PointsAwarded = 0
+                    HomePredictedScore = 10, HomeTeam = "Seahawks", HomeTeamScore = 7, PointsAwarded = 0, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Jets", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.Pregame, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Giants", HomeTeamScore = 7, PointsAwarded = 26
+                    HomePredictedScore = 10, HomeTeam = "Giants", HomeTeamScore = 7, PointsAwarded = 26, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Bills", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.Final, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Dolphins", HomeTeamScore = 7, PointsAwarded = 10
+                    HomePredictedScore = 10, HomeTeam = "Dolphins", HomeTeamScore = 7, PointsAwarded = 10, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Lions", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.InProgress, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Cardinals", HomeTeamScore = 7, PointsAwarded = 45
+                    HomePredictedScore = 10, HomeTeam = "Cardinals", HomeTeamScore = 7, PointsAwarded = 45, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Patriots", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.Final, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Seahawks", HomeTeamScore = 7, PointsAwarded = 0
+                    HomePredictedScore = 10, HomeTeam = "Seahawks", HomeTeamScore = 7, PointsAwarded = 0, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Jets", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.Pregame, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Giants", HomeTeamScore = 7, PointsAwarded = 26
+                    HomePredictedScore = 10, HomeTeam = "Giants", HomeTeamScore = 7, PointsAwarded = 26, GameId = 1234, WeekId = "abcd"
                 },
                 new Prediction()
                 {
                     AwayPredictedScore = 12, AwayTeam = "Bills", AwayTeamScore = 15, GameDay = "Mon", GameState = GameState.Pregame, GameTime = "8:10pm",
-                    HomePredictedScore = 10, HomeTeam = "Dolphins", HomeTeamScore = 7, PointsAwarded = 10
+                    HomePredictedScore = 10, HomeTeam = "Dolphins", HomeTeamScore = 7, PointsAwarded = 10, GameId = 1234, WeekId = "abcd"
                 },
             };
         }

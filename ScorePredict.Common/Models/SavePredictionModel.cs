@@ -8,9 +8,9 @@ namespace ScorePredict.Common.Models
 {
     public class SavePredictionModel
     {
-        public string AwayTeam { get; set; }
-        public string HomeTeam { get; set; }
+        public int GameId { get; set; }
         public int AwayPrediction { get; set; }
         public int HomePrediction { get; set; }
+        public string WeekId { get; set; }
     }
 }

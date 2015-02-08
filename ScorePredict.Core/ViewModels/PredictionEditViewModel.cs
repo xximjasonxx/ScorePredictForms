@@ -70,9 +70,9 @@ namespace ScorePredict.Core.ViewModels
                 DialogService.ShowLoading("Saving...");
                 var result = await PredictionService.SavePredictionAsync(new SavePredictionModel()
                 {
-                    AwayTeam = Prediction.AwayTeam,
+                    WeekId = Prediction.WeekId,
+                    GameId = Prediction.GameId,
                     AwayPrediction = AwayPredictedScore,
-                    HomeTeam = Prediction.HomeTeam,
                     HomePrediction = HomePredictedScore
 
                 });
