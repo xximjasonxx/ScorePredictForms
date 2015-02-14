@@ -14,8 +14,8 @@
       <Color x:Key="DarkGreenColor">#3C8513</Color>
       
       <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" x:Key="HeaderFont" />
-      <OnPlatform x:TypeArguments="Font" Android="40" iOS="40" WinPhone="40" x:Key="LargeFontSize" />
-      <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="25" x:Key="MediumFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="40" iOS="30" WinPhone="40" x:Key="LargeFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="30" iOS="27" WinPhone="25" x:Key="MediumFontSize" />
       
       <OnPlatform x:TypeArguments="Font" Android="25" iOS="18" WinPhone="30" x:Key="ListPrimaryFontSize" />
       <OnPlatform x:TypeArguments="Font" Android="18" iOS="14" WinPhone="18" x:Key="ListSecondaryFontSize" />

@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using ScorePredict.Core.Contracts;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class ThisWeekPageViewModel : ViewModelBase
+    public class ThisWeekPageViewModel : ScorePredictBaseViewModel
     {
         public IThisWeekService ThisWeekService { get; private set; }
-        public IDialogService DialogService { get; private set; }
 
         private int _pointsAwarded;
         public int PointsAwarded
@@ -78,15 +81,26 @@ namespace ScorePredict.Core.ViewModels
             get { return PredictionCount == 1 ? "1 prediction" : string.Format("{0} predictions", PredictionCount); }
         }
 
-
-        public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService)
+        public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
+            IClearUserSecurityService clearUserSecurityService, INavigator navigator)
+            : base(clearUserSecurityService, navigator, dialogService)
         {
             ThisWeekService = thisWeekService;
-            DialogService = dialogService;
+        }
+
+        protected override async void Refresh()
+        {
+            await LoadWeekDataAsync();
         }
 
         public override async void OnShow()
         {
+            await LoadWeekDataAsync();
+        }
+
+        private async Task LoadWeekDataAsync()
+        {
+            ShowProgress = true;
             try
             {
                 var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
@@ -100,6 +114,10 @@ namespace ScorePredict.Core.ViewModels
             catch (Exception ex)
             {
                 DialogService.Alert("An error occured getting Current week data");
+            }
+            finally
+            {
+                ShowProgress = false;
             }
         }
     }

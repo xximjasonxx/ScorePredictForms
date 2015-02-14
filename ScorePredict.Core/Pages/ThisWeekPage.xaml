@@ -4,15 +4,10 @@
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage"
 			 BackgroundColor="{StaticResource BackgroundColor}">
-
-  <StackLayout Padding="10">
-    <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-
+  
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
       <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
         <RowDefinition Height="10" />
         <RowDefinition Height="Auto" />
@@ -22,20 +17,26 @@
       </Grid.RowDefinitions>
 
       <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Style="{StaticResource HeaderLabel}" />
+             Style="{StaticResource HeaderLabel}" Grid.Row="1" TranslationX="10" />
 
       <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource LargeLabel}" />
+             Grid.Row="3" Style="{StaticResource LargeLabel}" TranslationX="10" />
 
       <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource MediumLabel}" />
+             Grid.Row="4" Style="{StaticResource MediumLabel}" TranslationX="10" />
 
       <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource MediumLabel}" />
+             Grid.Row="5" Style="{StaticResource MediumLabel}" TranslationX="10" />
+
+      <ContentView Grid.Row="0" Grid.RowSpan="7" BackgroundColor="{StaticResource BackgroundColor}"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+        <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
+      </ContentView>
+     
     </Grid>
-  </StackLayout>
   <ContentPage.ToolbarItems>
-    <ToolbarItem Name="Refresh">
+    <ToolbarItem Name="Refresh" Command="{Binding RefreshCommand}">
       <ToolbarItem.Icon>
         <OnPlatform x:TypeArguments="FileImageSource"
                     WinPhone="Assets/appbar.refresh.png"
