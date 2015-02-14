@@ -3,7 +3,7 @@
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
             x:Class="ScorePredict.Core.Pages.MainPage"
-            BackgroundColor="#77B739">
+            BackgroundColor="{StaticResource BackgroundColor}">
 
   <TabbedPage.Children>
     <pages:ThisWeekPage Title="This Week">

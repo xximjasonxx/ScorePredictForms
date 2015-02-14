@@ -46,13 +46,13 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
-            var result = await PredictionService.GetCurrentWeekPredictions();
+            /*var result = await PredictionService.GetCurrentWeekPredictions();
             PredictionGroups = new ObservableCollection<PredictionGroup>(new List<PredictionGroup>
             {
                 new PredictionGroup("Pregame", result.Where(x => x.InPregame).ToList()),
                 new PredictionGroup("Final", result.Where(x => x.IsConcluded).ToList()),
                 new PredictionGroup("In Progress", result.Where(x => !x.IsConcluded && !x.InPregame).ToList())
-            });
+            });*/
         }
     }
 }

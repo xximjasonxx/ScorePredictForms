@@ -1,5 +1,4 @@
 ﻿using System;
-using ScorePredict.Common.Extensions;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 
@@ -98,7 +97,7 @@ namespace ScorePredict.Core.ViewModels
                     result.UserCount == 1 ? string.Empty : "s");
                 WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
             }
-            catch
+            catch (Exception ex)
             {
                 DialogService.Alert("An error occured getting Current week data");
             }

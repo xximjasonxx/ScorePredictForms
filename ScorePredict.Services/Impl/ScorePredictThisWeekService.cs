@@ -22,18 +22,20 @@ namespace ScorePredict.Services.Impl
             var parameters = new Dictionary<string, string>()
             {
                 //{"weekForDate", DateTime.Now.ToString("d")}
-                {"weekForDate", "10/13/2014"}
+                {"weekForDate", "9/5/2014"}
             };
 
             var result = (await Client.GetApiAsync("weekdatafor", parameters)).AsDictionary();
             return new WeekSummary()
             {
-                Points = result[0]["Points"].AsInt(),
-                Ranking = result[0]["Ranking"].AsInt(),
-                UserCount = result[0]["UserCount"].AsInt(),
-                TotalPredictions = result[0]["TotalPredictions"].AsInt(),
-                UserId = result[0]["UserId"],
-                WeekId = result[0]["WeekId"]
+                Points = result[0]["totalPoints"].AsInt(),
+                Ranking = result[3]["yourRank"].AsInt(),
+                TotalPredictions = result[1]["totalPredictions"].AsInt(),
+                UserCount = result[3]["outOf"].AsInt(),
+                UserId = result[0]["userId"],
+                WeekId = result[0]["weekId"],
+                WeekNumber = result[2]["weekNumber"].AsInt(),
+                Year = result[2]["year"].AsInt()
             };
         }
     }

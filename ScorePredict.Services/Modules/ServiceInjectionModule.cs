@@ -10,18 +10,18 @@ namespace ScorePredict.Services.Modules
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<ScorePredictCreateUserService>().As<ICreateUserService>();
-            //builder.RegisterType<ScorePredictLoginUserService>().As<ILoginUserService>();
-            //builder.RegisterType<ScorePredictGetUsernameService>().As<IGetUsernameService>();
+            builder.RegisterType<ScorePredictLoginUserService>().As<ILoginUserService>();
+            builder.RegisterType<ScorePredictGetUsernameService>().As<IGetUsernameService>();
             builder.RegisterType<ScorePredictSetUsernameService>().As<ISetUsernameService>();
-            //builder.RegisterType<ScorePredictThisWeekService>().As<IThisWeekService>();
-            //builder.RegisterType<ScorePredictPredictionsService>().As<IPredictionsService>();
+            builder.RegisterType<ScorePredictThisWeekService>().As<IThisWeekService>();
+            builder.RegisterType<ScorePredictPredictionService>().As<IPredictionService>();
             builder.RegisterType<ScorePredictStartupService>().As<IStartupService>();
 
             // mocks
-            builder.RegisterType<MockLoginUserService>().As<ILoginUserService>();
+            /*builder.RegisterType<MockLoginUserService>().As<ILoginUserService>();
             builder.RegisterType<MockThisWeekService>().As<IThisWeekService>();
             builder.RegisterType<MockPredictionService>().As<IPredictionService>();
-            builder.RegisterType<MockGetUsernameService>().As<IGetUsernameService>();
+            builder.RegisterType<MockGetUsernameService>().As<IGetUsernameService>();*/
         }
     }
 }
