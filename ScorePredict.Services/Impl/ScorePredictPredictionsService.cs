@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Extensions;
@@ -38,9 +36,9 @@ namespace ScorePredict.Services.Impl
                HomeTeam = x["homeTeam"],
                AwayTeamScore = x["awayTeamScore"].AsInt(),
                HomeTeamScore = x["homeTeamScore"].AsInt(),
-               AwayPredictedScore = x["awayPredictedScore"].AsInt(),
-               HomePredictedScore = x["homePredictedScore"].AsInt(),
-               PointsAwarded = x["pointsAwarded"].AsInt()
+               AwayPredictedScore = x["awayPredictedScore"].AsInt(-1),
+               HomePredictedScore = x["homePredictedScore"].AsInt(-1),
+               PointsAwarded = x["pointsAwarded"].AsInt(-1)
             }).ToList();
         }
 

@@ -15,6 +15,7 @@
       <controls:ScorePredictListView.Resources>
         <ResourceDictionary>
           <converters:GameStateValueConverter x:Key="GameStateConverter" />
+          <converters:IntDisplayValueConverter x:Key="IntDisplayConverter" />
         </ResourceDictionary>
       </controls:ScorePredictListView.Resources>
       <ListView.GroupHeaderTemplate>
@@ -48,17 +49,17 @@
                       <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Label Text="{Binding Path=AwayTeam, Mode=OneWay}" Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=AwayTeamName, Mode=OneWay}" Style="{StaticResource PrimaryListItemLabel}" />
                     <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1"
                            Style="{StaticResource PrimaryListItemLabel}"/>
-                    <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay}" Grid.Column="2"
-                           Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay, Converter={StaticResource IntDisplayConverter}}"
+                           Grid.Column="2" Style="{StaticResource PrimaryListItemLabel}" />
 
-                    <Label Text="{Binding Path=HomeTeam, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=HomeTeamName, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
                     <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1"
                            Style="{StaticResource PrimaryListItemLabel}"/>
-                    <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay}" Grid.Row="1" Grid.Column="2"
-                           Style="{StaticResource PrimaryListItemLabel}" />
+                    <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay, Converter={StaticResource IntDisplayConverter}}"
+                           Grid.Row="1" Grid.Column="2" Style="{StaticResource PrimaryListItemLabel}" />
 
                     <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
                            Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"
@@ -75,6 +76,13 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </controls:ScorePredictListView>
+
+    <ContentView Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
+    </ContentView>
+    
   </Grid>
 
   <ContentPage.ToolbarItems>

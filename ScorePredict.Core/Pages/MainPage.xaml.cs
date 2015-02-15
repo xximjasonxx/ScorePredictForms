@@ -11,7 +11,7 @@ namespace ScorePredict.Core.Pages
         {
             InitializeComponent();
 
-            BindingContext = ContainerHolder.Current.Resolve<MainPageViewModel>();
+            //BindingContext = ContainerHolder.Current.Resolve<MainPageViewModel>();
         }
     }
 }

@@ -7,14 +7,14 @@ using ScorePredict.Common.Utility;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
+using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class PredictionsPageViewModel : ViewModelBase
+    public class PredictionsPageViewModel : ScorePredictBaseViewModel
     {
         public IPredictionService PredictionService { get; private set; }
-        public INavigator Navigator { get; private set; }
 
         private ObservableCollection<PredictionGroup> _predictionGroups;
 
@@ -38,21 +38,34 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        public PredictionsPageViewModel(IPredictionService predictionService, INavigator navigator)
+        public PredictionsPageViewModel(IPredictionService predictionService, INavigator navigator, IDialogService dialogService,
+            IClearUserSecurityService clearUserSecurityService)
+            : base(clearUserSecurityService, navigator, dialogService)
         {
             PredictionService = predictionService;
-            Navigator = navigator;
         }
 
         public override async void OnShow()
         {
-            /*var result = await PredictionService.GetCurrentWeekPredictions();
-            PredictionGroups = new ObservableCollection<PredictionGroup>(new List<PredictionGroup>
+            try
             {
-                new PredictionGroup("Pregame", result.Where(x => x.InPregame).ToList()),
-                new PredictionGroup("Final", result.Where(x => x.IsConcluded).ToList()),
-                new PredictionGroup("In Progress", result.Where(x => !x.IsConcluded && !x.InPregame).ToList())
-            });*/
+                ShowProgress = true;
+                var result = await PredictionService.GetCurrentWeekPredictions();
+                PredictionGroups = new ObservableCollection<PredictionGroup>((new List<PredictionGroup>
+                {
+                    new PredictionGroup("Pregame", result.Where(x => x.InPregame).ToList()),
+                    new PredictionGroup("Final", result.Where(x => x.IsConcluded).ToList()),
+                    new PredictionGroup("In Progress", result.Where(x => !x.IsConcluded && !x.InPregame).ToList())
+                }).Where(pg => pg.Count > 0));
+            }
+            catch
+            {
+                DialogService.Alert("Failed to load Predictions for Current Week");
+            }
+            finally
+            {
+                ShowProgress = false;
+            }
         }
     }
 }

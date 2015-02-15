@@ -42,6 +42,7 @@
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Controls\ScorePredictListView.cs" />
     <Compile Include="Converters\GameStateValueConverter.cs" />
+    <Compile Include="Converters\ScorePredictionDisplayConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\DroidNavigator.cs" />
     <Compile Include="Impl\NavigatorBase.cs" />

@@ -1,4 +1,6 @@
 ﻿
+using System.Linq;
+
 namespace ScorePredict.Common.Data
 {
     public class Prediction
@@ -16,10 +18,23 @@ namespace ScorePredict.Common.Data
         public int HomePredictedScore { get; set; }
         public int PointsAwarded { get; set; }
 
+        public string HomeTeamName
+        {
+            get { return GetTeamName(HomeTeam); }
+        }
+
+        public string AwayTeamName
+        {
+            get { return GetTeamName(AwayTeam); }
+        }
+
         public string PointsAwardedDisplay
         {
             get
             {
+                if (PointsAwarded < 0)
+                    return string.Empty;
+
                 if (PointsAwarded == 1)
                     return "1 Point";
 
@@ -35,6 +50,12 @@ namespace ScorePredict.Common.Data
         public bool InPregame
         {
             get { return GameState == GameState.Pregame; }
+        }
+
+        private string GetTeamName(string fullName)
+        {
+            string[] parts = fullName.Split(' ');
+            return parts.Last();
         }
     }
 }
