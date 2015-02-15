@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ScorePredict.Common.Models
 {
@@ -17,5 +13,16 @@ namespace ScorePredict.Common.Models
         public int PredictedAwayScore { get; set; }
         public int PredictedHomeScore { get; set; }
         public int PointsAwarded { get; set; }
+
+        public string PointsAwardedDisplay
+        {
+            get
+            {
+                if (PointsAwarded == 1)
+                    return "1pt";
+
+                return String.Format("{0}pts", PointsAwarded);
+            }
+        }
     }
 }

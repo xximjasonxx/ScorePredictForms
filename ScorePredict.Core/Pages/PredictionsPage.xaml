@@ -15,7 +15,6 @@
       <controls:ScorePredictListView.Resources>
         <ResourceDictionary>
           <converters:GameStateValueConverter x:Key="GameStateConverter" />
-          <converters:IntDisplayValueConverter x:Key="IntDisplayConverter" />
         </ResourceDictionary>
       </controls:ScorePredictListView.Resources>
       <ListView.GroupHeaderTemplate>
