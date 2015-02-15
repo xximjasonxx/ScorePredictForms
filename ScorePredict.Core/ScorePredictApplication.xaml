@@ -5,7 +5,7 @@
   
   <Application.Resources>
     <ResourceDictionary>
-      <OnPlatform x:TypeArguments="x:Double" Android="90" iOS="65" WinPhone="90" x:Key="PredictionsRowHeight" />
+      <OnPlatform x:TypeArguments="x:Double" Android="90" iOS="65" WinPhone="105" x:Key="PredictionsRowHeight" />
       <OnPlatform x:TypeArguments="x:Double" Android="30" iOS="30" WinPhone="50" x:Key="PredictionsHeaderRowHeight" />
       
       <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="PrimaryTextColor" />
@@ -16,6 +16,7 @@
       <OnPlatform x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" x:Key="HeaderFont" />
       <OnPlatform x:TypeArguments="Font" Android="40" iOS="30" WinPhone="40" x:Key="LargeFontSize" />
       <OnPlatform x:TypeArguments="Font" Android="30" iOS="27" WinPhone="25" x:Key="MediumFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="20" iOS="24" WinPhone="20" x:Key="SmallFontSize" />
       
       <OnPlatform x:TypeArguments="Font" Android="25" iOS="18" WinPhone="30" x:Key="ListPrimaryFontSize" />
       <OnPlatform x:TypeArguments="Font" Android="18" iOS="14" WinPhone="18" x:Key="ListSecondaryFontSize" />
@@ -33,6 +34,11 @@
       <Style x:Key="MediumLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
         <Setter Property="Font" Value="{StaticResource MediumFontSize}" />
+      </Style>
+      
+      <Style x:Key="SmallLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        <Setter Property="Font" Value="{StaticResource SmallFontSize}" />
       </Style>
       
       <Style x:Key="PrimaryListItemLabel" TargetType="Label">

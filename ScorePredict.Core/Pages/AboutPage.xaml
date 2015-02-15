@@ -3,16 +3,42 @@
 	  	     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	  	     xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
 	  	     x:Class="ScorePredict.Core.Pages.AboutPage"
-			     BackgroundColor="#77B739">
-  
-  <pages:ScorePredictContentPage.Resources>
-    <ResourceDictionary>
-      <Style x:Key="MyStyle" TargetType="Label">
-        <Setter Property="Label.TextColor" Value="Blue" />
-      </Style>
-    </ResourceDictionary>
-  </pages:ScorePredictContentPage.Resources>
-  
-  <Label Text="This is a Test" VerticalOptions="Center" HorizontalOptions="Center" 
-         Style="{StaticResource MyStyle}"/>
+			     BackgroundColor="{StaticResource BackgroundColor}">
+
+  <ScrollView HorizontalOptions="Fill" VerticalOptions="Fill" Orientation="Vertical">
+
+    <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <Label Style="{StaticResource MediumLabel}" Grid.Row="0">
+        <Label.Text>
+          Score Predict offers you the ability to test your football knowledge. Try to predict the score of each game by the end. You are able to predict the score up till the point the game starts. Based on the score at the end you will be awarded as much as 50pts. The scale is shown below. So give it a try and see what how well you can predict the score.
+        </Label.Text>
+      </Label>
+
+      <StackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Grid.Row="1" Orientation="Vertical">
+        <Label Style="{StaticResource HeaderLabel}">The Scale</Label>
+        <Label Style="{StaticResource SmallLabel}">Exactly = 20pts</Label>
+        <Label Style="{StaticResource SmallLabel}">Within 3pts = 15pts</Label>
+        <Label Style="{StaticResource SmallLabel}">Within 4pts = 12pts</Label>
+        <Label Style="{StaticResource SmallLabel}">Within 7pts = 10pts</Label>
+        <Label Style="{StaticResource SmallLabel}">Within 10pts = 5pts</Label>
+        <Label Style="{StaticResource SmallLabel}">Pick winning team = 10pts</Label>
+      </StackLayout>
+
+      <StackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Grid.Row="2" Orientation="Vertical">
+        <Label Style="{StaticResource HeaderLabel}">Terms of Use</Label>
+        <Label Style="{StaticResource SmallLabel}">
+          <Label.Text>
+            This application is not affiliated with the NFL&amp;#x2122; in any way. This application is provided for amusement purposes only for no charge. It is not intended to conduct betting or gambling activities. All team names and logos are the property of the NFL&amp;#x2122; and their respective franchises.
+          </Label.Text>
+        </Label>
+      </StackLayout>
+    </Grid>
+    
+  </ScrollView>
 </pages:ScorePredictContentPage>
