@@ -11,6 +11,8 @@ namespace ScorePredict.Services.Impl
 {
     public class ScorePredictPredictionService : IPredictionService
     {
+        public IList<PredictionViewModel> Predictions { get; set; }
+
         public IClient Client { get; private set; }
 
         public ScorePredictPredictionService(IClient client)
@@ -54,6 +56,31 @@ namespace ScorePredict.Services.Impl
 
             var result = (await Client.UpdateTable("predictions", parameters)).AsDictionary();
             return result[0].AsPrediction();
+        }
+
+        public async Task<IList<int>> GetPredictionYearsAsync()
+        {
+            if (Predictions == null)
+                Predictions = await GetAllPredictionsAsync();
+
+            return Predictions.OrderByDescending(p => p.Year).Select(p => p.Year).Distinct().ToList();
+        }
+
+        private async Task<IList<PredictionViewModel>> GetAllPredictionsAsync()
+        {
+            var result = (await Client.ReadTableAsync("predictions", new Dictionary<string, string>())).AsDictionary();
+            return result.Select(x => new PredictionViewModel()
+            {
+                AwayTeamName = x["awayTeam"].AsTeamName(),
+                HomeTeamName = x["homeTeam"].AsTeamName(),
+                AwayScore = x["awayScore"].AsInt(),
+                HomeScore = x["homeScore"].AsInt(),
+                PointsAwarded = x["pointsAwarded"].AsInt(),
+                PredictedAwayScore = x["predictedAwayScore"].AsInt(),
+                PredictedHomeScore = x["predictedHomeScore"].AsInt(),
+                WeekNumber = x["weekNumber"].AsInt(),
+                Year = x["year"].AsInt()
+            }).ToList();
         }
     }
 }

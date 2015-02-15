@@ -1,5 +1,6 @@
 ﻿
 using System.Linq;
+using ScorePredict.Common.Extensions;
 
 namespace ScorePredict.Common.Data
 {
@@ -20,12 +21,12 @@ namespace ScorePredict.Common.Data
 
         public string HomeTeamName
         {
-            get { return GetTeamName(HomeTeam); }
+            get { return HomeTeam.AsTeamName(); }
         }
 
         public string AwayTeamName
         {
-            get { return GetTeamName(AwayTeam); }
+            get { return AwayTeam.AsTeamName(); }
         }
 
         public string PointsAwardedDisplay
@@ -50,12 +51,6 @@ namespace ScorePredict.Common.Data
         public bool InPregame
         {
             get { return GameState == GameState.Pregame; }
-        }
-
-        private string GetTeamName(string fullName)
-        {
-            string[] parts = fullName.Split(' ');
-            return parts.Last();
         }
     }
 }

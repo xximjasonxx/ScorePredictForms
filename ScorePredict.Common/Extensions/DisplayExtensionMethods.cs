@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ScorePredict.Common.Extensions
 {
@@ -19,6 +20,15 @@ namespace ScorePredict.Common.Extensions
                 case 3: return string.Format("{0}rd", number);
                 default: return string.Format("{0}th", number);
             }
+        }
+
+        public static string AsTeamName(this string fullTeamName)
+        {
+            if (string.IsNullOrEmpty(fullTeamName))
+                throw new ArgumentException("Not a valid full team name");
+
+            var parts = fullTeamName.Split(' ');
+            return parts.Last();
         }
     }
 }

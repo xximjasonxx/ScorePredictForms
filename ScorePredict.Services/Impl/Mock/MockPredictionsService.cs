@@ -62,5 +62,10 @@ namespace ScorePredict.Services.Impl.Mock
         {
             return new Prediction();
         }
+
+        public Task<IList<int>> GetPredictionYearsAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

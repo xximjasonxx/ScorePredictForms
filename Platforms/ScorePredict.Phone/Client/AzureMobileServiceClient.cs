@@ -103,6 +103,12 @@ namespace ScorePredict.Phone.Client
             return await table.UpdateAsync(parameters.AsJObject());
         }
 
+        public async Task<JToken> ReadTableAsync(string tableName, IDictionary<string, string> parameters)
+        {
+            var table = GetTable(tableName);
+            return await table.ReadAsync(string.Empty, parameters);
+        }
+
         #endregion
     }
 }

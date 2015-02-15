@@ -2,9 +2,41 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+			 xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.HistoryPage"
-			 BackgroundColor="#77B739">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+			 BackgroundColor="{StaticResource BackgroundColor}">
+  
+  <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="5" />
+    </Grid.RowDefinitions>
+
+    <controls:ScorePredictListView ItemsSource="{Binding PredictionYears}"
+                                   HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
+                                   ItemSelectedCommand="{Binding Path=SelectPredictionYearCommand, Mode=OneWay}"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="Fill">
+      
+      <controls:ScorePredictListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell Height="70">
+            <StackLayout HorizontalOptions="Fill" Padding="5">
+              <Label HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Text="{Binding}"
+                     Style="{StaticResource HeaderLabel}" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </controls:ScorePredictListView.ItemTemplate>
+      
+    </controls:ScorePredictListView>
+
+    <ContentView Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
+    </ContentView>
+  </Grid>
+  
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Refresh">
       <ToolbarItem.Icon>
