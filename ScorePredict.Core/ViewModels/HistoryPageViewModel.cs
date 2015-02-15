@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using ScorePredict.Core.Contracts;
+using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -26,6 +24,13 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        public ICommand SelectPredictionYearCommand { get { return new Command<int>(SelectPredictionYear);} }
+
+        private async void SelectPredictionYear(int selectedYear)
+        {
+            await Navigator.ShowModalAsync(Navigation, new NavigationPage(new HistoryDetailPage(selectedYear)));
+        }
+
         public HistoryPageViewModel(IPredictionService predictionService,
             IClearUserSecurityService clearUserSecurityService, INavigator navigator, IDialogService dialogService) :
             base(clearUserSecurityService, navigator, dialogService)
@@ -40,7 +45,7 @@ namespace ScorePredict.Core.ViewModels
                 ShowProgress = true;
                 PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
             }
-            catch (Exception ex)
+            catch
             {
                 DialogService.Alert("Error occured getting Prediction History");
             }

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+             xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
+             x:Class="ScorePredict.Core.Pages.HistoryDetailPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
+	
+  <pages:ScorePredictContentPage.Content>
+    <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Padding="7">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <Label Grid.Row="0" Style="{StaticResource HeaderLabel}"
+             Text="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
+        <Label.IsVisible>
+          <OnPlatform x:TypeArguments="x:Boolean" Android="False" iOS="False" WinPhone="True" />
+        </Label.IsVisible>
+      </Label>
+
+      <controls:ScorePredictListView Grid.Row="1" ItemsSource="{Binding Predictions}" IsGroupingEnabled="True">
+        
+      </controls:ScorePredictListView>
+    </Grid>
+  </pages:ScorePredictContentPage.Content>
+  
+</pages:ScorePredictContentPage>

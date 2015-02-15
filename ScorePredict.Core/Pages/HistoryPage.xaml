@@ -13,7 +13,7 @@
     </Grid.RowDefinitions>
 
     <controls:ScorePredictListView ItemsSource="{Binding PredictionYears}"
-                                   HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
+                                   HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
                                    ItemSelectedCommand="{Binding Path=SelectPredictionYearCommand, Mode=OneWay}"
                                    VerticalOptions="StartAndExpand" HorizontalOptions="Fill">
       

@@ -73,6 +73,9 @@
     <Compile Include="Pages\PredictionEditPage.xaml.cs">
       <DependentUpon>PredictionEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\HistoryDetailPage.xaml.cs">
+      <DependentUpon>HistoryDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PredictionsPage.xaml.cs">
       <DependentUpon>PredictionsPage.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,7 @@
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PredictionEditViewModel.cs" />
+    <Compile Include="ViewModels\HistoryDetailViewModel.cs" />
     <Compile Include="ViewModels\PredictionsPageViewModel.cs" />
     <Compile Include="ViewModels\RankingsViewModel.cs" />
     <Compile Include="ViewModels\ScorePredictBaseViewModel.cs" />
@@ -197,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\PredictionEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\HistoryDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

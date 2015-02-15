@@ -66,6 +66,14 @@ namespace ScorePredict.Services.Impl
             return Predictions.OrderByDescending(p => p.Year).Select(p => p.Year).Distinct().ToList();
         }
 
+        public async Task<IList<PredictionViewModel>> GetPredictionsForYearAsync(int year)
+        {
+            if (Predictions == null)
+                Predictions = await GetAllPredictionsAsync();
+
+            return Predictions.Where(p => p.Year == year).ToList();
+        }
+
         private async Task<IList<PredictionViewModel>> GetAllPredictionsAsync()
         {
             var result = (await Client.ReadTableAsync("predictions", new Dictionary<string, string>())).AsDictionary();

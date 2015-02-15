@@ -7,7 +7,7 @@ namespace ScorePredict.Core.Pages
 {
     public partial class EnterUsernamePage
     {
-        private User _theUser;
+        private readonly User _theUser;
 
         public EnterUsernamePage(User user)
         {
