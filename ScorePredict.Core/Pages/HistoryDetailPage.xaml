@@ -2,13 +2,12 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
-             xmlns:converters="clr-namespace:ScorePredict.Core.Converters;assembly=ScorePredict.Core"
              x:Class="ScorePredict.Core.Pages.HistoryDetailPage"
              BackgroundColor="{StaticResource BackgroundColor}"
              Title="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
 	
   <pages:ScorePredictContentPage.Content>
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="7" BackgroundColor="Olive">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="7">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
@@ -22,26 +21,22 @@
       </Label>
 
       <ListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
-                HasUnevenRows="True" BackgroundColor="Teal"
+                HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
                 HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
-              <Grid BackgroundColor="Red" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+              <ViewCell.View>
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
                 
-                <Label Style="{StaticResource HeaderLabel}" Text="{Binding Path=Key, Mode=OneWay, StringFormat='Week {0}'}"
-                       HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TranslationX="7" Grid.Column="0"
-                       BackgroundColor="Maroon"/>
+                  <Label Style="{StaticResource HeaderLabel}" Text="{Binding Path=Key, Mode=OneWay, StringFormat='Week {0}'}"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TranslationX="7" Grid.Column="0" />
                 
-                <Label Style="{StaticResource HeaderLabel}" Text="{Binding TotalPointsDisplay, Mode=OneWay}"
-                       HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1"
-                       BackgroundColor="Navy"/>
-                
-              </Grid>
+                </Grid>
+              </ViewCell.View>
             </ViewCell>
           </DataTemplate>
         </ListView.GroupHeaderTemplate>
@@ -68,13 +63,13 @@
                       <Label Text="{Binding Path=AwayScore, Mode=OneWay}" Grid.Column="1"
                              Style="{StaticResource PrimaryListItemLabel}"/>
                       <Label Text="{Binding Path=PredictedAwayScore, Mode=OneWay, Converter={StaticResource IntDisplayConverter}}"
-                             Grid.Column="2" Style="{StaticResource PrimaryListItemLabel}" />
+                             Grid.Column="2" Style="{StaticResource PredictedScoreListItemLabel}" />
 
                       <Label Text="{Binding Path=HomeTeamName, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
                       <Label Text="{Binding Path=HomeScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1"
                              Style="{StaticResource PrimaryListItemLabel}"/>
                       <Label Text="{Binding Path=PredictedHomeScore, Mode=OneWay, Converter={StaticResource IntDisplayConverter}}"
-                             Grid.Row="1" Grid.Column="2" Style="{StaticResource PrimaryListItemLabel}" />
+                             Grid.Row="1" Grid.Column="2" Style="{StaticResource PredictedScoreListItemLabel}" />
 
                       <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" Grid.Column="4" Grid.Row="0"
                              VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.RowSpan="2"

@@ -52,13 +52,13 @@
                     <Label Text="{Binding Path=AwayTeamScore, Mode=OneWay}" Grid.Column="1"
                            Style="{StaticResource PrimaryListItemLabel}"/>
                     <Label Text="{Binding Path=AwayPredictedScore, Mode=OneWay, Converter={StaticResource IntDisplayConverter}}"
-                           Grid.Column="2" Style="{StaticResource PrimaryListItemLabel}" />
+                           Grid.Column="2" Style="{StaticResource PredictedScoreListItemLabel}" />
 
                     <Label Text="{Binding Path=HomeTeamName, Mode=OneWay}" Grid.Row="1" Style="{StaticResource PrimaryListItemLabel}" />
                     <Label Text="{Binding Path=HomeTeamScore, Mode=OneWay}" Grid.Row="1" Grid.Column="1"
                            Style="{StaticResource PrimaryListItemLabel}"/>
                     <Label Text="{Binding Path=HomePredictedScore, Mode=OneWay, Converter={StaticResource IntDisplayConverter}}"
-                           Grid.Row="1" Grid.Column="2" Style="{StaticResource PrimaryListItemLabel}" />
+                           Grid.Row="1" Grid.Column="2" Style="{StaticResource PredictedScoreListItemLabel}" />
 
                     <Label Text="{Binding Path=GameState, Converter={StaticResource GameStateConverter}, Mode=OneWay}"
                            Grid.Column="4" Grid.RowSpan="2" VerticalOptions="Center"

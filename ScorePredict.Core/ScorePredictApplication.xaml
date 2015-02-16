@@ -49,6 +49,11 @@
         <Setter Property="Font" Value="{StaticResource ListPrimaryFontSize}" />
       </Style>
       
+      <Style x:Key="PredictedScoreListItemLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DarkGreenColor}" />
+        <Setter Property="Font" Value="{StaticResource ListPrimaryFontSize}" />
+      </Style>
+      
       <Style x:Key="SecondaryListItemLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
         <Setter Property="Font" Value="{StaticResource ListSecondaryFontSize}" />
