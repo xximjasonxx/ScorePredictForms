@@ -22,7 +22,8 @@
 
       <ListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
                 HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
-                HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                GroupShortNameBinding="{Binding Path=Key}">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
