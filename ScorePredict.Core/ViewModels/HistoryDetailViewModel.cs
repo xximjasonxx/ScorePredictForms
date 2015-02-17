@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ScorePredict.Common.Utility;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -14,6 +10,21 @@ namespace ScorePredict.Core.ViewModels
     {
         public IPredictionService PredictionService { get; private set; }
         public IDialogService DialogService { get; private set; }
+
+        private bool _showProgress;
+
+        public bool ShowProgress
+        {
+            get { return _showProgress; }
+            private set
+            {
+                if (value != _showProgress)
+                {
+                    _showProgress = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public int Year { get; set; }
 
@@ -39,16 +50,21 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
+                ShowProgress = true;
                 var predictions = await PredictionService.GetPredictionsForYearAsync(Year);
                 Predictions = new ObservableCollection<SummaryPredictionGroup>(
                     predictions.GroupBy(x => x.WeekNumber)
                         .OrderBy(x => x.Key)
                         .Select(x => new SummaryPredictionGroup(x.Key.ToString(), x.ToList()))
-                );
+                    );
             }
             catch
             {
                 DialogService.Alert("Failed to load Predictions for Selected Year");
+            }
+            finally
+            {
+                ShowProgress = false;
             }
         }
     }

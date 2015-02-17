@@ -19,10 +19,10 @@
       
       <controls:ScorePredictListView.ItemTemplate>
         <DataTemplate>
-          <ViewCell Height="70">
+          <ViewCell>
             <StackLayout HorizontalOptions="Fill" Padding="5">
               <Label HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Text="{Binding}"
-                     Style="{StaticResource HeaderLabel}" />
+                     Style="{StaticResource YellowListLabel}" />
             </StackLayout>
           </ViewCell>
         </DataTemplate>

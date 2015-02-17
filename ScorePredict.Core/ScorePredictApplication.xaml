@@ -48,6 +48,11 @@
         <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
         <Setter Property="Font" Value="{StaticResource ListPrimaryFontSize}" />
       </Style>
+
+      <Style x:Key="YellowListLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
+        <Setter Property="Font" Value="{StaticResource MediumFontSize}" />
+      </Style>
       
       <Style x:Key="PredictedScoreListItemLabel" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource DarkGreenColor}" />

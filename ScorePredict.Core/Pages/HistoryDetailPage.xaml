@@ -22,7 +22,7 @@
 
       <ListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
                 HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
-                HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                 GroupShortNameBinding="{Binding Path=Key}">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
@@ -83,6 +83,12 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
+    
+    <ContentView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}"
+                 HorizontalOptions="Fill" VerticalOptions="Fill"
+                 IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
+    </ContentView>
     </Grid>
   </pages:ScorePredictContentPage.Content>
   
