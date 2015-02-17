@@ -108,6 +108,12 @@ namespace ScorePredict.Touch.Client
             throw new NotImplementedException();
         }
 
+        public async Task<JToken> ReadTableAsync(string tableName, IDictionary<string, string> parameters)
+        {
+            var table = GetTable(tableName);
+            return await table.ReadAsync(string.Empty, parameters);
+        }
+
         #endregion
     }
 }
