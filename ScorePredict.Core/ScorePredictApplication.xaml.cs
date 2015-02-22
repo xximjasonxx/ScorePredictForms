@@ -56,7 +56,7 @@ namespace ScorePredict.Core
             User user = readUserSecurityService.ReadUser();
             if (user == null)
             {
-                mainPage.Navigation.PushModalAsync(new ScorePredictParentNavigationPage(new LoginPage())
+                mainPage.Navigation.PushModalAsync(new ScorePredictNavigationPage(new LoginPage())
                 {
                     BarBackgroundColor = Color.FromHex("#3C8513"),
                     BarTextColor = Color.FromHex("#FCD23C")
@@ -68,7 +68,7 @@ namespace ScorePredict.Core
             startupService.SetUser(user);
             if (string.IsNullOrEmpty(user.Username))
             {
-                mainPage.Navigation.PushModalAsync(new ScorePredictParentNavigationPage(new EnterUsernamePage(user))
+                mainPage.Navigation.PushModalAsync(new ScorePredictNavigationPage(new EnterUsernamePage(user))
                 {
                     BarBackgroundColor = Color.FromHex("#3C8513"),
                     BarTextColor = Color.FromHex("#FCD23C")

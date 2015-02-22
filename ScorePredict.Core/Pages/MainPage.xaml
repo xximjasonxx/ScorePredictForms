@@ -6,8 +6,8 @@
       BackgroundColor="{StaticResource BackgroundColor}">
 
   <TabbedPage.Children>
-    <!--<pages:ScorePredictNavigationPage Title="This Week">
-      <x:Arguments>-->
+    <pages:ScorePredictNavigationPage Title="This Week">
+      <x:Arguments>
         <pages:ThisWeekPage Title="This Week">
           <pages:ThisWeekPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
@@ -27,10 +27,10 @@
             </ToolbarItem>
           </pages:ThisWeekPage.ToolbarItems>
         </pages:ThisWeekPage>
-      <!--</x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
-    <!--<pages:ScorePredictNavigationPage Title="Predictions">
-      <x:Arguments>-->
+      </x:Arguments>
+    </pages:ScorePredictNavigationPage>
+    <pages:ScorePredictNavigationPage Title="Predictions">
+      <x:Arguments>
         <pages:PredictionsPage Title="Predictions">
           <pages:PredictionsPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
@@ -50,11 +50,11 @@
             </ToolbarItem>
           </pages:PredictionsPage.ToolbarItems>
         </pages:PredictionsPage>
-      <!--</x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
+      </x:Arguments>
+    </pages:ScorePredictNavigationPage>
 
-    <!--<pages:ScorePredictNavigationPage Title="Groups">
-      <x:Arguments>-->
+    <pages:ScorePredictNavigationPage Title="Groups">
+      <x:Arguments>
         <pages:GroupsPage Title="Groups">
           <pages:GroupsPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
@@ -74,12 +74,11 @@
             </ToolbarItem>
           </pages:GroupsPage.ToolbarItems>
         </pages:GroupsPage>
-    <!--</x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
-
-    <!--
+    </x:Arguments>
+    </pages:ScorePredictNavigationPage>
+    
     <pages:ScorePredictNavigationPage Title="Rankings">
-      <x:Arguments>-->
+      <x:Arguments>
         <pages:RankingsPage Title="Rankings">
           <pages:RankingsPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
@@ -99,11 +98,11 @@
             </ToolbarItem>
           </pages:RankingsPage.ToolbarItems>
         </pages:RankingsPage>
-    <!--</x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
+    </x:Arguments>
+    </pages:ScorePredictNavigationPage>
 
-    <!--<pages:ScorePredictNavigationPage Title="History">
-      <x:Arguments>-->
+    <pages:ScorePredictNavigationPage Title="History">
+      <x:Arguments>
         <pages:HistoryPage Title="History">
           <pages:HistoryPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
@@ -123,11 +122,11 @@
             </ToolbarItem>
           </pages:HistoryPage.ToolbarItems>
         </pages:HistoryPage>
-    <!--</x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
+    </x:Arguments>
+    </pages:ScorePredictNavigationPage>
 
-    <!--<pages:ScorePredictNavigationPage Title="About">
-      <x:Arguments>-->
+    <pages:ScorePredictNavigationPage Title="About">
+      <x:Arguments>
         <pages:AboutPage Title="About">
           <pages:AboutPage.ToolbarItems>
             <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
@@ -140,8 +139,8 @@
             </ToolbarItem>
           </pages:AboutPage.ToolbarItems>
         </pages:AboutPage>
-      <!--</x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
+      </x:Arguments>
+    </pages:ScorePredictNavigationPage>
   </TabbedPage.Children>
 
 </TabbedPage>
