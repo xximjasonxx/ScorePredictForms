@@ -22,5 +22,10 @@ namespace ScorePredict.Core.ViewModels
         {
             // do nothing
         }
+
+        public virtual void BackButtonPressed()
+        {
+            // do nothing
+        }
     }
 }

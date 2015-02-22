@@ -47,7 +47,7 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
-            try
+            /*try
             {
                 ShowProgress = true;
                 var result = await PredictionService.GetCurrentWeekPredictions();
@@ -65,7 +65,7 @@ namespace ScorePredict.Core.ViewModels
             finally
             {
                 ShowProgress = false;
-            }
+            }*/
         }
     }
 }

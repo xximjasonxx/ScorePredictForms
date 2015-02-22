@@ -3,6 +3,7 @@ using ScorePredict.Common.Data;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Controls;
 using ScorePredict.Core.Extensions;
+using ScorePredict.Core.Impl;
 using ScorePredict.Core.Modules;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
@@ -20,6 +21,7 @@ namespace ScorePredict.Core
             InitializeComponent();
 
             var builder = new ContainerBuilder();
+            builder.RegisterInstance(new EmptyKillApplication()).As<IKillApplication>().SingleInstance();
             InitializeApplication(builder, navigator, modules);
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Input;
 using ScorePredict.Common.Ex;
 using ScorePredict.Core.Contracts;
@@ -16,7 +15,7 @@ namespace ScorePredict.Core.ViewModels
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public IGetUsernameService GetUsernameService { get; private set; }
         public IDialogService DialogService { get; private set; }
-        public INavigator Navigator { get; private set; }
+        public IKillApplication KillApplication { get; private set; }
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -28,36 +27,41 @@ namespace ScorePredict.Core.ViewModels
         public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook);} }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
-            IGetUsernameService getUsernameService, IDialogService dialogService, INavigator navigator)
+            IGetUsernameService getUsernameService, IDialogService dialogService, IKillApplication killApp)
         {
             LoginUserService = loginUserService;
             SaveUserSecurityService = saveUserSecurityService;
             GetUsernameService = getUsernameService;
             DialogService = dialogService;
-            Navigator = navigator;
+            KillApplication = killApp;
+        }
+
+        public override void BackButtonPressed()
+        {
+            KillApplication.KillApp();
         }
 
         private async void GoToCreateUser()
         {
-            await Navigator.ShowPageAsync(Navigation, new CreateUserPage());
+            await Navigation.PushAsync(new CreateUserPage());
         }
 
         private async void Login()
         {
             try
             {
-                /*var user = await LoginUserService.LoginAsync(Username, Password);
+                var user = await LoginUserService.LoginAsync(Username, Password);
                 if (user == null)
                     throw new LoginException("Invalid Username Password combination");
 
                 if (string.IsNullOrEmpty(user.Username))
                 {
-                    await Navigator.ShowPageAsync(Navigation, new EnterUsernamePage(user));
+                    await Navigation.PushAsync(new EnterUsernamePage(user));
                     return; // end execution
                 }
 
-                SaveUserSecurityService.SaveUser(user);*/
-                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
+                SaveUserSecurityService.SaveUser(user);
+                await Navigation.PopModalAsync(true);
             }
             catch (LoginException lex)
             {
@@ -80,13 +84,13 @@ namespace ScorePredict.Core.ViewModels
                 string username = await GetUsernameService.GetUsernameAsync(result.UserId);
                 if (string.IsNullOrEmpty(username))
                 {
-                    await Navigator.ShowPageAsync(Navigation, new EnterUsernamePage(result));
+                    await Navigation.PushAsync(new EnterUsernamePage(result));
                     return;
                 }
 
                 result.Username = username;
                 SaveUserSecurityService.SaveUser(result);
-                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
+                await Navigation.PopModalAsync(true);
             }
             catch (LoginException lex)
             {

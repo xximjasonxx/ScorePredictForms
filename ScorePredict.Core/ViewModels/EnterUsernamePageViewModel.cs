@@ -16,18 +16,18 @@ namespace ScorePredict.Core.ViewModels
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public ISetUsernameService SetUsernameService { get; private set; }
         public IDialogService DialogService { get; private set; }
-        public INavigator Navigator { get; private set; }
+        public IKillApplication KillApplication { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save);}}
 
         public EnterUsernamePageViewModel(ISaveUserSecurityService saveUserSecurityService,
             ISetUsernameService setUsernameService,
-            IDialogService dialogService, INavigator navigator)
+            IDialogService dialogService, IKillApplication killApp)
         {
             SaveUserSecurityService = saveUserSecurityService;
             SetUsernameService = setUsernameService;
             DialogService = dialogService;
-            Navigator = navigator;
+            KillApplication = killApp;
         }
 
         private async void Save()
@@ -37,7 +37,7 @@ namespace ScorePredict.Core.ViewModels
                 var username = await SetUsernameService.SetUsernameForUserAsync(User.UserId, Username);
                 User.Username = username;
                 SaveUserSecurityService.SaveUser(User);
-                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
+                await Navigation.PopModalAsync(true);
             }
             catch (SaveUsernameException ex)
             {

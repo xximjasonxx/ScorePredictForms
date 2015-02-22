@@ -47,6 +47,7 @@
     <Compile Include="Converters\ScorePredictionDisplayConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\DroidNavigator.cs" />
+    <Compile Include="Impl\EmptyKillApplication.cs" />
     <Compile Include="Impl\NavigatorBase.cs" />
     <Compile Include="Impl\PhoneNavigator.cs" />
     <Compile Include="Impl\TouchNavigator.cs" />

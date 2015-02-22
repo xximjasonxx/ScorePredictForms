@@ -10,21 +10,23 @@ namespace ScorePredict.Core.Pages
     {
         public abstract Type ViewModelType { get; }
 
+        private ViewModelBase _viewModel;
+
         protected ScorePredictContentPage()
         {
-            var viewModel = GetViewModel(ViewModelType);
-            OnViewModelResolved(viewModel);
+            _viewModel = GetViewModel(ViewModelType);
+            OnViewModelResolved(_viewModel);
 
-            BindingContext = viewModel;
+            BindingContext = _viewModel;
         }
 
         protected ScorePredictContentPage(IDictionary<string, string> parameters)
         {
-            var viewModel = GetViewModel(ViewModelType);
-            OnViewModelResolved(viewModel);
-            ApplyViewModelParameters(viewModel, parameters);
+            _viewModel = GetViewModel(ViewModelType);
+            OnViewModelResolved(_viewModel);
+            ApplyViewModelParameters(_viewModel, parameters);
 
-            BindingContext = viewModel;
+            BindingContext = _viewModel;
         }
 
         private ViewModelBase GetViewModel(Type type)
@@ -47,6 +49,12 @@ namespace ScorePredict.Core.Pages
             base.OnAppearing();
 
             ((ViewModelBase) BindingContext).OnShow();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            _viewModel.BackButtonPressed();
+            return true;
         }
     }
 }
