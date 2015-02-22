@@ -99,6 +99,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Rendering\TouchScorePredictEntryRenderer.cs" />
+    <Compile Include="Rendering\TouchScorePredictParentNavigationRenderer.cs" />
     <Compile Include="Rendering\TouchScorePredictTabbedRenderer.cs" />
     <Compile Include="TouchConstants.cs" />
     <Compile Include="TouchInjectionModule.cs" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <BundleResource Include="Rendering\bokeh.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ScorePredict.Common\ScorePredict.Common.csproj">

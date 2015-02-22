@@ -101,7 +101,7 @@ namespace ScorePredict.Core.ViewModels
         private async Task LoadWeekDataAsync()
         {
             ShowProgress = true;
-            try
+            /*try
             {
                 var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
                 PointsAwarded = result.Points;
@@ -118,7 +118,7 @@ namespace ScorePredict.Core.ViewModels
             finally
             {
                 ShowProgress = false;
-            }
+            }*/
         }
     }
 }

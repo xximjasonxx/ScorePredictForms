@@ -38,9 +38,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContainerHolder.cs" />
+    <Compile Include="Contracts\IKillApplication.cs" />
     <Compile Include="Contracts\INavigator.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Controls\ScorePredictListView.cs" />
+    <Compile Include="Controls\ScorePredictParentNavigationPage.cs" />
     <Compile Include="Converters\GameStateValueConverter.cs" />
     <Compile Include="Converters\ScorePredictionDisplayConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />

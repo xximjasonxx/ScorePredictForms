@@ -1,5 +1,6 @@
 ﻿using System;
 using Autofac;
+using ScorePredict.Core.Contracts;
 using ScorePredict.Core.ViewModels;
 
 namespace ScorePredict.Core.Pages
@@ -14,6 +15,12 @@ namespace ScorePredict.Core.Pages
         public override Type ViewModelType
         {
             get { return typeof (LoginPageViewModel); }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            ContainerHolder.Current.Resolve<IKillApplication>().KillApp();
+            return true;
         }
     }
 }

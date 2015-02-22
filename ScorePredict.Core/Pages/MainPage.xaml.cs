@@ -13,5 +13,10 @@ namespace ScorePredict.Core.Pages
 
             //BindingContext = ContainerHolder.Current.Resolve<MainPageViewModel>();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return base.OnBackButtonPressed();
+        }
     }
 }

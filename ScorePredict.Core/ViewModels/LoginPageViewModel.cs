@@ -46,7 +46,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                var user = await LoginUserService.LoginAsync(Username, Password);
+                /*var user = await LoginUserService.LoginAsync(Username, Password);
                 if (user == null)
                     throw new LoginException("Invalid Username Password combination");
 
@@ -56,14 +56,14 @@ namespace ScorePredict.Core.ViewModels
                     return; // end execution
                 }
 
-                SaveUserSecurityService.SaveUser(user);
+                SaveUserSecurityService.SaveUser(user);*/
                 await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
             }
             catch (LoginException lex)
             {
                 DialogService.Alert(lex.Message);
             }
-            catch
+            catch (Exception ex)
             {
                 DialogService.Alert("Login did not succeed. Please try again");
             }
