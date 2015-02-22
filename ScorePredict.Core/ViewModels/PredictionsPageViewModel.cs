@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.ServiceModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Utility;
 using ScorePredict.Core.Contracts;
+using ScorePredict.Core.MessageBus;
+using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -15,6 +19,8 @@ namespace ScorePredict.Core.ViewModels
     public class PredictionsPageViewModel : ScorePredictBaseViewModel
     {
         public IPredictionService PredictionService { get; private set; }
+        public IBus MessageBus { get; private set; }
+        public IReadUserSecurityService ReadUserSecurityService { get; private set; }
 
         private ObservableCollection<PredictionGroup> _predictionGroups;
 
@@ -39,15 +45,31 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public PredictionsPageViewModel(IPredictionService predictionService, INavigator navigator, IDialogService dialogService,
-            IClearUserSecurityService clearUserSecurityService)
+            IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService)
             : base(clearUserSecurityService, navigator, dialogService)
         {
             PredictionService = predictionService;
+            MessageBus = messageBus;
+            ReadUserSecurityService = readUserSecurityService;
         }
 
         public override async void OnShow()
         {
-            /*try
+            MessageBus.ListenFor<LoginCompleteMessage>(LoadPredictions);
+            if (ReadUserSecurityService.ReadUser() != null)
+            {
+                await LoadPredictionsAsync();
+            }
+        }
+
+        public async void LoadPredictions()
+        {
+            await LoadPredictionsAsync();
+        }
+
+        private async Task LoadPredictionsAsync()
+        {
+            try
             {
                 ShowProgress = true;
                 var result = await PredictionService.GetCurrentWeekPredictions();
@@ -65,7 +87,7 @@ namespace ScorePredict.Core.ViewModels
             finally
             {
                 ShowProgress = false;
-            }*/
+            }
         }
     }
 }

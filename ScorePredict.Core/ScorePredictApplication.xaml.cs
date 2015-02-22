@@ -4,6 +4,7 @@ using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Controls;
 using ScorePredict.Core.Extensions;
 using ScorePredict.Core.Impl;
+using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.Modules;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
@@ -36,6 +37,7 @@ namespace ScorePredict.Core
 
         private void InitializeApplication(ContainerBuilder builder, INavigator navigator, Module[] modules)
         {
+            builder.RegisterInstance(new DefaultMessageBus()).As<IBus>().SingleInstance();
             builder.RegisterModules(modules);
             builder.RegisterModule(new ViewModelModule());
             builder.RegisterInstance(navigator).As<INavigator>().SingleInstance();

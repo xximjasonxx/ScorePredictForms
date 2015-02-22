@@ -2,6 +2,8 @@
 using System.Windows.Input;
 using ScorePredict.Common.Ex;
 using ScorePredict.Core.Contracts;
+using ScorePredict.Core.MessageBus;
+using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.Pages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -16,6 +18,7 @@ namespace ScorePredict.Core.ViewModels
         public IGetUsernameService GetUsernameService { get; private set; }
         public IDialogService DialogService { get; private set; }
         public IKillApplication KillApplication { get; private set; }
+        public IBus MessageBus { get; private set; }
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -27,13 +30,15 @@ namespace ScorePredict.Core.ViewModels
         public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook);} }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
-            IGetUsernameService getUsernameService, IDialogService dialogService, IKillApplication killApp)
+            IGetUsernameService getUsernameService, IDialogService dialogService, IKillApplication killApp,
+            IBus messageBus)
         {
             LoginUserService = loginUserService;
             SaveUserSecurityService = saveUserSecurityService;
             GetUsernameService = getUsernameService;
             DialogService = dialogService;
             KillApplication = killApp;
+            MessageBus = messageBus;
         }
 
         public override void BackButtonPressed()
@@ -61,6 +66,7 @@ namespace ScorePredict.Core.ViewModels
                 }
 
                 SaveUserSecurityService.SaveUser(user);
+                MessageBus.Publish<LoginCompleteMessage>();
                 await Navigation.PopModalAsync(true);
             }
             catch (LoginException lex)
@@ -90,6 +96,7 @@ namespace ScorePredict.Core.ViewModels
 
                 result.Username = username;
                 SaveUserSecurityService.SaveUser(result);
+                MessageBus.Publish<LoginCompleteMessage>();
                 await Navigation.PopModalAsync(true);
             }
             catch (LoginException lex)

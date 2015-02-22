@@ -61,10 +61,8 @@ namespace ScorePredict.Touch.Client
         {
             try
             {
-                var window = _windowHelper.GetKeyWindow();
-                var root = window.RootViewController;
-
-                var result = await this.LoginAsync(root, MobileServiceAuthenticationProvider.Facebook);
+                var vc = _windowHelper.GetKeyWindow().RootViewController.PresentedViewController;
+                var result = await this.LoginAsync(vc, MobileServiceAuthenticationProvider.Facebook);
                 return new User
                 {
                     UserId = result.UserId,

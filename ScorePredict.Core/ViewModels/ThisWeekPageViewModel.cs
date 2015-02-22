@@ -1,16 +1,19 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using ScorePredict.Core.Contracts;
+using ScorePredict.Core.MessageBus;
+using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
-using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
     public class ThisWeekPageViewModel : ScorePredictBaseViewModel
     {
         public IThisWeekService ThisWeekService { get; private set; }
+        public IBus MessageBus { get; private set; }
+        public IReadUserSecurityService ReadUserSecurityService { get; private set; }
 
         private int _pointsAwarded;
         public int PointsAwarded
@@ -82,10 +85,13 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
-            IClearUserSecurityService clearUserSecurityService, INavigator navigator)
+            IClearUserSecurityService clearUserSecurityService, INavigator navigator, IBus messageBus,
+            IReadUserSecurityService readUserSecurityService)
             : base(clearUserSecurityService, navigator, dialogService)
         {
             ThisWeekService = thisWeekService;
+            MessageBus = messageBus;
+            ReadUserSecurityService = readUserSecurityService;
         }
 
         protected override async void Refresh()
@@ -95,14 +101,24 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
+            MessageBus.ListenFor<LoginCompleteMessage>(LoadWeekData);
+            if (ReadUserSecurityService.ReadUser() != null)
+            {
+                await LoadWeekDataAsync();
+            }
+        }
+
+        private async void LoadWeekData()
+        {
             await LoadWeekDataAsync();
         }
 
         private async Task LoadWeekDataAsync()
         {
-            ShowProgress = true;
-            /*try
+            try
             {
+                ShowProgress = true;
+
                 var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
                 PointsAwarded = result.Points;
                 PredictionCount = result.TotalPredictions;
@@ -118,7 +134,7 @@ namespace ScorePredict.Core.ViewModels
             finally
             {
                 ShowProgress = false;
-            }*/
+            }
         }
     }
 }
