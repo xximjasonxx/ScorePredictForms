@@ -51,11 +51,12 @@ namespace ScorePredict.Core
                     BarTextColor = Color.FromHex("#FCD23C")
                 };
 
-            return new NavigationPage(new MainPage())
+            return new MainPage();
+            /*)
             {
                 BarBackgroundColor = Color.FromHex("#3C8513"),
                 BarTextColor = Color.FromHex("#FCD23C")
-            };
+            };*/
         }
     }
 }

@@ -37,13 +37,4 @@
     </ContentView>
   </Grid>
   
-  <ContentPage.ToolbarItems>
-    <ToolbarItem Name="Refresh">
-      <ToolbarItem.Icon>
-        <OnPlatform x:TypeArguments="FileImageSource"
-                    WinPhone="Assets/appbar.refresh.png"
-                    Android="ic_action_refresh.png" />
-      </ToolbarItem.Icon>
-    </ToolbarItem>
-  </ContentPage.ToolbarItems>
 </pages:ScorePredictContentPage>
