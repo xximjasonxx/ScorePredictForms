@@ -98,8 +98,8 @@
     <Compile Include="Impl\TouchWindowHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Rendering\ScorePredictListViewRenderer.cs" />
     <Compile Include="Rendering\TouchScorePredictEntryRenderer.cs" />
-    <Compile Include="Rendering\TouchScorePredictParentNavigationRenderer.cs" />
     <Compile Include="Rendering\TouchScorePredictTabbedRenderer.cs" />
     <Compile Include="TouchConstants.cs" />
     <Compile Include="TouchInjectionModule.cs" />

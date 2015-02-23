@@ -2,12 +2,13 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+             xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
              x:Class="ScorePredict.Core.Pages.HistoryDetailPage"
              BackgroundColor="{StaticResource BackgroundColor}"
              Title="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
 
   <pages:ScorePredictContentPage.Content>
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="7">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TranslationY="10">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
@@ -20,10 +21,9 @@
         </Label.IsVisible>
       </Label>
 
-      <ListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
+      <controls:ScorePredictListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
                 HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
-                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                GroupShortNameBinding="{Binding Path=Key}">
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
@@ -82,7 +82,7 @@
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
-      </ListView>
+      </controls:ScorePredictListView>
 
       <ContentView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}"
                    HorizontalOptions="Fill" VerticalOptions="Fill"
