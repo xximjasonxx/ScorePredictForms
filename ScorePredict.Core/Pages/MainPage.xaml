@@ -8,7 +8,7 @@
   <TabbedPage.Children>
     <pages:ScorePredictNavigationPage Title="This Week">
       <x:Arguments>
-        <pages:ThisWeekPage Title="This Week">
+        <pages:ThisWeekPage>
           <pages:ThisWeekPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
               <ToolbarItem.Icon>
@@ -31,7 +31,7 @@
     </pages:ScorePredictNavigationPage>
     <pages:ScorePredictNavigationPage Title="Predictions">
       <x:Arguments>
-        <pages:PredictionsPage Title="Predictions">
+        <pages:PredictionsPage>
           <pages:PredictionsPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
               <ToolbarItem.Icon>
@@ -55,7 +55,7 @@
 
     <pages:ScorePredictNavigationPage Title="Groups">
       <x:Arguments>
-        <pages:GroupsPage Title="Groups">
+        <pages:GroupsPage>
           <pages:GroupsPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
               <ToolbarItem.Icon>
@@ -74,12 +74,12 @@
             </ToolbarItem>
           </pages:GroupsPage.ToolbarItems>
         </pages:GroupsPage>
-    </x:Arguments>
+      </x:Arguments>
     </pages:ScorePredictNavigationPage>
-    
+
     <pages:ScorePredictNavigationPage Title="Rankings">
       <x:Arguments>
-        <pages:RankingsPage Title="Rankings">
+        <pages:RankingsPage>
           <pages:RankingsPage.ToolbarItems>
             <ToolbarItem Name="Refresh">
               <ToolbarItem.Icon>
@@ -98,49 +98,41 @@
             </ToolbarItem>
           </pages:RankingsPage.ToolbarItems>
         </pages:RankingsPage>
-    </x:Arguments>
-    </pages:ScorePredictNavigationPage>
-
-    <pages:ScorePredictNavigationPage Title="History">
-      <x:Arguments>
-        <pages:HistoryPage Title="History">
-          <pages:HistoryPage.ToolbarItems>
-            <ToolbarItem Name="Refresh">
-              <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            WinPhone="Assets/appbar.refresh.png"
-                            Android="ic_action_refresh.png" />
-              </ToolbarItem.Icon>
-            </ToolbarItem>
-            <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-              <ToolbarItem.Order>
-                <OnPlatform x:TypeArguments="ToolbarItemOrder"
-                  WinPhone="Secondary"
-                  Android="Secondary"
-                  iOS="Primary" />
-              </ToolbarItem.Order>
-            </ToolbarItem>
-          </pages:HistoryPage.ToolbarItems>
-        </pages:HistoryPage>
-    </x:Arguments>
-    </pages:ScorePredictNavigationPage>
-
-    <pages:ScorePredictNavigationPage Title="About">
-      <x:Arguments>
-        <pages:AboutPage Title="About">
-          <pages:AboutPage.ToolbarItems>
-            <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-              <ToolbarItem.Order>
-                <OnPlatform x:TypeArguments="ToolbarItemOrder"
-                  WinPhone="Secondary"
-                  Android="Secondary"
-                  iOS="Primary" />
-              </ToolbarItem.Order>
-            </ToolbarItem>
-          </pages:AboutPage.ToolbarItems>
-        </pages:AboutPage>
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
+
+    <pages:HistoryPage Title="History">
+      <pages:HistoryPage.ToolbarItems>
+        <ToolbarItem Name="Refresh">
+          <ToolbarItem.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource"
+                        WinPhone="Assets/appbar.refresh.png"
+                        Android="ic_action_refresh.png" />
+          </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+              WinPhone="Secondary"
+              Android="Secondary"
+              iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:HistoryPage.ToolbarItems>
+    </pages:HistoryPage>
+
+    <pages:AboutPage Title="About">
+      <pages:AboutPage.ToolbarItems>
+        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder"
+              WinPhone="Secondary"
+              Android="Secondary"
+              iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:AboutPage.ToolbarItems>
+    </pages:AboutPage>
   </TabbedPage.Children>
 
 </TabbedPage>

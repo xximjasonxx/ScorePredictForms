@@ -14,7 +14,7 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <Label Style="{StaticResource MediumLabel}" Grid.Row="0">
+      <Label Style="{StaticResource SmallLabel}" Grid.Row="0">
         <Label.Text>
           Score Predict offers you the ability to test your football knowledge. Try to predict the score of each game by the end. You are able to predict the score up till the point the game starts. Based on the score at the end you will be awarded as much as 50pts. The scale is shown below. So give it a try and see what how well you can predict the score.
         </Label.Text>
