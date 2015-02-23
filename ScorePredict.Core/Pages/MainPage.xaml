@@ -4,6 +4,51 @@
       xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
       x:Class="ScorePredict.Core.Pages.MainPage"
       BackgroundColor="{StaticResource BackgroundColor}">
+  
+  <TabbedPage.Resources>
+    <ResourceDictionary>
+      <pages:ScorePredictNavigationPage Title="History" x:Key="ChromedHistoryPage">
+        <x:Arguments>
+          <pages:HistoryPage>
+            <pages:HistoryPage.ToolbarItems>
+              <ToolbarItem Name="Refresh">
+                <ToolbarItem.Icon>
+                  <OnPlatform x:TypeArguments="FileImageSource"
+                              WinPhone="Assets/appbar.refresh.png"
+                              Android="ic_action_refresh.png" />
+                </ToolbarItem.Icon>
+              </ToolbarItem>
+              <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
+                <ToolbarItem.Order>
+                  <OnPlatform x:TypeArguments="ToolbarItemOrder"
+                    WinPhone="Secondary"
+                    Android="Secondary"
+                    iOS="Primary" />
+                </ToolbarItem.Order>
+              </ToolbarItem>
+            </pages:HistoryPage.ToolbarItems>
+          </pages:HistoryPage>
+        </x:Arguments>
+      </pages:ScorePredictNavigationPage>
+
+      <pages:ScorePredictNavigationPage Title="About" x:Key="ChromedAboutPage">
+        <x:Arguments>
+          <pages:AboutPage Title="About">
+            <pages:AboutPage.ToolbarItems>
+              <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
+                <ToolbarItem.Order>
+                  <OnPlatform x:TypeArguments="ToolbarItemOrder"
+                    WinPhone="Secondary"
+                    Android="Secondary"
+                    iOS="Primary" />
+                </ToolbarItem.Order>
+              </ToolbarItem>
+            </pages:AboutPage.ToolbarItems>
+          </pages:AboutPage>
+        </x:Arguments>
+      </pages:ScorePredictNavigationPage>
+    </ResourceDictionary>
+  </TabbedPage.Resources>
 
   <TabbedPage.Children>
     <pages:ScorePredictNavigationPage Title="This Week">
@@ -133,6 +178,7 @@
         </ToolbarItem>
       </pages:AboutPage.ToolbarItems>
     </pages:AboutPage>
+    
   </TabbedPage.Children>
 
 </TabbedPage>

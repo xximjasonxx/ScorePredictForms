@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using Autofac;
 using ScorePredict.Core.ViewModels;
 using ScorePredict.Services.Contracts;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
@@ -14,9 +16,16 @@ namespace ScorePredict.Core.Pages
             //BindingContext = ContainerHolder.Current.Resolve<MainPageViewModel>();
         }
 
-        protected override bool OnBackButtonPressed()
+        protected override void OnAppearing()
         {
-            return base.OnBackButtonPressed();
+            if (Device.OS == TargetPlatform.Android)
+            {
+                Children.Remove(Children.Last());       // remove about
+                Children.Remove(Children.Last());       // remove history
+
+                Children.Add((Page)Resources["ChromedHistoryPage"]);        // add history
+                Children.Add((Page)Resources["ChromedAboutPage"]);  // add about
+            }
         }
     }
 }
