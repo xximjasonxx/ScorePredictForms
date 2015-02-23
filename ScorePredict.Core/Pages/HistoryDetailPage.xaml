@@ -5,7 +5,7 @@
              x:Class="ScorePredict.Core.Pages.HistoryDetailPage"
              BackgroundColor="{StaticResource BackgroundColor}"
              Title="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
-	
+
   <pages:ScorePredictContentPage.Content>
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="7">
       <Grid.RowDefinitions>
@@ -21,21 +21,21 @@
       </Label>
 
       <ListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
-                HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
+                HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                 GroupShortNameBinding="{Binding Path=Key}">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
               <ViewCell.View>
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Fill" BackgroundColor="{StaticResource DarkGreenColor}">
                   <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                   </Grid.ColumnDefinitions>
-                
+
                   <Label Style="{StaticResource HeaderLabel}" Text="{Binding Path=Key, Mode=OneWay, StringFormat='Week {0}'}"
                          HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TranslationX="7" Grid.Column="0" />
-                
+
                 </Grid>
               </ViewCell.View>
             </ViewCell>
@@ -83,13 +83,17 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-    
-    <ContentView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}"
-                 HorizontalOptions="Fill" VerticalOptions="Fill"
-                 IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
-      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
-    </ContentView>
+
+      <ContentView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}"
+                   HorizontalOptions="Fill" VerticalOptions="Fill"
+                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+        <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
+      </ContentView>
     </Grid>
   </pages:ScorePredictContentPage.Content>
+
+  <pages:ScorePredictContentPage.ToolbarItems>
+    <ToolbarItem Text="Close" Command="{Binding CloseModalCommand}" />
+  </pages:ScorePredictContentPage.ToolbarItems>
   
 </pages:ScorePredictContentPage>

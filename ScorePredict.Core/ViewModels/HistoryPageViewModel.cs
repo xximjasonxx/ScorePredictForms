@@ -28,7 +28,7 @@ namespace ScorePredict.Core.ViewModels
 
         private async void SelectPredictionYear(int selectedYear)
         {
-            await Navigator.ShowModalAsync(Navigation, new NavigationPage(new HistoryDetailPage(selectedYear)));
+            await Navigation.PushModalAsync(new ScorePredictNavigationPage(new HistoryDetailPage(selectedYear)));
         }
 
         public HistoryPageViewModel(IPredictionService predictionService,

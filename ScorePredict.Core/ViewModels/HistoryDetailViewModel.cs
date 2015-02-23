@@ -1,8 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using ScorePredict.Common.Utility;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -38,6 +40,13 @@ namespace ScorePredict.Core.ViewModels
                 _predictions = value;
                 OnPropertyChanged();
             }
+        }
+
+        public ICommand CloseModalCommand { get { return new Command(CloseModal); } }
+
+        private async void CloseModal()
+        {
+            await Navigation.PopModalAsync(true);
         }
 
         public HistoryDetailViewModel(IPredictionService predictionService, IDialogService dialogService)

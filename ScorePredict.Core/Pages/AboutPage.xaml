@@ -7,18 +7,21 @@
 
   <ScrollView HorizontalOptions="Fill" VerticalOptions="Fill" Orientation="Vertical">
 
-    <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand">
+    <Grid HorizontalOptions="Fill" VerticalOptions="StartAndExpand" TranslationX="7" TranslationY="10">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <Label Style="{StaticResource SmallLabel}" Grid.Row="0">
-        <Label.Text>
-          Score Predict offers you the ability to test your football knowledge. Try to predict the score of each game by the end. You are able to predict the score up till the point the game starts. Based on the score at the end you will be awarded as much as 50pts. The scale is shown below. So give it a try and see what how well you can predict the score.
-        </Label.Text>
-      </Label>
+      <StackLayout Grid.Row="0">
+        <Label Style="{StaticResource HeaderLabel}">What is Score Predict?</Label>
+        <Label Style="{StaticResource SmallLabel}">
+          <Label.Text>
+            Score Predict offers you the ability to test your football knowledge. Try to predict the score of each game by the end. You are able to predict the score up till the point the game starts. Based on the score at the end you will be awarded as much as 50pts. The scale is shown below. So give it a try and see what how well you can predict the score.
+          </Label.Text>
+        </Label>
+      </StackLayout>
 
       <StackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Grid.Row="1" Orientation="Vertical">
         <Label Style="{StaticResource HeaderLabel}">The Scale</Label>
