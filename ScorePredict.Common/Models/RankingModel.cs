@@ -12,5 +12,7 @@ namespace ScorePredict.Common.Models
         public string UserId { get; set; }
         public string Username { get; set; }
         public int Points { get; set; }
+
+        public bool IsCurrentUser { get; set; }
     }
 }

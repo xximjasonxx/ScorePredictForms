@@ -23,7 +23,7 @@ namespace ScorePredict.Services.Impl
             var parameters = new Dictionary<string, string>()
             {
                 //{"weekOf", DateTime.Now.ToString("d")}
-                {"weekOf", "10/16/2014"}
+                {"weekOf", "9/5/2014"}
             };
 
             var dictionary = (await _client.GetApiAsync("rankings", parameters)).AsDictionary();

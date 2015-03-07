@@ -2,8 +2,59 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+             xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
+             xmlns:converters="clr-namespace:ScorePredict.Core.Converters;assembly=ScorePredict.Core"
              x:Class="ScorePredict.Core.Pages.RankingsPage"
              BackgroundColor="{StaticResource BackgroundColor}">
-	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+    <Grid.Resources>
+      <ResourceDictionary>
+        <converters:CurrentUserBackgroundColorValueConverter x:Key="BackgroundColorConverter" />
+      </ResourceDictionary>
+    </Grid.Resources>
+    
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    
+    <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Text="Current Week" />
+    
+    <controls:ScorePredictListView ItemsSource="{Binding Path=Rankings, Mode=OneWay}"
+                                   HasUnevenRows="True" IsGroupingEnabled="False" Grid.Row="1">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell Height="70">
+            <ViewCell.View>
+              <Grid BackgroundColor="{Binding Path=IsCurrentUser, Converter={StaticResource BackgroundColorConverter}}" VerticalOptions="Fill"
+                    HorizontalOptions="Fill">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="10" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Text="{Binding Path=Rank, Mode=OneWay}" Grid.Column="0" Style="{StaticResource LargeLabel}"
+                       VerticalOptions="Center" TranslationX="5" />
+                <Label Text="{Binding Path=Username, Mode=OneWay}" Grid.Column="1" Style="{StaticResource MediumLabel}"
+                       TranslationX="20" VerticalOptions="Center" />
+                <Label Text="{Binding Path=Points, Mode=OneWay}" Grid.Column="2" Style="{StaticResource MediumLabel}"
+                       VerticalOptions="Center" />
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </controls:ScorePredictListView>
+
+    <ContentView Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
+    </ContentView>
+
+  </Grid>
 
 </pages:ScorePredictContentPage>

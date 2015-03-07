@@ -25,7 +25,7 @@ namespace ScorePredict.Services.Impl
             var parameters = new Dictionary<string, string>()
             {
                 //{"weekForDate", DateTime.Now.ToString("d")}
-                {"weekForDate", "10/03/2014"}
+                {"weekForDate", "9/5/2014"}
             };
 
             var result = (await Client.GetApiAsync("predictions_for", parameters)).AsDictionary();
