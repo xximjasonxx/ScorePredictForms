@@ -16,6 +16,7 @@ namespace ScorePredict.Services.Modules
             builder.RegisterType<ScorePredictThisWeekService>().As<IThisWeekService>();
             builder.RegisterType<ScorePredictPredictionService>().As<IPredictionService>().SingleInstance();
             builder.RegisterType<ScorePredictStartupService>().As<IStartupService>();
+            builder.RegisterType<ScorePredictRankingService>().As<IRankingService>();
 
             // mocks
             /*builder.RegisterType<MockLoginUserService>().As<ILoginUserService>();

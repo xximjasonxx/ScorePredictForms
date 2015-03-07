@@ -12,7 +12,7 @@ namespace ScorePredict.Core.Pages
 
         public override Type ViewModelType
         {
-            get { return typeof (RankingsViewModel); }
+            get { return typeof (RankingsPageViewModel); }
         }
     }
 }

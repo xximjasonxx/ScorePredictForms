@@ -52,6 +52,7 @@
     <Compile Include="Ex\LookupFailedException.cs" />
     <Compile Include="Ex\SaveUsernameException.cs" />
     <Compile Include="Models\PredictionViewModel.cs" />
+    <Compile Include="Models\RankingModel.cs" />
     <Compile Include="Models\SavePredictionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\PredictionGroup.cs" />

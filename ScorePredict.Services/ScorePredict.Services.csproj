@@ -48,6 +48,7 @@
     <Compile Include="Contracts\IClient.cs" />
     <Compile Include="Contracts\IDialogService.cs" />
     <Compile Include="Contracts\IEncryptionService.cs" />
+    <Compile Include="Contracts\IRankingService.cs" />
     <Compile Include="Extensions\JtokenExtensionMethods.cs" />
     <Compile Include="ICreateUserService.cs" />
     <Compile Include="IGetUsernameService.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Impl\ScorePredictGetUsernameService.cs" />
     <Compile Include="Impl\ScorePredictLoginUserService.cs" />
     <Compile Include="Impl\ScorePredictPredictionsService.cs" />
+    <Compile Include="Impl\ScorePredictRankingService.cs" />
     <Compile Include="Impl\ScorePredictSetUsernameService.cs" />
     <Compile Include="Impl\ScorePredictStartupService.cs" />
     <Compile Include="Impl\ScorePredictThisWeekService.cs" />

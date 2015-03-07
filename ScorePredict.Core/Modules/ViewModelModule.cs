@@ -17,7 +17,7 @@ namespace ScorePredict.Core.Modules
             builder.RegisterType<HistoryDetailViewModel>();
             builder.RegisterType<PredictionsPageViewModel>();
             builder.RegisterType<PredictionEditViewModel>();
-            builder.RegisterType<RankingsViewModel>();
+            builder.RegisterType<RankingsPageViewModel>();
             builder.RegisterType<AboutPageViewModel>();
         }
     }
