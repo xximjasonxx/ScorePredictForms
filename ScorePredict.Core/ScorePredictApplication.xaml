@@ -65,6 +65,11 @@
         <Setter Property="Font" Value="{StaticResource ListSecondaryFontSize}" />
       </Style>
       
+      <Style x:Key="LargeYellowListItemLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
+        <Setter Property="Font" Value="{StaticResource LargeFontSize}" />
+      </Style>
+      
       <Style x:Key="SecondarySpecialListItemLabel" TargetType="Label" BaseResourceKey="SecondaryListItemLabel">
         <Setter Property="TextColor" Value="{StaticResource SpecialTextColor}" />
       </Style>

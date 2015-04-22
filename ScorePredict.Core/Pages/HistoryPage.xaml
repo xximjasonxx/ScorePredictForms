@@ -22,7 +22,7 @@
           <ViewCell>
             <StackLayout HorizontalOptions="Fill" Padding="5">
               <Label HorizontalOptions="Fill" VerticalOptions="StartAndExpand" Text="{Binding}"
-                     Style="{StaticResource YellowListLabel}" />
+                     Style="{StaticResource LargeYellowListItemLabel}" />
             </StackLayout>
           </ViewCell>
         </DataTemplate>
