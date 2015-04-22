@@ -98,7 +98,7 @@
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
 
-    <pages:ScorePredictNavigationPage Title="Groups">
+    <!--<pages:ScorePredictNavigationPage Title="Groups">
       <x:Arguments>
         <pages:GroupsPage>
           <pages:GroupsPage.ToolbarItems>
@@ -120,7 +120,7 @@
           </pages:GroupsPage.ToolbarItems>
         </pages:GroupsPage>
       </x:Arguments>
-    </pages:ScorePredictNavigationPage>
+    </pages:ScorePredictNavigationPage>-->
 
     <pages:ScorePredictNavigationPage Title="Rankings">
       <x:Arguments>

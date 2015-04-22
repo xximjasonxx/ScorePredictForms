@@ -8,7 +8,7 @@
              Title="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
 
   <pages:ScorePredictContentPage.Content>
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TranslationY="10">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TranslationY="10" TranslationX="10">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
@@ -22,7 +22,7 @@
       </Label>
 
       <controls:ScorePredictListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
-                HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
+                HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
@@ -33,7 +33,7 @@
                     <ColumnDefinition Width="Auto" />
                   </Grid.ColumnDefinitions>
 
-                  <Label Style="{StaticResource HeaderLabel}" Text="{Binding Path=Key, Mode=OneWay, StringFormat='Week {0}'}"
+                  <Label Style="{StaticResource GroupHeaderLabel}" Text="{Binding Path=Key, Mode=OneWay, StringFormat='Week {0}'}"
                          HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TranslationX="7" Grid.Column="0" />
 
                 </Grid>
@@ -93,7 +93,8 @@
   </pages:ScorePredictContentPage.Content>
 
   <pages:ScorePredictContentPage.ToolbarItems>
-    <ToolbarItem Text="Close" Command="{Binding CloseModalCommand}" />
+    <ToolbarItem Text="Close" Command="{Binding CloseModalCommand}"
+                 Icon="appbar.close.png" />
   </pages:ScorePredictContentPage.ToolbarItems>
   
 </pages:ScorePredictContentPage>

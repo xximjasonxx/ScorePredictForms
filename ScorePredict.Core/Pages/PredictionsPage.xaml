@@ -22,7 +22,7 @@
           <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
             <Grid BackgroundColor="{StaticResource DarkGreenColor}" HorizontalOptions="Fill" VerticalOptions="Fill">
               <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7,0,0,0">
-                <Label Style="{StaticResource HeaderLabel}" Text="{Binding Path=Key, Mode=OneWay}"
+                <Label Style="{StaticResource GroupHeaderLabel}" Text="{Binding Path=Key, Mode=OneWay}"
                        HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" />
               </StackLayout>
             </Grid>
