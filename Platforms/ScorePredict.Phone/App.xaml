@@ -8,6 +8,8 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:ScorePredict.Phone" x:Key="LocalizedStrings"/>
+
+        <SolidColorBrush x:Key="YellowColor" Color="#FCD23C" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
