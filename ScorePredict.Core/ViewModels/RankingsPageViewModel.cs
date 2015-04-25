@@ -8,7 +8,7 @@ using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class RankingsPageViewModel : ScorePredictRootViewModelBase
+    public class RankingsPageViewModel : ScorePredictRootPageViewModel
     {
         private readonly IRankingService _rankingService;
         private readonly IReadUserSecurityService _readUserSecurityService;

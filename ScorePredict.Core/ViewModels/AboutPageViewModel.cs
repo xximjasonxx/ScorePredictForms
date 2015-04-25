@@ -9,7 +9,7 @@ using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class AboutPageViewModel : ScorePredictRootViewModelBase
+    public class AboutPageViewModel : ScorePredictRootPageViewModel
     {
         public AboutPageViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService,
             IKillApplication killApplication)

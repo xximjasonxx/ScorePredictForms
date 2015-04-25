@@ -17,7 +17,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class PredictionsPageViewModel : ScorePredictRootViewModelBase
+    public class PredictionsPageViewModel : ScorePredictRootPageViewModel
     {
         public IPredictionService PredictionService { get; private set; }
         public IBus MessageBus { get; private set; }

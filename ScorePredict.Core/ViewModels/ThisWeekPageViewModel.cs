@@ -10,7 +10,7 @@ using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class ThisWeekPageViewModel : ScorePredictRootViewModelBase
+    public class ThisWeekPageViewModel : ScorePredictRootPageViewModel
     {
         public IThisWeekService ThisWeekService { get; private set; }
         public IBus MessageBus { get; private set; }

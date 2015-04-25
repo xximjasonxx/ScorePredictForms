@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class HistoryPageViewModel : ScorePredictRootViewModelBase
+    public class HistoryPageViewModel : ScorePredictRootPageViewModel
     {
         public IPredictionService PredictionService { get; private set; }
 

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ScorePredict.Core.Contracts;
+﻿using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.ViewModels.Abstract
 {
-    public class ScorePredictRootViewModelBase : ScorePredictBaseViewModel
+    public class ScorePredictRootPageViewModel : ScorePredictBaseViewModel
     {
         public IKillApplication KillApplication { get; private set; }
 
-        protected ScorePredictRootViewModelBase(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService, 
+        protected ScorePredictRootPageViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService, 
             IKillApplication killApplication)
             : base(clearUserSecurityService, dialogService)
         {
