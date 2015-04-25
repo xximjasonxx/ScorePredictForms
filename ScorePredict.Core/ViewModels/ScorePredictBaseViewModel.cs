@@ -49,7 +49,7 @@ namespace ScorePredict.Core.ViewModels
             if (await DialogService.ConfirmLogoutAsync())
             {
                 ClearUserSecurityService.ClearUserSecurity();
-                await Navigator.ShowPageAsRootAsync(Navigation, new LoginPage());
+                await Navigation.PopModalAsync(true);
             }
         }
 

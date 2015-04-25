@@ -110,7 +110,7 @@ namespace ScorePredict.Core.ViewModels
                 result.Username = username;
                 SaveUserSecurityService.SaveUser(result);
                 MessageBus.Publish<LoginCompleteMessage>();
-                await Navigation.PopModalAsync(true);
+                await Navigation.PushModalAsync(new MainPage());
             }
             catch (LoginException lex)
             {

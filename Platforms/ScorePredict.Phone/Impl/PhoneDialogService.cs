@@ -7,6 +7,7 @@ namespace ScorePredict.Phone.Impl
 {
     public class PhoneDialogService : UserDialogService, IDialogService
     {
+
         public async Task<bool> ConfirmLogoutAsync()
         {
             var config = new ConfirmConfig()
