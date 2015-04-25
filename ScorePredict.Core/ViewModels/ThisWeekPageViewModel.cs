@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.MessageBus.Messages;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class ThisWeekPageViewModel : ScorePredictBaseViewModel
+    public class ThisWeekPageViewModel : ScorePredictRootViewModelBase
     {
         public IThisWeekService ThisWeekService { get; private set; }
         public IBus MessageBus { get; private set; }

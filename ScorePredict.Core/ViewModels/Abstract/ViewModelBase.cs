@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using ScorePredict.Core.Annotations;
 using Xamarin.Forms;
 
-namespace ScorePredict.Core.ViewModels
+namespace ScorePredict.Core.ViewModels.Abstract
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

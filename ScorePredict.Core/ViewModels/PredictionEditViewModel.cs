@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Models;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;

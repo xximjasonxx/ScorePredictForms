@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Autofac;
 using ScorePredict.Core.ViewModels;
+using ScorePredict.Core.ViewModels.Abstract;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
