@@ -12,9 +12,9 @@ namespace ScorePredict.Core.ViewModels.Abstract
     {
         public IKillApplication KillApplication { get; private set; }
 
-        protected ScorePredictRootViewModelBase(IClearUserSecurityService clearUserSecurityService, INavigator navigator,
-            IDialogService dialogService, IKillApplication killApplication)
-            : base(clearUserSecurityService, navigator, dialogService)
+        protected ScorePredictRootViewModelBase(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService, 
+            IKillApplication killApplication)
+            : base(clearUserSecurityService, dialogService)
         {
             KillApplication = killApplication;
         }

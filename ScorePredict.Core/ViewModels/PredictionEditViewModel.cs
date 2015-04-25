@@ -56,9 +56,10 @@ namespace ScorePredict.Core.ViewModels
 
         public ICommand SaveCommand { get { return new Command(Save); } }
 
-        public PredictionEditViewModel(IDialogService dialogService, IPredictionService predictionService)
+        public PredictionEditViewModel(IDialogService dialogService, IPredictionService predictionService,
+            IClearUserSecurityService clearUserSecurityService)
+            : base(clearUserSecurityService, dialogService)
         {
-            DialogService = dialogService;
             PredictionService = predictionService;
         }
 

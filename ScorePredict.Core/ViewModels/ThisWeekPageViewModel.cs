@@ -86,9 +86,9 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
-            IClearUserSecurityService clearUserSecurityService, INavigator navigator, IBus messageBus,
+            IClearUserSecurityService clearUserSecurityService, IBus messageBus,
             IReadUserSecurityService readUserSecurityService, IKillApplication killApp)
-            : base(clearUserSecurityService, navigator, dialogService, killApp)
+            : base(clearUserSecurityService, dialogService, killApp)
         {
             ThisWeekService = thisWeekService;
             MessageBus = messageBus;

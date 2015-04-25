@@ -17,18 +17,17 @@ namespace ScorePredict.Core.ViewModels
 
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public ISetUsernameService SetUsernameService { get; private set; }
-        public IDialogService DialogService { get; private set; }
         public IKillApplication KillApplication { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save);}}
 
         public EnterUsernamePageViewModel(ISaveUserSecurityService saveUserSecurityService,
-            ISetUsernameService setUsernameService,
+            ISetUsernameService setUsernameService, IClearUserSecurityService clearUserSecurityService,
             IDialogService dialogService, IKillApplication killApp)
+            : base(clearUserSecurityService, dialogService)
         {
             SaveUserSecurityService = saveUserSecurityService;
             SetUsernameService = setUsernameService;
-            DialogService = dialogService;
             KillApplication = killApp;
         }
 

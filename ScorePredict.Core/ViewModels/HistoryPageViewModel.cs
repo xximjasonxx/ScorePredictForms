@@ -33,8 +33,8 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public HistoryPageViewModel(IPredictionService predictionService, IClearUserSecurityService clearUserSecurityService,
-            INavigator navigator, IDialogService dialogService, IKillApplication killApp)
-            : base(clearUserSecurityService, navigator, dialogService, killApp)
+            IDialogService dialogService, IKillApplication killApp)
+            : base(clearUserSecurityService, dialogService, killApp)
         {
             PredictionService = predictionService;
         }

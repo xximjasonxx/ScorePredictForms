@@ -26,8 +26,8 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public RankingsPageViewModel(IRankingService rankingService, IClearUserSecurityService clearUserSecurityService,
-            INavigator navigator, IDialogService dialogService, IReadUserSecurityService readUserSecuritService, IKillApplication killApp)
-            : base(clearUserSecurityService, navigator, dialogService, killApp)
+            IDialogService dialogService, IReadUserSecurityService readUserSecuritService, IKillApplication killApp)
+            : base(clearUserSecurityService, dialogService, killApp)
         {
             _rankingService = rankingService;
             _readUserSecurityService = readUserSecuritService;

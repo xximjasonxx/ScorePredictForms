@@ -11,9 +11,9 @@ namespace ScorePredict.Core.ViewModels
 {
     public class AboutPageViewModel : ScorePredictRootViewModelBase
     {
-        public AboutPageViewModel(IClearUserSecurityService clearUserSecurityService, INavigator navigator, IDialogService dialogService,
+        public AboutPageViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService,
             IKillApplication killApplication)
-            : base(clearUserSecurityService, navigator, dialogService, killApplication)
+            : base(clearUserSecurityService, dialogService, killApplication)
         {
         }
     }

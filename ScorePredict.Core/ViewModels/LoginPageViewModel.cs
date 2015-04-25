@@ -17,7 +17,6 @@ namespace ScorePredict.Core.ViewModels
         public ILoginUserService LoginUserService { get; private set; }
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public IGetUsernameService GetUsernameService { get; private set; }
-        public IDialogService DialogService { get; private set; }
         public IReadUserSecurityService ReadUserSecurityService { get; private set; }
         public IStartupService StartupService { get; private set; }
         public IBus MessageBus { get; private set; }
@@ -33,12 +32,12 @@ namespace ScorePredict.Core.ViewModels
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
             IGetUsernameService getUsernameService, IDialogService dialogService, IBus messageBus,
-            IReadUserSecurityService readUserSecurityService, IStartupService startupService)
+            IClearUserSecurityService clearUserSecurityService, IReadUserSecurityService readUserSecurityService, IStartupService startupService)
+            : base(clearUserSecurityService, dialogService)
         {
             LoginUserService = loginUserService;
             SaveUserSecurityService = saveUserSecurityService;
             GetUsernameService = getUsernameService;
-            DialogService = dialogService;
             MessageBus = messageBus;
             ReadUserSecurityService = readUserSecurityService;
             StartupService = startupService;

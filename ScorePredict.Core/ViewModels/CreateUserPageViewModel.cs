@@ -2,6 +2,7 @@
 using ScorePredict.Common.Ex;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
@@ -13,7 +14,6 @@ namespace ScorePredict.Core.ViewModels
         public ICreateUserService CreateUserService { get; private set; }
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public IDialogService DialogService { get; private set; }
-        public INavigator Navigator { get; private set; }
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -22,13 +22,11 @@ namespace ScorePredict.Core.ViewModels
         public ICommand CreateUserCommand { get {  return new Command(CreateUser);} }
 
         public CreateUserPageViewModel(ICreateUserService createUserService,
-            ISaveUserSecurityService saveUserSecurityService,
-            IDialogService dialogService, INavigator navigator)
+            ISaveUserSecurityService saveUserSecurityService, IDialogService dialogService)
         {
             CreateUserService = createUserService;
             SaveUserSecurityService = saveUserSecurityService;
             DialogService = dialogService;
-            Navigator = navigator;
         }
 
         private async void CreateUser()
@@ -43,7 +41,9 @@ namespace ScorePredict.Core.ViewModels
                     throw new CreateUserException("An error occured creating your user. Please try again");
 
                 SaveUserSecurityService.SaveUser(result);
-                await Navigator.ShowPageAsRootAsync(Navigation, new MainPage());
+
+                await Navigation.PushModalAsync(new MainPage());
+                await Navigation.PopToRootAsync(false);
             }
             catch (CreateUserException ex)
             {

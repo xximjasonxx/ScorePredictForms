@@ -18,8 +18,7 @@ namespace ScorePredict.Droid
 
             Forms.Init(this, bundle);
 
-            LoadApplication(new ScorePredictApplication(new DroidNavigator(), this,
-                new ServiceInjectionModule(), new DroidInjectionModule()));
+            LoadApplication(new ScorePredictApplication(this, new ServiceInjectionModule(), new DroidInjectionModule()));
         }
 
         public void KillApp()

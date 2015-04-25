@@ -8,7 +8,6 @@ namespace ScorePredict.Core.ViewModels.Abstract
     public class ScorePredictBaseViewModel : ViewModelBase
     {
         public IClearUserSecurityService ClearUserSecurityService { get; private set; }
-        public INavigator Navigator { get; private set; }
         public IDialogService DialogService { get; private set; }
         
 
@@ -31,10 +30,9 @@ namespace ScorePredict.Core.ViewModels.Abstract
             }
         }
 
-        protected ScorePredictBaseViewModel(IClearUserSecurityService clearUserSecurityService, INavigator navigator, IDialogService dialogService)
+        protected ScorePredictBaseViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService)
         {
             ClearUserSecurityService = clearUserSecurityService;
-            Navigator = navigator;
             DialogService = dialogService;
         }
 

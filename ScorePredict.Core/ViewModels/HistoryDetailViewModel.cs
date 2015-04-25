@@ -13,21 +13,6 @@ namespace ScorePredict.Core.ViewModels
     {
         public IPredictionService PredictionService { get; private set; }
 
-        private bool _showProgress;
-
-        public bool ShowProgress
-        {
-            get { return _showProgress; }
-            private set
-            {
-                if (value != _showProgress)
-                {
-                    _showProgress = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public int Year { get; set; }
 
         private ObservableCollection<SummaryPredictionGroup> _predictions;
@@ -49,10 +34,11 @@ namespace ScorePredict.Core.ViewModels
             await Navigation.PopModalAsync(true);
         }
 
-        public HistoryDetailViewModel(IPredictionService predictionService, IDialogService dialogService)
+        public HistoryDetailViewModel(IPredictionService predictionService, IDialogService dialogService,
+            IClearUserSecurityService clearUserSecurityService)
+            : base(clearUserSecurityService, dialogService)
         {
             PredictionService = predictionService;
-            DialogService = dialogService;
         }
 
         public async override void OnShow()

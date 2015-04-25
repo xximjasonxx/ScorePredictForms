@@ -40,15 +40,15 @@ namespace ScorePredict.Core.ViewModels
             get
             {
                 return new Command<Prediction>(
-                    x => Navigator.ShowPageAsync(Navigation, new PredictionEditPage(x)),
+                    x => Navigation.PushModalAsync(new PredictionEditPage(x)),
                     x => x.InPregame);
             }
         }
 
-        public PredictionsPageViewModel(IPredictionService predictionService, INavigator navigator, IDialogService dialogService,
+        public PredictionsPageViewModel(IPredictionService predictionService, IDialogService dialogService,
             IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService,
             IKillApplication killApp)
-            : base(clearUserSecurityService, navigator, dialogService, killApp)
+            : base(clearUserSecurityService, dialogService, killApp)
         {
             PredictionService = predictionService;
             MessageBus = messageBus;

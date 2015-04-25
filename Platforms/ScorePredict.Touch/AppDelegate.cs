@@ -17,10 +17,7 @@ namespace ScorePredict.Touch
             Forms.Init();
             CurrentPlatform.Init();
 
-            LoadApplication(new ScorePredictApplication(new TouchNavigator(),
-                new ServiceInjectionModule(),
-                new TouchInjectionModule(app)));
-
+            LoadApplication(new ScorePredictApplication(new ServiceInjectionModule(), new TouchInjectionModule(app)));
             return base.FinishedLaunching(app, options);
         }
     }
