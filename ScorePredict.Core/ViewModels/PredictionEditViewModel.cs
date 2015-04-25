@@ -52,8 +52,6 @@ namespace ScorePredict.Core.ViewModels
                 }
             }
         }
-
-        public IDialogService DialogService { get; private set; }
         public IPredictionService PredictionService { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save); } }
