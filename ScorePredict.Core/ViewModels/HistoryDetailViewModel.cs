@@ -2,16 +2,16 @@
 using System.Linq;
 using System.Windows.Input;
 using ScorePredict.Common.Utility;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class HistoryDetailViewModel : ViewModelBase
+    public class HistoryDetailViewModel : ScorePredictBaseViewModel
     {
         public IPredictionService PredictionService { get; private set; }
-        public IDialogService DialogService { get; private set; }
 
         private bool _showProgress;
 

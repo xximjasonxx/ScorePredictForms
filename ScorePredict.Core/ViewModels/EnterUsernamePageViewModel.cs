@@ -4,12 +4,13 @@ using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class EnterUsernamePageViewModel : ViewModelBase
+    public class EnterUsernamePageViewModel : ScorePredictBaseViewModel
     {
         public User User { get; set; }
         public string Username { get; set; }

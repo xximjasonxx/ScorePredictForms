@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class PredictionEditViewModel : ViewModelBase
+    public class PredictionEditViewModel : ScorePredictBaseViewModel
     {
         private Prediction _prediction;
         public Prediction Prediction

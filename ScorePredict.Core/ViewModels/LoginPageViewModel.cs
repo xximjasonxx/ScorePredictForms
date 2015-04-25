@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class LoginPageViewModel : ViewModelBase
+    public class LoginPageViewModel : ScorePredictBaseViewModel
     {
         public ILoginUserService LoginUserService { get; private set; }
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
