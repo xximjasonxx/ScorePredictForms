@@ -2,13 +2,14 @@
 using System.Windows.Input;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class HistoryPageViewModel : ScorePredictBaseViewModel
+    public class HistoryPageViewModel : ScorePredictRootViewModelBase
     {
         public IPredictionService PredictionService { get; private set; }
 

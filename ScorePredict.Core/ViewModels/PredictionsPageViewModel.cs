@@ -10,13 +10,14 @@ using ScorePredict.Core.Contracts;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.Pages;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
-    public class PredictionsPageViewModel : ScorePredictBaseViewModel
+    public class PredictionsPageViewModel : ScorePredictRootViewModelBase
     {
         public IPredictionService PredictionService { get; private set; }
         public IBus MessageBus { get; private set; }

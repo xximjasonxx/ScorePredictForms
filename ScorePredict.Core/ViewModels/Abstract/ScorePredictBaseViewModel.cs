@@ -51,11 +51,5 @@ namespace ScorePredict.Core.ViewModels.Abstract
         {
             
         }
-
-        public override bool BackButtonPressed()
-        {
-            KillApplication.KillApp();
-            return true;
-        }
     }
 }
