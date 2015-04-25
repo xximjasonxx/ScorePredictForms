@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
+using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 

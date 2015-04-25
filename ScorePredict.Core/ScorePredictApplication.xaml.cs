@@ -17,30 +17,29 @@ namespace ScorePredict.Core
     {
         public static INavigation Navigation;
 
-        public ScorePredictApplication(INavigator navigator, params Module[] modules)
+        public ScorePredictApplication(params Module[] modules)
         {
             InitializeComponent();
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(new EmptyKillApplication()).As<IKillApplication>().SingleInstance();
-            InitializeApplication(builder, navigator, modules);
+            InitializeApplication(builder, modules);
         }
 
-        public ScorePredictApplication(INavigator navigator, IKillApplication killApp, params Module[] modules)
+        public ScorePredictApplication(IKillApplication killApp, params Module[] modules)
         {
             InitializeComponent();
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(killApp).As<IKillApplication>().SingleInstance();
-            InitializeApplication(builder, navigator, modules);
+            InitializeApplication(builder, modules);
         }
 
-        private void InitializeApplication(ContainerBuilder builder, INavigator navigator, Module[] modules)
+        private void InitializeApplication(ContainerBuilder builder, Module[] modules)
         {
             builder.RegisterInstance(new DefaultMessageBus()).As<IBus>().SingleInstance();
             builder.RegisterModules(modules);
             builder.RegisterModule(new ViewModelModule());
-            builder.RegisterInstance(navigator).As<INavigator>().SingleInstance();
 
             ContainerHolder.Initialize(builder.Build());
             MainPage = new LoginPage();
