@@ -31,9 +31,9 @@ namespace ScorePredict.Core.ViewModels
             await Navigation.PushModalAsync(new ScorePredictNavigationPage(new HistoryDetailPage(selectedYear)));
         }
 
-        public HistoryPageViewModel(IPredictionService predictionService,
-            IClearUserSecurityService clearUserSecurityService, INavigator navigator, IDialogService dialogService) :
-            base(clearUserSecurityService, navigator, dialogService)
+        public HistoryPageViewModel(IPredictionService predictionService, IClearUserSecurityService clearUserSecurityService,
+            INavigator navigator, IDialogService dialogService, IKillApplication killApp)
+            : base(clearUserSecurityService, navigator, dialogService, killApp)
         {
             PredictionService = predictionService;
         }

@@ -16,6 +16,7 @@ namespace ScorePredict.Core.ViewModels
         public IClearUserSecurityService ClearUserSecurityService { get; private set; }
         public INavigator Navigator { get; private set; }
         public IDialogService DialogService { get; private set; }
+        public IKillApplication KillApplication { get; private set; }
 
         public ICommand LogoutCommand { get { return new Command(Logout); } }
 
@@ -37,11 +38,12 @@ namespace ScorePredict.Core.ViewModels
         }
 
         protected ScorePredictBaseViewModel(IClearUserSecurityService clearUserSecurityService, INavigator navigator,
-            IDialogService dialogService)
+            IDialogService dialogService, IKillApplication killApplication)
         {
             ClearUserSecurityService = clearUserSecurityService;
             Navigator = navigator;
             DialogService = dialogService;
+            KillApplication = killApplication;
         }
 
         private async void Logout()
@@ -56,6 +58,12 @@ namespace ScorePredict.Core.ViewModels
         protected virtual void Refresh()
         {
             
+        }
+
+        public override bool BackButtonPressed()
+        {
+            KillApplication.KillApp();
+            return true;
         }
     }
 }

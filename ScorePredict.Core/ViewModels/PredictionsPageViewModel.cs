@@ -45,8 +45,9 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public PredictionsPageViewModel(IPredictionService predictionService, INavigator navigator, IDialogService dialogService,
-            IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService)
-            : base(clearUserSecurityService, navigator, dialogService)
+            IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService,
+            IKillApplication killApp)
+            : base(clearUserSecurityService, navigator, dialogService, killApp)
         {
             PredictionService = predictionService;
             MessageBus = messageBus;

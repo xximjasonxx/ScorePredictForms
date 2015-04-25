@@ -86,8 +86,8 @@ namespace ScorePredict.Core.ViewModels
 
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
             IClearUserSecurityService clearUserSecurityService, INavigator navigator, IBus messageBus,
-            IReadUserSecurityService readUserSecurityService)
-            : base(clearUserSecurityService, navigator, dialogService)
+            IReadUserSecurityService readUserSecurityService, IKillApplication killApp)
+            : base(clearUserSecurityService, navigator, dialogService, killApp)
         {
             ThisWeekService = thisWeekService;
             MessageBus = messageBus;
@@ -135,11 +135,6 @@ namespace ScorePredict.Core.ViewModels
             {
                 ShowProgress = false;
             }
-        }
-
-        public override bool BackButtonPressed()
-        {
-            return false;
         }
     }
 }
