@@ -17,7 +17,8 @@ namespace ScorePredict.Core.ViewModels
         public ISaveUserSecurityService SaveUserSecurityService { get; private set; }
         public IGetUsernameService GetUsernameService { get; private set; }
         public IDialogService DialogService { get; private set; }
-        public IKillApplication KillApplication { get; private set; }
+        public IReadUserSecurityService ReadUserSecurityService { get; private set; }
+        public IStartupService StartupService { get; private set; }
         public IBus MessageBus { get; private set; }
 
         public string Username { get; set; }
@@ -30,20 +31,32 @@ namespace ScorePredict.Core.ViewModels
         public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook);} }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
-            IGetUsernameService getUsernameService, IDialogService dialogService, IKillApplication killApp,
-            IBus messageBus)
+            IGetUsernameService getUsernameService, IDialogService dialogService, IBus messageBus,
+            IReadUserSecurityService readUserSecurityService, IStartupService startupService)
         {
             LoginUserService = loginUserService;
             SaveUserSecurityService = saveUserSecurityService;
             GetUsernameService = getUsernameService;
             DialogService = dialogService;
-            KillApplication = killApp;
             MessageBus = messageBus;
+            ReadUserSecurityService = readUserSecurityService;
+            StartupService = startupService;
         }
 
-        public override void BackButtonPressed()
+        public override async void OnShow()
         {
-            KillApplication.KillApp();
+            var user = ReadUserSecurityService.ReadUser();
+            if (user != null)
+            {
+                if (string.IsNullOrEmpty(user.Username))
+                {
+                    await Navigation.PushAsync(new EnterUsernamePage(user));
+                    return;
+                }
+
+                StartupService.SetUser(user);
+                await Navigation.PushModalAsync(new MainPage());
+            }
         }
 
         private async void GoToCreateUser()

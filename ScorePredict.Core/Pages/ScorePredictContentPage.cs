@@ -53,8 +53,7 @@ namespace ScorePredict.Core.Pages
 
         protected override bool OnBackButtonPressed()
         {
-            _viewModel.BackButtonPressed();
-            return true;
+            return _viewModel.BackButtonPressed(); ;
         }
     }
 }

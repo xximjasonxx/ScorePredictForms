@@ -136,5 +136,10 @@ namespace ScorePredict.Core.ViewModels
                 ShowProgress = false;
             }
         }
+
+        public override bool BackButtonPressed()
+        {
+            return false;
+        }
     }
 }

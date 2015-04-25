@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
 using ScorePredict.Core.Contracts;
@@ -37,13 +38,16 @@ namespace ScorePredict.Core.ViewModels
                 var username = await SetUsernameService.SetUsernameForUserAsync(User.UserId, Username);
                 User.Username = username;
                 SaveUserSecurityService.SaveUser(User);
-                await Navigation.PopModalAsync(true);
+                
+                // on success - pop to root and show the mainview as a modal
+                await Navigation.PushModalAsync(new MainPage());
+                await Navigation.PopToRootAsync(false);
             }
             catch (SaveUsernameException ex)
             {
                 DialogService.Alert(ex.Message);
             }
-            catch
+            catch (Exception ex)
             {
                 DialogService.Alert("An error occurred. Please try again");
             }
