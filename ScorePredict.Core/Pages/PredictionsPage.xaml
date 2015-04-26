@@ -7,7 +7,7 @@
 			 x:Class="ScorePredict.Core.Pages.PredictionsPage"
 			 BackgroundColor="{StaticResource BackgroundColor}">
 
-  <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+  <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10,0,10,0">
     <controls:ScorePredictListView ItemsSource="{Binding Path=PredictionGroups, Mode=OneWay}"
                                    HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
                                    ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}"

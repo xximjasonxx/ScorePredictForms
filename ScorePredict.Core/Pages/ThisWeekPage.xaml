@@ -5,7 +5,7 @@
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage"
 			 BackgroundColor="{StaticResource BackgroundColor}">
   
-    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10,0,10,0">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
@@ -17,16 +17,16 @@
       </Grid.RowDefinitions>
 
       <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Style="{StaticResource HeaderLabel}" Grid.Row="1" TranslationX="10" />
+             Style="{StaticResource HeaderLabel}" Grid.Row="1" />
 
       <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="3" Style="{StaticResource LargeLabel}" TranslationX="10" />
+             Grid.Row="3" Style="{StaticResource LargeLabel}" />
 
       <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="4" Style="{StaticResource MediumLabel}" TranslationX="10" />
+             Grid.Row="4" Style="{StaticResource MediumLabel}" />
 
       <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="5" Style="{StaticResource MediumLabel}" TranslationX="10" />
+             Grid.Row="5" Style="{StaticResource MediumLabel}" />
 
       <ContentView Grid.Row="0" Grid.RowSpan="7" BackgroundColor="{StaticResource BackgroundColor}"
                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"

@@ -39,18 +39,13 @@
   <ItemGroup>
     <Compile Include="ContainerHolder.cs" />
     <Compile Include="Contracts\IKillApplication.cs" />
-    <Compile Include="Contracts\INavigator.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Controls\ScorePredictListView.cs" />
     <Compile Include="Converters\CurrentUserBackgroundColorValueConverter.cs" />
     <Compile Include="Converters\GameStateValueConverter.cs" />
     <Compile Include="Converters\ScorePredictionDisplayConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
-    <Compile Include="Impl\DroidNavigator.cs" />
     <Compile Include="Impl\EmptyKillApplication.cs" />
-    <Compile Include="Impl\NavigatorBase.cs" />
-    <Compile Include="Impl\PhoneNavigator.cs" />
-    <Compile Include="Impl\TouchNavigator.cs" />
     <Compile Include="MessageBus\DefaultMessageBus.cs" />
     <Compile Include="MessageBus\IBus.cs" />
     <Compile Include="MessageBus\IMessage.cs" />
@@ -99,6 +94,9 @@
       <DependentUpon>ScorePredictApplication.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ScorePredictBaseViewModel.cs" />
+    <Compile Include="ViewModels\Abstract\ScorePredictRootViewModelBase.cs" />
+    <Compile Include="ViewModels\Abstract\ViewModelBase.cs" />
     <Compile Include="ViewModels\CreateUserPageViewModel.cs" />
     <Compile Include="ViewModels\EnterUsernamePageViewModel.cs" />
     <Compile Include="ViewModels\GroupsPageViewModel.cs" />
@@ -109,9 +107,7 @@
     <Compile Include="ViewModels\HistoryDetailViewModel.cs" />
     <Compile Include="ViewModels\PredictionsPageViewModel.cs" />
     <Compile Include="ViewModels\RankingsPageViewModel.cs" />
-    <Compile Include="ViewModels\ScorePredictBaseViewModel.cs" />
     <Compile Include="ViewModels\ThisWeekPageViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.XamForms.UserDialogs">
