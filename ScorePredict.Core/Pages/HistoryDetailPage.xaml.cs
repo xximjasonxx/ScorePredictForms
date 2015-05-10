@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ScorePredict.Common.Extensions;
 using ScorePredict.Core.ViewModels;
 using ScorePredict.Core.ViewModels.Abstract;
-using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {

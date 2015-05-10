@@ -42,7 +42,7 @@ namespace ScorePredict.Core
             builder.RegisterModule(new ViewModelModule());
 
             ContainerHolder.Initialize(builder.Build());
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage());
             Navigation = MainPage.Navigation;
         }
     }

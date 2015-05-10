@@ -82,7 +82,7 @@ namespace ScorePredict.Core.ViewModels
 
         public string PredictionCountDisplay
         {
-            get { return PredictionCount == 1 ? "1 prediction" : string.Format("{0} predictions", PredictionCount); }
+            get { return "You've made " + (PredictionCount == 1 ? "1 prediction" : string.Format("{0} predictions", PredictionCount)); }
         }
 
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
@@ -123,7 +123,7 @@ namespace ScorePredict.Core.ViewModels
                 var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
                 PointsAwarded = result.Points;
                 PredictionCount = result.TotalPredictions;
-                RankDisplay = string.Format("#{0} out of {1} user{2}",
+                RankDisplay = string.Format("You're ranked #{0} out of {1} user{2}",
                     result.Ranking, result.UserCount,
                     result.UserCount == 1 ? string.Empty : "s");
                 WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);

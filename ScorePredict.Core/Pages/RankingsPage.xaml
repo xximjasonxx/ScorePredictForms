@@ -7,7 +7,7 @@
              x:Class="ScorePredict.Core.Pages.RankingsPage"
              BackgroundColor="{StaticResource BackgroundColor}">
 
-  <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+  <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10,0,10,0">
     <Grid.Resources>
       <ResourceDictionary>
         <converters:CurrentUserBackgroundColorValueConverter x:Key="BackgroundColorConverter" />
@@ -25,7 +25,7 @@
                                    HasUnevenRows="True" IsGroupingEnabled="False" Grid.Row="1">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ViewCell Height="70">
+          <ViewCell Height="50">
             <ViewCell.View>
               <Grid BackgroundColor="{Binding Path=IsCurrentUser, Converter={StaticResource BackgroundColorConverter}}" VerticalOptions="Fill"
                     HorizontalOptions="Fill">
@@ -36,11 +36,11 @@
                   <ColumnDefinition Width="10" />
                 </Grid.ColumnDefinitions>
                 
-                <Label Text="{Binding Path=Rank, Mode=OneWay}" Grid.Column="0" Style="{StaticResource LargeLabel}"
+                <Label Text="{Binding Path=Rank, Mode=OneWay}" Grid.Column="0" Style="{StaticResource SmallLabel}"
                        VerticalOptions="Center" TranslationX="5" />
-                <Label Text="{Binding Path=Username, Mode=OneWay}" Grid.Column="1" Style="{StaticResource MediumLabel}"
+                <Label Text="{Binding Path=Username, Mode=OneWay}" Grid.Column="1" Style="{StaticResource SmallLabel}"
                        TranslationX="20" VerticalOptions="Center" />
-                <Label Text="{Binding Path=Points, Mode=OneWay}" Grid.Column="2" Style="{StaticResource MediumLabel}"
+                <Label Text="{Binding Path=Points, Mode=OneWay}" Grid.Column="2" Style="{StaticResource SmallLabel}"
                        VerticalOptions="Center" />
               </Grid>
             </ViewCell.View>

@@ -6,7 +6,7 @@
 			 x:Class="ScorePredict.Core.Pages.HistoryPage"
 			 BackgroundColor="{StaticResource BackgroundColor}">
   
-  <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+  <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Padding="10,0,10,0">
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
       <RowDefinition Height="5" />
