@@ -1,14 +1,10 @@
 ﻿using Autofac;
-using ScorePredict.Common.Data;
 using ScorePredict.Core.Contracts;
-using ScorePredict.Core.Controls;
 using ScorePredict.Core.Extensions;
 using ScorePredict.Core.Impl;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.Modules;
 using ScorePredict.Core.Pages;
-using ScorePredict.Services;
-using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
 
 namespace ScorePredict.Core
@@ -42,7 +38,10 @@ namespace ScorePredict.Core
             builder.RegisterModule(new ViewModelModule());
 
             ContainerHolder.Initialize(builder.Build());
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new LoginPage())
+            {
+                BarBackgroundColor = new Color(0x3C, 0x85, 0x13)
+            };
             Navigation = MainPage.Navigation;
         }
     }
