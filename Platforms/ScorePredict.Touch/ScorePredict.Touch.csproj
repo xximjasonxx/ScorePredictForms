@@ -185,19 +185,45 @@
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_120.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_152.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_180.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_29.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_40.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_58.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_76.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_80.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_87.png" />
-    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json" />
-    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json" />
-    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\launch_640x1136.png" />
-    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\launch_640x960.png" />
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_120.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_152.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_180.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_29.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_40.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_58.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_80.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_87.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\launch_640x1136.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\launch_640x960.png">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />
