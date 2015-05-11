@@ -102,6 +102,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Rendering\TouchScorePredictEntryRenderer.cs" />
+    <Compile Include="Rendering\TouchScorePredictListViewRenderer.cs" />
     <Compile Include="Rendering\TouchScorePredictTabbedRenderer.cs" />
     <Compile Include="TouchConstants.cs" />
     <Compile Include="TouchInjectionModule.cs" />
