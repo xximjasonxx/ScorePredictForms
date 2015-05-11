@@ -40,8 +40,10 @@ namespace ScorePredict.Core
             ContainerHolder.Initialize(builder.Build());
             MainPage = new NavigationPage(new LoginPage())
             {
-                BarBackgroundColor = new Color(0x3C, 0x85, 0x13)
+				BarBackgroundColor = Color.FromHex("#3C8513"),
+				BarTextColor = Color.FromHex("#FCD23C")
             };
+
             Navigation = MainPage.Navigation;
         }
     }
