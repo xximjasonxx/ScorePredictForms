@@ -17,6 +17,9 @@ namespace ScorePredict.Touch.Rendering
             base.OnElementChanged(e);
             if (e.OldElement == null)
             {
+                TabBar.BarTintColor = UIColor.FromRGB(0x3c, 0x85, 0x13);
+                TabBar.TintColor = UIColor.FromRGB(0xfc, 0xd2, 0x3c);
+
                 MoreNavigationController.Delegate = new CustomNavigationControllerDelegate();
 
                 var vc = MoreNavigationController.ViewControllers[0];
