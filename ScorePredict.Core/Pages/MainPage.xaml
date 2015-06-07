@@ -33,13 +33,6 @@
       <x:Arguments>
         <pages:PredictionsPage>
           <pages:PredictionsPage.ToolbarItems>
-            <ToolbarItem Name="Refresh">
-              <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            WinPhone="Assets/appbar.refresh.png"
-                            Android="ic_action_refresh.png" />
-              </ToolbarItem.Icon>
-            </ToolbarItem>
             <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
               <ToolbarItem.Order>
                 <OnPlatform x:TypeArguments="ToolbarItemOrder"
@@ -81,13 +74,6 @@
       <x:Arguments>
         <pages:RankingsPage>
           <pages:RankingsPage.ToolbarItems>
-            <ToolbarItem Name="Refresh">
-              <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            WinPhone="Assets/appbar.refresh.png"
-                            Android="ic_action_refresh.png" />
-              </ToolbarItem.Icon>
-            </ToolbarItem>
             <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
               <ToolbarItem.Order>
                 <OnPlatform x:TypeArguments="ToolbarItemOrder"
@@ -105,13 +91,6 @@
       <x:Arguments>
 	    <pages:HistoryPage>
 	      <pages:HistoryPage.ToolbarItems>
-	        <ToolbarItem Name="Refresh">
-	          <ToolbarItem.Icon>
-	            <OnPlatform x:TypeArguments="FileImageSource"
-	                        WinPhone="Assets/appbar.refresh.png"
-	                        Android="ic_action_refresh.png" />
-	          </ToolbarItem.Icon>
-	        </ToolbarItem>
 	        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
 	          <ToolbarItem.Order>
 	            <OnPlatform x:TypeArguments="ToolbarItemOrder"
