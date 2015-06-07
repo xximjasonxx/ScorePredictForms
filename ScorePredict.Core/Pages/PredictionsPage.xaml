@@ -11,7 +11,8 @@
     <controls:ScorePredictListView ItemsSource="{Binding Path=PredictionGroups, Mode=OneWay}"
                                    HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
                                    ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}"
-                                   IsGroupingEnabled="True">
+                                   IsGroupingEnabled="True" IsPullToRefreshEnabled="true"
+                                   RefreshCommand="{Binding RefreshCommand}">
       <controls:ScorePredictListView.Resources>
         <ResourceDictionary>
           <converters:GameStateValueConverter x:Key="GameStateConverter" />

@@ -16,7 +16,6 @@ namespace ScorePredict.Core.ViewModels
         public int Year { get; set; }
 
         private ObservableCollection<SummaryPredictionGroup> _predictions;
-
         public ObservableCollection<SummaryPredictionGroup> Predictions
         {
             get { return _predictions; }
@@ -28,6 +27,7 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public ICommand CloseModalCommand { get { return new Command(CloseModal); } }
+        public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         private async void CloseModal()
         {
@@ -61,6 +61,11 @@ namespace ScorePredict.Core.ViewModels
             {
                 ShowProgress = false;
             }
+        }
+
+        public async void Refresh()
+        {
+            return;
         }
     }
 }

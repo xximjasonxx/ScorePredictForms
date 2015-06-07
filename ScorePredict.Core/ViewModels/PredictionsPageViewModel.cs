@@ -14,6 +14,7 @@ using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
+using System;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -24,7 +25,6 @@ namespace ScorePredict.Core.ViewModels
         public IReadUserSecurityService ReadUserSecurityService { get; private set; }
 
         private ObservableCollection<PredictionGroup> _predictionGroups;
-
         public ObservableCollection<PredictionGroup> PredictionGroups
         {
             get { return _predictionGroups; }
@@ -45,6 +45,11 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        public ICommand RefreshCommand
+        {
+            get { return new Command(Refresh); }
+        }
+
         public PredictionsPageViewModel(IPredictionService predictionService, IDialogService dialogService,
             IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService,
             IKillApplication killApp)
@@ -61,6 +66,18 @@ namespace ScorePredict.Core.ViewModels
             if (ReadUserSecurityService.ReadUser() != null)
             {
                 await LoadPredictionsAsync();
+            }
+        }
+
+        private async void Refresh()
+        {
+            try
+            {
+                await LoadPredictionsAsync();
+            }
+            catch (Exception ex)
+            {
+                
             }
         }
 

@@ -23,7 +23,8 @@
     
     <controls:ScorePredictListView ItemsSource="{Binding Path=Rankings, Mode=OneWay}"
                                    HasUnevenRows="True" IsGroupingEnabled="False" Grid.Row="1"
-                                   BackgroundColor="{StaticResource BackgroundColor}">
+                                   BackgroundColor="{StaticResource BackgroundColor}"
+                                   IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell Height="50">

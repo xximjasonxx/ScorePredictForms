@@ -14,7 +14,6 @@ namespace ScorePredict.Core.ViewModels
         public IPredictionService PredictionService { get; private set; }
 
         private ObservableCollection<int> _predictionYears;
-
         public ObservableCollection<int> PredictionYears
         {
             get { return _predictionYears; }
@@ -25,7 +24,8 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        public ICommand SelectPredictionYearCommand { get { return new Command<int>(SelectPredictionYear);} }
+        public ICommand SelectPredictionYearCommand { get { return new Command<int>(SelectPredictionYear); } }
+        public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         private async void SelectPredictionYear(int selectedYear)
         {
@@ -54,6 +54,11 @@ namespace ScorePredict.Core.ViewModels
             {
                 ShowProgress = false;
             }
+        }
+
+        private async void Refresh()
+        {
+            return;
         }
     }
 }

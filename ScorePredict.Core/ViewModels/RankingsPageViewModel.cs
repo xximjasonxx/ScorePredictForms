@@ -5,6 +5,8 @@ using ScorePredict.Common.Models;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services.Contracts;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -23,6 +25,11 @@ namespace ScorePredict.Core.ViewModels
                 _rankings = value;
                 OnPropertyChanged();
             }
+        }
+
+        public ICommand RefreshCommand
+        {
+            get { return new Command(Refresh); }
         }
 
         public RankingsPageViewModel(IRankingService rankingService, IClearUserSecurityService clearUserSecurityService,
@@ -45,7 +52,7 @@ namespace ScorePredict.Core.ViewModels
 
                 Rankings = new ObservableCollection<RankingModel>(weekRankings);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DialogService.Alert("Failed to load Rankings");
             }
@@ -53,6 +60,11 @@ namespace ScorePredict.Core.ViewModels
             {
                 ShowProgress = false;
             }
+        }
+
+        public async void Refresh()
+        {
+            return;
         }
     }
 }
