@@ -6,6 +6,7 @@ using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -27,7 +28,6 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public ICommand CloseModalCommand { get { return new Command(CloseModal); } }
-        public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         private async void CloseModal()
         {
@@ -63,7 +63,7 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        public async void Refresh()
+        protected override async Task Refresh()
         {
             return;
         }

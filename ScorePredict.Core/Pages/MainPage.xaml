@@ -10,7 +10,7 @@
       <x:Arguments>
         <pages:ThisWeekPage>
           <pages:ThisWeekPage.ToolbarItems>
-            <ToolbarItem Name="Refresh">
+            <ToolbarItem Name="Refresh" Command="{Binding RefreshCommand}">
               <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             WinPhone="Assets/appbar.refresh.png"

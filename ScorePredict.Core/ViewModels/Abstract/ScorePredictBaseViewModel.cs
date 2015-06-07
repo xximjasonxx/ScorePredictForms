@@ -2,6 +2,7 @@
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace ScorePredict.Core.ViewModels.Abstract
 {
@@ -12,11 +13,9 @@ namespace ScorePredict.Core.ViewModels.Abstract
         
 
         public ICommand LogoutCommand { get { return new Command(Logout); } }
-
-        public ICommand RefreshCommand { get { return new Command(Refresh); } }
+        public ICommand RefreshCommand { get { return new Command(RefreshData); } }
 
         private bool _showProgress;
-
         public bool ShowProgress
         {
             get { return _showProgress; }
@@ -25,6 +24,20 @@ namespace ScorePredict.Core.ViewModels.Abstract
                 if (value != ShowProgress)
                 {
                     _showProgress = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            private set
+            {
+                if (_isRefreshing != value)
+                {
+                    _isRefreshing = value;
                     OnPropertyChanged();
                 }
             }
@@ -45,7 +58,20 @@ namespace ScorePredict.Core.ViewModels.Abstract
             }
         }
 
-        protected virtual void Refresh()
+        private async void RefreshData()
+        {
+            try
+            {
+                IsRefreshing = true;
+                await Refresh();
+            }
+            finally
+            {
+                IsRefreshing = false;
+            }
+        }
+
+        protected virtual async Task Refresh()
         {
             
         }

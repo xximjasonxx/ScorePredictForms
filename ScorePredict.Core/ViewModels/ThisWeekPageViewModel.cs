@@ -95,9 +95,21 @@ namespace ScorePredict.Core.ViewModels
             ReadUserSecurityService = readUserSecurityService;
         }
 
-        protected override async void Refresh()
+        protected override async Task Refresh()
         {
-            await LoadWeekDataAsync();
+            try
+            {
+                ShowProgress = true;
+                await LoadWeekDataAsync();
+            }
+            catch
+            {
+                DialogService.Alert("Failed to refresh this week data. Please try again");
+            }
+            finally
+            {
+                ShowProgress = false;
+            }
         }
 
         public override async void OnShow()

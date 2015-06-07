@@ -7,6 +7,7 @@ using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services.Contracts;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -25,11 +26,6 @@ namespace ScorePredict.Core.ViewModels
                 _rankings = value;
                 OnPropertyChanged();
             }
-        }
-
-        public ICommand RefreshCommand
-        {
-            get { return new Command(Refresh); }
         }
 
         public RankingsPageViewModel(IRankingService rankingService, IClearUserSecurityService clearUserSecurityService,
@@ -62,7 +58,7 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        public async void Refresh()
+        protected override async Task Refresh()
         {
             return;
         }

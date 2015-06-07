@@ -45,11 +45,6 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        public ICommand RefreshCommand
-        {
-            get { return new Command(Refresh); }
-        }
-
         public PredictionsPageViewModel(IPredictionService predictionService, IDialogService dialogService,
             IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService,
             IKillApplication killApp)
@@ -69,15 +64,15 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        private async void Refresh()
+        protected override async Task Refresh()
         {
             try
             {
                 await LoadPredictionsAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                
+                DialogService.Alert("Failed to Refresh Predictions. Please try again");
             }
         }
 
