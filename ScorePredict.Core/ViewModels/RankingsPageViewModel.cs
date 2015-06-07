@@ -41,12 +41,7 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 ShowProgress = true;
-                var weekRankings = await _rankingService.GetCurrentWeekRankings();
-                var userRanking = weekRankings.FirstOrDefault(x => x.UserId == _readUserSecurityService.ReadUser().UserId);
-                if (userRanking != null)
-                    userRanking.IsCurrentUser = true;
-
-                Rankings = new ObservableCollection<RankingModel>(weekRankings);
+                await LoadRankingsAsync();
             }
             catch (Exception)
             {
@@ -58,9 +53,26 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        async Task LoadRankingsAsync()
+        {
+            var weekRankings = await _rankingService.GetCurrentWeekRankings();
+            var userRanking = weekRankings.FirstOrDefault(x => x.UserId == _readUserSecurityService.ReadUser().UserId);
+            if (userRanking != null)
+                userRanking.IsCurrentUser = true;
+
+            Rankings = new ObservableCollection<RankingModel>(weekRankings);
+        }
+
         protected override async Task Refresh()
         {
-            return;
+            try
+            {
+                await LoadRankingsAsync();
+            }
+            catch
+            {
+                DialogService.Alert("Failed to reload Rankings. Please try again");
+            }
         }
     }
 }
