@@ -9,7 +9,7 @@
 
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10,0,10,0">
     <controls:ScorePredictListView ItemsSource="{Binding Path=PredictionGroups, Mode=OneWay}"
-                                   HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
+                                   HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
                                    ItemSelectedCommand="{Binding Path=SelectPredictionCommand, Mode=OneWay}"
                                    IsGroupingEnabled="True" IsPullToRefreshEnabled="true"
                                    RefreshCommand="{Binding RefreshCommand}"
@@ -22,7 +22,7 @@
       <ListView.GroupHeaderTemplate>
         <DataTemplate>
           <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">
-            <Grid BackgroundColor="{StaticResource DarkGreenColor}" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Grid HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{StaticResource BackgroundColor}">
               <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7,0,0,0">
                 <Label Style="{StaticResource GroupHeaderLabel}" Text="{Binding Path=Key, Mode=OneWay}"
                        HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" />

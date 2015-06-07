@@ -1,4 +1,5 @@
 using CoreGraphics;
+using System.Linq;
 using ScorePredict.Core.Controls;
 using ScorePredict.Touch.Rendering;
 using UIKit;
