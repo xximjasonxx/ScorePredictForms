@@ -60,6 +60,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
+                PredictionYears.Clear();
                 PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
             }
             catch

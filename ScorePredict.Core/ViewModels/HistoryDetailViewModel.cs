@@ -46,12 +46,7 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 ShowProgress = true;
-                var predictions = await PredictionService.GetPredictionsForYearAsync(Year);
-                Predictions = new ObservableCollection<SummaryPredictionGroup>(
-                    predictions.GroupBy(x => x.WeekNumber)
-                        .OrderBy(x => x.Key)
-                        .Select(x => new SummaryPredictionGroup(x.Key.ToString(), x.ToList()))
-                    );
+                await LoadPredictionHistoryAsync();
             }
             catch
             {
@@ -65,7 +60,24 @@ namespace ScorePredict.Core.ViewModels
 
         protected override async Task Refresh()
         {
-            return;
+            try
+            {
+                await LoadPredictionHistoryAsync();
+            }
+            catch
+            {
+                DialogService.Alert("Failed to reload Predictions. Please try again");
+            }
+        }
+
+        async Task LoadPredictionHistoryAsync()
+        {
+            var predictions = await PredictionService.GetPredictionsForYearAsync(Year);
+            Predictions = new ObservableCollection<SummaryPredictionGroup>(
+                predictions.GroupBy(x => x.WeekNumber)
+                .OrderBy(x => x.Key)
+                .Select(x => new SummaryPredictionGroup(x.Key.ToString(), x.ToList()))
+            );
         }
     }
 }

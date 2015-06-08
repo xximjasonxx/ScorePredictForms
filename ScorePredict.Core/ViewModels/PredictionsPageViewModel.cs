@@ -68,6 +68,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
+                PredictionGroups.Clear();
                 await LoadPredictionsAsync();
             }
             catch (Exception)
