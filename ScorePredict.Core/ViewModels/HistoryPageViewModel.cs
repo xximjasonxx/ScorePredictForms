@@ -58,7 +58,14 @@ namespace ScorePredict.Core.ViewModels
 
         protected override async Task Refresh()
         {
-            return;
+            try
+            {
+                PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
+            }
+            catch
+            {
+                DialogService.Alert("Failed to refresh Predictions. Please try again");
+            }
         }
     }
 }

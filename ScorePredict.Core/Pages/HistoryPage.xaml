@@ -16,7 +16,8 @@
                                    HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
                                    ItemSelectedCommand="{Binding Path=SelectPredictionYearCommand, Mode=OneWay}"
                                    VerticalOptions="StartAndExpand" HorizontalOptions="Fill"
-                                   IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}">
+                                   IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}"
+                                   IsRefreshing="{Binding IsRefreshing}">
       
       <controls:ScorePredictListView.ItemTemplate>
         <DataTemplate>
