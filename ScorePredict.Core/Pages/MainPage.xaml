@@ -6,7 +6,7 @@
       BackgroundColor="{StaticResource BackgroundColor}">
   
   <TabbedPage.Children>
-    <pages:ScorePredictNavigationPage Title="This Week">
+    <pages:ScorePredictNavigationPage Title="This Week" Icon="this_week.png">
       <x:Arguments>
         <pages:ThisWeekPage>
           <pages:ThisWeekPage.ToolbarItems>
