@@ -163,6 +163,9 @@
   <ItemGroup>
     <Content Include="Entitlements.plist" />
     <BundleResource Include="Rendering\bokeh.png" />
+    <BundleResource Include="Resources\this_week.png" />
+    <BundleResource Include="Resources\this_week%402x.png" />
+    <BundleResource Include="Resources\this_week%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ScorePredict.Common\ScorePredict.Common.csproj">
