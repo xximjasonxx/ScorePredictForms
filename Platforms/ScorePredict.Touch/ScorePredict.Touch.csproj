@@ -166,6 +166,18 @@
     <BundleResource Include="Resources\this_week.png" />
     <BundleResource Include="Resources\this_week%402x.png" />
     <BundleResource Include="Resources\this_week%403x.png" />
+    <BundleResource Include="Resources\about.png" />
+    <BundleResource Include="Resources\about%402x.png" />
+    <BundleResource Include="Resources\about%403x.png" />
+    <BundleResource Include="Resources\history.png" />
+    <BundleResource Include="Resources\history%402x.png" />
+    <BundleResource Include="Resources\history%403x.png" />
+    <BundleResource Include="Resources\preditions.png" />
+    <BundleResource Include="Resources\preditions%402x.png" />
+    <BundleResource Include="Resources\preditions%403x.png" />
+    <BundleResource Include="Resources\rankings.png" />
+    <BundleResource Include="Resources\rankings%402x.png" />
+    <BundleResource Include="Resources\rankings%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ScorePredict.Common\ScorePredict.Common.csproj">
