@@ -18,14 +18,14 @@ namespace ScorePredict.Core.Pages
 
         protected override void OnAppearing()
         {
-            if (Device.OS == TargetPlatform.Android)
+            /*if (Device.OS == TargetPlatform.Android)
             {
                 Children.Remove(Children.Last());       // remove about
                 Children.Remove(Children.Last());       // remove history
 
                 Children.Add((Page)Resources["ChromedHistoryPage"]);        // add history
                 Children.Add((Page)Resources["ChromedAboutPage"]);  // add about
-            }
+            }*/
         }
     }
 }
