@@ -6,7 +6,7 @@
       BackgroundColor="{StaticResource BackgroundColor}">
   
   <TabbedPage.Children>
-    <pages:ScorePredictNavigationPage Title="This Week">
+    <pages:ScorePredictNavigationPage Title="This Week" Icon="this_week.png">
       <x:Arguments>
         <pages:ThisWeekPage>
           <pages:ThisWeekPage.ToolbarItems>
@@ -29,7 +29,7 @@
         </pages:ThisWeekPage>
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
-    <pages:ScorePredictNavigationPage Title="Predictions">
+    <pages:ScorePredictNavigationPage Title="Predictions" Icon="predictions.png">
       <x:Arguments>
         <pages:PredictionsPage>
           <pages:PredictionsPage.ToolbarItems>
@@ -70,7 +70,7 @@
       </x:Arguments>
     </pages:ScorePredictNavigationPage>-->
 
-    <pages:ScorePredictNavigationPage Title="Rankings">
+    <pages:ScorePredictNavigationPage Title="Rankings" Icon="rankings.png">
       <x:Arguments>
         <pages:RankingsPage>
           <pages:RankingsPage.ToolbarItems>
@@ -87,7 +87,7 @@
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
 
-    <pages:ScorePredictNavigationPage Title="History">
+    <pages:ScorePredictNavigationPage Title="History" Icon="history.png">
       <x:Arguments>
 	    <pages:HistoryPage>
 	      <pages:HistoryPage.ToolbarItems>
@@ -104,7 +104,7 @@
 	  </x:Arguments>
     </pages:ScorePredictNavigationPage>
 
-    <pages:ScorePredictNavigationPage Title="About">
+    <pages:ScorePredictNavigationPage Title="About" Icon="about.png">
       <x:Arguments>
 	    <pages:AboutPage>
 	      <pages:AboutPage.ToolbarItems>
