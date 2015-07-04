@@ -83,7 +83,7 @@ namespace ScorePredict.Core.ViewModels
 
             return new List<ToolbarItem>
             {
-                new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { })
+                new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { }) { Command = RefreshCommand }
             };
         }
     }
