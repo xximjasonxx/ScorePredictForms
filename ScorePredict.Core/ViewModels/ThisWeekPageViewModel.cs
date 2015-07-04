@@ -154,10 +154,15 @@ namespace ScorePredict.Core.ViewModels
 
         protected override IList<ToolbarItem> GetPageMenuItems()
         {
-            var refreshToolbarItem = new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { }, ToolbarItemOrder.Primary);
+            var refreshToolbarItem = new ToolbarItem
+            {
+                Text = "Refresh",
+                Command = RefreshCommand
+            };
             Device.OnPlatform(
                 Android: () => refreshToolbarItem.Icon = "ic_action_refresh.png",
-                iOS: () => refreshToolbarItem.Icon = "tb_refresh.png");
+                iOS: () => refreshToolbarItem.Icon = "tb_refresh.png",
+                WinPhone: () => refreshToolbarItem.Icon = "Assets/appbar.refresh.png");
 
             return new List<ToolbarItem> {refreshToolbarItem};
         }
