@@ -79,5 +79,10 @@ namespace ScorePredict.Core.ViewModels
                 .Select(x => new SummaryPredictionGroup(x.Key.ToString(), x.ToList()))
             );
         }
+
+        public override bool BackButtonPressed()
+        {
+            return false;
+        }
     }
 }

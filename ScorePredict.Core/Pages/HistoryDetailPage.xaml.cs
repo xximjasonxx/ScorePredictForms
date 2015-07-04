@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ScorePredict.Common.Extensions;
 using ScorePredict.Core.ViewModels;
 using ScorePredict.Core.ViewModels.Abstract;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.Pages
 {
@@ -23,6 +24,11 @@ namespace ScorePredict.Core.Pages
         public override Type ViewModelType
         {
             get { return typeof (HistoryDetailViewModel); }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
     }
 }
