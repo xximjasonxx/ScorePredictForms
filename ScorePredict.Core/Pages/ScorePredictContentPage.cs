@@ -27,7 +27,7 @@ namespace ScorePredict.Core.Pages
                 page.ToolbarItems.Clear();
                 foreach (var item in newvalue)
                 {
-                    page.ToolbarItems.Add(new ToolbarItem(item.Text, item.Icon, () => { }));
+                    page.ToolbarItems.Add(item);
                 }
             }
         }
