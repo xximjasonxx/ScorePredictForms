@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using ScorePredict.Common.Utility;
@@ -83,6 +85,15 @@ namespace ScorePredict.Core.ViewModels
         public override bool BackButtonPressed()
         {
             return false;
+        }
+
+        protected override IList<ToolbarItem> GetToolbarItems()
+        {
+            if (Device.OS != TargetPlatform.iOS)
+                return new List<ToolbarItem>();
+
+            var closeMenuItem = new ToolbarItem { Text = "Done", Command = CloseModalCommand };
+            return new List<ToolbarItem> { closeMenuItem };
         }
     }
 }

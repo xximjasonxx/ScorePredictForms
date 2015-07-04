@@ -4,7 +4,7 @@
              xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
              xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
              x:Class="ScorePredict.Core.Pages.HistoryDetailPage"
-             BackgroundColor="{StaticResource BackgroundColor}"
+             BackgroundColor="{StaticResource BackgroundColor}" MenuItems="{Binding MenuItems}"
              Title="{Binding Path=Year, Mode=OneWay, StringFormat='Year {0}'}">
 
   <pages:ScorePredictContentPage.Content>
@@ -94,13 +94,5 @@
       </ContentView>
     </Grid>
   </pages:ScorePredictContentPage.Content>
-
-  <pages:ScorePredictContentPage.ToolbarItems>
-    <ToolbarItem Command="{Binding CloseModalCommand}">
-      <OnPlatform x:TypeArguments="x:String">
-        <OnPlatform.iOS>Close</OnPlatform.iOS>
-      </OnPlatform>
-    </ToolbarItem>
-  </pages:ScorePredictContentPage.ToolbarItems>
   
 </pages:ScorePredictContentPage>
