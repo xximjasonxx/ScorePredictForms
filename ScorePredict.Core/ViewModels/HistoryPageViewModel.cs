@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.Pages;
@@ -67,6 +68,17 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.Alert("Failed to refresh Predictions. Please try again");
             }
+        }
+
+        protected override IList<ToolbarItem> GetPageMenuItems()
+        {
+            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
+                return new List<ToolbarItem>();
+
+            return new List<ToolbarItem>
+            {
+                new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { })
+            };
         }
     }
 }

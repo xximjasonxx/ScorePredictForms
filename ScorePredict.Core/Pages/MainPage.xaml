@@ -4,45 +4,16 @@
       xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
       x:Class="ScorePredict.Core.Pages.MainPage"
       BackgroundColor="{StaticResource BackgroundColor}">
-  
+
   <TabbedPage.Children>
     <pages:ScorePredictNavigationPage Title="This Week" Icon="this_week.png">
       <x:Arguments>
-        <pages:ThisWeekPage>
-          <pages:ThisWeekPage.ToolbarItems>
-            <ToolbarItem Name="Refresh" Command="{Binding RefreshCommand}">
-              <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            WinPhone="Assets/appbar.refresh.png"
-                            Android="ic_action_refresh.png" />
-              </ToolbarItem.Icon>
-            </ToolbarItem>
-            <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-              <ToolbarItem.Order>
-                <OnPlatform x:TypeArguments="ToolbarItemOrder"
-		    			    WinPhone="Secondary"
-		    			    Android="Secondary"
-		    			    iOS="Primary" />
-              </ToolbarItem.Order>
-            </ToolbarItem>
-          </pages:ThisWeekPage.ToolbarItems>
-        </pages:ThisWeekPage>
+        <pages:ThisWeekPage />
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
     <pages:ScorePredictNavigationPage Title="Predictions" Icon="predictions.png">
       <x:Arguments>
-        <pages:PredictionsPage>
-          <pages:PredictionsPage.ToolbarItems>
-            <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-              <ToolbarItem.Order>
-                <OnPlatform x:TypeArguments="ToolbarItemOrder"
-		    			    WinPhone="Secondary"
-		    			    Android="Secondary"
-		    			    iOS="Primary" />
-              </ToolbarItem.Order>
-            </ToolbarItem>
-          </pages:PredictionsPage.ToolbarItems>
-        </pages:PredictionsPage>
+        <pages:PredictionsPage />
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
 
@@ -72,53 +43,20 @@
 
     <pages:ScorePredictNavigationPage Title="Rankings" Icon="rankings.png">
       <x:Arguments>
-        <pages:RankingsPage>
-          <pages:RankingsPage.ToolbarItems>
-            <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-              <ToolbarItem.Order>
-                <OnPlatform x:TypeArguments="ToolbarItemOrder"
-                  WinPhone="Secondary"
-                  Android="Secondary"
-                  iOS="Primary" />
-              </ToolbarItem.Order>
-            </ToolbarItem>
-          </pages:RankingsPage.ToolbarItems>
-        </pages:RankingsPage>
+        <pages:RankingsPage />
       </x:Arguments>
     </pages:ScorePredictNavigationPage>
 
     <pages:ScorePredictNavigationPage Title="History" Icon="history.png">
       <x:Arguments>
-	    <pages:HistoryPage>
-	      <pages:HistoryPage.ToolbarItems>
-	        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-	          <ToolbarItem.Order>
-	            <OnPlatform x:TypeArguments="ToolbarItemOrder"
-	              WinPhone="Secondary"
-	              Android="Secondary"
-	              iOS="Primary" />
-	          </ToolbarItem.Order>
-	        </ToolbarItem>
-	      </pages:HistoryPage.ToolbarItems>
-	    </pages:HistoryPage>
-	  </x:Arguments>
+        <pages:HistoryPage />
+      </x:Arguments>
     </pages:ScorePredictNavigationPage>
 
     <pages:ScorePredictNavigationPage Title="About" Icon="about.png">
       <x:Arguments>
-	    <pages:AboutPage>
-	      <pages:AboutPage.ToolbarItems>
-	        <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-	          <ToolbarItem.Order>
-	            <OnPlatform x:TypeArguments="ToolbarItemOrder"
-	              WinPhone="Secondary"
-	              Android="Secondary"
-	              iOS="Primary" />
-	          </ToolbarItem.Order>
-	        </ToolbarItem>
-	      </pages:AboutPage.ToolbarItems>
-	    </pages:AboutPage>
-	</x:Arguments>
+        <pages:AboutPage />
+      </x:Arguments>
     </pages:ScorePredictNavigationPage>
   </TabbedPage.Children>
 

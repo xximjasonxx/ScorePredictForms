@@ -2,7 +2,7 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 	  	     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	  	     xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
-	  	     x:Class="ScorePredict.Core.Pages.AboutPage"
+	  	     x:Class="ScorePredict.Core.Pages.AboutPage" MenuItems="{Binding MenuItems}"
 			     BackgroundColor="{StaticResource BackgroundColor}">
 
   <ScrollView HorizontalOptions="Fill" VerticalOptions="Fill" Orientation="Vertical">

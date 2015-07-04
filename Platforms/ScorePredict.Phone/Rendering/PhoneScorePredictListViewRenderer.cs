@@ -8,5 +8,14 @@ namespace ScorePredict.Phone.Rendering
 {
     public class PhoneScorePredictListViewRenderer : ListViewRenderer
     {
+        protected override void OnElementChanged(ElementChangedEventArgs<ListView> e)
+        {
+            base.OnElementChanged(e);
+
+            if (e.OldElement == null)
+            {
+                
+            }
+        }
     }
 }

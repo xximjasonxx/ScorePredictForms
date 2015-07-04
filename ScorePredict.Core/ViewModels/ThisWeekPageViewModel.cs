@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using ScorePredict.Core.Contracts;
@@ -7,6 +8,7 @@ using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
+using Xamarin.Forms;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -148,6 +150,14 @@ namespace ScorePredict.Core.ViewModels
             {
                 ShowProgress = false;
             }
+        }
+
+        protected override IList<ToolbarItem> GetPageMenuItems()
+        {
+            var refreshToolbarItem = new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { });
+            Device.OnPlatform(Android: () => refreshToolbarItem.Icon = "ic_action_refresh.png");
+
+            return new List<ToolbarItem> {refreshToolbarItem};
         }
     }
 }

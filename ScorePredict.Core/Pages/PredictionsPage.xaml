@@ -4,7 +4,7 @@
 			 xmlns:converters="clr-namespace:ScorePredict.Core.Converters;assembly=ScorePredict.Core"
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
 			 xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
-			 x:Class="ScorePredict.Core.Pages.PredictionsPage"
+			 x:Class="ScorePredict.Core.Pages.PredictionsPage" MenuItems="{Binding MenuItems}"
 			 BackgroundColor="{StaticResource BackgroundColor}">
 
   <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10,0,10,0">
