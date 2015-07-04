@@ -166,6 +166,8 @@
   <ItemGroup>
     <Content Include="Entitlements.plist" />
     <BundleResource Include="Rendering\bokeh.png" />
+    <BundleResource Include="Resources\tb_refresh.png" />
+    <BundleResource Include="Resources\tb_signout.png" />
     <BundleResource Include="Resources\this_week.png" />
     <BundleResource Include="Resources\this_week%402x.png" />
     <BundleResource Include="Resources\this_week%403x.png" />
@@ -178,6 +180,10 @@
     <BundleResource Include="Resources\rankings.png" />
     <BundleResource Include="Resources\rankings%402x.png" />
     <BundleResource Include="Resources\rankings%403x.png" />
+    <BundleResource Include="Resources\tb_refresh%402x.png" />
+    <BundleResource Include="Resources\tb_refresh%403x.png" />
+    <BundleResource Include="Resources\tb_signout%402x.png" />
+    <BundleResource Include="Resources\tb_signout%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ScorePredict.Common\ScorePredict.Common.csproj">
