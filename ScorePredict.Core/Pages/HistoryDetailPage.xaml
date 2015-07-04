@@ -96,7 +96,7 @@
   </pages:ScorePredictContentPage.Content>
 
   <pages:ScorePredictContentPage.ToolbarItems>
-  	<OnPlatform x:TypeArguments="x:ToolbarItem">
+  	<OnPlatform x:TypeArguments="ToolbarItem">
   		<OnPlatform.iOS>
   			<ToolbarItem Text="Close" Command="{Binding CloseModalCommand}" />
   		</OnPlatform.iOS>
