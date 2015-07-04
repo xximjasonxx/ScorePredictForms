@@ -25,7 +25,7 @@ namespace ScorePredict.Droid.Client
 
         public void AuthenticateUser(User user)
         {
-            CurrentUser = new MobileServiceUser(user.UserId)
+            CurrentUser = new MobileServiceUser(user.UserId.ToString())
             {
                 MobileServiceAuthenticationToken = user.AuthToken
             };
