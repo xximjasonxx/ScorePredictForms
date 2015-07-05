@@ -5,12 +5,76 @@
       x:Class="ScorePredict.Core.Pages.MainPage"
       BackgroundColor="{StaticResource BackgroundColor}">
   <TabbedPage.Children>
-    
-    <pages:ThisWeekPage Title="This Week" Icon="this_week.png" />
-    <pages:PredictionsPage Title="Predictions" Icon="predictions.png" />
-    <pages:RankingsPage Title="Rankings" Icon="rankings.png" />
-    <pages:HistoryPage Title="History" Icon="history.png" />
-    <pages:AboutPage Title="About" Icon="about.png" />
+
+    <pages:ThisWeekPage Title="This Week" Icon="this_week.png">
+      <pages:ThisWeekPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh">
+          <ToolbarItem.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource" Android="ic_action_refresh.png" iOS="tb_refresh.png"
+                        WinPhone="Assets/appbar.refresh.png" />
+          </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding LogoutCommand}" Text="Logout" Icon="tb_signout.png">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder" WinPhone="Secondary" Android="Secondary" iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:ThisWeekPage.ToolbarItems>
+    </pages:ThisWeekPage>
+    <pages:PredictionsPage Title="Predictions" Icon="predictions.png">
+      <pages:PredictionsPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh">
+          <ToolbarItem.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource" Android="ic_action_refresh.png" iOS="tb_refresh.png"
+                        WinPhone="Assets/appbar.refresh.png" />
+          </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding LogoutCommand}" Text="Logout" Icon="tb_signout.png">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder" WinPhone="Secondary" Android="Secondary" iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:PredictionsPage.ToolbarItems>
+    </pages:PredictionsPage>
+    <pages:RankingsPage Title="Rankings" Icon="rankings.png">
+      <pages:RankingsPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh">
+          <ToolbarItem.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource" Android="ic_action_refresh.png" iOS="tb_refresh.png"
+                        WinPhone="Assets/appbar.refresh.png" />
+          </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding LogoutCommand}" Text="Logout" Icon="tb_signout.png">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder" WinPhone="Secondary" Android="Secondary" iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:RankingsPage.ToolbarItems>
+    </pages:RankingsPage>
+    <pages:HistoryPage Title="History" Icon="history.png">
+      <pages:HistoryPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh">
+          <ToolbarItem.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource" Android="ic_action_refresh.png" iOS="tb_refresh.png"
+                        WinPhone="Assets/appbar.refresh.png" />
+          </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding LogoutCommand}" Text="Logout" Icon="tb_signout.png">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder" WinPhone="Secondary" Android="Secondary" iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:HistoryPage.ToolbarItems>
+    </pages:HistoryPage>
+    <pages:AboutPage Title="About" Icon="about.png">
+      <pages:AboutPage.ToolbarItems>
+        <ToolbarItem Command="{Binding LogoutCommand}" Text="Logout" Icon="tb_signout.png">
+          <ToolbarItem.Order>
+            <OnPlatform x:TypeArguments="ToolbarItemOrder" WinPhone="Secondary" Android="Secondary" iOS="Primary" />
+          </ToolbarItem.Order>
+        </ToolbarItem>
+      </pages:AboutPage.ToolbarItems>
+    </pages:AboutPage>
     
   </TabbedPage.Children>
 </TabbedPage>
