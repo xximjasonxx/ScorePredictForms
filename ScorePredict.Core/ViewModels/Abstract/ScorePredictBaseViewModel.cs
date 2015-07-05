@@ -29,20 +29,6 @@ namespace ScorePredict.Core.ViewModels.Abstract
             }
         }
 
-        private bool _isRefreshing;
-        public bool IsRefreshing
-        {
-            get { return _isRefreshing; }
-            private set
-            {
-                if (_isRefreshing != value)
-                {
-                    _isRefreshing = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         protected ScorePredictBaseViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService)
         {
             ClearUserSecurityService = clearUserSecurityService;
@@ -62,12 +48,12 @@ namespace ScorePredict.Core.ViewModels.Abstract
         {
             try
             {
-                IsRefreshing = true;
+                ShowProgress = true;
                 await Refresh();
             }
             finally
             {
-                IsRefreshing = false;
+                ShowProgress = false;
             }
         }
 
