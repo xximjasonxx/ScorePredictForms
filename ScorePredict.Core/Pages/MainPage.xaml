@@ -4,60 +4,13 @@
       xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
       x:Class="ScorePredict.Core.Pages.MainPage"
       BackgroundColor="{StaticResource BackgroundColor}">
-
   <TabbedPage.Children>
-    <pages:ScorePredictNavigationPage Title="This Week" Icon="this_week.png">
-      <x:Arguments>
-        <pages:ThisWeekPage />
-      </x:Arguments>
-    </pages:ScorePredictNavigationPage>
-    <pages:ScorePredictNavigationPage Title="Predictions" Icon="predictions.png">
-      <x:Arguments>
-        <pages:PredictionsPage />
-      </x:Arguments>
-    </pages:ScorePredictNavigationPage>
-
-    <!--<pages:ScorePredictNavigationPage Title="Groups">
-      <x:Arguments>
-        <pages:GroupsPage>
-          <pages:GroupsPage.ToolbarItems>
-            <ToolbarItem Name="Refresh">
-              <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource"
-                            WinPhone="Assets/appbar.refresh.png"
-                            Android="ic_action_refresh.png" />
-              </ToolbarItem.Icon>
-            </ToolbarItem>
-            <ToolbarItem Name="Logout" Command="{Binding LogoutCommand}">
-              <ToolbarItem.Order>
-                <OnPlatform x:TypeArguments="ToolbarItemOrder"
-		    			    WinPhone="Secondary"
-		    			    Android="Secondary"
-		    			    iOS="Primary" />
-              </ToolbarItem.Order>
-            </ToolbarItem>
-          </pages:GroupsPage.ToolbarItems>
-        </pages:GroupsPage>
-      </x:Arguments>
-    </pages:ScorePredictNavigationPage>-->
-
-    <pages:ScorePredictNavigationPage Title="Rankings" Icon="rankings.png">
-      <x:Arguments>
-        <pages:RankingsPage />
-      </x:Arguments>
-    </pages:ScorePredictNavigationPage>
-
-    <pages:ScorePredictNavigationPage Title="History" Icon="history.png">
-      <x:Arguments>
-        <pages:HistoryPage />
-      </x:Arguments>
-    </pages:ScorePredictNavigationPage>
-
-    <pages:ScorePredictNavigationPage Title="About" Icon="about.png">
-      <x:Arguments>
-        <pages:AboutPage />
-      </x:Arguments>
-    </pages:ScorePredictNavigationPage>
+    
+    <pages:ThisWeekPage Title="This Week" Icon="this_week.png" />
+    <pages:PredictionsPage Title="Predictions" Icon="predictions.png" />
+    <pages:RankingsPage Title="Rankings" Icon="rankings.png" />
+    <pages:HistoryPage Title="History" Icon="history.png" />
+    <pages:AboutPage Title="About" Icon="about.png" />
+    
   </TabbedPage.Children>
-
 </TabbedPage>
