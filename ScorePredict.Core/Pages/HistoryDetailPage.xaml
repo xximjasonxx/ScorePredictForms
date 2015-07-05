@@ -23,9 +23,7 @@
 
       <controls:ScorePredictListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
                 HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
-                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}"
-                IsRefreshing="{Binding IsRefreshing}">
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
             <ViewCell Height="{StaticResource PredictionsHeaderRowHeight}">

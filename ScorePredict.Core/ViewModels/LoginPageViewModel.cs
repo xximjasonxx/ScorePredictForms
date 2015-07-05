@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
 using ScorePredict.Common.Ex;
-using ScorePredict.Core.Contracts;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.Pages;
@@ -55,7 +54,7 @@ namespace ScorePredict.Core.ViewModels
                 }
 
                 StartupService.SetUser(user);
-                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
             }
         }
 
@@ -80,7 +79,7 @@ namespace ScorePredict.Core.ViewModels
 
                 SaveUserSecurityService.SaveUser(user);
                 MessageBus.Publish<LoginCompleteMessage>();
-                await Navigation.PopModalAsync(true);
+                await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
             }
             catch (LoginException lex)
             {
