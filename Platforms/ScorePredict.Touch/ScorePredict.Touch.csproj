@@ -184,6 +184,9 @@
     <BundleResource Include="Resources\tb_refresh%403x.png" />
     <BundleResource Include="Resources\tb_signout%402x.png" />
     <BundleResource Include="Resources\tb_signout%403x.png" />
+    <BundleResource Include="Resources\tb_close.png" />
+    <BundleResource Include="Resources\tb_close%402x.png" />
+    <BundleResource Include="Resources\tb_close%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ScorePredict.Common\ScorePredict.Common.csproj">

@@ -21,7 +21,7 @@
       </Label>
 
       <controls:ScorePredictListView Grid.Row="1" ItemsSource="{Binding Predictions, Mode=OneWay}" IsGroupingEnabled="True"
-                HasUnevenRows="True" BackgroundColor="{StaticResource DarkGreenColor}"
+                HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView.GroupHeaderTemplate>
           <DataTemplate>
@@ -84,12 +84,27 @@
         </ListView.ItemTemplate>
       </controls:ScorePredictListView>
 
-      <ContentView Grid.Row="1" BackgroundColor="{StaticResource BackgroundColor}"
+      <ContentView Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}"
                    HorizontalOptions="Fill" VerticalOptions="Fill"
-                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
+                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}" Grid.RowSpan="2">
         <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
       </ContentView>
     </Grid>
   </pages:ScorePredictContentPage.Content>
+
+  <pages:ScorePredictContentPage.ToolbarItems>
+    <ToolbarItem Command="{Binding RefreshCommand}" Text="Refresh">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource" Android="ic_action_refresh.png" iOS="tb_refresh.png"
+                    WinPhone="Assets/appbar.refresh.png" />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+    
+    <ToolbarItem Command="{Binding CloseModalCommand}" Text="Close" Icon="tb_close.png">
+      <ToolbarItem.Order>
+        <OnPlatform x:TypeArguments="ToolbarItemOrder" Android="Secondary" WinPhone="Secondary" iOS="Primary" />
+      </ToolbarItem.Order>
+    </ToolbarItem>
+  </pages:ScorePredictContentPage.ToolbarItems>
   
 </pages:ScorePredictContentPage>
