@@ -75,16 +75,5 @@ namespace ScorePredict.Core.ViewModels
                 DialogService.Alert("Failed to reload Rankings. Please try again");
             }
         }
-
-        protected override IList<ToolbarItem> GetPageMenuItems()
-        {
-            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
-                return new List<ToolbarItem>();
-
-            return new List<ToolbarItem>
-            {
-                new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { }) { Command = RefreshCommand }
-            };
-        }
     }
 }

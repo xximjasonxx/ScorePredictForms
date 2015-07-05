@@ -86,14 +86,5 @@ namespace ScorePredict.Core.ViewModels
         {
             return false;
         }
-
-        protected override IList<ToolbarItem> GetToolbarItems()
-        {
-            if (Device.OS != TargetPlatform.iOS)
-                return new List<ToolbarItem>();
-
-            var closeMenuItem = new ToolbarItem { Text = "Done", Command = CloseModalCommand };
-            return new List<ToolbarItem> { closeMenuItem };
-        }
     }
 }

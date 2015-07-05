@@ -3,8 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
 			 xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
-			 x:Class="ScorePredict.Core.Pages.HistoryPage" MenuItems="{Binding MenuItems}"
-			 BackgroundColor="{StaticResource BackgroundColor}">
+			 x:Class="ScorePredict.Core.Pages.HistoryPage" BackgroundColor="{StaticResource BackgroundColor}">
   
   <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Padding="10,0,10,0">
     <Grid.RowDefinitions>

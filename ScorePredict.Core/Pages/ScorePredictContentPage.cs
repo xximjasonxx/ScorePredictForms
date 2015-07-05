@@ -9,16 +9,6 @@ namespace ScorePredict.Core.Pages
 {
     public abstract class ScorePredictContentPage : ContentPage
     {
-        public static BindableProperty MenuItemsProperty =
-            BindableProperty.Create<ScorePredictContentPage, IList<ToolbarItem>>(x => x.MenuItems, default(IList<ToolbarItem>),
-                BindingMode.OneWay, null, OnMenuItemsChanged);
-
-        public IList<ToolbarItem> MenuItems
-        {
-            get { return (IList<ToolbarItem>) GetValue(MenuItemsProperty); }
-            set {  SetValue(MenuItemsProperty, value);}
-        }
-
         private static void OnMenuItemsChanged(BindableObject bindable, IList<ToolbarItem> oldvalue, IList<ToolbarItem> newvalue)
         {
             var page = bindable as ContentPage;
@@ -72,7 +62,6 @@ namespace ScorePredict.Core.Pages
         {
             base.OnAppearing();
 
-            ((ViewModelBase) BindingContext).BuildMenu();
             ((ViewModelBase) BindingContext).OnShow();
         }
 

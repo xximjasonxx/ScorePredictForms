@@ -21,22 +21,5 @@ namespace ScorePredict.Core.ViewModels.Abstract
             KillApplication.KillApp();
             return true;
         }
-
-        protected override IList<ToolbarItem> GetToolbarItems()
-        {
-            var logoutMenuItem = new ToolbarItem{Text = "Logout", Command = LogoutCommand, Order = ToolbarItemOrder.Primary};
-            if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Android)
-                logoutMenuItem.Order = ToolbarItemOrder.Secondary;
-
-            if (Device.OS == TargetPlatform.iOS)
-                logoutMenuItem.Icon = "tb_signout.png";
-
-            var menuItems = GetPageMenuItems();
-            menuItems.Add(logoutMenuItem);
-
-            return menuItems;
-        }
-
-        protected abstract IList<ToolbarItem> GetPageMenuItems();
     }
 }

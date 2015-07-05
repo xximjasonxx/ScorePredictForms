@@ -28,18 +28,5 @@ namespace ScorePredict.Core.ViewModels.Abstract
         {
             return true;
         }
-
-        public IList<ToolbarItem> MenuItems { get; private set; }
-
-        public void BuildMenu()
-        {
-            MenuItems = GetToolbarItems();
-            OnPropertyChanged("MenuItems");
-        }
-
-        protected virtual IList<ToolbarItem> GetToolbarItems()
-        {
-            return new List<ToolbarItem>();
-        }
     }
 }

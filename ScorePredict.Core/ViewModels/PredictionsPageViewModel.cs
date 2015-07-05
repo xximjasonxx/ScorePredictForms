@@ -104,16 +104,5 @@ namespace ScorePredict.Core.ViewModels
                 ShowProgress = false;
             }
         }
-
-        protected override IList<ToolbarItem> GetPageMenuItems()
-        {
-            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
-                return new List<ToolbarItem>();
-
-            return new List<ToolbarItem>
-            {
-                new ToolbarItem("Refresh", "Assets/appbar.refresh.png", () => { }) { Command = RefreshCommand }
-            };
-        }
     }
 }
