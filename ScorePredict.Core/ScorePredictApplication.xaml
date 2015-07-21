@@ -7,6 +7,7 @@
   <Application.Resources>
     <ResourceDictionary>
       <converters:IntDisplayValueConverter x:Key="IntDisplayConverter" />
+      <converters:InvertedBooleanValueConverter x:Key="InvertBoolConverter" />
 
       <OnPlatform x:TypeArguments="x:Double" Android="90" iOS="65" WinPhone="105" x:Key="PredictionsRowHeight" />
       <OnPlatform x:TypeArguments="x:Double" Android="30" iOS="30" WinPhone="50" x:Key="PredictionsHeaderRowHeight" />

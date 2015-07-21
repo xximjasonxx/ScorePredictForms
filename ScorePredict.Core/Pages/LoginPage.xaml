@@ -6,6 +6,7 @@
 					   x:Class="ScorePredict.Core.Pages.LoginPage"
              BackgroundColor="#77B739" Title="Login">
   <ContentPage.Content>
+    
     <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7" x:Name="LayoutRoot">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
@@ -32,8 +33,10 @@
         </Label.Text>
       </Label>
 
-      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" Text="{Binding Username, Mode=TwoWay}" />
-      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" Text="{Binding Password, Mode=TwoWay}" />
+      <controls:ScorePredictEntry Grid.Row="1" Placeholder="Username" Text="{Binding Username, Mode=TwoWay}"
+                                  IsEnabled="{Binding ShowProgress, Converter={StaticResource InvertBoolConverter}}" />
+      <controls:ScorePredictEntry Grid.Row="2" Placeholder="Password" IsPassword="True" Text="{Binding Password, Mode=TwoWay}"
+                                  IsEnabled="{Binding ShowProgress, Converter={StaticResource InvertBoolConverter}}" />
 
       <StackLayout Orientation="Vertical" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                    Padding="30,5,30,5">
@@ -52,12 +55,6 @@
       <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="#FCD23C" Text="Create User"
               VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
               Grid.Row="5" Command="{Binding GoToCreateUserCommand}" />
-      
-      <ContentView Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}"
-                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}" Grid.RowSpan="6">
-      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
-    </ContentView>
 
     </Grid>
   </ContentPage.Content>

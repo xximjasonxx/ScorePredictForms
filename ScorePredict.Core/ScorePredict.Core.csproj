@@ -43,6 +43,7 @@
     <Compile Include="Controls\ScorePredictListView.cs" />
     <Compile Include="Converters\CurrentUserBackgroundColorValueConverter.cs" />
     <Compile Include="Converters\GameStateValueConverter.cs" />
+    <Compile Include="Converters\InvertedBooleanValueConverter.cs" />
     <Compile Include="Converters\ScorePredictionDisplayConverter.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\EmptyKillApplication.cs" />

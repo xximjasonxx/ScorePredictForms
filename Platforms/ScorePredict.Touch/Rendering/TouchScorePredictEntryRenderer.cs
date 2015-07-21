@@ -14,10 +14,15 @@ namespace ScorePredict.Touch.Rendering
         {
             base.OnElementChanged(e);
 
-            if (Control != null)
+            if (e.OldElement == null)
             {
                 Control.TextColor = UIColor.Black;
             }
+
+            /*if (e.NewElement != null)
+            {
+                Control.Enabled = e.NewElement.IsEnabled;
+            }*/
         }
     }
 }

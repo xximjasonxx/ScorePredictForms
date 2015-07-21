@@ -23,11 +23,11 @@ namespace ScorePredict.Core.ViewModels
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser);}}
+        public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser, IsNotInProgress);}}
 
-        public ICommand LoginCommand { get { return new Command(Login); } }
+        public ICommand LoginCommand { get { return new Command(Login, IsNotInProgress); } }
 
-        public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook);} }
+        public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook, IsNotInProgress);} }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
             IGetUsernameService getUsernameService, IDialogService dialogService, IBus messageBus,
@@ -44,35 +44,36 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
-            try
+            var user = ReadUserSecurityService.ReadUser();
+            if (user != null)
             {
-                ShowProgress = true;
-                var user = ReadUserSecurityService.ReadUser();
-                if (user != null)
+                if (string.IsNullOrEmpty(user.Username))
                 {
-                    if (string.IsNullOrEmpty(user.Username))
-                    {
-                        await Navigation.PushAsync(new EnterUsernamePage(user));
-                        return;
-                    }
+                    await Navigation.PushAsync(new EnterUsernamePage(user));
+                    return;
+                }
+
+                StartupService.SetUser(user);
+                try
+                {
                     ShowProgress = true;
 
                     // need to validate that the token is still valid
                     var loginValid = await LoginUserService.CheckUserTokenAsync();
-                    if (loginValid)
+                    if (false)
                     {
-                        StartupService.SetUser(user);
                         await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
                     }
                     else
                     {
+                        //ClearUserSecurityService.ClearUserSecurity();
                         DialogService.Alert("You session has expired. Please log in again");
                     }
                 }
-            }
-            finally
-            {
-                ShowProgress = false;
+                finally
+                {
+                    //ShowProgress = false;
+                }
             }
         }
 
@@ -109,6 +110,11 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        private bool IsNotInProgress()
+        {
+            return !ShowProgress;
+        }
+
         private async void LoginWithFacebook()
         {
             try
@@ -127,7 +133,7 @@ namespace ScorePredict.Core.ViewModels
                 result.Username = username;
                 SaveUserSecurityService.SaveUser(result);
                 MessageBus.Publish<LoginCompleteMessage>();
-                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
             }
             catch (LoginException lex)
             {
