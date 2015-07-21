@@ -28,5 +28,10 @@ namespace ScorePredict.Services.Impl.Mock
                 UserId = "MyUserId"
             };
         }
+
+        public async Task<bool> CheckUserTokenAsync()
+        {
+            return true;
+        }
     }
 }

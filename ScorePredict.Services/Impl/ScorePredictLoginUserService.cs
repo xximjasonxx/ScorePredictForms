@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Ex;
 using ScorePredict.Services.Contracts;
@@ -63,6 +65,19 @@ namespace ScorePredict.Services.Impl
         public async Task<User> LoginWithFacebookAsync()
         {
             return await Client.LoginFacebookAsync();
+        }
+
+        public async Task<bool> CheckUserTokenAsync()
+        {
+            try
+            {
+                var result = await Client.GetApiAsync("check_user", new Dictionary<string, string>());
+                return true;
+            }
+            catch (InvalidSessionException ex)
+            {
+                return false;
+            }
         }
 
         #endregion

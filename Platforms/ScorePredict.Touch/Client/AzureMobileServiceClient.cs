@@ -11,6 +11,7 @@ using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
 using ScorePredict.Touch.Contracts;
+using UIKit;
 
 namespace ScorePredict.Touch.Client
 {
@@ -36,7 +37,17 @@ namespace ScorePredict.Touch.Client
 
         public async Task<JToken> GetApiAsync(string apiName, IDictionary<string, string> parameters)
         {
-            return await InvokeApiAsync(apiName, HttpMethod.Get, parameters);
+            try
+            {
+                return await InvokeApiAsync(apiName, HttpMethod.Get, parameters);
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
+                    throw new InvalidSessionException();
+
+                throw ex;
+            }
         }
 
         public async Task<JToken> PostApiAsync(string apiName, IDictionary<string, string> parameters)
@@ -51,7 +62,7 @@ namespace ScorePredict.Touch.Client
                     throw new DuplicateDataException(apiName, ex);
 
                 if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
-                    throw new ApiExecutionException(apiName, ex);
+                    throw new InvalidSessionException();
 
                 throw ex;
             }
@@ -84,6 +95,9 @@ namespace ScorePredict.Touch.Client
             }
             catch (MobileServiceInvalidOperationException ex)
             {
+                if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
+                    throw new InvalidSessionException();
+
                 throw new LookupFailedException(tableName, key, ex);
             }
         }
@@ -97,6 +111,9 @@ namespace ScorePredict.Touch.Client
             }
             catch (MobileServiceConflictException ex)
             {
+                if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
+                    throw new InvalidSessionException();
+
                 throw new DuplicateDataException(tableName, parameters, ex);
             }
         }
@@ -108,8 +125,18 @@ namespace ScorePredict.Touch.Client
 
         public async Task<JToken> ReadTableAsync(string tableName, IDictionary<string, string> parameters)
         {
-            var table = GetTable(tableName);
-            return await table.ReadAsync(string.Empty, parameters);
+            try
+            {
+                var table = GetTable(tableName);
+                return await table.ReadAsync(string.Empty, parameters);
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
+                    throw new InvalidSessionException();
+
+                throw ex;
+            }
         }
 
         #endregion

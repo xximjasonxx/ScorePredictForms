@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ScorePredict.Common.Ex;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.MessageBus.Messages;

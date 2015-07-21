@@ -7,6 +7,7 @@ namespace ScorePredict.Services
     {
         Task<User> LoginAsync(string username, string password);
         Task<User> LoginWithFacebookAsync();
+        Task<bool> CheckUserTokenAsync();
     }
 }
 

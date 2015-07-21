@@ -44,17 +44,35 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
-            var user = ReadUserSecurityService.ReadUser();
-            if (user != null)
+            try
             {
-                if (string.IsNullOrEmpty(user.Username))
+                ShowProgress = true;
+                var user = ReadUserSecurityService.ReadUser();
+                if (user != null)
                 {
-                    await Navigation.PushAsync(new EnterUsernamePage(user));
-                    return;
-                }
+                    if (string.IsNullOrEmpty(user.Username))
+                    {
+                        await Navigation.PushAsync(new EnterUsernamePage(user));
+                        return;
+                    }
+                    ShowProgress = true;
 
-                StartupService.SetUser(user);
-                await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
+                    // need to validate that the token is still valid
+                    var loginValid = await LoginUserService.CheckUserTokenAsync();
+                    if (loginValid)
+                    {
+                        StartupService.SetUser(user);
+                        await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
+                    }
+                    else
+                    {
+                        DialogService.Alert("You session has expired. Please log in again");
+                    }
+                }
+            }
+            finally
+            {
+                ShowProgress = false;
             }
         }
 

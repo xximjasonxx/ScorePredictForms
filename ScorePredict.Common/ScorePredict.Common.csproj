@@ -48,6 +48,7 @@
     <Compile Include="Ex\ApiExecutionException.cs" />
     <Compile Include="Ex\CreateUserException.cs" />
     <Compile Include="Ex\DuplicateDataException.cs" />
+    <Compile Include="Ex\InvalidSessionException.cs" />
     <Compile Include="Ex\LoginException.cs" />
     <Compile Include="Ex\LookupFailedException.cs" />
     <Compile Include="Ex\SaveUsernameException.cs" />
