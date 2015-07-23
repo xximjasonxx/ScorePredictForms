@@ -40,8 +40,7 @@ namespace ScorePredict.Core.ViewModels
             get
             {
                 return new Command<Prediction>(
-                    x => Navigation.PushModalAsync(new PredictionEditPage(x)),
-                    x => x.InPregame);
+                    x => Navigation.PushModalAsync(new ScorePredictNavigationPage(new PredictionEditPage(x))));
             }
         }
 

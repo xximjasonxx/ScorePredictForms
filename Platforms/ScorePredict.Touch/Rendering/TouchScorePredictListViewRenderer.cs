@@ -19,7 +19,5 @@ namespace ScorePredict.Touch.Rendering
                 Control.TableFooterView = new UIView(CGRect.Empty);
             }
         }
-
-
     }
 }
