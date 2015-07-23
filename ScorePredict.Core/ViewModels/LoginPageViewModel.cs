@@ -23,11 +23,11 @@ namespace ScorePredict.Core.ViewModels
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser, IsNotInProgress);}}
+        public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser, IsNotInProgress); } }
 
         public ICommand LoginCommand { get { return new Command(Login, IsNotInProgress); } }
 
-        public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook, IsNotInProgress);} }
+        public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook, IsNotInProgress); } }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
             IGetUsernameService getUsernameService, IDialogService dialogService, IBus messageBus,
@@ -54,25 +54,17 @@ namespace ScorePredict.Core.ViewModels
                 }
 
                 StartupService.SetUser(user);
-                try
-                {
-                    ShowProgress = true;
 
-                    // need to validate that the token is still valid
-                    var loginValid = await LoginUserService.CheckUserTokenAsync();
-                    if (false)
-                    {
-                        await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
-                    }
-                    else
-                    {
-                        //ClearUserSecurityService.ClearUserSecurity();
-                        DialogService.Alert("You session has expired. Please log in again");
-                    }
-                }
-                finally
+                // need to validate that the token is still valid
+                var loginValid = await LoginUserService.CheckUserTokenAsync();
+                if (loginValid)
                 {
-                    //ShowProgress = false;
+                    await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
+                }
+                else
+                {
+                    ClearUserSecurityService.ClearUserSecurity();
+                    DialogService.Alert("You session has expired. Please log in again");
                 }
             }
         }
