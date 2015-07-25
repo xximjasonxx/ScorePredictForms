@@ -26,12 +26,6 @@
 
       <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
              Grid.Row="5" Style="{StaticResource MediumLabel}" />
-
-      <ContentView Grid.Row="0" Grid.RowSpan="7" BackgroundColor="{StaticResource BackgroundColor}"
-                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
-        <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
-      </ContentView>
      
     </Grid>
 </pages:ScorePredictContentPage>

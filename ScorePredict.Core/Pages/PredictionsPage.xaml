@@ -74,12 +74,6 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </controls:ScorePredictListView>
-
-    <ContentView Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}"
-                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                   IsVisible="{Binding Path=ShowProgress, Mode=OneWay}">
-      <ActivityIndicator IsRunning="True" HorizontalOptions="Fill" VerticalOptions="Center" />
-    </ContentView>
     
   </Grid>
 </pages:ScorePredictContentPage>
