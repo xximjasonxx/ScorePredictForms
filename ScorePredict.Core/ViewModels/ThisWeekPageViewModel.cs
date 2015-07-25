@@ -117,10 +117,21 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
-            MessageBus.ListenFor<LoginCompleteMessage>(LoadWeekData);
-            if (ReadUserSecurityService.ReadUser() != null)
+            try
             {
-                await LoadWeekDataAsync();
+                DialogService.ShowLoading("Loading This Week...");
+                if (ReadUserSecurityService.ReadUser() != null)
+                {
+                    await LoadWeekDataAsync();
+                }
+            }
+            catch
+            {
+                DialogService.Alert("Failed to load data for this week. Please refresh");
+            }
+            finally
+            {
+                DialogService.HideLoading();
             }
         }
 
@@ -133,28 +144,15 @@ namespace ScorePredict.Core.ViewModels
         {
             if (IsLoaded) return;
 
-            try
-            {
-                DialogService.ShowLoading("Loading This Week...");
+            var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
+            PointsAwarded = result.Points;
+            PredictionCount = result.TotalPredictions;
+            RankDisplay = string.Format("You're ranked #{0} out of {1} user{2}",
+                result.Ranking, result.UserCount,
+                result.UserCount == 1 ? string.Empty : "s");
+            WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
 
-                var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
-                PointsAwarded = result.Points;
-                PredictionCount = result.TotalPredictions;
-                RankDisplay = string.Format("You're ranked #{0} out of {1} user{2}",
-                    result.Ranking, result.UserCount,
-                    result.UserCount == 1 ? string.Empty : "s");
-                WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
-
-                IsLoaded = true;
-            }
-            catch (Exception ex)
-            {
-                DialogService.Alert("An error occured getting Current week data");
-            }
-            finally
-            {
-                DialogService.HideLoading();
-            }
+            IsLoaded = true;
         }
     }
 }

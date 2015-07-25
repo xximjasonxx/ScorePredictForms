@@ -62,6 +62,7 @@ namespace ScorePredict.Core.ViewModels
                     var loginValid = await LoginUserService.CheckUserTokenAsync();
                     if (loginValid)
                     {
+                        DialogService.HideLoading();
                         await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
                     }
                     else
