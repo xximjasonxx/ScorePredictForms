@@ -56,6 +56,8 @@ namespace ScorePredict.Core.ViewModels
 
         public ICommand SaveCommand { get { return new Command(Save); } }
 
+        public ICommand CloseCommand { get { return new Command(Close); } }
+
         public PredictionEditViewModel(IDialogService dialogService, IPredictionService predictionService,
             IClearUserSecurityService clearUserSecurityService)
             : base(clearUserSecurityService, dialogService)
@@ -68,7 +70,7 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 DialogService.ShowLoading("Saving...");
-                var result = await PredictionService.SavePredictionAsync(new SavePredictionModel()
+                await PredictionService.SavePredictionAsync(new SavePredictionModel()
                 {
                     WeekId = Prediction.WeekId,
                     GameId = Prediction.GameId,
@@ -87,6 +89,11 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.HideLoading();
             }
+        }
+
+        private async void Close()
+        {
+            await Navigation.PopModalAsync(true);
         }
     }
 }

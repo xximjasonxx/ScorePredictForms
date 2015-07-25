@@ -43,9 +43,13 @@
 
       <StackLayout Orientation="Vertical" Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                    Padding="30,5,30,5" Grid.Column="0" Grid.ColumnSpan="3">
-        <Button BackgroundColor="#3C8513" BorderRadius="10" TextColor="{StaticResource SpecialTextColor}" Text="Save"
-                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="#3C8513"
+        <Button BackgroundColor="{StaticResource DarkGreenColor}" BorderRadius="10" TextColor="{StaticResource SpecialTextColor}" Text="Save"
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="{StaticResource DarkGreenColor}"
                 Command="{Binding SaveCommand}" />
+      
+        <Button BackgroundColor="{StaticResource DarkGreenColor}" BorderRadius="10" TextColor="{StaticResource SpecialTextColor}"
+                Text="Cancel" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="{StaticResource DarkGreenColor}"
+                Command="{Binding CloseCommand}" />
       </StackLayout>
       
     </Grid>
