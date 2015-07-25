@@ -58,6 +58,8 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
+            if (IsLoaded) return;
+
             MessageBus.ListenFor<LoginCompleteMessage>(LoadPredictions);
             if (ReadUserSecurityService.ReadUser() != null)
             {
@@ -65,6 +67,8 @@ namespace ScorePredict.Core.ViewModels
                 {
                     DialogService.ShowLoading("Loading Predictions...");
                     await LoadPredictionsAsync();
+
+                    IsLoaded = true;
                 }
                 catch (Exception)
                 {

@@ -14,6 +14,8 @@ namespace ScorePredict.Core.ViewModels.Abstract
 
         public ICommand LogoutCommand { get { return new Command(Logout); } }
 
+        public bool IsLoaded { get; set; }
+
         protected ScorePredictBaseViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService)
         {
             ClearUserSecurityService = clearUserSecurityService;

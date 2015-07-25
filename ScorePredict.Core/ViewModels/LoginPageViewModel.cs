@@ -53,18 +53,26 @@ namespace ScorePredict.Core.ViewModels
                     return;
                 }
 
-                StartupService.SetUser(user);
+                try
+                {
+                    DialogService.ShowLoading("Authenticating...");
+                    StartupService.SetUser(user);
 
-                // need to validate that the token is still valid
-                var loginValid = await LoginUserService.CheckUserTokenAsync();
-                if (loginValid)
-                {
-                    await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
+                    // need to validate that the token is still valid
+                    var loginValid = await LoginUserService.CheckUserTokenAsync();
+                    if (loginValid)
+                    {
+                        await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
+                    }
+                    else
+                    {
+                        ClearUserSecurityService.ClearUserSecurity();
+                        DialogService.Alert("You session has expired. Please log in again");
+                    }
                 }
-                else
+                finally
                 {
-                    ClearUserSecurityService.ClearUserSecurity();
-                    DialogService.Alert("You session has expired. Please log in again");
+                    DialogService.HideLoading();
                 }
             }
         }

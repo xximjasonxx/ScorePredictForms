@@ -43,10 +43,13 @@ namespace ScorePredict.Core.ViewModels
 
         public async override void OnShow()
         {
+            if (IsLoaded) return;
+
             try
             {
                 DialogService.ShowLoading("Loading History...");
                 await LoadPredictionYearsAsync();
+                IsLoaded = true;
             }
             catch
             {

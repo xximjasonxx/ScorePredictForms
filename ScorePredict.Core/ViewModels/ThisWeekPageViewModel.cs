@@ -131,6 +131,8 @@ namespace ScorePredict.Core.ViewModels
 
         private async Task LoadWeekDataAsync()
         {
+            if (IsLoaded) return;
+
             try
             {
                 DialogService.ShowLoading("Loading This Week...");
@@ -142,6 +144,8 @@ namespace ScorePredict.Core.ViewModels
                     result.Ranking, result.UserCount,
                     result.UserCount == 1 ? string.Empty : "s");
                 WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
+
+                IsLoaded = true;
             }
             catch (Exception ex)
             {

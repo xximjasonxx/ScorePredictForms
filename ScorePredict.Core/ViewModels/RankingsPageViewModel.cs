@@ -40,10 +40,13 @@ namespace ScorePredict.Core.ViewModels
 
         public async override void OnShow()
         {
+            if (IsLoaded) return;
+
             try
             {
                 DialogService.ShowLoading("Loading Rankings...");
                 await LoadRankingsAsync();
+                IsLoaded = true;
             }
             catch (Exception)
             {
