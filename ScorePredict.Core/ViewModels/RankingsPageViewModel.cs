@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using ScorePredict.Common.Models;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services.Contracts;
-using System.Windows.Input;
 using Xamarin.Forms;
-using System.Threading.Tasks;
 
 namespace ScorePredict.Core.ViewModels
 {
@@ -28,6 +27,8 @@ namespace ScorePredict.Core.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         public RankingsPageViewModel(IRankingService rankingService, IClearUserSecurityService clearUserSecurityService,
             IDialogService dialogService, IReadUserSecurityService readUserSecuritService, IKillApplication killApp)
@@ -64,7 +65,7 @@ namespace ScorePredict.Core.ViewModels
             Rankings = new ObservableCollection<RankingModel>(weekRankings);
         }
 
-        protected async Task Refresh()
+        private async void Refresh()
         {
             try
             {

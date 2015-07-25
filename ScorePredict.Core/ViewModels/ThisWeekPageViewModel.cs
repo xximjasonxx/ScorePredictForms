@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
-using ScorePredict.Common.Ex;
+using System.Windows.Input;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.MessageBus.Messages;
@@ -88,6 +86,8 @@ namespace ScorePredict.Core.ViewModels
             get { return "You've made " + (PredictionCount == 1 ? "1 prediction" : string.Format("{0} predictions", PredictionCount)); }
         }
 
+        public ICommand RefreshCommand { get { return new Command(Refresh); } }
+
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
             IClearUserSecurityService clearUserSecurityService, IBus messageBus,
             IReadUserSecurityService readUserSecurityService, IKillApplication killApp)
@@ -98,7 +98,7 @@ namespace ScorePredict.Core.ViewModels
             ReadUserSecurityService = readUserSecurityService;
         }
 
-        protected async Task Refresh()
+        private async void Refresh()
         {
             try
             {

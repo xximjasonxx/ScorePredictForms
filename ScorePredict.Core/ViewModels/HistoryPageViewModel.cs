@@ -27,6 +27,7 @@ namespace ScorePredict.Core.ViewModels
         }
 
         public ICommand SelectPredictionYearCommand { get { return new Command<int>(SelectPredictionYear); } }
+        public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         private async void SelectPredictionYear(int selectedYear)
         {
@@ -45,7 +46,7 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 DialogService.ShowLoading("Loading History...");
-                PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
+                await LoadPredictionYearsAsync();
             }
             catch
             {
@@ -55,6 +56,28 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.HideLoading();
             }
+        }
+
+        private async void Refresh()
+        {
+            try
+            {
+                DialogService.ShowLoading("Refreshing...");
+                await LoadPredictionYearsAsync();
+            }
+            catch
+            {
+                DialogService.Alert("Failed to refresh Predictions. Please try again.");
+            }
+            finally
+            {
+                DialogService.HideLoading();
+            }
+        }
+
+        private async Task LoadPredictionYearsAsync()
+        {
+            PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
         }
     }
 }

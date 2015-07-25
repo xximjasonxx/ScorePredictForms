@@ -44,6 +44,8 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        public ICommand RefreshCommand { get { return new Command(Refresh); } }
+
         public PredictionsPageViewModel(IPredictionService predictionService, IDialogService dialogService,
             IClearUserSecurityService clearUserSecurityService, IBus messageBus, IReadUserSecurityService readUserSecurityService,
             IKillApplication killApp)
@@ -75,12 +77,11 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        protected async Task Refresh()
+        private async void Refresh()
         {
             try
             {
                 DialogService.ShowLoading("Refreshing...");
-                PredictionGroups.Clear();
                 await LoadPredictionsAsync();
             }
             catch (Exception)

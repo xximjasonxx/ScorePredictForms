@@ -46,13 +46,18 @@
         <Button BackgroundColor="{StaticResource DarkGreenColor}" BorderRadius="10" TextColor="{StaticResource SpecialTextColor}" Text="Save"
                 VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="{StaticResource DarkGreenColor}"
                 Command="{Binding SaveCommand}" />
-      
-        <Button BackgroundColor="{StaticResource DarkGreenColor}" BorderRadius="10" TextColor="{StaticResource SpecialTextColor}"
-                Text="Cancel" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" BorderColor="{StaticResource DarkGreenColor}"
-                Command="{Binding CloseCommand}" />
+        
       </StackLayout>
       
     </Grid>
   </StackLayout>
+
+  <pages:ScorePredictContentPage.ToolbarItems>
+    <ToolbarItem Command="{Binding CloseCommand}" Text="Close" Icon="tb_close.png">
+      <ToolbarItem.Order>
+        <OnPlatform x:TypeArguments="ToolbarItemOrder" Android="Secondary" WinPhone="Secondary" iOS="Primary" />
+      </ToolbarItem.Order>
+    </ToolbarItem>
+  </pages:ScorePredictContentPage.ToolbarItems>
   
 </pages:ScorePredictContentPage>
