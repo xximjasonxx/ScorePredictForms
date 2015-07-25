@@ -23,11 +23,11 @@ namespace ScorePredict.Core.ViewModels
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser, IsNotInProgress); } }
+        public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser); } }
 
-        public ICommand LoginCommand { get { return new Command(Login, IsNotInProgress); } }
+        public ICommand LoginCommand { get { return new Command(Login); } }
 
-        public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook, IsNotInProgress); } }
+        public ICommand FacebookLoginCommand { get { return new Command(LoginWithFacebook); } }
 
         public LoginPageViewModel(ILoginUserService loginUserService, ISaveUserSecurityService saveUserSecurityService,
             IGetUsernameService getUsernameService, IDialogService dialogService, IBus messageBus,
@@ -78,6 +78,8 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
+                DialogService.ShowLoading("Authenticating...");
+
                 var user = await LoginUserService.LoginAsync(Username, Password);
                 if (user == null)
                     throw new LoginException("Invalid Username Password combination");
@@ -100,11 +102,10 @@ namespace ScorePredict.Core.ViewModels
             {
                 DialogService.Alert("Login did not succeed. Please try again");
             }
-        }
-
-        private bool IsNotInProgress()
-        {
-            return !ShowProgress;
+            finally
+            {
+                DialogService.HideLoading();
+            }
         }
 
         private async void LoginWithFacebook()

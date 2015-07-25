@@ -13,21 +13,6 @@ namespace ScorePredict.Core.ViewModels.Abstract
         
 
         public ICommand LogoutCommand { get { return new Command(Logout); } }
-        public ICommand RefreshCommand { get { return new Command(RefreshData); } }
-
-        private bool _showProgress;
-        public bool ShowProgress
-        {
-            get { return _showProgress; }
-            protected set
-            {
-                if (value != ShowProgress)
-                {
-                    _showProgress = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
 
         protected ScorePredictBaseViewModel(IClearUserSecurityService clearUserSecurityService, IDialogService dialogService)
         {
@@ -42,24 +27,6 @@ namespace ScorePredict.Core.ViewModels.Abstract
                 ClearUserSecurityService.ClearUserSecurity();
                 await Navigation.PopModalAsync(true);
             }
-        }
-
-        private async void RefreshData()
-        {
-            try
-            {
-                ShowProgress = true;
-                await Refresh();
-            }
-            finally
-            {
-                ShowProgress = false;
-            }
-        }
-
-        protected virtual async Task Refresh()
-        {
-            
         }
     }
 }

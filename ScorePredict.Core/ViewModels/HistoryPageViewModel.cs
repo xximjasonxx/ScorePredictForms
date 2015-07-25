@@ -44,7 +44,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                ShowProgress = true;
+                DialogService.ShowLoading("Loading History...");
                 PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
             }
             catch
@@ -53,20 +53,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                ShowProgress = false;
-            }
-        }
-
-        protected override async Task Refresh()
-        {
-            try
-            {
-                PredictionYears.Clear();
-                PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
-            }
-            catch
-            {
-                DialogService.Alert("Failed to refresh Predictions. Please try again");
+                DialogService.HideLoading();
             }
         }
     }

@@ -47,7 +47,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                ShowProgress = true;
+                DialogService.ShowLoading("Loading History Details...");
                 await LoadPredictionHistoryAsync();
             }
             catch
@@ -56,19 +56,24 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                ShowProgress = false;
+                DialogService.HideLoading();
             }
         }
 
-        protected override async Task Refresh()
+        protected async Task Refresh()
         {
             try
             {
+                DialogService.ShowLoading("Refreshing...");
                 await LoadPredictionHistoryAsync();
             }
             catch
             {
                 DialogService.Alert("Failed to reload Predictions. Please try again");
+            }
+            finally
+            {
+                DialogService.HideLoading();
             }
         }
 

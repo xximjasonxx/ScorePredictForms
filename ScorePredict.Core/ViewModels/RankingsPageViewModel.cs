@@ -41,7 +41,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                ShowProgress = true;
+                DialogService.ShowLoading("Loading Rankings...");
                 await LoadRankingsAsync();
             }
             catch (Exception)
@@ -50,7 +50,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                ShowProgress = false;
+                DialogService.HideLoading();
             }
         }
 
@@ -64,15 +64,20 @@ namespace ScorePredict.Core.ViewModels
             Rankings = new ObservableCollection<RankingModel>(weekRankings);
         }
 
-        protected override async Task Refresh()
+        protected async Task Refresh()
         {
             try
             {
+                DialogService.ShowLoading("Refreshing...");
                 await LoadRankingsAsync();
             }
             catch
             {
                 DialogService.Alert("Failed to reload Rankings. Please try again");
+            }
+            finally
+            {
+                DialogService.HideLoading();
             }
         }
     }

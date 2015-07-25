@@ -98,11 +98,11 @@ namespace ScorePredict.Core.ViewModels
             ReadUserSecurityService = readUserSecurityService;
         }
 
-        protected override async Task Refresh()
+        protected async Task Refresh()
         {
             try
             {
-                ShowProgress = true;
+                DialogService.ShowLoading("Refreshing...");
                 await LoadWeekDataAsync();
             }
             catch
@@ -111,7 +111,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                ShowProgress = false;
+                DialogService.HideLoading();
             }
         }
 
@@ -133,7 +133,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                ShowProgress = true;
+                DialogService.ShowLoading("Loading This Week...");
 
                 var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
                 PointsAwarded = result.Points;
@@ -149,7 +149,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                ShowProgress = false;
+                DialogService.HideLoading();
             }
         }
     }
