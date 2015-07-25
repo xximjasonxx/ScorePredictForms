@@ -95,5 +95,10 @@ namespace ScorePredict.Core.ViewModels
         {
             await Navigation.PopModalAsync(true);
         }
+
+        public override bool BackButtonPressed()
+        {
+            return false;
+        }
     }
 }
