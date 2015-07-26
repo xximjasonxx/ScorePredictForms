@@ -19,6 +19,11 @@
 
 <resources>
 
+  <style name="Theme.Splash" parent="android:Theme">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@drawable/splash</item>
+  </style>
+  
     <style name="Theme.Maintheme" parent="@android:style/Theme.Holo">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_maintheme</item>
         <!--<item name="android:popupMenuStyle">@style/PopupMenu.Maintheme</item>-->

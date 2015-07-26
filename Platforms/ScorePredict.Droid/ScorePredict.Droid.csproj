@@ -159,6 +159,11 @@
     <AndroidResource Include="Resources\drawable-hdpi\tab_unselected_maintheme.9.png" />
     <AndroidResource Include="Resources\drawable-hdpi\tab_unselected_pressed_maintheme.9.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ab_bottom_solid_maintheme.9.png" />
+
+	<AndroidResource Include="Resources\drawable-mdpi\splash.png" />
+	<AndroidResource Include="Resources\drawable-hdpi\splash.png" />
+	<AndroidResource Include="Resources\drawable-xdpi\splash.png" />
+
     <AndroidResource Include="Resources\drawable-mdpi\ab_solid_maintheme.9.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ab_stacked_solid_maintheme.9.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ab_texture_tile_maintheme.png" />
