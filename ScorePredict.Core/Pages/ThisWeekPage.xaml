@@ -29,7 +29,7 @@
              Grid.Row="5" Style="{StaticResource MediumLabel}" />
 
       <controls:ContentLoader Message="Loading This Week..." HorizontalOptions="Fill" VerticalOptions="Fill"
-                              Grid.RowSpan="7" />
+                              Grid.RowSpan="7" IsVisible="{Binding IsBusy}" />
      
     </Grid>
 </pages:ScorePredictContentPage>

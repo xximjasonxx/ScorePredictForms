@@ -102,7 +102,8 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                DialogService.ShowLoading("Refreshing...");
+                //DialogService.ShowLoading("Refreshing...");
+                IsBusy = true;
                 await LoadWeekDataAsync();
             }
             catch
@@ -111,7 +112,22 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                DialogService.HideLoading();
+                //DialogService.HideLoading();
+            }
+        }
+
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            private set
+            {
+                if (_isBusy != value)
+                {
+                    _isBusy = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -119,15 +135,17 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
+                IsBusy = true;
                 //DialogService.ShowLoading("Loading This Week...");
                 await LoadWeekDataAsync();
             }
             catch
             {
-                //DialogService.Alert("Failed to load data for this week. Please refresh");
+                DialogService.Alert("Failed to load data for this week. Please refresh");
             }
             finally
             {
+                IsBusy = false;
                 //DialogService.HideLoading();
             }
         }
