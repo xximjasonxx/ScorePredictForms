@@ -60,23 +60,22 @@ namespace ScorePredict.Core.ViewModels
         {
             if (IsLoaded) return;
 
-            MessageBus.ListenFor<LoginCompleteMessage>(LoadPredictions);
             if (ReadUserSecurityService.ReadUser() != null)
             {
                 try
                 {
-                    DialogService.ShowLoading("Loading Predictions...");
+                    //DialogService.ShowLoading("Loading Predictions...");
                     await LoadPredictionsAsync();
 
                     IsLoaded = true;
                 }
                 catch (Exception)
                 {
-                    DialogService.Alert("Failed to load Predictions. Please refresh");
+                    //DialogService.Alert("Failed to load Predictions. Please refresh");
                 }
                 finally
                 {
-                    DialogService.HideLoading();
+                    //DialogService.HideLoading();
                 }
             }
         }

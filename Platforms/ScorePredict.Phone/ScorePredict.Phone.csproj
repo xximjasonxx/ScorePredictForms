@@ -108,6 +108,7 @@
     <Compile Include="PhoneConstants.cs" />
     <Compile Include="Modules\PhoneInjectionModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\ContentLoaderRenderer.cs" />
     <Compile Include="Rendering\NumbersEntryRenderer.cs" />
     <Compile Include="Rendering\PhoneActivityIndicatorRenderer.cs" />
     <Compile Include="Rendering\PhoneScorePredictListViewRenderer.cs" />

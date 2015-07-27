@@ -119,19 +119,16 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                DialogService.ShowLoading("Loading This Week...");
-                if (ReadUserSecurityService.ReadUser() != null)
-                {
-                    await LoadWeekDataAsync();
-                }
+                //DialogService.ShowLoading("Loading This Week...");
+                await LoadWeekDataAsync();
             }
             catch
             {
-                DialogService.Alert("Failed to load data for this week. Please refresh");
+                //DialogService.Alert("Failed to load data for this week. Please refresh");
             }
             finally
             {
-                DialogService.HideLoading();
+                //DialogService.HideLoading();
             }
         }
 

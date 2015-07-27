@@ -2,6 +2,7 @@
 <pages:ScorePredictContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:pages="clr-namespace:ScorePredict.Core.Pages;assembly=ScorePredict.Core"
+			 xmlns:controls="clr-namespace:ScorePredict.Core.Controls;assembly=ScorePredict.Core"
 			 x:Class="ScorePredict.Core.Pages.ThisWeekPage" BackgroundColor="{StaticResource BackgroundColor}">
   
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10,0,10,0">
@@ -14,7 +15,7 @@
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
-
+      
       <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
              Style="{StaticResource HeaderLabel}" Grid.Row="1" />
 
@@ -26,6 +27,9 @@
 
       <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
              Grid.Row="5" Style="{StaticResource MediumLabel}" />
+
+      <controls:ContentLoader Message="Loading This Week..." HorizontalOptions="Fill" VerticalOptions="Fill"
+                              Grid.RowSpan="7" />
      
     </Grid>
 </pages:ScorePredictContentPage>

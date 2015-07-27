@@ -10,6 +10,7 @@
         <local:LocalizedStrings xmlns:local="clr-namespace:ScorePredict.Phone" x:Key="LocalizedStrings"/>
 
         <SolidColorBrush x:Key="YellowColor" Color="#FCD23C" />
+        <SolidColorBrush x:Key="LightGreenColor" Color="#77B739" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

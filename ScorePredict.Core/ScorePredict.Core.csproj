@@ -39,6 +39,10 @@
   <ItemGroup>
     <Compile Include="ContainerHolder.cs" />
     <Compile Include="Contracts\IKillApplication.cs" />
+    <Compile Include="Controls\ContentLoader.cs" />
+    <Compile Include="Controls\ContentLoaderView.xaml.cs">
+      <DependentUpon>ContentLoaderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NumberEntry.cs" />
     <Compile Include="Controls\ScorePredictEntry.cs" />
     <Compile Include="Controls\ScorePredictListView.cs" />
@@ -220,6 +224,12 @@
     <EmbeddedResource Include="Pages\HistoryDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ContentLoaderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
