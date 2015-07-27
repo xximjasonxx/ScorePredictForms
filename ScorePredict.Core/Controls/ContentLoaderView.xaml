@@ -6,7 +6,7 @@
   <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{StaticResource BackgroundColor}"
                Orientation="Vertical">
     <ActivityIndicator HorizontalOptions="Fill" VerticalOptions="Center" IsRunning="True" />
-    <Label Text="Loading..." TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+    <Label x:Name="messageLabel" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
   </StackLayout>
   
 </ContentView>

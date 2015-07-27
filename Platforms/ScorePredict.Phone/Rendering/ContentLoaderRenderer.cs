@@ -19,6 +19,8 @@ namespace ScorePredict.Phone.Rendering
             {
                 var view = (ContentLoader) e.NewElement;
                 view.LoadFromXaml(typeof (ContentLoaderView));
+
+                view.FindByName<Label>("messageLabel").Text = view.Message;
             }
         }
     }
