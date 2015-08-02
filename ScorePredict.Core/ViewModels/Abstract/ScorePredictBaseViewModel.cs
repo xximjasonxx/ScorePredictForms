@@ -10,7 +10,20 @@ namespace ScorePredict.Core.ViewModels.Abstract
     {
         public IClearUserSecurityService ClearUserSecurityService { get; private set; }
         public IDialogService DialogService { get; private set; }
-        
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            protected set
+            {
+                if (_isBusy != value)
+                {
+                    _isBusy = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public ICommand LogoutCommand { get { return new Command(Logout); } }
 

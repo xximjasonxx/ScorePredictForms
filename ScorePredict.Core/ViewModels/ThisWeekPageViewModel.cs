@@ -116,21 +116,6 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        private bool _isBusy;
-
-        public bool IsBusy
-        {
-            get { return _isBusy; }
-            private set
-            {
-                if (_isBusy != value)
-                {
-                    _isBusy = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public override async void OnShow()
         {
             try

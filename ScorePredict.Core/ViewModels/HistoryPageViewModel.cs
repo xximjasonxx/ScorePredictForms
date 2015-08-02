@@ -47,7 +47,7 @@ namespace ScorePredict.Core.ViewModels
 
             try
             {
-                DialogService.ShowLoading("Loading History...");
+                IsBusy = true;
                 await LoadPredictionYearsAsync();
                 IsLoaded = true;
             }
@@ -57,7 +57,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                DialogService.HideLoading();
+                IsBusy = false;
             }
         }
 

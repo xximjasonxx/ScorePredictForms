@@ -35,6 +35,21 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            private set
+            {
+                if (_isBusy != value)
+                {
+                    _isBusy = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand SelectPredictionCommand
         {
             get
@@ -64,7 +79,7 @@ namespace ScorePredict.Core.ViewModels
             {
                 try
                 {
-                    //DialogService.ShowLoading("Loading Predictions...");
+                    IsBusy = true;
                     await LoadPredictionsAsync();
 
                     IsLoaded = true;
@@ -75,7 +90,7 @@ namespace ScorePredict.Core.ViewModels
                 }
                 finally
                 {
-                    //DialogService.HideLoading();
+                    IsBusy = false;
                 }
             }
         }

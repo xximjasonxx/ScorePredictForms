@@ -74,6 +74,9 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </controls:ScorePredictListView>
+
+    <controls:ContentLoader Message="Loading Predictions..." HorizontalOptions="Fill" VerticalOptions="Fill"
+                              Grid.RowSpan="1" IsVisible="{Binding IsBusy}" />
     
   </Grid>
 </pages:ScorePredictContentPage>

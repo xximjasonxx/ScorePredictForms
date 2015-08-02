@@ -44,17 +44,17 @@ namespace ScorePredict.Core.ViewModels
 
             try
             {
-                DialogService.ShowLoading("Loading Rankings...");
+                IsBusy = true;
                 await LoadRankingsAsync();
                 IsLoaded = true;
             }
             catch (Exception)
             {
-                DialogService.Alert("Failed to load Rankings");
+                //DialogService.Alert("Failed to load Rankings");
             }
             finally
             {
-                DialogService.HideLoading();
+                IsBusy = false;
             }
         }
 

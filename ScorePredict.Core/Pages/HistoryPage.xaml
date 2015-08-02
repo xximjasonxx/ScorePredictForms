@@ -26,8 +26,10 @@
           </ViewCell>
         </DataTemplate>
       </controls:ScorePredictListView.ItemTemplate>
-      
     </controls:ScorePredictListView>
+
+    <controls:ContentLoader Message="Loading History..." HorizontalOptions="Fill" VerticalOptions="Fill"
+                              Grid.RowSpan="2" IsVisible="{Binding IsBusy}" />
   </Grid>
   
 </pages:ScorePredictContentPage>

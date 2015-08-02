@@ -49,6 +49,8 @@
       </ListView.ItemTemplate>
     </controls:ScorePredictListView>
 
+    <controls:ContentLoader Message="Loading Rankings..." HorizontalOptions="Fill" VerticalOptions="Fill"
+                              Grid.RowSpan="2" IsVisible="{Binding IsBusy}" />
   </Grid>
 
 </pages:ScorePredictContentPage>
