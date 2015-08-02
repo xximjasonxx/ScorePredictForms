@@ -15,7 +15,7 @@ namespace ScorePredict.Core.ViewModels.Abstract
         public bool IsBusy
         {
             get { return _isBusy; }
-            protected set
+            private set
             {
                 if (_isBusy != value)
                 {
@@ -29,7 +29,7 @@ namespace ScorePredict.Core.ViewModels.Abstract
         public string LoaderMessage
         {
             get { return _loaderMessage; }
-            protected set
+            private set
             {
                 if (_loaderMessage != value)
                 {
@@ -37,6 +37,17 @@ namespace ScorePredict.Core.ViewModels.Abstract
                     OnPropertyChanged();
                 }
             }
+        }
+
+        protected void ShowLoading(string message)
+        {
+            LoaderMessage = message;
+            IsBusy = true;
+        }
+
+        protected void HideLoading()
+        {
+            IsBusy = false;
         }
 
         public ICommand LogoutCommand { get { return new Command(Logout); } }

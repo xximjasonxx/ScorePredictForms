@@ -11,10 +11,9 @@ namespace ScorePredict.Core.Controls
         private static void MessagePropertyChanged(BindableObject bindable, string oldValue, string newValue)
         {
             var content = ((ContentLoader) bindable).Content;
-            if (content != null)
-            {
-                content.FindByName<Label>("messageLabel").Text = newValue;
-            }
+            var label = content?.FindByName<Label>("messageLabel");
+            if (label != null)
+                label.Text = newValue;
         }
 
         public string Message

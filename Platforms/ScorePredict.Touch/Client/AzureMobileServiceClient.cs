@@ -11,7 +11,6 @@ using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
 using ScorePredict.Services.Extensions;
 using ScorePredict.Touch.Contracts;
-using UIKit;
 
 namespace ScorePredict.Touch.Client
 {

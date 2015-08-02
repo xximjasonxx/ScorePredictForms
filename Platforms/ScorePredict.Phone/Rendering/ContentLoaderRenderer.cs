@@ -1,6 +1,4 @@
-﻿using System.Windows.Media;
-using ScorePredict.Core;
-using ScorePredict.Core.Controls;
+﻿using ScorePredict.Core.Controls;
 using ScorePredict.Phone.Rendering;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.WinPhone;

@@ -49,7 +49,7 @@
       </ListView.ItemTemplate>
     </controls:ScorePredictListView>
 
-    <controls:ContentLoader Message="Loading Rankings..." HorizontalOptions="Fill" VerticalOptions="Fill"
+    <controls:ContentLoader Message="{Binding LoaderMessage}" HorizontalOptions="Fill" VerticalOptions="Fill"
                               Grid.RowSpan="2" IsVisible="{Binding IsBusy}" />
   </Grid>
 

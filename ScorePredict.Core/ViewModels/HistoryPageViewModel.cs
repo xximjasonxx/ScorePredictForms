@@ -47,8 +47,7 @@ namespace ScorePredict.Core.ViewModels
 
             try
             {
-                IsBusy = true;
-                LoaderMessage = "Loading History...";
+                ShowLoading("Loading History...");
                 await LoadPredictionYearsAsync();
                 IsLoaded = true;
             }
@@ -58,7 +57,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                IsBusy = false;
+                HideLoading();
             }
         }
 
@@ -66,8 +65,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                LoaderMessage = "Refreshing...";
-                IsBusy = true;
+                ShowLoading("Refreshing...");
                 await LoadPredictionYearsAsync();
             }
             catch
@@ -76,7 +74,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                IsBusy = false;
+                HideLoading();
             }
         }
 

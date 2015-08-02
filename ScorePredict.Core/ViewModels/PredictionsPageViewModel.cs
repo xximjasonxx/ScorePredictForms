@@ -35,21 +35,6 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        private bool _isBusy;
-
-        public bool IsBusy
-        {
-            get { return _isBusy; }
-            private set
-            {
-                if (_isBusy != value)
-                {
-                    _isBusy = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         public ICommand SelectPredictionCommand
         {
             get
@@ -79,8 +64,7 @@ namespace ScorePredict.Core.ViewModels
             {
                 try
                 {
-                    IsBusy = true;
-                    LoaderMessage = "Loading Predictions...";
+                    ShowLoading("Loading Predictions...");
                     await LoadPredictionsAsync();
 
                     IsLoaded = true;
@@ -91,7 +75,7 @@ namespace ScorePredict.Core.ViewModels
                 }
                 finally
                 {
-                    IsBusy = false;
+                    HideLoading();
                 }
             }
         }
@@ -100,8 +84,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                DialogService.ShowLoading("Refreshing...");
-                IsBusy = true;
+                ShowLoading("Refreshing...");
                 await LoadPredictionsAsync();
             }
             catch (Exception)
@@ -110,7 +93,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                IsBusy = false;
+                HideLoading();
             }
         }
 
