@@ -80,13 +80,14 @@ namespace ScorePredict.Core.ViewModels
                 try
                 {
                     IsBusy = true;
+                    LoaderMessage = "Loading Predictions...";
                     await LoadPredictionsAsync();
 
                     IsLoaded = true;
                 }
                 catch (Exception)
                 {
-                    //DialogService.Alert("Failed to load Predictions. Please refresh");
+                    DialogService.Alert("Failed to load Predictions. Please refresh");
                 }
                 finally
                 {
@@ -100,6 +101,7 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 DialogService.ShowLoading("Refreshing...");
+                IsBusy = true;
                 await LoadPredictionsAsync();
             }
             catch (Exception)
@@ -108,13 +110,8 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                DialogService.HideLoading();
+                IsBusy = false;
             }
-        }
-
-        public async void LoadPredictions()
-        {
-            await LoadPredictionsAsync();
         }
 
         private async Task LoadPredictionsAsync()

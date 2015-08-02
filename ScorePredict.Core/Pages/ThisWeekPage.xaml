@@ -28,7 +28,7 @@
       <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
              Grid.Row="5" Style="{StaticResource MediumLabel}" />
 
-      <controls:ContentLoader Message="Loading This Week..." HorizontalOptions="Fill" VerticalOptions="Fill"
+      <controls:ContentLoader Message="{Binding LoaderMessage}" HorizontalOptions="Fill" VerticalOptions="Fill"
                               Grid.RowSpan="7" IsVisible="{Binding IsBusy}" />
      
     </Grid>

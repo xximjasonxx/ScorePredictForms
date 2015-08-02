@@ -102,7 +102,7 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                //DialogService.ShowLoading("Refreshing...");
+                LoaderMessage = "Refreshing...";
                 IsBusy = true;
                 await LoadWeekDataAsync();
             }
@@ -112,7 +112,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                //DialogService.HideLoading();
+                IsBusy = false;
             }
         }
 
@@ -120,8 +120,8 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
+                LoaderMessage = "Loading This Week...";
                 IsBusy = true;
-                //DialogService.ShowLoading("Loading This Week...");
                 await LoadWeekDataAsync();
             }
             catch
@@ -131,13 +131,7 @@ namespace ScorePredict.Core.ViewModels
             finally
             {
                 IsBusy = false;
-                //DialogService.HideLoading();
             }
-        }
-
-        private async void LoadWeekData()
-        {
-            await LoadWeekDataAsync();
         }
 
         private async Task LoadWeekDataAsync()

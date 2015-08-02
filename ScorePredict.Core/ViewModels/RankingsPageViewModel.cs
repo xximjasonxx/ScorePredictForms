@@ -44,13 +44,14 @@ namespace ScorePredict.Core.ViewModels
 
             try
             {
+                LoaderMessage = "Loading Rankings...";
                 IsBusy = true;
                 await LoadRankingsAsync();
                 IsLoaded = true;
             }
             catch (Exception)
             {
-                //DialogService.Alert("Failed to load Rankings");
+                DialogService.Alert("Failed to load Rankings");
             }
             finally
             {
@@ -72,7 +73,8 @@ namespace ScorePredict.Core.ViewModels
         {
             try
             {
-                DialogService.ShowLoading("Refreshing...");
+                LoaderMessage = "Refreshing...";
+                IsBusy = true;
                 await LoadRankingsAsync();
             }
             catch
@@ -81,7 +83,7 @@ namespace ScorePredict.Core.ViewModels
             }
             finally
             {
-                DialogService.HideLoading();
+                IsBusy = false;
             }
         }
     }

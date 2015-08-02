@@ -25,6 +25,20 @@ namespace ScorePredict.Core.ViewModels.Abstract
             }
         }
 
+        private string _loaderMessage;
+        public string LoaderMessage
+        {
+            get { return _loaderMessage; }
+            protected set
+            {
+                if (_loaderMessage != value)
+                {
+                    _loaderMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand LogoutCommand { get { return new Command(Logout); } }
 
         public bool IsLoaded { get; set; }
