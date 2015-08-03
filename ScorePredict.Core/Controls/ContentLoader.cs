@@ -6,7 +6,7 @@ namespace ScorePredict.Core.Controls
     {
         public static BindableProperty MessageProperty =
             BindableProperty.Create<ContentLoader, string>(x => x.Message, null, BindingMode.OneWay,
-                null, MessagePropertyChanged);
+                null, null);
 
         private static void MessagePropertyChanged(BindableObject bindable, string oldValue, string newValue)
         {
