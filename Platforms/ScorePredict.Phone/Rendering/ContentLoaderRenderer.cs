@@ -1,4 +1,5 @@
-﻿using ScorePredict.Core.Controls;
+﻿using System.ComponentModel;
+using ScorePredict.Core.Controls;
 using ScorePredict.Phone.Rendering;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.WinPhone;
@@ -17,8 +18,19 @@ namespace ScorePredict.Phone.Rendering
             {
                 var view = (ContentLoader) e.NewElement;
                 view.LoadFromXaml(typeof (ContentLoaderView));
+            }
+        }
 
-                view.FindByName<Label>("messageLabel").Text = view.Message;
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var contentLoader = sender as ContentLoader;
+            if (sender != null && e.PropertyName == "Message")
+            {
+                var view = contentLoader.Content;
+                if (view != null && view.FindByName<Label>("messageLabel") != null && !string.IsNullOrEmpty(contentLoader.Message))
+                {
+                    view.FindByName<Label>("messageLabel").Text = contentLoader.Message;
+                }
             }
         }
     }
