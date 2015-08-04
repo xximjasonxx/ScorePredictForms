@@ -33,12 +33,12 @@
       </Label>
       
       <Label Text="{Binding Path=Prediction.AwayTeam, Mode=OneWay}" Style="{StaticResource SmallLabel}"
-             Grid.Row="1" Grid.Column="0" />
+             Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand" />
       <controls:NumberEntry Text="{Binding Path=AwayPredictedScore, Mode=TwoWay}"
              Grid.Row="1" Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill" />
       
       <Label Text="{Binding Path=Prediction.HomeTeam, Mode=OneWay}" Style="{StaticResource SmallLabel}"
-             Grid.Row="2" Grid.Column="0" />
+             Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand" />
       <controls:NumberEntry Text="{Binding Path=HomePredictedScore, Mode=TwoWay}"
              Grid.Row="2" Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill" />
 

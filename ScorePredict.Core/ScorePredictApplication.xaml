@@ -19,8 +19,8 @@
       
       <OnPlatform x:TypeArguments="Font" Android="Large" iOS="22" WinPhone="Large" x:Key="HeaderFont" />
       <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="40" x:Key="LargeFontSize" />
-      <OnPlatform x:TypeArguments="Font" Android="30" iOS="27" WinPhone="25" x:Key="MediumFontSize" />
-      <OnPlatform x:TypeArguments="Font" Android="20" iOS="17" WinPhone="20" x:Key="SmallFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="30" iOS="27" WinPhone="30" x:Key="MediumFontSize" />
+      <OnPlatform x:TypeArguments="Font" Android="20" iOS="17" WinPhone="25" x:Key="SmallFontSize" />
       
       <OnPlatform x:TypeArguments="Font" Android="25" iOS="18" WinPhone="30" x:Key="ListPrimaryFontSize" />
       <OnPlatform x:TypeArguments="Font" Android="18" iOS="14" WinPhone="18" x:Key="ListSecondaryFontSize" />

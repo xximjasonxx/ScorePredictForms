@@ -12,6 +12,8 @@ namespace ScorePredict.Phone.Rendering
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
+            base.OnElementChanged(e);
+
             if (e.OldElement == null)
             {
                 var control = (PhoneTextBox) Control.Children[0];
