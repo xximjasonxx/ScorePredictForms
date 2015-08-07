@@ -20,8 +20,27 @@ namespace ScorePredict.Core.ViewModels
         public IStartupService StartupService { get; private set; }
         public IBus MessageBus { get; private set; }
 
-        public string Username { get; set; }
-        public string Password { get; set; }
+        private string _username;
+        public string Username
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand GoToCreateUserCommand { get { return new Command(GoToCreateUser); } }
 
@@ -44,9 +63,6 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
-            Username = string.Empty;
-            Password = string.Empty;
-
             var user = ReadUserSecurityService.ReadUser();
             if (user != null)
             {
@@ -103,6 +119,9 @@ namespace ScorePredict.Core.ViewModels
                 }
 
                 SaveUserSecurityService.SaveUser(user);
+                Username = string.Empty;
+                Password = string.Empty;
+
                 MessageBus.Publish<LoginCompleteMessage>();
                 await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
             }

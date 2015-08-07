@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Services.Contracts;
 using Xamarin.Forms;
@@ -65,7 +66,14 @@ namespace ScorePredict.Core.ViewModels.Abstract
             if (await DialogService.ConfirmLogoutAsync())
             {
                 ClearUserSecurityService.ClearUserSecurity();
-                await Navigation.PopModalAsync(true);
+
+                try
+                {
+                    await Navigation.PopModalAsync(true);
+                }
+                catch (Exception ex)
+                {
+                }
             }
         }
     }
