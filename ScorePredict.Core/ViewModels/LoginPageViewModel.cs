@@ -44,6 +44,9 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
+            Username = string.Empty;
+            Password = string.Empty;
+
             var user = ReadUserSecurityService.ReadUser();
             if (user != null)
             {
