@@ -10,9 +10,6 @@
         <RowDefinition Height="Auto" />
         <RowDefinition Height="Auto" />
         <RowDefinition Height="10" />
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
 
@@ -20,19 +17,24 @@
            Text="No Games found for current week" TextColor="White" IsVisible="{Binding NoGames}" />
       
       <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Style="{StaticResource HeaderLabel}" Grid.Row="1" />
+             Style="{StaticResource HeaderLabel}" Grid.Row="1" IsVisible="{Binding NoGames, Converter={StaticResource InvertBoolConverter}}" />
 
-      <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="3" Style="{StaticResource LargeLabel}" />
+      <StackLayout Grid.Row="3" HorizontalOptions="Fill" VerticalOptions="FillAndExpand"
+                   IsVisible="{Binding NoGames, Converter={StaticResource InvertBoolConverter}}">
 
-      <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="4" Style="{StaticResource MediumLabel}" />
+        <Label Text="{Binding Path=PointsAwardedDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
+               Style="{StaticResource LargeLabel}" />
 
-      <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
-             Grid.Row="5" Style="{StaticResource MediumLabel}" />
+        <Label Text="{Binding Path=PredictionCountDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
+               Style="{StaticResource MediumLabel}" />
+
+        <Label Text="{Binding Path=RankDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
+               Style="{StaticResource MediumLabel}" />
+        
+      </StackLayout>
 
       <controls:ContentLoader Message="{Binding LoaderMessage}" HorizontalOptions="Fill" VerticalOptions="Fill"
-                              Grid.RowSpan="7" IsVisible="{Binding IsBusy}" />
+                              Grid.RowSpan="4" IsVisible="{Binding IsBusy}" />
      
     </Grid>
 </pages:ScorePredictContentPage>
