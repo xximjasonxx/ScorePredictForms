@@ -7,14 +7,19 @@
   
   <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Padding="10,0,10,0">
     <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
       <RowDefinition Height="5" />
     </Grid.RowDefinitions>
 
-    <controls:ScorePredictListView ItemsSource="{Binding PredictionYears}"
+    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Grid.Row="1"
+           Text="You have not made any predictions" TextColor="White" IsVisible="{Binding NoGames}" />
+
+    <controls:ScorePredictListView ItemsSource="{Binding PredictionYears}" Grid.Row="1"
                                    HasUnevenRows="True" BackgroundColor="{StaticResource BackgroundColor}"
                                    ItemSelectedCommand="{Binding Path=SelectPredictionYearCommand, Mode=OneWay}"
-                                   VerticalOptions="StartAndExpand" HorizontalOptions="Fill">
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="Fill"
+                                   IsVisible="{Binding NoGames, Converter={StaticResource InvertBoolConverter}}">
       
       <controls:ScorePredictListView.ItemTemplate>
         <DataTemplate>
@@ -29,7 +34,7 @@
     </controls:ScorePredictListView>
 
     <controls:ContentLoader Message="{Binding LoaderMessage}" HorizontalOptions="Fill" VerticalOptions="Fill"
-                              Grid.RowSpan="2" IsVisible="{Binding IsBusy}" />
+                              Grid.RowSpan="3" IsVisible="{Binding IsBusy}" />
   </Grid>
   
 </pages:ScorePredictContentPage>

@@ -26,6 +26,21 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        private bool _noGames;
+
+        public bool NoGames
+        {
+            get { return _noGames; }
+            private set
+            {
+                if (_noGames != value)
+                {
+                    _noGames = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand SelectPredictionYearCommand { get { return new Command<int>(SelectPredictionYear); } }
         public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
@@ -80,7 +95,8 @@ namespace ScorePredict.Core.ViewModels
 
         private async Task LoadPredictionYearsAsync()
         {
-            PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
+            PredictionYears = new ObservableCollection<int>(); //new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
+            NoGames = PredictionYears.Count == 0;
         }
     }
 }
