@@ -30,7 +30,14 @@ namespace ScorePredict.Core.ViewModels
             {
                 _predictionGroups = value;
                 OnPropertyChanged();
+                OnPropertyChanged("NoGames");
             }
+        }
+
+        public bool NoGames
+        {
+            get
+            { return _predictionGroups == null || _predictionGroups.Count == 0; }
         }
 
         public ICommand SelectPredictionCommand
@@ -68,7 +75,7 @@ namespace ScorePredict.Core.ViewModels
 
                     IsLoaded = true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     DialogService.Alert("Failed to load Predictions. Please refresh");
                 }
