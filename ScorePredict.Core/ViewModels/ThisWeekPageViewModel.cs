@@ -14,7 +14,6 @@ namespace ScorePredict.Core.ViewModels
     public class ThisWeekPageViewModel : ScorePredictRootPageViewModel
     {
         public IThisWeekService ThisWeekService { get; private set; }
-        public IBus MessageBus { get; private set; }
         public IReadUserSecurityService ReadUserSecurityService { get; private set; }
 
         private int _pointsAwarded;
@@ -73,6 +72,21 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        private bool _noGames;
+
+        public bool NoGames
+        {
+            get { return _noGames; }
+            private set
+            {
+                if (_noGames != value)
+                {
+                    _noGames = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public string PointsAwardedDisplay
         {
             get
@@ -89,12 +103,11 @@ namespace ScorePredict.Core.ViewModels
         public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         public ThisWeekPageViewModel(IThisWeekService thisWeekService, IDialogService dialogService,
-            IClearUserSecurityService clearUserSecurityService, IBus messageBus,
+            IClearUserSecurityService clearUserSecurityService,
             IReadUserSecurityService readUserSecurityService, IKillApplication killApp)
             : base(clearUserSecurityService, dialogService, killApp)
         {
             ThisWeekService = thisWeekService;
-            MessageBus = messageBus;
             ReadUserSecurityService = readUserSecurityService;
         }
 
@@ -143,6 +156,7 @@ namespace ScorePredict.Core.ViewModels
                 result.Ranking, result.UserCount,
                 result.UserCount == 1 ? string.Empty : "s");
             WeekYearDisplay = string.Format("Week {0} {1}", result.WeekNumber, result.Year);
+            NoGames = result.GamesCount == 0;
 
             IsLoaded = true;
         }

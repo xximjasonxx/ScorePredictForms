@@ -15,6 +15,9 @@
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
+
+      <Label HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"
+           Text="No Games found for current week" TextColor="White" IsVisible="{Binding NoGames}" />
       
       <Label Text="{Binding Path=WeekYearDisplay, Mode=OneWay}" HorizontalOptions="StartAndExpand"
              Style="{StaticResource HeaderLabel}" Grid.Row="1" />
