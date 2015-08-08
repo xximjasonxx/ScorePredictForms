@@ -28,6 +28,21 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
+        private bool _noGames;
+
+        public bool NoGames
+        {
+            get { return _noGames; }
+            private set
+            {
+                if (_noGames != value)
+                {
+                    _noGames = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand RefreshCommand { get { return new Command(Refresh); } }
 
         public RankingsPageViewModel(IRankingService rankingService, IClearUserSecurityService clearUserSecurityService,
@@ -61,6 +76,7 @@ namespace ScorePredict.Core.ViewModels
         async Task LoadRankingsAsync()
         {
             var weekRankings = await _rankingService.GetCurrentWeekRankings();
+            NoGames = weekRankings.Count == 0;
             var userRanking = weekRankings.FirstOrDefault(x => x.UserId == _readUserSecurityService.ReadUser().UserId);
             if (userRanking != null)
                 userRanking.IsCurrentUser = true;
@@ -75,7 +91,7 @@ namespace ScorePredict.Core.ViewModels
                 ShowLoading("Refreshing...");
                 await LoadRankingsAsync();
             }
-            catch
+            catch (Exception ex)
             {
                 DialogService.Alert("Failed to reload Rankings. Please try again");
             }

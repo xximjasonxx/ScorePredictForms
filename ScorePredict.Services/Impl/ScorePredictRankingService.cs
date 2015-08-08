@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ScorePredict.Common.Ex;
 using ScorePredict.Common.Extensions;
 using ScorePredict.Common.Models;
 using ScorePredict.Services.Contracts;
@@ -20,20 +21,27 @@ namespace ScorePredict.Services.Impl
 
         public async Task<IList<RankingModel>> GetCurrentWeekRankings()
         {
-            var parameters = new Dictionary<string, string>()
+            try
             {
-                //{"weekOf", DateTime.Now.ToString("d")}
-                {"weekOf", "9/5/2014"}
-            };
+                var parameters = new Dictionary<string, string>()
+                {
+                    {"weekOf", DateTime.Now.ToString("d")}
+                    //{"weekOf", "9/5/2014"}
+                };
 
-            var dictionary = (await _client.GetApiAsync("rankings", parameters)).AsDictionary();
-            return dictionary.Select(x => new RankingModel()
+                var dictionary = (await _client.GetApiAsync("rankings", parameters)).AsDictionary();
+                return dictionary.Select(x => new RankingModel()
+                {
+                    Rank = x["rank"].AsInt(),
+                    UserId = x["userId"],
+                    Username = x["userDisplay"],
+                    Points = x["points"].AsInt()
+                }).ToList();
+            }
+            catch (NotFoundException)
             {
-                Rank = x["rank"].AsInt(),
-                UserId = x["userId"],
-                Username = x["userDisplay"],
-                Points = x["points"].AsInt()
-            }).ToList();
+                return new List<RankingModel>();
+            }
         }
     }
 }

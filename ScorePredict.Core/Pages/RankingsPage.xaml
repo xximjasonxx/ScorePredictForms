@@ -26,7 +26,8 @@
     
     <controls:ScorePredictListView ItemsSource="{Binding Path=Rankings, Mode=OneWay}"
                                    HasUnevenRows="True" IsGroupingEnabled="False" Grid.Row="2"
-                                   BackgroundColor="{StaticResource BackgroundColor}">
+                                   BackgroundColor="{StaticResource BackgroundColor}"
+                                   IsVisible="{Binding NoGames, Converter={StaticResource InvertBoolConverter}}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell Height="50">
