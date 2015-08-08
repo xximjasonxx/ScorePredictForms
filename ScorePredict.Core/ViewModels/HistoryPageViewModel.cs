@@ -95,7 +95,7 @@ namespace ScorePredict.Core.ViewModels
 
         private async Task LoadPredictionYearsAsync()
         {
-            PredictionYears = new ObservableCollection<int>(); //new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
+            PredictionYears = new ObservableCollection<int>(await PredictionService.GetPredictionYearsAsync());
             NoGames = PredictionYears.Count == 0;
         }
     }
