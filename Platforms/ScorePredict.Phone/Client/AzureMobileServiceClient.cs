@@ -33,7 +33,17 @@ namespace ScorePredict.Phone.Client
 
         public async Task<JToken> GetApiAsync(string apiName, IDictionary<string, string> parameters)
         {
-            return await InvokeApiAsync(apiName, HttpMethod.Get, parameters);
+            try
+            {
+                return await InvokeApiAsync(apiName, HttpMethod.Get, parameters);
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                if (ex.Response.StatusCode == HttpStatusCode.NotFound)
+                    throw new NotFoundException(ex.Message);
+
+                throw ex;
+            }
         }
 
         public async Task<JToken> PostApiAsync(string apiName, IDictionary<string, string> parameters)

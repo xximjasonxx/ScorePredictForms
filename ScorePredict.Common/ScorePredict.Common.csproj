@@ -51,6 +51,7 @@
     <Compile Include="Ex\InvalidSessionException.cs" />
     <Compile Include="Ex\LoginException.cs" />
     <Compile Include="Ex\LookupFailedException.cs" />
+    <Compile Include="Ex\NotFoundException.cs" />
     <Compile Include="Ex\SaveUsernameException.cs" />
     <Compile Include="Models\PredictionViewModel.cs" />
     <Compile Include="Models\RankingModel.cs" />
