@@ -73,7 +73,6 @@ namespace ScorePredict.Core.ViewModels
         }
 
         private bool _noGames;
-
         public bool NoGames
         {
             get { return _noGames; }

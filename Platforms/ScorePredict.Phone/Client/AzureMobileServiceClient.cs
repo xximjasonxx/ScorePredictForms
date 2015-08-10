@@ -42,6 +42,9 @@ namespace ScorePredict.Phone.Client
                 if (ex.Response.StatusCode == HttpStatusCode.NotFound)
                     throw new NotFoundException(ex.Message);
 
+                if (ex.Response.StatusCode == HttpStatusCode.Unauthorized)
+                    throw new InvalidSessionException();
+
                 throw ex;
             }
         }
