@@ -16,6 +16,8 @@
       <Color x:Key="SpecialTextColor">#FCD23C</Color>
       <Color x:Key="BackgroundColor">#77B739</Color>
       <Color x:Key="DarkGreenColor">#3C8513</Color>
+        
+      <OnPlatform x:TypeArguments="LayoutOptions" Android="CenterAndExpand" iOS="CenterAndExpand" WinPhone="StartAndExpand" x:Key="NoDataVerticalOption" />
       
       <OnPlatform x:TypeArguments="Font" Android="Large" iOS="22" WinPhone="Large" x:Key="HeaderFont" />
       <OnPlatform x:TypeArguments="Font" Android="30" iOS="30" WinPhone="40" x:Key="LargeFontSize" />

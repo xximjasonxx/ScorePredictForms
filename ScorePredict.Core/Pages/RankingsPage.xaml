@@ -20,9 +20,6 @@
     </Grid.RowDefinitions>
     
     <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Text="Current Week" />
-
-    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Grid.Row="1"
-           Text="No Games found for current week" TextColor="White" IsVisible="{Binding NoGames}" />
     
     <controls:ScorePredictListView ItemsSource="{Binding Path=Rankings, Mode=OneWay}"
                                    HasUnevenRows="True" IsGroupingEnabled="False" Grid.Row="2"
@@ -53,6 +50,12 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </controls:ScorePredictListView>
+
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{StaticResource BackgroundColor}"
+            Grid.Row="0" Grid.RowSpan="3">
+      <Label HorizontalOptions="CenterAndExpand" VerticalOptions="{StaticResource NoDataVerticalOption}"
+           Text="No Games found for current week" TextColor="White" IsVisible="{Binding NoGames}" />
+    </Grid>
 
     <controls:ContentLoader Message="{Binding LoaderMessage}" HorizontalOptions="Fill" VerticalOptions="Fill"
                             IsVisible="{Binding IsBusy}" Grid.Row="2" />
