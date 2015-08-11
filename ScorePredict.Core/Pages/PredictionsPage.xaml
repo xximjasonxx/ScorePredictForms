@@ -81,9 +81,9 @@
     </controls:ScorePredictListView>
 
     <Grid HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{StaticResource BackgroundColor}"
-            Grid.Row="0" Grid.RowSpan="2">
+            Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding NoGames}">
       <Label HorizontalOptions="CenterAndExpand" VerticalOptions="{StaticResource NoDataVerticalOption}"
-           Text="No Games found for current week" TextColor="White" IsVisible="{Binding NoGames}" />
+           Text="No Games found for current week" TextColor="White" />
     </Grid>
     
     <controls:ContentLoader Message="{Binding LoaderMessage}" HorizontalOptions="Fill" VerticalOptions="Fill"
