@@ -18,6 +18,7 @@ namespace ScorePredict.Common.Data
         public int AwayPredictedScore { get; set; }
         public int HomePredictedScore { get; set; }
         public int PointsAwarded { get; set; }
+        public int PredictionId { get; set; }
 
         public string HomeTeamName
         {

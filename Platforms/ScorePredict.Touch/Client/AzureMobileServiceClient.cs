@@ -120,9 +120,10 @@ namespace ScorePredict.Touch.Client
             }
         }
 
-        public Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters)
+        public async Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters)
         {
-            throw new NotImplementedException();
+            var table = GetTable(tableName);
+            return await table.UpdateAsync(parameters.AsJObject());
         }
 
         public async Task<JToken> ReadTableAsync(string tableName, IDictionary<string, string> parameters)

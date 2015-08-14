@@ -12,5 +12,6 @@ namespace ScorePredict.Common.Models
         public int AwayPrediction { get; set; }
         public int HomePrediction { get; set; }
         public string WeekId { get; set; }
+        public int PredictionId { get; set; }
     }
 }

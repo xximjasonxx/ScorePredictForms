@@ -50,12 +50,14 @@
     <Compile Include="Converters\GameStateValueConverter.cs" />
     <Compile Include="Converters\InvertedBooleanValueConverter.cs" />
     <Compile Include="Converters\ScorePredictionDisplayConverter.cs" />
+    <Compile Include="CustomContext.cs" />
     <Compile Include="Extensions\ContainerExtensions.cs" />
     <Compile Include="Impl\EmptyKillApplication.cs" />
     <Compile Include="MessageBus\DefaultMessageBus.cs" />
     <Compile Include="MessageBus\IBus.cs" />
     <Compile Include="MessageBus\IMessage.cs" />
     <Compile Include="MessageBus\Messages\LoginCompleteMessage.cs" />
+    <Compile Include="MessageBus\Messages\RefreshPredictionsMessage.cs" />
     <Compile Include="Modules\ViewModelModule.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>

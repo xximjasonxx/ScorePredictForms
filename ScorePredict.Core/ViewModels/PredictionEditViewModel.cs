@@ -2,6 +2,8 @@
 using System.Windows.Input;
 using ScorePredict.Common.Data;
 using ScorePredict.Common.Models;
+using ScorePredict.Core.MessageBus;
+using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
 using ScorePredict.Services.Contracts;
@@ -53,16 +55,18 @@ namespace ScorePredict.Core.ViewModels
             }
         }
         public IPredictionService PredictionService { get; private set; }
+        public IBus MessageBus { get; private set; }
 
         public ICommand SaveCommand { get { return new Command(Save); } }
 
         public ICommand CloseCommand { get { return new Command(Close); } }
 
         public PredictionEditViewModel(IDialogService dialogService, IPredictionService predictionService,
-            IClearUserSecurityService clearUserSecurityService)
+            IClearUserSecurityService clearUserSecurityService, IBus messageBus)
             : base(clearUserSecurityService, dialogService)
         {
             PredictionService = predictionService;
+            MessageBus = messageBus;
         }
 
         private async void Save()
@@ -70,16 +74,24 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 DialogService.ShowLoading("Saving...");
-                await PredictionService.SavePredictionAsync(new SavePredictionModel()
+                CustomContext.Current.LastPrediction = Prediction;
+                var result = await PredictionService.SavePredictionAsync(new SavePredictionModel()
                 {
+                    PredictionId = Prediction.PredictionId,
                     WeekId = Prediction.WeekId,
                     GameId = Prediction.GameId,
                     AwayPrediction = AwayPredictedScore,
                     HomePrediction = HomePredictedScore
-
                 });
 
-                await Navigation.PopAsync(true);
+                if (result != null && Prediction != null)
+                {
+                    Prediction.AwayPredictedScore = AwayPredictedScore;
+                    Prediction.HomePredictedScore = HomePredictedScore;
+
+                    MessageBus.Publish<RefreshPredictionsMessage>();
+                    await Navigation.PopModalAsync(true);
+                }
             }
             catch (Exception ex)
             {

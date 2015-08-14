@@ -110,9 +110,17 @@ namespace ScorePredict.Droid.Client
             }
         }
 
-        public Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters)
+        public async Task<JToken> UpdateTable(string tableName, IDictionary<string, string> parameters)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var table = GetTable(tableName);
+                return await table.UpdateAsync(parameters.AsJObject());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<JToken> ReadTableAsync(string tableName, IDictionary<string, string> parameters)

@@ -8,6 +8,7 @@ using ScorePredict.Common.Data;
 using ScorePredict.Common.Utility;
 using ScorePredict.Core.Contracts;
 using ScorePredict.Core.MessageBus;
+using ScorePredict.Core.MessageBus.Messages;
 using ScorePredict.Core.Pages;
 using ScorePredict.Core.ViewModels.Abstract;
 using ScorePredict.Services;
@@ -19,7 +20,6 @@ namespace ScorePredict.Core.ViewModels
     public class PredictionsPageViewModel : ScorePredictRootPageViewModel
     {
         public IPredictionService PredictionService { get; private set; }
-        public IBus MessageBus { get; private set; }
         public IReadUserSecurityService ReadUserSecurityService { get; private set; }
 
         private ObservableCollection<PredictionGroup> _predictionGroups;
@@ -30,7 +30,7 @@ namespace ScorePredict.Core.ViewModels
             {
                 _predictionGroups = value;
                 OnPropertyChanged();
-                OnPropertyChanged("NoGames");
+                OnPropertyChanged(nameof(NoGames));
             }
         }
 
@@ -46,7 +46,7 @@ namespace ScorePredict.Core.ViewModels
             {
                 return new Command<Prediction>(
                     x => Navigation.PushModalAsync(new ScorePredictNavigationPage(new PredictionEditPage(x))),
-                    x => x.InPregame);
+                    x => true);
             }
         }
 
@@ -58,8 +58,24 @@ namespace ScorePredict.Core.ViewModels
             : base(clearUserSecurityService, dialogService, killApp)
         {
             PredictionService = predictionService;
-            MessageBus = messageBus;
             ReadUserSecurityService = readUserSecurityService;
+
+            messageBus.ListenFor<RefreshPredictionsMessage>(RefreshPredictionGroups);
+        }
+
+        private void RefreshPredictionGroups()
+        {
+            var prediction = CustomContext.Current.LastPrediction;
+            if (prediction != null)
+            {
+                var p = _predictionGroups.ToList().SelectMany(pg => pg).ToList()
+                    .FirstOrDefault(p1 => p1.PredictionId == prediction.PredictionId);
+                if (p != null)
+                {
+                    p.AwayPredictedScore = prediction.AwayPredictedScore;
+                    p.HomePredictedScore = prediction.HomePredictedScore;
+                }
+            }
         }
 
         public override async void OnShow()
