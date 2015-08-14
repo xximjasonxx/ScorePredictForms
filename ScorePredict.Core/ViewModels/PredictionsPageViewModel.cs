@@ -22,22 +22,26 @@ namespace ScorePredict.Core.ViewModels
         public IPredictionService PredictionService { get; private set; }
         public IReadUserSecurityService ReadUserSecurityService { get; private set; }
 
-        private ObservableCollection<PredictionGroup> _predictionGroups;
-        public ObservableCollection<PredictionGroup> PredictionGroups
+        private IList<Prediction> _predictions;
+        public IList<PredictionGroup> PredictionGroups
         {
-            get { return _predictionGroups; }
-            set
+            get
             {
-                _predictionGroups = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(NoGames));
+                if (_predictions == null)
+                    return new List<PredictionGroup>();
+
+                return (new List<PredictionGroup>
+                {
+                    new PredictionGroup("Pregame", _predictions.Where(x => x.InPregame).ToList()),
+                    new PredictionGroup("Final", _predictions.Where(x => x.IsConcluded).ToList()),
+                    new PredictionGroup("In Progress", _predictions.Where(x => !x.IsConcluded && !x.InPregame).ToList())
+                }).Where(pg => pg.Count > 0).ToList();
             }
         }
 
         public bool NoGames
         {
-            get
-            { return _predictionGroups == null || _predictionGroups.Count == 0; }
+            get { return PredictionGroups.Count == 0; }
         }
 
         public ICommand SelectPredictionCommand
@@ -63,18 +67,15 @@ namespace ScorePredict.Core.ViewModels
             messageBus.ListenFor<RefreshPredictionsMessage>(RefreshPredictionGroups);
         }
 
-        private void RefreshPredictionGroups()
+        private void RefreshPredictionGroups(RefreshPredictionsMessage message)
         {
-            var prediction = CustomContext.Current.LastPrediction;
-            if (prediction != null)
+            var p = _predictions.FirstOrDefault(p1 => p1.PredictionId == message.PredictionId);
+            if (p != null)
             {
-                var p = _predictionGroups.ToList().SelectMany(pg => pg).ToList()
-                    .FirstOrDefault(p1 => p1.PredictionId == prediction.PredictionId);
-                if (p != null)
-                {
-                    p.AwayPredictedScore = prediction.AwayPredictedScore;
-                    p.HomePredictedScore = prediction.HomePredictedScore;
-                }
+                p.AwayPredictedScore = message.AwayTeamScore;
+                p.HomePredictedScore = message.HomeTeamScore;
+
+                OnPropertyChanged(nameof(PredictionGroups));
             }
         }
 
@@ -121,13 +122,9 @@ namespace ScorePredict.Core.ViewModels
 
         private async Task LoadPredictionsAsync()
         {
-            var result = await PredictionService.GetCurrentWeekPredictions();
-            PredictionGroups = new ObservableCollection<PredictionGroup>((new List<PredictionGroup>
-                {
-                    new PredictionGroup("Pregame", result.Where(x => x.InPregame).ToList()),
-                    new PredictionGroup("Final", result.Where(x => x.IsConcluded).ToList()),
-                    new PredictionGroup("In Progress", result.Where(x => !x.IsConcluded && !x.InPregame).ToList())
-                }).Where(pg => pg.Count > 0));
+            _predictions = await PredictionService.GetCurrentWeekPredictions();
+            OnPropertyChanged(nameof(PredictionGroups));
+            OnPropertyChanged(nameof(NoGames));
         }
     }
 }

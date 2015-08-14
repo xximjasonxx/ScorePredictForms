@@ -8,7 +8,7 @@ namespace ScorePredict.Core.MessageBus
 {
     public interface IBus
     {
-        void Publish<T>() where T : IMessage;
-        void ListenFor<T>(Action action) where T : IMessage;
+        void Publish<T>(T message) where T : IMessage;
+        void ListenFor<T>(Action<T> action) where T : IMessage;
     }
 }

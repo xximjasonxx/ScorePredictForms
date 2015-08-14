@@ -74,7 +74,6 @@ namespace ScorePredict.Core.ViewModels
             try
             {
                 DialogService.ShowLoading("Saving...");
-                CustomContext.Current.LastPrediction = Prediction;
                 var result = await PredictionService.SavePredictionAsync(new SavePredictionModel()
                 {
                     PredictionId = Prediction.PredictionId,
@@ -86,10 +85,8 @@ namespace ScorePredict.Core.ViewModels
 
                 if (result != null && Prediction != null)
                 {
-                    Prediction.AwayPredictedScore = AwayPredictedScore;
-                    Prediction.HomePredictedScore = HomePredictedScore;
-
-                    MessageBus.Publish<RefreshPredictionsMessage>();
+                    MessageBus.Publish(new RefreshPredictionsMessage(Prediction.PredictionId,
+                        AwayPredictedScore, HomePredictedScore));
                     await Navigation.PopModalAsync(true);
                 }
             }
