@@ -17,7 +17,7 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>ScorePredict.Phone_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>ScorePredict.Phone.Release.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>ScorePredict.Phone.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>

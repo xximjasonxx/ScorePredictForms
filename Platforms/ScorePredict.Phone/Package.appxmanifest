@@ -1,59 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest"
-         xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest"
-         xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest"
-         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-
-  <Identity Name="77b31da4-585d-495a-8b27-337ff3c79793"
-            Publisher="CN=Jason F"
-            Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="c9bf19d4-b0a4-4a26-8d20-360834e8c19a"
-                    PhonePublisherId="7cc508d4-5e5f-4d7f-8867-c481ce781382"/>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="7906Farrellsoft.ScorePredict" Publisher="CN=D7EF8A2F-8C3B-4BA8-902A-037E80D75B16" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="c9bf19d4-b0a4-4a26-8d20-360834e8c19a" PhonePublisherId="7cc508d4-5e5f-4d7f-8867-c481ce781382" />
   <Properties>
     <DisplayName>ScorePredict.Phone</DisplayName>
-    <PublisherDisplayName>Jason F</PublisherDisplayName>
+    <PublisherDisplayName>Farrellsoft</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.1</OSMinVersion>
     <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-                 Executable="AGHost.exe"
-                 EntryPoint="MainPage.xaml">
-      <m3:VisualElements
-          DisplayName="ScorePredict.Phone"
-          Square150x150Logo="Assets\SquareTile150x150.png"
-          Square44x44Logo="Assets\Logo.png"
-          Description="ScorePredict.Phone"
-          ForegroundText="light"
-          BackgroundColor="#464646">
-        <m3:DefaultTile Square71x71Logo="Assets\SquareTile71x71.png"/>
+    <Application Id="App" Executable="AGHost.exe" EntryPoint="MainPage.xaml">
+      <m3:VisualElements DisplayName="ScorePredict.Phone" Square150x150Logo="Assets\SquareTile150x150.png" Square44x44Logo="Assets\Logo.png" Description="ScorePredict.Phone" ForegroundText="light" BackgroundColor="#464646">
+        <m3:DefaultTile Square71x71Logo="Assets\SquareTile71x71.png">
+        </m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" />
       </m3:VisualElements>
-
       <Extensions>
         <Extension Category="windows.backgroundTasks" EntryPoint="AgHost.BackgroundTask">
           <BackgroundTasks>
-          <Task Type="systemEvent" />
+            <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
       </Extensions>
-
     </Application>
   </Applications>
-  <Capabilities>
-  </Capabilities>
-
   <Extensions>
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
@@ -62,5 +38,4 @@
       </InProcessServer>
     </Extension>
   </Extensions>
-
 </Package>
