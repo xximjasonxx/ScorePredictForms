@@ -11,7 +11,9 @@ namespace ScorePredict.Touch.Rendering
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
-            if (e.OldElement == null)
+            base.OnElementChanged(e);
+
+            if (Control != null)
             {
                 Control.KeyboardType = UIKeyboardType.NumberPad;
             }
