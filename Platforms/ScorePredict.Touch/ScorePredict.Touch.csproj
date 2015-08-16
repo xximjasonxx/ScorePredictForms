@@ -62,7 +62,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Jason Farrell (7XN4GH4DP5)</CodesignKey>
+    <CodesignProvision>700debea-37e4-46b3-b709-4444b55538ee</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -247,6 +248,9 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\launch_640x960.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_57.png" />
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\appicon_114.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />

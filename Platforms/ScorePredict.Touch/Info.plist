@@ -5,11 +5,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>Score Predict</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.farrellsoft.scorepredict</string>
+	<string>com.farrellsoft.ScorePredict</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -21,19 +19,14 @@
 	<key>MinimumOSVersion</key>
 	<string>7.1</string>
 	<key>XSAppIconAssets</key>
-	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>appicon_120.png</string>
-		<string>appicon_58.png</string>
-		<string>appicon_29.png</string>
-		<string>appicon_80.png</string>
-	</array>
+	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array/>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>
