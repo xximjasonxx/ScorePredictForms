@@ -22,8 +22,8 @@ namespace ScorePredict.Services.Impl
         {
             var parameters = new Dictionary<string, string>()
             {
-               //{"weekForDate", DateTime.Now.ToString("d")}
-                {"weekForDate", "9/5/2014"}
+               {"weekForDate", DateTime.Now.ToString("d")}
+               // {"weekForDate", "9/5/2014"}
             };
 
             try
