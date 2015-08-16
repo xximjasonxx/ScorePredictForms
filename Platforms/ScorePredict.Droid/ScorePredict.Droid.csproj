@@ -39,6 +39,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>/Users/xximjasonxx/Projects/ScorePredictForms/Platforms/ScorePredict.Droid/keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Xjoesm0ex01!</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>ScorePredict</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Xjoesm0ex01!</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
