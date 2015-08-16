@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.farrellsoft.TheScorePredict" android:versionCode="12" android:versionName="2.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="21" />
-	<application android:label="Score Predict" android:icon="@drawable/app_icon">
-	</application>
+	<application android:label="Score Predict" android:icon="@drawable/app_icon"></application>
 </manifest>
