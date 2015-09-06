@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using ScorePredict.Common.Data;
+using ScorePredict.Common.Extensions;
 using ScorePredict.Common.Models;
 using ScorePredict.Core.MessageBus;
 using ScorePredict.Core.MessageBus.Messages;
@@ -22,13 +23,13 @@ namespace ScorePredict.Core.ViewModels
                 _prediction = value;
                 OnPropertyChanged();
 
-                AwayPredictedScore = value.AwayPredictedScore;
-                HomePredictedScore = value.HomePredictedScore;
+                AwayPredictedScore = value.AwayPredictedScore == -1 ? string.Empty : value.AwayPredictedScore.ToString();
+                HomePredictedScore = value.HomePredictedScore == -1 ? string.Empty : value.HomePredictedScore.ToString();
             }
         }
 
-        private int _awayScorePrediction;
-        public int AwayPredictedScore
+        private string _awayScorePrediction;
+        public string AwayPredictedScore
         {
             get { return _awayScorePrediction; }
             set
@@ -41,8 +42,8 @@ namespace ScorePredict.Core.ViewModels
             }
         }
 
-        private int _homeScorePrediction;
-        public int HomePredictedScore
+        private string _homeScorePrediction;
+        public string HomePredictedScore
         {
             get { return _homeScorePrediction; }
             set
@@ -79,14 +80,14 @@ namespace ScorePredict.Core.ViewModels
                     PredictionId = Prediction.PredictionId,
                     WeekId = Prediction.WeekId,
                     GameId = Prediction.GameId,
-                    AwayPrediction = AwayPredictedScore,
-                    HomePrediction = HomePredictedScore
+                    AwayPrediction = AwayPredictedScore.AsInt(0),
+                    HomePrediction = HomePredictedScore.AsInt(0)
                 });
 
                 if (result != null && Prediction != null)
                 {
                     MessageBus.Publish(new RefreshPredictionsMessage(Prediction.PredictionId,
-                        AwayPredictedScore, HomePredictedScore));
+                        AwayPredictedScore.AsInt(0), HomePredictedScore.AsInt(0)));
                     await Navigation.PopModalAsync(true);
                 }
             }

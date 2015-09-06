@@ -53,15 +53,23 @@ namespace ScorePredict.Services.Impl
         {
             var parameters = new Dictionary<string, string>
             {
-                {"id", savePredictionModel.PredictionId.ToString() },
                 { "gameId", savePredictionModel.GameId.ToString() },
                 { "weekId", savePredictionModel.WeekId },
                 { "awayTeamScore", savePredictionModel.AwayPrediction.ToString() },
                 { "homeTeamScore", savePredictionModel.HomePrediction.ToString() }
             };
 
-            var result = (await Client.UpdateTable("predictions", parameters)).AsDictionary();
-            return result[0].AsPrediction();
+            if (savePredictionModel.PredictionId > 0)
+            {
+                parameters.Add("id", savePredictionModel.PredictionId.ToString());
+                var result = (await Client.UpdateTable("predictions", parameters)).AsDictionary();
+                return result[0].AsPrediction();
+            }
+            else
+            {
+                var result = (await Client.InsertIntoTable("predictions", parameters)).AsDictionary();
+                return result[0].AsPrediction();
+            }
         }
 
         public async Task<IList<int>> GetPredictionYearsAsync()
