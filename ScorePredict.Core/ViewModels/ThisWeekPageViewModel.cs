@@ -129,6 +129,8 @@ namespace ScorePredict.Core.ViewModels
 
         public override async void OnShow()
         {
+            if (IsLoaded) return;
+
             try
             {
                 ShowLoading("Loading This Week...");
@@ -146,8 +148,6 @@ namespace ScorePredict.Core.ViewModels
 
         private async Task LoadWeekDataAsync()
         {
-            if (IsLoaded) return;
-
             var result = await ThisWeekService.GetCurrentWeekSummaryAsync();
             PointsAwarded = result.Points;
             PredictionCount = result.TotalPredictions;
