@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{c9bf19d4-b0a4-4a26-8d20-360834e8c19a}" Title="Score Predict" RuntimeType="Silverlight" Version="2.0.0.1" Genre="apps.normal" Author="Farrellsoft" Description="Score Predict wants to know who is the best at predicting football scores.  Sign up, predict some scores, and see yourself in the weekly rankings" SDOptOut="false" BackUpOptOut="false" Publisher="Farrellsoft" PublisherID="{7cc508d4-5e5f-4d7f-8867-c481ce781382}">
+  <App xmlns="" ProductID="{c9bf19d4-b0a4-4a26-8d20-360834e8c19a}" Title="Score Predict" RuntimeType="Silverlight" Version="2.0.0.2" Genre="apps.normal" Author="Farrellsoft" Description="Score Predict wants to know who is the best at predicting football scores.  Sign up, predict some scores, and see yourself in the weekly rankings" SDOptOut="false" BackUpOptOut="false" Publisher="Farrellsoft" PublisherID="{7cc508d4-5e5f-4d7f-8867-c481ce781382}">
     <IconPath IsRelative="true" IsResource="false">AppIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
