@@ -58,9 +58,9 @@ namespace ScorePredict.Services.Impl.Mock
             };
         }
 
-        public async Task<Prediction> SavePredictionAsync(SavePredictionModel savePredictionModel)
+        public async Task<PredictionResult> SavePredictionAsync(SavePredictionModel savePredictionModel)
         {
-            return new Prediction();
+            return new PredictionResult();
         }
 
         public Task<IList<int>> GetPredictionYearsAsync()

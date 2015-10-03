@@ -42,7 +42,7 @@ namespace ScorePredict.Core.ViewModels
 
                 SaveUserSecurityService.SaveUser(result);
 
-                await Navigation.PushModalAsync(new MainPage());
+                await Navigation.PushModalAsync(new ScorePredictNavigationPage(new MainPage()));
                 await Navigation.PopToRootAsync(false);
             }
             catch (CreateUserException ex)
