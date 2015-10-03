@@ -64,6 +64,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Jason Farrell (7XN4GH4DP5)</CodesignKey>
     <CodesignProvision>700debea-37e4-46b3-b709-4444b55538ee</CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
