@@ -49,7 +49,7 @@ namespace ScorePredict.Services.Impl
             }).ToList();
         }
 
-        public async Task<Prediction> SavePredictionAsync(SavePredictionModel savePredictionModel)
+        public async Task<PredictionResult> SavePredictionAsync(SavePredictionModel savePredictionModel)
         {
             var parameters = new Dictionary<string, string>
             {
@@ -63,12 +63,12 @@ namespace ScorePredict.Services.Impl
             {
                 parameters.Add("id", savePredictionModel.PredictionId.ToString());
                 var result = (await Client.UpdateTable("predictions", parameters)).AsDictionary();
-                return result[0].AsPrediction();
+                return result[0].AsPredictionResult();
             }
             else
             {
                 var result = (await Client.InsertIntoTable("predictions", parameters)).AsDictionary();
-                return result[0].AsPrediction();
+                return result[0].AsPredictionResult();
             }
         }
 

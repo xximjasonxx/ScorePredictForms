@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\Prediction.cs" />
+    <Compile Include="Data\PredictionResult.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\WeekSummary.cs" />
     <Compile Include="Enum.cs" />

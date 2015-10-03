@@ -86,7 +86,8 @@ namespace ScorePredict.Core.ViewModels
 
                 if (result != null && Prediction != null)
                 {
-                    MessageBus.Publish(new RefreshPredictionsMessage(Prediction.PredictionId,
+                    MessageBus.Publish(new RefreshPredictionsMessage(result.PredictionId,
+                        Prediction.HomeTeam, Prediction.AwayTeam,
                         AwayPredictedScore.AsInt(0), HomePredictedScore.AsInt(0)));
                     await Navigation.PopModalAsync(true);
                 }
