@@ -1,12 +1,20 @@
 ﻿using System.Threading.Tasks;
-using Acr.XamForms.UserDialogs;
-using Acr.XamForms.UserDialogs.WindowsPhone;
+using Acr.UserDialogs;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Phone.Impl
 {
-    public class PhoneDialogService : UserDialogService, IDialogService
+    public class PhoneDialogService : IDialogService
     {
+        public void ShowLoading(string message = "Loading")
+        {
+            UserDialogs.Instance.ShowLoading(message);
+        }
+
+        public void HideLoading()
+        {
+            UserDialogs.Instance.HideLoading();
+        }
 
         public async Task<bool> ConfirmLogoutAsync()
         {
@@ -17,13 +25,13 @@ namespace ScorePredict.Phone.Impl
                 CancelText = "No"
             };
 
-            return await ConfirmAsync(config);
+            return await UserDialogs.Instance.ConfirmAsync(config);
         }
 
         public void Alert(string message)
         {
             var config = new AlertConfig() { Message = message, Title = "Alert", OkText = "Ok" };
-            Alert(config);
+            UserDialogs.Instance.Alert(config);
         }
     }
 }

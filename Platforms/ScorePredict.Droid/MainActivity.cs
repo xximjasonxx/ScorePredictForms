@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using Acr.UserDialogs;
+using Android.App;
 using Android.OS;
 using ScorePredict.Core;
 using ScorePredict.Core.Contracts;
@@ -16,6 +17,7 @@ namespace ScorePredict.Droid
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
+            UserDialogs.Init(this);
 
             LoadApplication(new ScorePredictApplication(this, new ServiceInjectionModule(), new DroidInjectionModule()));
         }

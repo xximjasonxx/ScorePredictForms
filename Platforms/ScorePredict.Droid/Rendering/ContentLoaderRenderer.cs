@@ -1,6 +1,5 @@
 using System.ComponentModel;
-using Acr.XamForms.UserDialogs;
-using Acr.XamForms.UserDialogs.Droid;
+using Acr.UserDialogs;
 using ScorePredict.Core.Controls;
 using ScorePredict.Droid.Rendering;
 using Xamarin.Forms;
@@ -12,7 +11,6 @@ namespace ScorePredict.Droid.Rendering
     public class ContentLoaderRenderer : ViewRenderer
     {
         private string _loaderMessage;
-        private UserDialogService _dialogService;
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -24,12 +22,11 @@ namespace ScorePredict.Droid.Rendering
             {
                 if (loader.IsVisible)
                 {
-                    _dialogService = new UserDialogService();
-                    _dialogService.ShowLoading(_loaderMessage);
+                    UserDialogs.Instance.ShowLoading(_loaderMessage);
                 }
                 else
                 {
-                    _dialogService.HideLoading();
+                    UserDialogs.Instance.HideLoading();
                 }
             }
         }

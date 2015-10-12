@@ -7,7 +7,7 @@
              BackgroundColor="#77B739" Title="Login">
   <ContentPage.Content>
     
-    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7" x:Name="LayoutRoot">
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="7">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <!-- Blank (except on Windows Phone) -->

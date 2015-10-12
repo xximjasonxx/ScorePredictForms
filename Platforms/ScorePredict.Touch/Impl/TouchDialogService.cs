@@ -1,12 +1,21 @@
 using System.Threading.Tasks;
-using Acr.XamForms.UserDialogs;
-using Acr.XamForms.UserDialogs.iOS;
+using Acr.UserDialogs;
 using ScorePredict.Services.Contracts;
 
 namespace ScorePredict.Touch.Impl
 {
-    public class TouchDialogService : UserDialogService, IDialogService
+    public class TouchDialogService : IDialogService
     {
+        public void ShowLoading(string message = "Loading")
+        {
+            UserDialogs.Instance.ShowLoading(message);
+        }
+
+        public void HideLoading()
+        {
+            UserDialogs.Instance.HideLoading();
+        }
+
         public async Task<bool> ConfirmLogoutAsync()
         {
             var config = new ConfirmConfig()
@@ -16,12 +25,12 @@ namespace ScorePredict.Touch.Impl
                 CancelText = "No"
             };
 
-            return await ConfirmAsync(config);
+            return await UserDialogs.Instance.ConfirmAsync(config);
         }
         public void Alert(string message)
         {
             var config = new AlertConfig() { Message = message, Title = "Alert", OkText = "Ok" };
-            Alert(config);
+            UserDialogs.Instance.Alert(config);
         }
     }
 }
