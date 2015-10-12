@@ -64,6 +64,11 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Jason Farrell (7XN4GH4DP5)</CodesignKey>
     <CodesignProvision>700debea-37e4-46b3-b709-4444b55538ee</CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -87,8 +92,8 @@
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignProvision>700debea-37e4-46b3-b709-4444b55538ee</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Jason Farrell (7XN4GH4DP5)</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\UserDialogsBootstrap.cs" />
