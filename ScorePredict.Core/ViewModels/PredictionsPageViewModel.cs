@@ -69,7 +69,9 @@ namespace ScorePredict.Core.ViewModels
 
         private void RefreshPredictionGroups(RefreshPredictionsMessage message)
         {
-            var p = _predictions.FirstOrDefault(p1 => p1.PredictionId == message.PredictionId);
+            var p = _predictions.FirstOrDefault(p1 =>
+                string.Compare(p1.AwayTeam, message.AwayTeam, StringComparison.OrdinalIgnoreCase) == 0 &&
+                string.Compare(p1.HomeTeam, message.HomeTeam, StringComparison.OrdinalIgnoreCase) == 0);
             if (p != null)
             {
                 p.AwayPredictedScore = message.AwayTeamScore;
